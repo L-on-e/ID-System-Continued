@@ -148,7 +148,7 @@ $retrieve = mysqli_query($db,$sqluse);
             </div>
             <div class="id-1">
     	 
-					<p style="margin-top:2%:text-align:left;margin-left:10px;font-size:20px;">Address:</p>
+					<p style="margin-top:2%; text-align:left;margin-left:10px;font-size:20px;">Address:</p>
 					<div style="margin-top:-5%;border:1px solid #000;margin-left:10px; width: 90%;"><p style="margin-left:10px;">Zone 3 Parian, San Fernando City, La Union</p></div>
 					<div style="margin-top:1%;border:1px solid #000;margin-left:10px; width: 90%;height:30%;">
 						<p style="text-indent: 30px;text-decoration: underline;">BIRTHDATE</p>						

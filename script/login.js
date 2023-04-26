@@ -12,9 +12,9 @@ $('document').ready(function() {
 		},
 		messages: {
 			password:{
-			  required: "<span style='color:#66ff99;'>please enter your password!!</span>"
+			  required: "<span style='color:#66ff99;'>Please enter your password</span>"
 			 },
-			user_email: "<span style='color:#66ff99;'>please enter your email address!!</span>",
+			user_email: "<span style='color:#66ff99;'>Please enter your email address</span>",
 		},
 		submitHandler: submitForm	
 	});	   
@@ -40,7 +40,7 @@ $('document').ready(function() {
 				}
 				else {									
 					$("#error").fadeIn(1000, function(){						
-						$("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; '+response+' !</div>');
+						$("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; '+response+'</div>');
 						$("#login_button").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
 					});
 				}
