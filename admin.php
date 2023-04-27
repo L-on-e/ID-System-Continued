@@ -337,9 +337,8 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
 
 ?>
 
-<div id="Taxreceipted" class="modal fade" role="dialog">
+<!-- <div id="Taxreceipted" class="modal fade" role="dialog">
   <div class="modal-dialog">
-    <!-- Modal content-->
     <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
       <div class="modal-header" style="background:#222d32">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -362,7 +361,9 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
           </div>
           <div class="input-group">
             <span class="input-group-addon">Employee id starts @</span>
-            <input id="msg" type="text" class="form-control" name="receiptrange" placeholder="" value="<?php echo $idsx; ?>" readonly="readonly">
+            <input id="msg" type="text" class="form-control" name="receiptrange" placeholder="" value="<?php 
+            // echo $idsx;
+             ?>" readonly="readonly">
           </div>
 
 
@@ -373,7 +374,7 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
       </form>
     </div>
   </div>
-</div>
+</div> -->
 
 
 
@@ -514,92 +515,6 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
   </div>
 </div>
 
-<div id="Initialisation" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
-      <div class="modal-header" style="background:#222d32">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
-          <center>
-            SYSTEM INFORMATION INITIALISATION
-          </center>
-        </h4>
-      </div>
-      <form method="post" action="upload.php" enctype='multipart/form-data'>
-
-        <div class="modal-body">
-          <center>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp;Org Name:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="orgname"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Phone:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="orgphone"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Email:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="orgemail"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp;&nbsp;Website:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="orgwebsite"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">Active Year:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="orgyear"></span></p>
-            Attach Organisation Logo:(<h7 style="color:red">Make sure it is a transparent image</h7>)<input name='filed' type='file' id='filed'>
-            <input type="hidden" name="page" value="admin.php" />
-          </center>
-        </div>
-        <div class="modal-footer">
-          <input type="submit" class="btn btn-success" value="Finish" id="addmember" name="orginitial"> &nbsp;
-          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-        </div>
-    </div>
-    </form>
-  </div>
-</div>
-
-<div id="Initialisation2" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
-      <div class="modal-header" style="background:#222d32">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
-          <center>
-            EDIT SYSTEM INFORMATION
-          </center>
-        </h4>
-      </div>
-      <form method="post" action="upload.php" enctype='multipart/form-data'>
-
-        <div class="modal-body">
-          <center>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp;Org Name:<label style="color: red;font-size:20px;">*</label>
-                <input style="width:270px;" type="text" name="orgname" value="<?php if (isset($name)) {
-                                                                                echo $name;
-                                                                              } ?>"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Phone:<label style="color: red;font-size:20px;">*</label>
-                <input style="width:270px;" type="text" name="orgphone" value="<?php if (isset($phone)) {
-                                                                                  echo $phone;
-                                                                                } ?>"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Email:<label style="color: red;font-size:20px;">*</label>
-                <input style="width:270px;" type="text" name="orgemail" value="<?php if (isset($mail)) {
-                                                                                  echo $mail;
-                                                                                } ?>"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp;&nbsp;Website:<label style="color: red;font-size:20px;">*</label>
-                <input style="width:270px;" type="text" name="orgwebsite" value="<?php if (isset($website)) {
-                                                                                    echo $website;
-                                                                                  } ?>"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">Active Year:<label style="color: red;font-size:20px;">*</label>
-                <input style="width:270px;" type="text" name="orgyear" value="<?php if (isset($year)) {
-                                                                                echo $year;
-                                                                              } ?>"></span></p>
-            Attach Organisation Logo:(<h7 style="color:red">Make sure it is a transparent image</h7>)<input name='filed' type='file' id='filed'>
-            <input type="hidden" name="page" value="admin.php" />
-            <input type="hidden" name="pageid" value="<?php echo $idz; ?>" />
-
-          </center>
-        </div>
-        <div class="modal-footer">
-          <input type="submit" class="btn btn-success" value="Update" id="addmember" name="orgupdate"> &nbsp;
-          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-        </div>
-    </div>
-    </form>
-  </div>
-</div>
-
-
 <body class="cbp-spmenu-push">
   <div class="main-content">
     <!--left-fixed -navigation-->
@@ -737,7 +652,7 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                            <td>$address</td>
 			                 <td>$contact</td>
 			                 <td>
-			                   <a  href='card.php?id=$id' class='btn  btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
+			                   <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
                               </td>
 			                 <td>
 			                   <a data-toggle='modal' data-id='$id' 
@@ -779,44 +694,6 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
     <!--//footer-->
   </div>
 
-  <!-- new added graphs chart js-->
-
-  <script src="admin/js/Chart.bundle.js"></script>
-  <script src="admin/js/utils.js"></script>
-
-
-  <!-- Classie --><!-- for toggle left push menu script -->
-  <script src="admin/js/classie.js"></script>
-  <script>
-    var menuLeft = document.getElementById('cbp-spmenu-s1'),
-      showLeftPush = document.getElementById('showLeftPush'),
-      body = document.body;
-
-    showLeftPush.onclick = function() {
-      classie.toggle(this, 'active');
-      classie.toggle(body, 'cbp-spmenu-push-toright');
-      classie.toggle(menuLeft, 'cbp-spmenu-open');
-      disableOther('showLeftPush');
-    };
-
-
-    function disableOther(button) {
-      if (button !== 'showLeftPush') {
-        classie.toggle(showLeftPush, 'disabled');
-      }
-    }
-  </script>
-  <!-- //Classie --><!-- //for toggle left push menu script -->
-
-  <!--scrolling js-->
-  <script src="admin/js/jquery.nicescroll.js"></script>
-  <script src="admin/js/scripts.js"></script>
-  <!--//scrolling js-->
-
-  <!-- Bootstrap Core JavaScript -->
-  <script src="admin/js/bootstrap.js"> </script>
-  <!-- //Bootstrap Core JavaScript -->
-  <script src=" css/bootstrap-dropdownhover.js"></script>
 
 </body>
 

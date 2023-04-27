@@ -408,6 +408,9 @@ if (isset($_POST["bulk"])) {
         $signaturePhotoName =  $filesop[26];
         $profilePhotoName =  $filesop[27];
 
+        $storedImageLink = str_replace("open", "uc", $profilePhotoName);
+        $storedImageLink = preg_replace("/\/d\/(.*)\/(.*)/", "/uc?id=$1", $storedImageLink);
+        
         $count++;
         if ($count > 1) {
             $query = "INSERT INTO Employee (FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment, Regular_SubAllotment, ContractDuration_start,
@@ -416,7 +419,7 @@ if (isset($_POST["bulk"])) {
             ('$firstName','$middleName', '$lastName','$suffix','$gender','$position','$areaOfAssignment','$regular_suballotment','$contractDuration_start',
             '$contractDuration_end', '$inclusiveDateOfEmployment','$salaryGrade', '$salary', '$prc', '$address',
             '$birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
-            '$cpNumber','$emailAddress','$signaturePhotoName','$profilePhotoName')";
+            '$cpNumber','$emailAddress','$signaturePhotoName','$storedImageLink')";
             $db->query($query) or die('Error1, query failed');
             
             $c = $c + 1;
