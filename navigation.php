@@ -4,27 +4,6 @@ include("./imports.php")
 
 
 ?>
-<?php $sqlid = "SELECT * FROM Employee Order BY ID DESC";
-$ret = mysqli_query($db, $sqlid);
-while ($found = mysqli_fetch_array($ret)) {
-  $idsx = $found['id'];
-}
-
-
-
-
-$sqluse = "SELECT * FROM Inorg ORDER BY id DESC ";
-$retrieve = mysqli_query($db, $sqluse);
-while ($foundk = mysqli_fetch_array($retrieve)) {
-  $name = $foundk['name'];
-  $website = $foundk['website'];
-  $phone = $foundk['Phone'];
-  $year = $foundk['year'];
-  $mail = $foundk['email'];
-  $idz = $foundk['id'];
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
