@@ -74,54 +74,54 @@ if (isset($_POST['updateEmployeeDetails'])) {
     }
 }
 
-if (isset($_POST['resetpass'])) {
+// if (isset($_POST['resetpass'])) {
 
-    $mfname = mysqli_real_escape_string($db, $_POST['mfname']);
-    $msname = mysqli_real_escape_string($db, $_POST['msname']);
-    $memail = mysqli_real_escape_string($db, $_POST['memail']);
-    $mid = mysqli_real_escape_string($db, $_POST['mid']);
-    $minstititution = mysqli_real_escape_string($db, $_POST['minstitution']);
-    $rank = mysqli_real_escape_string($db, $_POST['mrank']);
-    $id = mysqli_real_escape_string($db, $_POST['page']);
+//     $mfname = mysqli_real_escape_string($db, $_POST['mfname']);
+//     $msname = mysqli_real_escape_string($db, $_POST['msname']);
+//     $memail = mysqli_real_escape_string($db, $_POST['memail']);
+//     $mid = mysqli_real_escape_string($db, $_POST['mid']);
+//     $minstititution = mysqli_real_escape_string($db, $_POST['minstitution']);
+//     $rank = mysqli_real_escape_string($db, $_POST['mrank']);
+//     $id = mysqli_real_escape_string($db, $_POST['page']);
 
 
-    if (isset($_POST["mr"])) {
-        $mtitle = "Mr";
-    } elseif (isset($_POST["miss"])) {
-        $mtitle = "Miss";
-    } elseif (isset($_POST["mrs"])) {
-        $mtitle = "Mrs";
-    } elseif (isset($_POST["dr"])) {
+//     if (isset($_POST["mr"])) {
+//         $mtitle = "Mr";
+//     } elseif (isset($_POST["miss"])) {
+//         $mtitle = "Miss";
+//     } elseif (isset($_POST["mrs"])) {
+//         $mtitle = "Mrs";
+//     } elseif (isset($_POST["dr"])) {
 
-        $mtitle = "Dr";
-    } elseif (isset($_POST["pro"])) {
-        $mtitle = "Pro";
-    } else {
-        $mtitle = "";
-    }
-    $check = "SELECT * FROM Users WHERE id='$id' ";
-    $checks = mysqli_query($db, $check);
-    $found = mysqli_num_rows($checks);
-    if ($found != 0) {
-        $orgName = $_FILES['filed']['name'];
-        if (!empty($orgName)) {
-            $orgtmpName = $_FILES['filed']['tmp_name'];
-            $orgSize = $_FILES['filed']['size'];
-            $orgType = $_FILES['filed']['type'];
-            $f = move_uploaded_file($orgtmpName, 'images/' . $orgName);
-            if (isset($f)) { //image is a folder in which you will save documents
-                $queryz = "UPDATE Users SET Picname='$orgName' WHERE id='$id' ";
-                $db->query($queryz) or die('Errorr, query failed to upload picture');
-            }
-        }
+//         $mtitle = "Dr";
+//     } elseif (isset($_POST["pro"])) {
+//         $mtitle = "Pro";
+//     } else {
+//         $mtitle = "";
+//     }
+//     $check = "SELECT * FROM Users WHERE id='$id' ";
+//     $checks = mysqli_query($db, $check);
+//     $found = mysqli_num_rows($checks);
+//     if ($found != 0) {
+//         $orgName = $_FILES['filed']['name'];
+//         if (!empty($orgName)) {
+//             $orgtmpName = $_FILES['filed']['tmp_name'];
+//             $orgSize = $_FILES['filed']['size'];
+//             $orgType = $_FILES['filed']['type'];
+//             $f = move_uploaded_file($orgtmpName, 'images/' . $orgName);
+//             if (isset($f)) { //image is a folder in which you will save documents
+//                 $queryz = "UPDATE Users SET Picname='$orgName' WHERE id='$id' ";
+//                 $db->query($queryz) or die('Errorr, query failed to upload picture');
+//             }
+//         }
 
-        $quer = "UPDATE Users SET Firstname='$mfname',Sirname='$msname',Mtitle='$mtitle',Email='$memail',Staffid='$mid',Ranks='$rank',Department='$minstititution' WHERE id='$id' ";
-        $db->query($quer) or die('Errorr, query failed to update');
+//         $quer = "UPDATE Users SET Firstname='$mfname',Sirname='$msname',Mtitle='$mtitle',Email='$memail',Staffid='$mid',Ranks='$rank',Department='$minstititution' WHERE id='$id' ";
+//         $db->query($quer) or die('Errorr, query failed to update');
 
-        $_SESSION['pass'] = "okjs";
-        header("Location:admin.php");
-    }
-}
+//         $_SESSION['pass'] = "okjs";
+//         header("Location:admin.php");
+//     }
+// }
 
 if (isset($_POST['addEmployee'])) {
     if (
@@ -191,74 +191,75 @@ if (isset($_POST['addEmployee'])) {
     }
 }
 
-if (isset($_POST['addmember'])) {
-    if ($_POST['memail'] != '' && $_POST['mfname'] != '' && $_POST['msname'] != '' && $_POST['mphone'] != '' && $_POST['minstitution'] != '' && $_POST['mpassword'] != '') {
+// if (isset($_POST['addmember'])) {
+//     if ($_POST['memail'] != '' && $_POST['mfname'] != '' && $_POST['msname'] != '' && $_POST['mphone'] != '' && $_POST['minstitution'] != '' && $_POST['mpassword'] != '') {
 
-        $mfname = mysqli_real_escape_string($db, $_POST['mfname']);
-        $msname = mysqli_real_escape_string($db, $_POST['msname']);
-        $memail = mysqli_real_escape_string($db, $_POST['memail']);
-        $mphone = mysqli_real_escape_string($db, $_POST['mphone']);
-        $minstititution = mysqli_real_escape_string($db, $_POST['minstitution']);
-        $mpassword = mysqli_real_escape_string($db, $_POST['mpassword']);
-        $pagex = mysqli_real_escape_string($db, $_POST['page']);
-        $orgName = $_FILES['filed']['name'];
-        $orgtmpName = $_FILES['filed']['tmp_name'];
-        $orgSize = $_FILES['filed']['size'];
-        $orgType = $_FILES['filed']['type'];
+//         $mfname = mysqli_real_escape_string($db, $_POST['mfname']);
+//         $msname = mysqli_real_escape_string($db, $_POST['msname']);
+//         $memail = mysqli_real_escape_string($db, $_POST['memail']);
+//         $mphone = mysqli_real_escape_string($db, $_POST['mphone']);
+//         $minstititution = mysqli_real_escape_string($db, $_POST['minstitution']);
+//         $mpassword = mysqli_real_escape_string($db, $_POST['mpassword']);
+//         $pagex = mysqli_real_escape_string($db, $_POST['page']);
+//         $orgName = $_FILES['filed']['name'];
+//         $orgtmpName = $_FILES['filed']['tmp_name'];
+//         $orgSize = $_FILES['filed']['size'];
+//         $orgType = $_FILES['filed']['type'];
 
-        if (isset($_POST["mr"])) {
-            $mtitle = "Mr";
-        } elseif (isset($_POST["miss"])) {
-            $mtitle = "Miss";
-        } elseif (isset($_POST["mrs"])) {
-            $mtitle = "Mrs";
-        } elseif (isset($_POST["dr"])) {
+//         if (isset($_POST["mr"])) {
+//             $mtitle = "Mr";
+//         } elseif (isset($_POST["miss"])) {
+//             $mtitle = "Miss";
+//         } elseif (isset($_POST["mrs"])) {
+//             $mtitle = "Mrs";
+//         } elseif (isset($_POST["dr"])) {
 
-            $mtitle = "Dr";
-        } elseif (isset($_POST["pro"])) {
-            $mtitle = "Pro";
-        } else {
-            $mtitle = "";
-        }
+//             $mtitle = "Dr";
+//         } elseif (isset($_POST["pro"])) {
+//             $mtitle = "Pro";
+//         } else {
+//             $mtitle = "";
+//         }
 
-        $check = "SELECT * FROM Users WHERE Firstname='$mfname' && Sirname='$msname'";
-        $checks = mysqli_query($db, $check);
-        $found = mysqli_num_rows($checks);
-        if ($found == 0) {
-            move_uploaded_file($orgtmpName, 'images/' . $orgName);
+//         $check = "SELECT * FROM Users WHERE Firstname='$mfname' && Sirname='$msname'";
+//         $checks = mysqli_query($db, $check);
+//         $found = mysqli_num_rows($checks);
+//         if ($found == 0) {
+//             move_uploaded_file($orgtmpName, 'images/' . $orgName);
 
-            $query = "INSERT INTO Employee (FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment,Salary,ProfilePhoto) "
-                . "VALUES ('$mfname','$msname', '$mtitle','$mphone','$mpassword','$memail','$minstititution','Offline','$orgName')";
-            $db->query($query) or die('Error1, query failed');
+//             $query = "INSERT INTO Employee (FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment,Salary,ProfilePhoto) "
+//                 . "VALUES ('$mfname','$msname', '$mtitle','$mphone','$mpassword','$memail','$minstititution','Offline','$orgName')";
+//             $db->query($query) or die('Error1, query failed');
 
-            $memberadd = "tyy";
-            $_SESSION['memberadded'] = $memberadd;
-            header("Location:$pagex"); //member added successfully
+//             $memberadd = "tyy";
+//             $_SESSION['memberadded'] = $memberadd;
+//             header("Location:$pagex"); //member added successfully
 
 
 
-        } else {
-            $_SESSION['memberexist'] = "member already exist";
-            header("Location:$pagex");
-        }
-    } else {
-        $_SESSION['emptytextboxes'] = "Not all text boxes were completed";
-        header("Location:$pagex");
-    }
-}
+//         } else {
+//             $_SESSION['memberexist'] = "member already exist";
+//             header("Location:$pagex");
+//         }
+//     } else {
+//         $_SESSION['emptytextboxes'] = "Not all text boxes were completed";
+//         header("Location:$pagex");
+//     }
+// }
 
 if (isset($_POST['Valuedel'])) {
 
     $tutor = $_POST['Valuedel'];
-    $querry = "SELECT * FROM Users WHERE id='$tutor'";
+    $querry = "SELECT * FROM Employee WHERE id='$tutor'";
     $results = mysqli_query($db, $querry);
     $checks = mysqli_num_rows($results);
     if ($checks != 0) {
-        $querry = "DELETE FROM Users WHERE id='$tutor'";
+        $querry = "DELETE FROM Employee WHERE id='$tutor'";
         $results = mysqli_query($db, $querry);
         echo "ok";
     }
 }
+
 if (isset($_FILES['file2']['name']) && $_POST['Change']) {
 
     $id = $_POST['id'];
@@ -379,25 +380,52 @@ if (isset($_POST["bulk"])) {
     $c = 0;
     $count = 0;
     while (($filesop = fgetcsv($handle, 1000, ",")) !== false) {
-        $mtitle = $filesop[0];
-        $mfname = $filesop[1];
-        $msname = $filesop[2];
-        $minstititution = $filesop[3];
-        $rank = $filesop[4];
-        $mphone = $filesop[5];
-        $sid = $filesop[6];
+        $lastName = $filesop[1];
+        $firstName = $filesop[2];
+        $middleName = $filesop[3];
+        $suffix =  $filesop[4];
+        $gender =  $filesop[5];
+        $position =  $filesop[6];
+        $areaOfAssignment =  $filesop[7];
+        $regular_suballotment =  $filesop[8];
+        $contractDuration_start =  $filesop[9];
+        $contractDuration_end =  $filesop[10];
+        $inclusiveDateOfEmployment =  $filesop[11];
+        $salaryGrade =  $filesop[12];
+        $salary =  $filesop[13];
+        $prc =  $filesop[14];
+        $address =  $filesop[15];
+        $birthdate =  $filesop[16];
+        $placeOfBirth =  $filesop[17];
+        $nameOfPersonToNotify =  $filesop[18];
+        $bloodType =  $filesop[19];
+        $tinNumber =  $filesop[20];
+        $philhealth =  $filesop[21];
+        $sss =  $filesop[22];
+        $pagibigNumber =  $filesop[23];
+        $cpNumber =  $filesop[24];
+        $emailAddress =  $filesop[25];
+        $signaturePhotoName =  $filesop[26];
+        $profilePhotoName =  $filesop[27];
+
         $count++;
         if ($count > 1) {
-            $query = "INSERT INTO Users (Firstname,Sirname,Mtitle,Email,Staffid,Ranks,Department) " . "VALUES ('$mfname','$msname', '$mtitle','$mphone','$sid','$rank','$minstititution')";
+            $query = "INSERT INTO Employee (FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment, Regular_SubAllotment, ContractDuration_start,
+            ContractDuration_end, InclusiveDateOfEmployment, SalaryGrade, Salary, PRC, Address, Birthdate, PlaceOfBirth, NameOfPersonToNotify, Bloodtype,TINNumber,
+            Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto) " . "VALUES 
+            ('$firstName','$middleName', '$lastName','$suffix','$gender','$position','$areaOfAssignment','$regular_suballotment','$contractDuration_start',
+            '$contractDuration_end', '$inclusiveDateOfEmployment','$salaryGrade', '$salary', '$prc', '$address',
+            '$birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
+            '$cpNumber','$emailAddress','$signaturePhotoName','$profilePhotoName')";
             $db->query($query) or die('Error1, query failed');
-
+            
             $c = $c + 1;
         }
     }
 
     if (isset($c)) {
         $_SESSION['Import'] = $c;
-        header("Location:bulk.php");
+        header("Location:admin.php");
     } else {
         echo "Sorry! There is some problem.";
     }
