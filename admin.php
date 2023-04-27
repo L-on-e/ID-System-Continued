@@ -315,15 +315,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 } ?>
 
 
-<?php $sqlid = "SELECT * FROM Users Order BY id DESC";
-$ret = mysqli_query($db, $sqlid);
-while ($found = mysqli_fetch_array($ret)) {
-  $idsx = $found['id'];
-}
-
-
-
-
+<?php 
 $sqluse = "SELECT * FROM Inorg ORDER BY id DESC ";
 $retrieve = mysqli_query($db, $sqluse);
 while ($foundk = mysqli_fetch_array($retrieve)) {

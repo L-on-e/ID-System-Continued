@@ -98,9 +98,9 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
 <body>
 	<script type="text/javascript">
 		window.print();
-		setTimeout(function() {
-			window.close()
-		}, 5000)
+		// setTimeout(function() {
+		// 	window.close()
+		// }, 5000)
 	</script>
 
 	<div id="bg">
