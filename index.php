@@ -37,8 +37,8 @@ $retrieve = mysqli_query($db,$sqluse);
     <!-- <link rel="stylesheet" href="style.css"> -->  
   
 </head>
-<body class="" style="background-color:#008080">
-<div role="navigation" class="navbar navbar-default navbar-static-top">
+<body class="" style="background-color:#fff">
+
       <div class="container">
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -54,6 +54,11 @@ $retrieve = mysqli_query($db,$sqluse);
 	</div>
            <div class="container">
 	<h2></h2>		
+
+	<div class="logoForm">
+
+
+	<img src="/DesignImages/DOH_SEAL.png" alt="DOH Seal" width="250px"	height="250px">
 	
 	<form class="form-login" method="post" id="login-form">
 		<h2 class="form-login-heading">Login Here</h2><hr />
@@ -73,8 +78,10 @@ $retrieve = mysqli_query($db,$sqluse);
 			</button> 
 		</div> 
 	</form>	
+
+	</div>
 	              				                                   				                                         				                          				        		
-</div>
+
 <div class="insert-post-ads1" style="margin-top:20px;">
 
 </div>
