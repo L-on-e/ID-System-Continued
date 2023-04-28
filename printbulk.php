@@ -159,8 +159,14 @@ $startsat = $_SESSION['receiptrange'];
 		// $profile = $found['Picname'];
 
 		// $serial = $id;
-		
-		$imageSrc = (isset($profilePhoto) && $profilePhoto != "") ? $profilePhoto : "admin/images/profile.jpg";
+		if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
+			$imageSrc = $profilePhoto;
+		} else {
+			if ($profilePhoto != "")
+				$imageSrc = 'images/'. $profilePhoto;
+			else 
+				$imageSrc = "admin/images/profile.jpg";
+		}
 	?>
 
 		<div id="bg">

@@ -142,9 +142,18 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
 					$signature = $found['Signature'];
 					$profilePhoto = $found['ProfilePhoto'];
 				}
-				$imageSrc = (isset($profilePhoto) && $profilePhoto != "") ? $profilePhoto : "admin/images/profile.jpg";
+
+					if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
+						$imageSrc = $profilePhoto;
+					} else {
+						if ($profilePhoto != "")
+							$imageSrc = 'images/'. $profilePhoto;
+						else 
+							$imageSrc = "admin/images/profile.jpg";
+					}
+
 				?> 
-				<img src="<?= $imageSrc ?>" height="150px" width="160px" alt="image" style="border: 2px solid black;">
+				<img src="<?= $imageSrc ?>" height="150px" width="160px" alt="Profile photo" style="border: 2px solid black;">
 				</center>
 			<div class="container" align="center">
 				<center>

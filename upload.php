@@ -35,6 +35,18 @@ if (isset($_POST['updateEmployeeDetails'])) {
     $emailAddress = mysqli_real_escape_string($db, $_POST['emailAddress']);
     $id = mysqli_real_escape_string($db, $_POST['page']);
 
+    $date_contractDuration_start = strtotime($contractDuration_start);
+        $new_contractDuration_start = date('Y-m-d', $date_contractDuration_start);
+
+        $date_contractDuration_end = strtotime($contractDuration_end);
+        $new_contractDuration_end = date('Y-m-d', $date_contractDuration_end);
+        
+        $date_inclusiveDateOfEmployment = strtotime($inclusiveDateOfEmployment);
+        $new_inclusiveDateOfEmployment = date('Y-m-d', $date_inclusiveDateOfEmployment);
+
+        $date_birthdate = strtotime($birthdate);
+        $new_birthdate = date('Y-m-d', $date_birthdate);
+
     $check = "SELECT * FROM Employee WHERE id='$id' ";
     $checks = mysqli_query($db, $check);
     $found = mysqli_num_rows($checks);
@@ -63,9 +75,9 @@ if (isset($_POST['updateEmployeeDetails'])) {
 
         $quer = "
             UPDATE Employee SET FirstName = '$firstName', MiddleName = '$middleName', LastName = '$lastName', Suffix = '$suffix',    Gender = '$gender',
-            Position = '$position',    AreaOfAssignment = '$areaOfAssignment', Regular_SubAllotment = '$regular_suballotment', ContractDuration_start = '$contractDuration_start',
-            ContractDuration_end = '$contractDuration_end',    InclusiveDateOfEmployment = '$inclusiveDateOfEmployment', SalaryGrade = '$salaryGrade',    Salary = '$salary', PRC = '$prc',    Address = '$address',
-            Birthdate = '$birthdate',    PlaceOfBirth = '$placeOfBirth', NameOfPersonToNotify = '$nameOfPersonToNotify', Bloodtype = '$bloodType',    TINNumber = '$tinNumber', Philhealth = '$philhealth',    SSS = '$sss', PagIbigNumber = '$pagibigNumber', CPNumber = '$cpNumber', EmailAddress = '$emailAddress', Signature = '$signaturePhotoName',    ProfilePhoto = '$profilePhotoName'
+            Position = '$position',    AreaOfAssignment = '$areaOfAssignment', Regular_SubAllotment = '$regular_suballotment', ContractDuration_start = '$new_contractDuration_start',
+            ContractDuration_end = '$new_contractDuration_end',    InclusiveDateOfEmployment = '$new_inclusiveDateOfEmployment', SalaryGrade = '$salaryGrade',    Salary = '$salary', PRC = '$prc',    Address = '$address',
+            Birthdate = '$new_birthdate',    PlaceOfBirth = '$placeOfBirth', NameOfPersonToNotify = '$nameOfPersonToNotify', Bloodtype = '$bloodType',    TINNumber = '$tinNumber', Philhealth = '$philhealth',    SSS = '$sss', PagIbigNumber = '$pagibigNumber', CPNumber = '$cpNumber', EmailAddress = '$emailAddress', Signature = '$signaturePhotoName',    ProfilePhoto = '$profilePhotoName'
             WHERE id='$id' ";
         $db->query($quer) or die('Errorr, query failed to update');
 
@@ -164,6 +176,18 @@ if (isset($_POST['addEmployee'])) {
         $profilePhotoNameSize = $_FILES['IDFiled']['size'];
         $profilePhotoNameType = $_FILES['IDFiled']['type'];
 
+        $date_contractDuration_start = strtotime($contractDuration_start);
+        $new_contractDuration_start = date('Y-m-d', $date_contractDuration_start);
+
+        $date_contractDuration_end = strtotime($contractDuration_end);
+        $new_contractDuration_end = date('Y-m-d', $date_contractDuration_end);
+        
+        $date_inclusiveDateOfEmployment = strtotime($inclusiveDateOfEmployment);
+        $new_inclusiveDateOfEmployment = date('Y-m-d', $date_inclusiveDateOfEmployment);
+
+        $date_birthdate = strtotime($birthdate);
+        $new_birthdate = date('Y-m-d', $date_birthdate);
+
         $check = "SELECT * FROM Employee WHERE FirstName='$firstName' && LastName='$lastName'";
         $checks = mysqli_query($db, $check);
         $found = mysqli_num_rows($checks);
@@ -174,9 +198,9 @@ if (isset($_POST['addEmployee'])) {
             $query = "INSERT INTO Employee (FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment, Regular_SubAllotment, ContractDuration_start,
             ContractDuration_end, InclusiveDateOfEmployment, SalaryGrade, Salary, PRC, Address, Birthdate, PlaceOfBirth, NameOfPersonToNotify, Bloodtype,TINNumber,
             Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto) " . "VALUES 
-            ('$firstName','$middleName', '$lastName','$suffix','$gender','$position','$areaOfAssignment','$regular_suballotment','$contractDuration_start',
-            '$contractDuration_end', '$inclusiveDateOfEmployment','$salaryGrade', '$salary', '$prc', '$address',
-            '$birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
+            ('$firstName','$middleName', '$lastName','$suffix','$gender','$position','$areaOfAssignment','$regular_suballotment','$new_contractDuration_start',
+            '$new_contractDuration_end', '$new_inclusiveDateOfEmployment','$salaryGrade', '$salary', '$prc', '$address',
+            '$new_birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
             '$cpNumber','$emailAddress','$signaturePhotoName','$profilePhotoName')";
             $db->query($query) or die('Error1, query failed');
 
@@ -408,6 +432,21 @@ if (isset($_POST["bulk"])) {
         $signaturePhotoName =  $filesop[26];
         $profilePhotoName =  $filesop[27];
 
+        $date_contractDuration_start = strtotime($contractDuration_start);
+        $new_contractDuration_start = date('Y-m-d', $date_contractDuration_start);
+
+        $date_contractDuration_end = strtotime($contractDuration_end);
+        $new_contractDuration_end = date('Y-m-d', $date_contractDuration_end);
+        
+        $date_inclusiveDateOfEmployment = strtotime($inclusiveDateOfEmployment);
+        $new_inclusiveDateOfEmployment = date('Y-m-d', $date_inclusiveDateOfEmployment);
+
+        $date_birthdate = strtotime($birthdate);
+        $new_birthdate = date('Y-m-d', $date_birthdate);
+
+        $storedSignatureLink = str_replace("open", "uc", $signaturePhotoName);
+        $storedSignatureLink = preg_replace("/\/d\/(.*)\/(.*)/", "/uc?id=$1", $storedSignatureLink);
+
         $storedImageLink = str_replace("open", "uc", $profilePhotoName);
         $storedImageLink = preg_replace("/\/d\/(.*)\/(.*)/", "/uc?id=$1", $storedImageLink);
         
@@ -416,10 +455,10 @@ if (isset($_POST["bulk"])) {
             $query = "INSERT INTO Employee (FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment, Regular_SubAllotment, ContractDuration_start,
             ContractDuration_end, InclusiveDateOfEmployment, SalaryGrade, Salary, PRC, Address, Birthdate, PlaceOfBirth, NameOfPersonToNotify, Bloodtype,TINNumber,
             Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto) " . "VALUES 
-            ('$firstName','$middleName', '$lastName','$suffix','$gender','$position','$areaOfAssignment','$regular_suballotment','$contractDuration_start',
-            '$contractDuration_end', '$inclusiveDateOfEmployment','$salaryGrade', '$salary', '$prc', '$address',
-            '$birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
-            '$cpNumber','$emailAddress','$signaturePhotoName','$storedImageLink')";
+            ('$firstName','$middleName', '$lastName','$suffix','$gender','$position','$areaOfAssignment','$regular_suballotment','$new_contractDuration_start',
+            '$new_contractDuration_end', '$new_inclusiveDateOfEmployment','$salaryGrade', '$salary', '$prc', '$address',
+            '$new_birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
+            '$cpNumber','$emailAddress','$storedSignatureLink','$storedImageLink')";
             $db->query($query) or die('Error1, query failed');
             
             $c = $c + 1;
