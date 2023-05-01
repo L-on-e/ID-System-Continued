@@ -35,17 +35,17 @@
 
                     <div class="fields">
                         <div class="input-field">
-                            <label>First Name<label>*</label></label>
+                            <label>First Name<label style="color:red" >*</label></label>
                             <input type="text" name="firstName" required>
                         </div>
 
                         <div class="input-field">
-                            <label>Middle Name<label>*</label></label>
+                            <label>Middle Name<label style="color:red">*</label></label>
                             <input type="text" name="middleName" required>
                         </div>
 
                         <div class="input-field">
-                            <label>Last Name<label>*</label></label>
+                            <label>Last Name<label style="color:red">*</label></label>
                             <input type="text" name="lastName" required>
                         </div>
 
@@ -55,27 +55,27 @@
                         </div>
 
                         <div class="input-field">
-                            <label>Gender<label>*</label></label>
+                            <label>Gender<label style="color:red">*</label></label>
                             <input type="text" name="gender" required>
                         </div>
 
                         <div class="input-field">
-                            <label>Birthdate<label>*</label></label>
+                            <label>Birthdate<label style="color:red">*</label></label>
                             <input type="text" name="birthdate" required>
                         </div>
                         
                         <div class="input-field">
-                            <label>Place of Birth<label>*</label></label>
+                            <label>Place of Birth<label style="color:red">*</label></label>
                             <input type="text" name="placeOfBirth" required>
                         </div>
 
                         <div class="input-field">
-                            <label>Address<label>*</label></label>
+                            <label>Address<label style="color:red">*</label></label>
                             <input type="text" name="address" required>
                         </div>
 
                         <div class="input-field">
-                            <label>Blood Type<label>*</label></label>
+                            <label>Blood Type<label style="color:red">*</label></label>
                             <input type="text" name="bloodType" required>
                         </div>
                     </div>
@@ -86,17 +86,17 @@
 
                     <div class="fields">
                         <div class="input-field">
-                            <label>CP Number<label>*</label></label>
+                            <label>CP Number<label style="color:red">*</label></label>
                             <input type="text" name="cpNumber">
                         </div>
 
                         <div class="input-field">
-                            <label>Email Address<label>*</label></label>
+                            <label>Email Address<label style="color:red">*</label></label>
                             <input type="text" name="emailAddress" id='oldpass'>
                         </div>
 
                         <div class="input-field">
-                            <label>Emergency Contact<label>*</label></label>
+                            <label>Emergency Contact<label style="color:red">*</label></label>
                             <input type="text" name="nameOfPersonToNotify" required>
                         </div>
                     </div>
@@ -110,19 +110,19 @@
                             <input type="text" name="prc">
                         </div>
                         <div class="input-field">
-                            <label>TIN Number:<label>*</label></label>
+                            <label>TIN Number:<label style="color:red">*</label></label>
                             <input type="text" name="tinNumber" required>
                         </div>
                         <div class="input-field">
-                            <label >PHILHEALTH:<label>*</label></label>
+                            <label >PHILHEALTH:<label style="color:red">*</label></label>
                             <input type="text" name="philhealth">
                         </div>
                         <div class="input-field">
-                            <label>SSS:<label>*</label></label>
+                            <label>SSS:<label style="color:red">*</label></label>
                             <input type="text" name="sss">
                         </div>
                         <div class="input-field">
-                            <label>PAGIBIG Number:<label>*</label></label>
+                            <label>PAGIBIG Number:<label style="color:red">*</label></label>
                             <input type="text" name="pagibigNumber">
                         </div>
                     </div>
@@ -133,44 +133,44 @@
 
                     <div class="fields">
                         <div class="input-field">
-                            <label>Position<label>*</label></label>
+                            <label>Position<label style="color:red">*</label></label>
                             <input type="text" name="position" required>
                         </div>
                         <div class="input-field">
-                            <label>Area of Assignment<label>*</label></label>
+                            <label>Area of Assignment<label style="color:red">*</label></label>
                             <input type="text" name="areaOfAssignment" required>
                         </div>
                         <div class="input-field">
-                            <label>Regular/SubAllotment<label>*</label></label>
+                            <label>Regular/SubAllotment<label style="color:red">*</label></label>
                             <input type="text" name="regular_suballotment" required>
                         </div>
                         <div class="input-field">
-                            <label>Contract Duration (start)<label>*</label></label>
+                            <label>Contract Duration (start)<label style="color:red">*</label></label>
                             <input type="text" name="contractDuration_start" required>
                         </div>
                         <div class="input-field">
-                            <label>Contract Duration (end)<label>*</label></label>
+                            <label>Contract Duration (end)<label style="color:red">*</label></label>
                             <input type="text" name="contractDuration_end" required>
                         </div>
                         <div class="input-field">
-                            <label>Inclusive Date of Employment<label>*</label></label>
+                            <label>Inclusive Date of Employment<label style="color:red">*</label></label>
                             <input type="text" name="inclusiveDateOfEmployment" required>
                         </div>
                         <div class="input-field">
-                            <label>Salary Grade<label>*</label></label>
+                            <label>Salary Grade<label style="color:red">*</label></label>
                             <input type="text" name="salaryGrade" required>
                         </div>
                         <div class="input-field">
-                            <label>Salary<label>*</label></label>
+                            <label>Salary<label style="color:red">*</label></label>
                             <input type="text" name="salary" required>
                         </div> 
 
                         
                         <hr style="width:100%;text-align:left;margin-left:0">
-                        <label>Add Signature photo:</label>
+                        <label>Add Signature photo</label>
                         <input name='sigFiled' type='file' id='sigFiled'>
 
-                        <label> Add ID photo:</label>
+                        <label> Add ID photo</label>
                         <input name='IDFiled' type='file' id='IDFiled'>
                         <input type="hidden" name="page" value="admin.php" />
 

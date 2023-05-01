@@ -174,3 +174,7 @@ form .buttons button , .backBtn{
     position: absolute;
     margin-top: -1105px;
 }
+
+.require{
+    color: red;
+}
