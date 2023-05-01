@@ -26,7 +26,7 @@
     
     </div>
     <div class="container">
-        <header>Add Employee</header>
+        <header style="margin-left:100px">Add Employee</header>
 
         <form method="post" action="upload.php" enctype='multipart/form-data'>
             <div class="form first">
