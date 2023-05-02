@@ -211,7 +211,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		<div class="sticky-header header-section">
 			<div class="header-left">
 				<!--toggle button start-->
-				<button id="showLeftPush"><i class="fa fa-bars"></i></button>
+				<!-- <button id="showLeftPush"><i class="fa fa-bars"></i></button> -->
 				<!--toggle button end-->
 				<div class="profile_details_left"><!--notifications of menu start -->
 					<div class="clearfix"> </div>

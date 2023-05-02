@@ -639,7 +639,7 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
     <div class="sticky-header header-section">
       <div class="header-left">
         <!--toggle button start-->
-        <button id="showLeftPush"><i class="fa fa-bars"></i></button>
+        <!-- <button id="showLeftPush"><i class="fa fa-bars"></i></button> -->
         <!--toggle button end-->
 
         <!--notification menu end -->
@@ -673,7 +673,7 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                   </span>
                   <div class="user-name">
                     <p style="color:#1D809F;"><?php if (isset($sirname)) {
-                                                echo "<strong>" . $firstname . " " . $sirname . " </strong>";
+                                                echo "<strong>" . $firstname;
                                               } ?>
                     </p>
                     <span>Administrator&nbsp;<img src='admin/images/dot.png' height='15px' width='15px' alt=''>
