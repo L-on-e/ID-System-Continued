@@ -26,6 +26,7 @@ if (isset($_COOKIE['adminid']) && $_COOKIE['adminemail']) {
 
 <head>
   <title>admin</title>
+  <link rel="stylesheet" href="css/input1.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="Glance Design Dashboard Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -370,10 +371,10 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
 
 
 
-<div id="updateProfile" class="modal fade" role="dialog">
+<div id="updateProfile" class="modal fade" role="dialog" >
   <div class="modal-dialog">
     <!-- Modal content-->
-    <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
+    <div class="modal-content" style="font-size: 14px;color:black;">
       <div class="modal-header" style="background:#222d32">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title" style="font-family: Times New Roman;color:#F0F0F0;">
@@ -383,47 +384,169 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
         </h4>
       </div>
       <div class="modal-body">
-        <center>
+      
+        <div class="container">
+        <form method="post" action="upload.php" enctype='multipart/form-data'>
+        
+        <div class="form first">
+          <div class="details personal">
+          <span class="title">Personal Details</span>
+            <div class="fields">
+            
+          
+                <div class="input-field">
+                    <label>First Name<label style="color:red" >*</label></label>
+                    <input type="text" name="firstName" id="firstname"  >
+                  </div>
+                  <div class="input-field">
+                              <label>Middle Name<label style="color:red">*</label></label>
+                              <input type="text" name="middleName" id="middlename"  >
+                          </div>
 
-          <form method="post" action="upload.php" enctype='multipart/form-data'>
+                          <div class="input-field">
+                              <label>Last Name<label style="color:red">*</label></label>
+                              <input type="text" name="lastName" id="lastname"  >
+                          </div>
 
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;First Name:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="firstName" id="firstname"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Middle Name:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="middleName" id="middlename"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">Last Name:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="lastName" id="lastname"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Suffix:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="suffix" id="suffix"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;Gender:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="gender" id="gender"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;Position:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="position" id="position"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Area of Assignment<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="areaOfAssignment" id="areaofassignment"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Regular/SubAllotment:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="regular_suballotment" id="regular_suballotment"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Contract Duration(start)<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="date" name="contractDuration_start" id="contractduration_start"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Contract Duration (end)<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="date" name="contractDuration_end" id="contractduration_end"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Inclusive Date of Employment:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="date" name="inclusiveDateOfEmployment" id="inclusivedateofemployment"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Salary Grade:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="salaryGrade" id="salarygrade"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Salary:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="salary" id="salary"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;PRC ID Number (if application):<label style="color: red;font-size:20px;"></label><input style="width:270px;" type="text" name="prc" id="prc"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Address:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="address" id="address"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Birthdate:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="date" name="birthdate" id="birthdate"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Place of Birth:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="placeOfBirth" id="placeofbirth"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Name of Person to Notify in Case of Emergency:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="nameOfPersonToNotify" id="nameofpersontonotify"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Bloodtype:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="bloodtype" id="bloodtype"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;TIN Number:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="tinNumber" id="tinnumber"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;PHILHEALTH:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="philhealth" id="philhealth"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;SSS:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="sss" id="sss"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;PAGIBIG Number:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="pagibigNumber" id="pagibignumber"></span></p>
-                        <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;CP Number:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="cpNumber" id="cpnumber"></span></p>
-                        <p><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp; &nbsp;&nbsp;Email Address:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="emailAddress" id='emailaddress'></span></p>
-                        Add Signature photo:<input name='sigFiled' type='file' id='sigFiled'>
-                        Add ID photo:<input name='IDFiled' type='file' id='IDFiled'>
-                        <input type="hidden" name="page" id="employeeid" />
-        </center>
+                          <div class="input-field">
+                              <label>Suffix</label>
+                              <input type="text" name="suffix" id="suffix">
+                          </div>
+
+                          <div class="input-field">
+                              <label>Gender<label style="color:red">*</label></label>
+                              <input type="text" name="gender"  id="gender"  >
+                          </div>
+
+                          <div class="input-field">
+                              <label>Birthdate<label style="color:red">*</label></label>
+                              <input type="text" name="birthdate"  id="birthdate"  >
+                          </div>
+                          
+                          <div class="input-field">
+                              <label>Place of Birth<label style="color:red">*</label></label>
+                              <input type="text" name="placeOfBirth"  id="placeofbirth"  >
+                          </div>
+
+                          <div class="input-field">
+                              <label>Address<label style="color:red">*</label></label>
+                              <input type="text" name="address"  id="address"  >
+                          </div>
+
+                          <div class="input-field">
+                              <label>Blood Type<label style="color:red">*</label></label>
+                              <input type="text" name="bloodtype"  id="bloodtype"  >
+                          </div>
+              </div>
+          </div>
+          <div class="contact_info">
+            <span class="title">Contact and Email</span>
+          </div>
+          <div class="fields">
+          <div class="input-field">
+                            <label>CP Number<label style="color:red">*</label></label>
+                            <input type="text" name="cpNumber"  id="cpnumber">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Email Address<label style="color:red">*</label></label>
+                            <input type="text" name="emailAddress" id='emailaddress' >
+                        </div>
+
+                        <div class="input-field">
+                            <label>Emergency Contact<label style="color:red">*</label></label>
+                            <input type="text" name="nameOfPersonToNotify" id="nameofpersontonotify"  >
+                        </div>
+          </div>
+
+                  <div class="govId_Num">
+                    <span class="title">Government IDs and Numbers</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>PRC ID Number (if applicable):</label>
+                            <input type="text" name="prc"  id="prc">
+                        </div>
+                        <div class="input-field">
+                            <label>TIN Number:<label style="color:red">*</label></label>
+                            <input type="text" name="tinNumber"  id="tinnumber"  >
+                        </div>
+                        <div class="input-field">
+                            <label >PHILHEALTH:<label style="color:red">*</label></label>
+                            <input type="text" name="philhealth"  id="philhealth">
+                        </div>
+                        <div class="input-field">
+                            <label>SSS:<label style="color:red">*</label></label>
+                            <input type="text" name="sss"  id="sss">
+                        </div>
+                        <div class="input-field">
+                            <label>PAGIBIG Number:<label style="color:red">*</label></label>
+                            <input type="text" name="pagibigNumber"  id="pagibignumber">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="employment_info">
+                <span class="title">Employment Information</span>
+
+                <div class="fields">
+                <div class="input-field">
+                            <label>Position<label style="color:red">*</label></label>
+                            <input type="text" name="position"   id="position">
+                        </div>
+                        <div class="input-field">
+                            <label>Area of Assignment<label style="color:red">*</label></label>
+                            <input type="text" name="areaOfAssignment"   id="areaofassignment">
+                        </div>
+                        <div class="input-field">
+                            <label>Regular/SubAllotment<label style="color:red">*</label></label>
+                            <input type="text" name="regular_suballotment"  id="regular_suballotment">
+                        </div>
+                        <div class="input-field">
+                            <label>Contract Duration (start)<label style="color:red">*</label></label>
+                            <input type="text" name="contractDuration_start"    id="contractduration_start">
+                        </div>
+                        <div class="input-field">
+                            <label>Contract Duration (end)<label style="color:red">*</label></label>
+                            <input type="text" name="contractDuration_end"    id="contractduration_end">
+                        </div>
+                        <div class="input-field">
+                            <label>Inclusive Date of Employment<label style="color:red">*</label></label>
+                            <input type="text" name="inclusiveDateOfEmployment"    id="inclusivedateofemployment">
+                        </div>
+                        <div class="input-field">
+                            <label>Salary Grade<label style="color:red">*</label></label>
+                            <input type="text" name="salaryGrade"    id="salarygrade">
+                        </div>
+                        <div class="input-field">
+                            <label>Salary<label style="color:red">*</label></label>
+                            <input type="text" name="salary"    id="salary">
+                        </div> 
+
+                        
+                        <hr style="width:100%;text-align:left;margin-left:0">
+                        <label>Add Signature photo</label>
+                        <input name='sigFiled' type='file' id='sigFiled'>
+
+                        <label> Add ID photo</label>
+                        <input name='IDFiled' type='file' id='IDFiled'>
+                        <input type="hidden" name="page" id="employeeid">
+
+                </div>
+                </div>
+
+        </div>
+            
+  
 
       </div>
-      <div class="modal-footer">
+      
         <input type="submit" class="btn btn-success" value="Reset" id="updateEmployeeDetails" name="updateEmployeeDetails"> &nbsp;
         <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-      </div>
+        
     </div>
     </form>
+    </div>
   </div>
 </div>
 <div id="Updatepicture" class="modal fade" role="dialog">

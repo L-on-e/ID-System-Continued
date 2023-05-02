@@ -25,10 +25,15 @@ $startsat = $_SESSION['receiptrange'];
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
+<link rel="stylesheet" href="css/font.css">
 	<title>card</title>
 	<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
 		body {
 			background: #fff;
+			font-family: 'Poppins', sans-serif;
 		}
 
 		#bg {
