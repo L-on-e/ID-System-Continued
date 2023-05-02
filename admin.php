@@ -538,7 +538,7 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
 
                         <label> Add ID photo</label>
                         <input name='IDFiled' type='file' id='IDFiled'>
-                        <input type="hidden" name="page" value="admin.php" />
+                        <input type="hidden" name="page" id="employeeid">
 
                 </div>
                 </div>
