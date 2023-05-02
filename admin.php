@@ -404,46 +404,46 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
           
                 <div class="input-field">
                     <label>First Name<label style="color:red" >*</label></label>
-                    <input type="text" name="firstName" required>
+                    <input type="text" name="firstName" id="firstname"  >
                   </div>
                   <div class="input-field">
                               <label>Middle Name<label style="color:red">*</label></label>
-                              <input type="text" name="middleName" required>
+                              <input type="text" name="middleName" id="middlename"  >
                           </div>
 
                           <div class="input-field">
                               <label>Last Name<label style="color:red">*</label></label>
-                              <input type="text" name="lastName" required>
+                              <input type="text" name="lastName" id="lastname"  >
                           </div>
 
                           <div class="input-field">
                               <label>Suffix</label>
-                              <input type="text" name="suffix">
+                              <input type="text" name="suffix" id="suffix">
                           </div>
 
                           <div class="input-field">
                               <label>Gender<label style="color:red">*</label></label>
-                              <input type="text" name="gender" required>
+                              <input type="text" name="gender"  id="gender"  >
                           </div>
 
                           <div class="input-field">
                               <label>Birthdate<label style="color:red">*</label></label>
-                              <input type="text" name="birthdate" required>
+                              <input type="text" name="birthdate"  id="birthdate"  >
                           </div>
                           
                           <div class="input-field">
                               <label>Place of Birth<label style="color:red">*</label></label>
-                              <input type="text" name="placeOfBirth" required>
+                              <input type="text" name="placeOfBirth"  id="placeofbirth"  >
                           </div>
 
                           <div class="input-field">
                               <label>Address<label style="color:red">*</label></label>
-                              <input type="text" name="address" required>
+                              <input type="text" name="address"  id="address"  >
                           </div>
 
                           <div class="input-field">
                               <label>Blood Type<label style="color:red">*</label></label>
-                              <input type="text" name="bloodType" required>
+                              <input type="text" name="bloodtype"  id="bloodtype"  >
                           </div>
               </div>
           </div>
@@ -453,17 +453,17 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
           <div class="fields">
           <div class="input-field">
                             <label>CP Number<label style="color:red">*</label></label>
-                            <input type="text" name="cpNumber">
+                            <input type="text" name="cpNumber"  id="cpnumber">
                         </div>
 
                         <div class="input-field">
                             <label>Email Address<label style="color:red">*</label></label>
-                            <input type="text" name="emailAddress" id='oldpass'>
+                            <input type="text" name="emailAddress" id='emailaddress' >
                         </div>
 
                         <div class="input-field">
                             <label>Emergency Contact<label style="color:red">*</label></label>
-                            <input type="text" name="nameOfPersonToNotify" required>
+                            <input type="text" name="nameOfPersonToNotify" id="nameofpersontonotify"  >
                         </div>
           </div>
 
@@ -473,23 +473,23 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                     <div class="fields">
                         <div class="input-field">
                             <label>PRC ID Number (if applicable):</label>
-                            <input type="text" name="prc">
+                            <input type="text" name="prc"  id="prc">
                         </div>
                         <div class="input-field">
                             <label>TIN Number:<label style="color:red">*</label></label>
-                            <input type="text" name="tinNumber" required>
+                            <input type="text" name="tinNumber"  id="tinnumber"  >
                         </div>
                         <div class="input-field">
                             <label >PHILHEALTH:<label style="color:red">*</label></label>
-                            <input type="text" name="philhealth">
+                            <input type="text" name="philhealth"  id="philhealth">
                         </div>
                         <div class="input-field">
                             <label>SSS:<label style="color:red">*</label></label>
-                            <input type="text" name="sss">
+                            <input type="text" name="sss"  id="sss">
                         </div>
                         <div class="input-field">
                             <label>PAGIBIG Number:<label style="color:red">*</label></label>
-                            <input type="text" name="pagibigNumber">
+                            <input type="text" name="pagibigNumber"  id="pagibignumber">
                         </div>
                     </div>
                 </div>
@@ -500,35 +500,35 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                 <div class="fields">
                 <div class="input-field">
                             <label>Position<label style="color:red">*</label></label>
-                            <input type="text" name="position" required>
+                            <input type="text" name="position"   id="position">
                         </div>
                         <div class="input-field">
                             <label>Area of Assignment<label style="color:red">*</label></label>
-                            <input type="text" name="areaOfAssignment" required>
+                            <input type="text" name="areaOfAssignment"   id="areaofassignment">
                         </div>
                         <div class="input-field">
                             <label>Regular/SubAllotment<label style="color:red">*</label></label>
-                            <input type="text" name="regular_suballotment" required>
+                            <input type="text" name="regular_suballotment"  id="regular_suballotment">
                         </div>
                         <div class="input-field">
                             <label>Contract Duration (start)<label style="color:red">*</label></label>
-                            <input type="text" name="contractDuration_start" required>
+                            <input type="text" name="contractDuration_start"    id="contractduration_start">
                         </div>
                         <div class="input-field">
                             <label>Contract Duration (end)<label style="color:red">*</label></label>
-                            <input type="text" name="contractDuration_end" required>
+                            <input type="text" name="contractDuration_end"    id="contractduration_end">
                         </div>
                         <div class="input-field">
                             <label>Inclusive Date of Employment<label style="color:red">*</label></label>
-                            <input type="text" name="inclusiveDateOfEmployment" required>
+                            <input type="text" name="inclusiveDateOfEmployment"    id="inclusivedateofemployment">
                         </div>
                         <div class="input-field">
                             <label>Salary Grade<label style="color:red">*</label></label>
-                            <input type="text" name="salaryGrade" required>
+                            <input type="text" name="salaryGrade"    id="salarygrade">
                         </div>
                         <div class="input-field">
                             <label>Salary<label style="color:red">*</label></label>
-                            <input type="text" name="salary" required>
+                            <input type="text" name="salary"    id="salary">
                         </div> 
 
                         
@@ -552,7 +552,7 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
       
         <input type="submit" class="btn btn-success" value="Reset" id="updateEmployeeDetails" name="updateEmployeeDetails"> &nbsp;
         <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-      
+        
     </div>
     </form>
     </div>
