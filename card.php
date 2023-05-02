@@ -218,7 +218,7 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
 				<p style="position: absolute; top: 0; left: 58%; margin-top:114%; font-size:9px; font-family: 'Lora';"><?php if (isset($id)) {
 																															echo $id;
 																														} ?></p>
-				<img src="<?= $signaturePhoto ?>" height="110px" width="110px" alt="image" style='margin-left:20%; margin-top:0%;'>>
+				<!-- <img src="<?= $signaturePhoto ?>" height="110px" width="110px" alt="image" style='margin-left:20%; margin-top:0%;'>> -->
 				<p style="margin-top:-4%">&nbsp;</p>
 				<p style="margin-top:-4%">&nbsp;</p>
 				<p style="margin-top:-4%">&nbsp;</p>
