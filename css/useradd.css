@@ -1,0 +1,29 @@
+.modal-content {
+    font-size: 14px;
+    font-family: Times New Roman;
+    color: black;
+}
+
+.modal-header {
+    background: #222d32;
+}
+
+.modal-title {
+    font-weight: bold;
+    color: #F0F0F0;
+}
+
+span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+label {
+    color: red;
+    font-size: 20px;
+}
+
+input {
+    width: 270px;
+    margin-bottom: 10px;
+}
