@@ -26,7 +26,6 @@ if (isset($_COOKIE['adminid']) && $_COOKIE['adminemail']) {
 
 <head>
   <title>admin</title>
-  <link rel="stylesheet" href="css/input1.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="Glance Design Dashboard Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -371,10 +370,10 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
 
 
 
-<div id="updateProfile" class="modal fade" role="dialog" >
+<div id="updateProfile" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
-    <div class="modal-content" style="font-size: 14px;color:black;">
+    <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
       <div class="modal-header" style="background:#222d32">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title" style="font-family: Times New Roman;color:#F0F0F0;">
@@ -395,16 +394,16 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
             
           
                 <div class="input-field">
-                    <label>First Name<label style="color:red" >*</label></label>
+                    <label>First Name</label>
                     <input type="text" name="firstName" id="firstname"  >
                   </div>
                   <div class="input-field">
-                              <label>Middle Name<label style="color:red">*</label></label>
+                              <label>Middle Name</label>
                               <input type="text" name="middleName" id="middlename"  >
                           </div>
 
                           <div class="input-field">
-                              <label>Last Name<label style="color:red">*</label></label>
+                              <label>Last Name</label>
                               <input type="text" name="lastName" id="lastname"  >
                           </div>
 
@@ -414,27 +413,27 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                           </div>
 
                           <div class="input-field">
-                              <label>Gender<label style="color:red">*</label></label>
+                              <label>Gender</label>
                               <input type="text" name="gender"  id="gender"  >
                           </div>
 
                           <div class="input-field">
-                              <label>Birthdate<label style="color:red">*</label></label>
+                              <label>Birthdate</label>
                               <input type="text" name="birthdate"  id="birthdate"  >
                           </div>
                           
                           <div class="input-field">
-                              <label>Place of Birth<label style="color:red">*</label></label>
+                              <label>Place of Birth</label>
                               <input type="text" name="placeOfBirth"  id="placeofbirth"  >
                           </div>
 
                           <div class="input-field">
-                              <label>Address<label style="color:red">*</label></label>
+                              <label>Address</label>
                               <input type="text" name="address"  id="address"  >
                           </div>
 
                           <div class="input-field">
-                              <label>Blood Type<label style="color:red">*</label></label>
+                              <label>Blood Type</label>
                               <input type="text" name="bloodtype"  id="bloodtype"  >
                           </div>
               </div>
@@ -444,17 +443,17 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
           </div>
           <div class="fields">
           <div class="input-field">
-                            <label>CP Number<label style="color:red">*</label></label>
+                            <label>CP Number</label>
                             <input type="text" name="cpNumber"  id="cpnumber">
                         </div>
 
                         <div class="input-field">
-                            <label>Email Address<label style="color:red">*</label></label>
+                            <label>Email Address</label>
                             <input type="text" name="emailAddress" id='emailaddress' >
                         </div>
 
                         <div class="input-field">
-                            <label>Emergency Contact<label style="color:red">*</label></label>
+                            <label>Emergency Contact</label>
                             <input type="text" name="nameOfPersonToNotify" id="nameofpersontonotify"  >
                         </div>
           </div>
@@ -468,19 +467,19 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                             <input type="text" name="prc"  id="prc">
                         </div>
                         <div class="input-field">
-                            <label>TIN Number:<label style="color:red">*</label></label>
+                            <label>TIN Number:</label>
                             <input type="text" name="tinNumber"  id="tinnumber"  >
                         </div>
                         <div class="input-field">
-                            <label >PHILHEALTH:<label style="color:red">*</label></label>
+                            <label >PHILHEALTH:</label>
                             <input type="text" name="philhealth"  id="philhealth">
                         </div>
                         <div class="input-field">
-                            <label>SSS:<label style="color:red">*</label></label>
+                            <label>SSS:</label>
                             <input type="text" name="sss"  id="sss">
                         </div>
                         <div class="input-field">
-                            <label>PAGIBIG Number:<label style="color:red">*</label></label>
+                            <label>PAGIBIG Number:</label>
                             <input type="text" name="pagibigNumber"  id="pagibignumber">
                         </div>
                     </div>
@@ -491,35 +490,35 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
 
                 <div class="fields">
                 <div class="input-field">
-                            <label>Position<label style="color:red">*</label></label>
+                            <label>Position</label>
                             <input type="text" name="position"   id="position">
                         </div>
                         <div class="input-field">
-                            <label>Area of Assignment<label style="color:red">*</label></label>
+                            <label>Area of Assignment</label>
                             <input type="text" name="areaOfAssignment"   id="areaofassignment">
                         </div>
                         <div class="input-field">
-                            <label>Regular/SubAllotment<label style="color:red">*</label></label>
+                            <label>Regular/SubAllotment</label>
                             <input type="text" name="regular_suballotment"  id="regular_suballotment">
                         </div>
                         <div class="input-field">
-                            <label>Contract Duration (start)<label style="color:red">*</label></label>
+                            <label>Contract Duration (start)</label>
                             <input type="text" name="contractDuration_start"    id="contractduration_start">
                         </div>
                         <div class="input-field">
-                            <label>Contract Duration (end)<label style="color:red">*</label></label>
+                            <label>Contract Duration (end)</label>
                             <input type="text" name="contractDuration_end"    id="contractduration_end">
                         </div>
                         <div class="input-field">
-                            <label>Inclusive Date of Employment<label style="color:red">*</label></label>
+                            <label>Inclusive Date of Employment</label>
                             <input type="text" name="inclusiveDateOfEmployment"    id="inclusivedateofemployment">
                         </div>
                         <div class="input-field">
-                            <label>Salary Grade<label style="color:red">*</label></label>
-                            <input type="text" name="salaryGrade"    id="salarygrade">
+                            <label>Salary Grade</label>
+                            <input type="text" name="salaryGrade"    id="salarygrade"> 
                         </div>
                         <div class="input-field">
-                            <label>Salary<label style="color:red">*</label></label>
+                            <label>Salary</label>
                             <input type="text" name="salary"    id="salary">
                         </div> 
 
@@ -543,10 +542,9 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
       
         <input type="submit" class="btn btn-success" value="Reset" id="updateEmployeeDetails" name="updateEmployeeDetails"> &nbsp;
         <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-        
+      </div>
     </div>
     </form>
-    </div>
   </div>
 </div>
 <div id="Updatepicture" class="modal fade" role="dialog">
@@ -705,7 +703,7 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
         <div class="charts">
           <div class="mid-content-top charts-grids">
             <div class="middle-content">
-              <h4 class="title">Users</h4>
+              <h4 class="title">Employees</h4>
               <!-- start content_slider -->
               <div class="alert alert-info">
                 <i class="fa fa-envelope"></i>&nbsp;This screen displays 50 records use the search box to spool more records
