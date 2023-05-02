@@ -1,7 +1,12 @@
 <?php
 include "./db_connect.php";
-include("./imports.php")
+include("./imports.php");
 
+$sqlid = "SELECT * FROM Employee Order BY ID DESC";
+$ret = mysqli_query($db, $sqlid);
+while ($found = mysqli_fetch_array($ret)) {
+  $idsx = $found['ID'];
+}
 
 ?>
 
