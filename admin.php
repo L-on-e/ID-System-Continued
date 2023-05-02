@@ -420,7 +420,7 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
 
                           <div class="input-field">
                               <label>Birthdate</label>
-                              <input type="text" name="birthdate"  id="birthdate"  >
+                              <input type="date" name="birthdate"  id="birthdate"  >
                           </div>
                           
                           <div class="input-field">
@@ -504,15 +504,15 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                         </div>
                         <div class="input-field">
                             <label>Contract Duration (start)</label>
-                            <input type="text" name="contractDuration_start"    id="contractduration_start">
+                            <input type="date" name="contractDuration_start"    id="contractduration_start">
                         </div>
                         <div class="input-field">
                             <label>Contract Duration (end)</label>
-                            <input type="text" name="contractDuration_end"    id="contractduration_end">
+                            <input type="date" name="contractDuration_end"    id="contractduration_end">
                         </div>
                         <div class="input-field">
                             <label>Inclusive Date of Employment</label>
-                            <input type="text" name="inclusiveDateOfEmployment"    id="inclusivedateofemployment">
+                            <input type="date" name="inclusiveDateOfEmployment"    id="inclusivedateofemployment">
                         </div>
                         <div class="input-field">
                             <label>Salary Grade</label>
