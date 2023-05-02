@@ -128,54 +128,54 @@
                     </div>
                 </div>
 
-                <div class="employment_info">
-                    <span class="title">Employment Information</span>
+                    <div class="employment_info">
+                        <span class="title">Employment Information</span>
 
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>Position<label style="color:red">*</label></label>
-                            <input type="text" name="position" required>
-                        </div>
-                        <div class="input-field">
-                            <label>Area of Assignment<label style="color:red">*</label></label>
-                            <input type="text" name="areaOfAssignment" required>
-                        </div>
-                        <div class="input-field">
-                            <label>Regular/SubAllotment<label style="color:red">*</label></label>
-                            <input type="text" name="regular_suballotment" required>
-                        </div>
-                        <div class="input-field">
-                            <label>Contract Duration (start)<label style="color:red">*</label></label>
-                            <input type="text" name="contractDuration_start" required>
-                        </div>
-                        <div class="input-field">
-                            <label>Contract Duration (end)<label style="color:red">*</label></label>
-                            <input type="text" name="contractDuration_end" required>
-                        </div>
-                        <div class="input-field">
-                            <label>Inclusive Date of Employment<label style="color:red">*</label></label>
-                            <input type="text" name="inclusiveDateOfEmployment" required>
-                        </div>
-                        <div class="input-field">
-                            <label>Salary Grade<label style="color:red">*</label></label>
-                            <input type="text" name="salaryGrade" required>
-                        </div>
-                        <div class="input-field">
-                            <label>Salary<label style="color:red">*</label></label>
-                            <input type="text" name="salary" required>
-                        </div> 
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>Position<label style="color:red">*</label></label>
+                                <input type="text" name="position" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Area of Assignment<label style="color:red">*</label></label>
+                                <input type="text" name="areaOfAssignment" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Regular/SubAllotment<label style="color:red">*</label></label>
+                                <input type="text" name="regular_suballotment" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Contract Duration (start)<label style="color:red">*</label></label>
+                                <input type="text" name="contractDuration_start" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Contract Duration (end)<label style="color:red">*</label></label>
+                                <input type="text" name="contractDuration_end" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Inclusive Date of Employment<label style="color:red">*</label></label>
+                                <input type="text" name="inclusiveDateOfEmployment" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Salary Grade<label style="color:red">*</label></label>
+                                <input type="text" name="salaryGrade" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Salary<label style="color:red">*</label></label>
+                                <input type="text" name="salary" required>
+                            </div> 
 
-                        
-                        <hr style="width:100%;text-align:left;margin-left:0">
-                        <label>Add Signature photo</label>
-                        <input name='sigFiled' type='file' id='sigFiled'>
+                            
+                            <hr style="width:100%;text-align:left;margin-left:0">
+                            <label>Add Signature photo</label>
+                            <input name='sigFiled' type='file' id='sigFiled'>
 
-                        <label> Add ID photo</label>
-                        <input name='IDFiled' type='file' id='IDFiled'>
-                        <input type="hidden" name="page" value="admin.php" />
+                            <label> Add ID photo</label>
+                            <input name='IDFiled' type='file' id='IDFiled'>
+                            <input type="hidden" name="page" value="admin.php" />
 
-                        
-                    </div>
+                            
+                        </div>
 
                     <div class="buttons">
                         <button class="sumbit" value="Submit" id="addEmployee" name="addEmployee">
