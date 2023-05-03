@@ -141,6 +141,10 @@
                                 <input type="text" name="areaOfAssignment" required>
                             </div>
                             <div class="input-field">
+                                <label>Division<label style="color:red">*</label></label>
+                                <input type="text" name="division" required>
+                            </div>
+                            <div class="input-field">
                                 <label>Regular/SubAllotment<label style="color:red">*</label></label>
                                 <input type="text" name="regular_suballotment" required>
                             </div>

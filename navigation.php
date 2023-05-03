@@ -129,7 +129,7 @@ while ($found = mysqli_fetch_array($ret)) {
               <input type="number" class="form-control" name="endpoint">
             </div>
             <div class="input-group">
-              <span class="input-group-addon">Employee id starts @</span>
+              <span class="input-group-addon">Employee number starts @</span>
               <input id="msg" type="text" class="form-control" name="receiptrange" placeholder="" value="<?php echo $idsx; ?>" readonly="readonly">
             </div>
 

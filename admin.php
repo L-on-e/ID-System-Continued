@@ -28,7 +28,7 @@ if (isset($_COOKIE['adminid']) && $_COOKIE['adminemail']) {
   <title>admin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" href="css/input1.css"/>
+  <link rel="stylesheet" href="css/input1.css" />
   <meta name="keywords" content="Glance Design Dashboard Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
   <script type="application/x-javascript">
@@ -109,7 +109,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 </head>
 <script type="text/javascript">
   $(document).on("click", ".open-updateProfile", function() {
-    
+
     var id = $(this).data('id');
     var firstname = $(this).data('firstname');
     var middleName = $(this).data('middlename');
@@ -118,6 +118,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     var gender = $(this).data('gender');
     var position = $(this).data('position');
     var areaOfAssignment = $(this).data('areaofassignment');
+    var division = $(this).data('division');
     var regular_suballotment = $(this).data('regular_suballotment');
     var contractDuration_start = $(this).data('contractduration_start');
     var contractDuration_end = $(this).data('contractduration_end');
@@ -137,9 +138,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     var cpNumber = $(this).data('cpnumber');
     var emailAddress = $(this).data('emailaddress');
 
-    
-    console.log(firstname);
-    
     $(".modal-title #firstname").val(firstname);
     $(".modal-body #firstname").val(firstname);
     $(".modal-body #middlename").val(middleName);
@@ -148,6 +146,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     $(".modal-body #gender").val(gender);
     $(".modal-body #position").val(position);
     $(".modal-body #areaofassignment").val(areaOfAssignment);
+    $(".modal-body #division").val(division);
     $(".modal-body #regular_suballotment").val(regular_suballotment);
     $(".modal-body #contractduration_start").val(contractDuration_start);
     $(".modal-body #contractduration_end").val(contractDuration_end);
@@ -316,7 +315,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 } ?>
 
 
-<?php 
+<?php
 $sqluse = "SELECT * FROM Inorg ORDER BY id DESC ";
 $retrieve = mysqli_query($db, $sqluse);
 while ($foundk = mysqli_fetch_array($retrieve)) {
@@ -354,9 +353,9 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
           </div>
           <div class="input-group">
             <span class="input-group-addon">Employee id starts @</span>
-            <input id="msg" type="text" class="form-control" name="receiptrange" placeholder="" value="<?php 
-            // echo $idsx;
-             ?>" readonly="readonly">
+            <input id="msg" type="text" class="form-control" name="receiptrange" placeholder="" value="<?php
+                                                                                                        // echo $idsx;
+                                                                                                        ?>" readonly="readonly">
           </div>
 
 
@@ -384,163 +383,167 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
         </h4>
       </div>
       <div class="modal-body">
-      
+
         <div class="container">
-        <form method="post" action="upload.php" enctype='multipart/form-data'>
-        
-        <div class="form first">
-          <div class="details personal">
-          <span class="title">Personal Details</span>
-            <div class="fields">
-            
-          
-                <div class="input-field">
+          <form method="post" action="upload.php" enctype='multipart/form-data'>
+
+            <div class="form first">
+              <div class="details personal">
+                <span class="title">Personal Details</span>
+                <div class="fields">
+
+
+                  <div class="input-field">
                     <label>First Name</label>
-                    <input type="text" name="firstName" id="firstname"  >
+                    <input type="text" name="firstName" id="firstname">
                   </div>
                   <div class="input-field">
-                              <label>Middle Name</label>
-                              <input type="text" name="middleName" id="middlename"  >
-                          </div>
+                    <label>Middle Name</label>
+                    <input type="text" name="middleName" id="middlename">
+                  </div>
 
-                          <div class="input-field">
-                              <label>Last Name</label>
-                              <input type="text" name="lastName" id="lastname"  >
-                          </div>
+                  <div class="input-field">
+                    <label>Last Name</label>
+                    <input type="text" name="lastName" id="lastname">
+                  </div>
 
-                          <div class="input-field">
-                              <label>Suffix</label>
-                              <input type="text" name="suffix" id="suffix">
-                          </div>
+                  <div class="input-field">
+                    <label>Suffix</label>
+                    <input type="text" name="suffix" id="suffix">
+                  </div>
 
-                          <div class="input-field">
-                              <label>Gender</label>
-                              <input type="text" name="gender"  id="gender"  >
-                          </div>
+                  <div class="input-field">
+                    <label>Gender</label>
+                    <input type="text" name="gender" id="gender">
+                  </div>
 
-                          <div class="input-field">
-                              <label>Birthdate</label>
-                              <input type="date" name="birthdate"  id="birthdate"  >
-                          </div>
-                          
-                          <div class="input-field">
-                              <label>Place of Birth</label>
-                              <input type="text" name="placeOfBirth"  id="placeofbirth"  >
-                          </div>
+                  <div class="input-field">
+                    <label>Birthdate</label>
+                    <input type="date" name="birthdate" id="birthdate">
+                  </div>
 
-                          <div class="input-field">
-                              <label>Address</label>
-                              <input type="text" name="address"  id="address"  >
-                          </div>
+                  <div class="input-field">
+                    <label>Place of Birth</label>
+                    <input type="text" name="placeOfBirth" id="placeofbirth">
+                  </div>
 
-                          <div class="input-field">
-                              <label>Blood Type</label>
-                              <input type="text" name="bloodtype"  id="bloodtype"  >
-                          </div>
+                  <div class="input-field">
+                    <label>Address</label>
+                    <input type="text" name="address" id="address">
+                  </div>
+
+                  <div class="input-field">
+                    <label>Blood Type</label>
+                    <input type="text" name="bloodtype" id="bloodtype">
+                  </div>
+                </div>
               </div>
-          </div>
-          <div class="contact_info">
-            <span class="title">Contact and Email</span>
-          </div>
-          <div class="fields">
-          <div class="input-field">
-                            <label>CP Number</label>
-                            <input type="text" name="cpNumber"  id="cpnumber">
-                        </div>
-
-                        <div class="input-field">
-                            <label>Email Address</label>
-                            <input type="text" name="emailAddress" id='emailaddress' >
-                        </div>
-
-                        <div class="input-field">
-                            <label>Emergency Contact</label>
-                            <input type="text" name="nameOfPersonToNotify" id="nameofpersontonotify"  >
-                        </div>
-          </div>
-
-                  <div class="govId_Num">
-                    <span class="title">Government IDs and Numbers</span>
-
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>PRC ID Number (if applicable):</label>
-                            <input type="text" name="prc"  id="prc">
-                        </div>
-                        <div class="input-field">
-                            <label>TIN Number:</label>
-                            <input type="text" name="tinNumber"  id="tinnumber"  >
-                        </div>
-                        <div class="input-field">
-                            <label >PHILHEALTH:</label>
-                            <input type="text" name="philhealth"  id="philhealth">
-                        </div>
-                        <div class="input-field">
-                            <label>SSS:</label>
-                            <input type="text" name="sss"  id="sss">
-                        </div>
-                        <div class="input-field">
-                            <label>PAGIBIG Number:</label>
-                            <input type="text" name="pagibigNumber"  id="pagibignumber">
-                        </div>
-                    </div>
+              <div class="contact_info">
+                <span class="title">Contact and Email</span>
+              </div>
+              <div class="fields">
+                <div class="input-field">
+                  <label>CP Number</label>
+                  <input type="text" name="cpNumber" id="cpnumber">
                 </div>
 
-                <div class="employment_info">
+                <div class="input-field">
+                  <label>Email Address</label>
+                  <input type="text" name="emailAddress" id='emailaddress'>
+                </div>
+
+                <div class="input-field">
+                  <label>Emergency Contact</label>
+                  <input type="text" name="nameOfPersonToNotify" id="nameofpersontonotify">
+                </div>
+              </div>
+
+              <div class="govId_Num">
+                <span class="title">Government IDs and Numbers</span>
+
+                <div class="fields">
+                  <div class="input-field">
+                    <label>PRC ID Number (if applicable):</label>
+                    <input type="text" name="prc" id="prc">
+                  </div>
+                  <div class="input-field">
+                    <label>TIN Number:</label>
+                    <input type="text" name="tinNumber" id="tinnumber">
+                  </div>
+                  <div class="input-field">
+                    <label>PHILHEALTH:</label>
+                    <input type="text" name="philhealth" id="philhealth">
+                  </div>
+                  <div class="input-field">
+                    <label>SSS:</label>
+                    <input type="text" name="sss" id="sss">
+                  </div>
+                  <div class="input-field">
+                    <label>PAGIBIG Number:</label>
+                    <input type="text" name="pagibigNumber" id="pagibignumber">
+                  </div>
+                </div>
+              </div>
+
+              <div class="employment_info">
                 <span class="title">Employment Information</span>
 
                 <div class="fields">
-                <div class="input-field">
-                            <label>Position</label>
-                            <input type="text" name="position"   id="position">
-                        </div>
-                        <div class="input-field">
-                            <label>Area of Assignment</label>
-                            <input type="text" name="areaOfAssignment"   id="areaofassignment">
-                        </div>
-                        <div class="input-field">
-                            <label>Regular/SubAllotment</label>
-                            <input type="text" name="regular_suballotment"  id="regular_suballotment">
-                        </div>
-                        <div class="input-field">
-                            <label>Contract Duration (start)</label>
-                            <input type="date" name="contractDuration_start"    id="contractduration_start">
-                        </div>
-                        <div class="input-field">
-                            <label>Contract Duration (end)</label>
-                            <input type="date" name="contractDuration_end"    id="contractduration_end">
-                        </div>
-                        <div class="input-field">
-                            <label>Inclusive Date of Employment</label>
-                            <input type="date" name="inclusiveDateOfEmployment"    id="inclusivedateofemployment">
-                        </div>
-                        <div class="input-field">
-                            <label>Salary Grade</label>
-                            <input type="text" name="salaryGrade"    id="salarygrade"> 
-                        </div>
-                        <div class="input-field">
-                            <label>Salary</label>
-                            <input type="text" name="salary"    id="salary">
-                        </div> 
+                  <div class="input-field">
+                    <label>Position</label>
+                    <input type="text" name="position" id="position">
+                  </div>
+                  <div class="input-field">
+                    <label>Area of Assignment</label>
+                    <input type="text" name="areaOfAssignment" id="areaofassignment">
+                  </div>
+                  <div class="input-field">
+                    <label>Division</label>
+                    <input type="text" name="division" id="division">
+                  </div>
+                  <div class="input-field">
+                    <label>Regular/SubAllotment</label>
+                    <input type="text" name="regular_suballotment" id="regular_suballotment">
+                  </div>
+                  <div class="input-field">
+                    <label>Contract Duration (start)</label>
+                    <input type="date" name="contractDuration_start" id="contractduration_start">
+                  </div>
+                  <div class="input-field">
+                    <label>Contract Duration (end)</label>
+                    <input type="date" name="contractDuration_end" id="contractduration_end">
+                  </div>
+                  <div class="input-field">
+                    <label>Inclusive Date of Employment</label>
+                    <input type="date" name="inclusiveDateOfEmployment" id="inclusivedateofemployment">
+                  </div>
+                  <div class="input-field">
+                    <label>Salary Grade</label>
+                    <input type="text" name="salaryGrade" id="salarygrade">
+                  </div>
+                  <div class="input-field">
+                    <label>Salary</label>
+                    <input type="text" name="salary" id="salary">
+                  </div>
 
-                        
-                        <hr style="width:100%;text-align:left;margin-left:0">
-                        <label>Add Signature photo</label>
-                        <input name='sigFiled' type='file' id='sigFiled'>
 
-                        <label> Add ID photo</label>
-                        <input name='IDFiled' type='file' id='IDFiled'>
-                        <input type="hidden" name="page" id="employeeid">
+                  <hr style="width:100%;text-align:left;margin-left:0">
+                  <label>Add Signature photo</label>
+                  <input name='sigFiled' type='file' id='sigFiled'>
+
+                  <label> Add ID photo</label>
+                  <input name='IDFiled' type='file' id='IDFiled'>
+                  <input type="hidden" name="page" id="employeeid">
 
                 </div>
-                </div>
+              </div>
+
+            </div>
+
+
 
         </div>
-            
-  
 
-      </div>
-      
         <input type="submit" class="btn btn-success" value="Reset" id="updateEmployeeDetails" name="updateEmployeeDetails"> &nbsp;
         <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
       </div>
@@ -673,7 +676,7 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                   </span>
                   <div class="user-name">
                     <p style="color:#1D809F;"><?php if (isset($sirname)) {
-                                                echo "<strong>" . $firstname;
+                                                 echo "<strong>" . $firstname . "</strong>";
                                               } ?>
                     </p>
                     <span>Administrator&nbsp;<img src='admin/images/dot.png' height='15px' width='15px' alt=''>
@@ -686,8 +689,8 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
               </a>
               <ul class="dropdown-menu drp-mnu">
                 <!-- <li>
-                                  <a data-toggle='modal' data-id='<?php echo $id; ?>' href='#Updatepicture' class='open-Updatepicture'><i class="fa fa-user"></i>Change profile picture</a>
-                                 </li> -->
+                  <a data-toggle='modal' data-id='<?php echo $id; ?>' href='#Updatepicture' class='open-Updatepicture'><i class="fa fa-user"></i>Change profile picture</a>
+                </li> -->
                 <li> <a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
               </ul>
             </li>
@@ -713,12 +716,12 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
               <table id="example" class="display nowrap" style="width:100%">
                 <thead>
                   <tr>
-                    <th>ID</th>
+                    <th>#</th>
                     <th>Name</th>
                     <th>Position</th>
                     <th>Area Of Assignment</th>
                     <th>Address</th>
-                    <th>Contact</th>
+                    <!-- <th>Contact</th> -->
                     <th>PRINT</th>
                     <th>EDIT</th>
                     <th>DELETE</th>
@@ -738,6 +741,7 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                     $gender = $found['Gender'];
                     $position = $found['Position'];
                     $areaOfAssignment = $found['AreaOfAssignment'];
+                    $division = $found['Division'];
                     $regular_suballotment = $found['Regular_SubAllotment'];
                     $contractDuration_start = $found['ContractDuration_start'];
                     $contractDuration_end = $found['ContractDuration_end'];
@@ -757,21 +761,25 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                     $cpNumber = $found['CPNumber'];
                     $emailAddress = $found['EmailAddress'];
 
-                    $fullName = $firstName . " " . $lastName;
+                    if($suffix != null){
+                      $fullName = $firstName . " " . $lastName . " " . $suffix;
+                    }else{
+                      $fullName = $firstName . " " . $lastName;
+                    }
                     $contact = $cpNumber . "/" . $emailAddress;
                     echo "<tr>    <td>$id</td>                                       
                           <td>$fullName</td>        	
                           <td>$position</td>
                             <td>$areaOfAssignment</td>
                            <td>$address</td>
-			                 <td>$contact</td>
+			                 "./*<td>$contact</td>*/"
 			                 <td>
 			                   <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
                               </td>
 			                 <td>
 			                   <a data-toggle='modal' data-id='$id' 
                          data-firstname='$firstName'  data-middlename='$middleName' data-lastname='$lastName' data-suffix='$suffix' data-gender='$gender' data-position='$position' data-areaofassignment='$areaOfAssignment' 
-                         data-regular_suballotment='$regular_suballotment' data-contractduration_start='$contractDuration_start' data-contractduration_end='$contractDuration_end'
+                         data-division='$division' data-regular_suballotment='$regular_suballotment' data-contractduration_start='$contractDuration_start' data-contractduration_end='$contractDuration_end'
                          data-inclusivedateofemployment='$inclusiveDateOfEmployment' data-salarygrade='$salaryGrade' data-salary='$salary' 
                          data-prc='$prc'  data-address='$address' data-birthdate='$birthdate' data-placeofbirth='$placeOfBirth' data-nameofpersontonotify='$nameOfPersonToNotify' data-bloodtype='$bloodtype' 
                          data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' 
@@ -800,11 +808,11 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
       </div>
     </div>
     <!--footer-->
-    <div class="footer">
+    <!-- <div class="footer">
       <p>© 2018 Attainment . All Rights Reserved
 
       </p>
-    </div>
+    </div> -->
     <!--//footer-->
   </div>
 

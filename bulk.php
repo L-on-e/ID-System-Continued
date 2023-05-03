@@ -399,9 +399,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!--footer-->
-	<div class="footer">
+	<!-- <div class="footer">
 		<p> <a href="#" target="">Design and Developed by mvumapatrick@gmail.com</a></p>
-	</div>
+	</div> -->
 	<!--//footer-->
 	</div>
 

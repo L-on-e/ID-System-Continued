@@ -142,6 +142,7 @@ $startsat = $_SESSION['receiptrange'];
 	$count = 0;
 	while ($found = mysqli_fetch_array($retrieve)) {
 		$id = $found['ID'];
+		$employeeID = $found['Employee_ID'];
 		$firstName = $found['FirstName'];
 		$middleName = $found['MiddleName'];
 		$lastName = $found['LastName'];
@@ -149,6 +150,7 @@ $startsat = $_SESSION['receiptrange'];
 		$gender = $found['Gender'];
 		$position = $found['Position'];
 		$areaOfAssignment = $found['AreaOfAssignment'];
+		$division = $found['Division'];
 		$regular_suballotment = $found['Regular_SubAllotment'];
 		$contractDuration_start = $found['ContractDuration_start'];
 		$contractDuration_end = $found['ContractDuration_end'];
@@ -231,8 +233,8 @@ $startsat = $_SESSION['receiptrange'];
 																												} ?></span>
 					<p style="margin-top:20%">&nbsp;</p>
 
-					<p style="position: absolute; top: 0; left: 58%; margin-top:114%; font-size:9px; font-family: 'Lora';"><?php if (isset($id)) {
-																																echo $id;
+					<p style="position: absolute; top: 0; left: 58%; margin-top:114%; font-size:9px; font-family: 'Lora';"><?php if (isset($employeeID)) {
+																																echo $employeeID;
 																															} ?></p>
 					<!-- <img src="<?= $signaturePhoto ?>" height="110px" width="110px" alt="image" style="margin-left:20%; margin-top:-3%;"> -->
 					<p style="margin-top:-4%">&nbsp;</p>

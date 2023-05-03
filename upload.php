@@ -15,6 +15,7 @@ if (isset($_POST['updateEmployeeDetails'])) {
     $gender = mysqli_real_escape_string($db, $_POST['gender']);
     $position = mysqli_real_escape_string($db, $_POST['position']);
     $areaOfAssignment = mysqli_real_escape_string($db, $_POST['areaOfAssignment']);
+    $division = mysqli_real_escape_string($db, $_POST['division']);
     $regular_suballotment = mysqli_real_escape_string($db, $_POST['regular_suballotment']);
     $contractDuration_start = mysqli_real_escape_string($db, $_POST['contractDuration_start']);
     $contractDuration_end = mysqli_real_escape_string($db, $_POST['contractDuration_end']);
@@ -34,7 +35,7 @@ if (isset($_POST['updateEmployeeDetails'])) {
     $cpNumber = mysqli_real_escape_string($db, $_POST['cpNumber']);
     $emailAddress = mysqli_real_escape_string($db, $_POST['emailAddress']);
     $id = mysqli_real_escape_string($db, $_POST['page']);
-
+    
     $date_contractDuration_start = strtotime($contractDuration_start);
         $new_contractDuration_start = date('Y-m-d', $date_contractDuration_start);
 
@@ -47,7 +48,7 @@ if (isset($_POST['updateEmployeeDetails'])) {
         $date_birthdate = strtotime($birthdate);
         $new_birthdate = date('Y-m-d', $date_birthdate);
 
-    $check = "SELECT * FROM Employee WHERE id='$id' ";
+    $check = "SELECT * FROM Employee WHERE ID='$id' ";
     $checks = mysqli_query($db, $check);
     $found = mysqli_num_rows($checks);
     if ($found != 0) {
@@ -75,7 +76,7 @@ if (isset($_POST['updateEmployeeDetails'])) {
 
         $quer = "
             UPDATE Employee SET FirstName = '$firstName', MiddleName = '$middleName', LastName = '$lastName', Suffix = '$suffix',    Gender = '$gender',
-            Position = '$position',    AreaOfAssignment = '$areaOfAssignment', Regular_SubAllotment = '$regular_suballotment', ContractDuration_start = '$new_contractDuration_start',
+            Position = '$position',    AreaOfAssignment = '$areaOfAssignment', Division = '$division', Regular_SubAllotment = '$regular_suballotment', ContractDuration_start = '$new_contractDuration_start',
             ContractDuration_end = '$new_contractDuration_end',    InclusiveDateOfEmployment = '$new_inclusiveDateOfEmployment', SalaryGrade = '$salaryGrade',    Salary = '$salary', PRC = '$prc',    Address = '$address',
             Birthdate = '$new_birthdate',    PlaceOfBirth = '$placeOfBirth', NameOfPersonToNotify = '$nameOfPersonToNotify', Bloodtype = '$bloodType',    TINNumber = '$tinNumber', Philhealth = '$philhealth',    SSS = '$sss', PagIbigNumber = '$pagibigNumber', CPNumber = '$cpNumber', EmailAddress = '$emailAddress', Signature = '$signaturePhotoName',    ProfilePhoto = '$profilePhotoName'
             WHERE id='$id' ";
@@ -86,61 +87,13 @@ if (isset($_POST['updateEmployeeDetails'])) {
     }
 }
 
-// if (isset($_POST['resetpass'])) {
-
-//     $mfname = mysqli_real_escape_string($db, $_POST['mfname']);
-//     $msname = mysqli_real_escape_string($db, $_POST['msname']);
-//     $memail = mysqli_real_escape_string($db, $_POST['memail']);
-//     $mid = mysqli_real_escape_string($db, $_POST['mid']);
-//     $minstititution = mysqli_real_escape_string($db, $_POST['minstitution']);
-//     $rank = mysqli_real_escape_string($db, $_POST['mrank']);
-//     $id = mysqli_real_escape_string($db, $_POST['page']);
-
-
-//     if (isset($_POST["mr"])) {
-//         $mtitle = "Mr";
-//     } elseif (isset($_POST["miss"])) {
-//         $mtitle = "Miss";
-//     } elseif (isset($_POST["mrs"])) {
-//         $mtitle = "Mrs";
-//     } elseif (isset($_POST["dr"])) {
-
-//         $mtitle = "Dr";
-//     } elseif (isset($_POST["pro"])) {
-//         $mtitle = "Pro";
-//     } else {
-//         $mtitle = "";
-//     }
-//     $check = "SELECT * FROM Users WHERE id='$id' ";
-//     $checks = mysqli_query($db, $check);
-//     $found = mysqli_num_rows($checks);
-//     if ($found != 0) {
-//         $orgName = $_FILES['filed']['name'];
-//         if (!empty($orgName)) {
-//             $orgtmpName = $_FILES['filed']['tmp_name'];
-//             $orgSize = $_FILES['filed']['size'];
-//             $orgType = $_FILES['filed']['type'];
-//             $f = move_uploaded_file($orgtmpName, 'images/' . $orgName);
-//             if (isset($f)) { //image is a folder in which you will save documents
-//                 $queryz = "UPDATE Users SET Picname='$orgName' WHERE id='$id' ";
-//                 $db->query($queryz) or die('Errorr, query failed to upload picture');
-//             }
-//         }
-
-//         $quer = "UPDATE Users SET Firstname='$mfname',Sirname='$msname',Mtitle='$mtitle',Email='$memail',Staffid='$mid',Ranks='$rank',Department='$minstititution' WHERE id='$id' ";
-//         $db->query($quer) or die('Errorr, query failed to update');
-
-//         $_SESSION['pass'] = "okjs";
-//         header("Location:admin.php");
-//     }
-// }
-
 if (isset($_POST['addEmployee'])) {
     if (
         $_POST['firstName'] != '' && $_POST['middleName'] != '' && $_POST['lastName'] != '' && $_POST['suffix'] != '' && $_POST['gender'] != '' && $_POST['position'] != '' &&
         $_POST['areaOfAssignment'] != '' && $_POST['regular_suballotment'] != '' && $_POST['contractDuration_start'] != '' && $_POST['contractDuration_end'] != ''
     ) {
         $pagex = mysqli_real_escape_string($db, $_POST['page']);
+        $employeeID = generate_id($db);
         $firstName = mysqli_real_escape_string($db, $_POST['firstName']);
         $middleName = mysqli_real_escape_string($db, $_POST['middleName']);
         $lastName = mysqli_real_escape_string($db, $_POST['lastName']);
@@ -148,6 +101,7 @@ if (isset($_POST['addEmployee'])) {
         $gender = mysqli_real_escape_string($db, $_POST['gender']);
         $position = mysqli_real_escape_string($db, $_POST['position']);
         $areaOfAssignment = mysqli_real_escape_string($db, $_POST['areaOfAssignment']);
+        $division = mysqli_real_escape_string($db, $_POST['division']);
         $regular_suballotment = mysqli_real_escape_string($db, $_POST['regular_suballotment']);
         $contractDuration_start = mysqli_real_escape_string($db, $_POST['contractDuration_start']);
         $contractDuration_end = mysqli_real_escape_string($db, $_POST['contractDuration_end']);
@@ -195,13 +149,13 @@ if (isset($_POST['addEmployee'])) {
             move_uploaded_file($signaturePhototmpName, 'images/' . $signaturePhotoName);
             move_uploaded_file($profilePhotoNametmpName, 'images/' . $profilePhotoName);
 
-            $query = "INSERT INTO Employee (FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment, Regular_SubAllotment, ContractDuration_start,
+            $query = "INSERT INTO Employee (Employee_ID,FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment, Regular_SubAllotment, ContractDuration_start,
             ContractDuration_end, InclusiveDateOfEmployment, SalaryGrade, Salary, PRC, Address, Birthdate, PlaceOfBirth, NameOfPersonToNotify, Bloodtype,TINNumber,
-            Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto) " . "VALUES 
-            ('$firstName','$middleName', '$lastName','$suffix','$gender','$position','$areaOfAssignment','$regular_suballotment','$new_contractDuration_start',
+            Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto, Division) " . "VALUES 
+            ('$employeeID','$firstName','$middleName', '$lastName','$suffix','$gender','$position','$areaOfAssignment','$regular_suballotment','$new_contractDuration_start',
             '$new_contractDuration_end', '$new_inclusiveDateOfEmployment','$salaryGrade', '$salary', '$prc', '$address',
             '$new_birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
-            '$cpNumber','$emailAddress','$signaturePhotoName','$profilePhotoName')";
+            '$cpNumber','$emailAddress','$signaturePhotoName','$profilePhotoName','$division')";
             $db->query($query) or die('Error1, query failed');
 
             $memberadd = "tyy";
@@ -214,62 +168,6 @@ if (isset($_POST['addEmployee'])) {
     } else {
     }
 }
-
-// if (isset($_POST['addmember'])) {
-//     if ($_POST['memail'] != '' && $_POST['mfname'] != '' && $_POST['msname'] != '' && $_POST['mphone'] != '' && $_POST['minstitution'] != '' && $_POST['mpassword'] != '') {
-
-//         $mfname = mysqli_real_escape_string($db, $_POST['mfname']);
-//         $msname = mysqli_real_escape_string($db, $_POST['msname']);
-//         $memail = mysqli_real_escape_string($db, $_POST['memail']);
-//         $mphone = mysqli_real_escape_string($db, $_POST['mphone']);
-//         $minstititution = mysqli_real_escape_string($db, $_POST['minstitution']);
-//         $mpassword = mysqli_real_escape_string($db, $_POST['mpassword']);
-//         $pagex = mysqli_real_escape_string($db, $_POST['page']);
-//         $orgName = $_FILES['filed']['name'];
-//         $orgtmpName = $_FILES['filed']['tmp_name'];
-//         $orgSize = $_FILES['filed']['size'];
-//         $orgType = $_FILES['filed']['type'];
-
-//         if (isset($_POST["mr"])) {
-//             $mtitle = "Mr";
-//         } elseif (isset($_POST["miss"])) {
-//             $mtitle = "Miss";
-//         } elseif (isset($_POST["mrs"])) {
-//             $mtitle = "Mrs";
-//         } elseif (isset($_POST["dr"])) {
-
-//             $mtitle = "Dr";
-//         } elseif (isset($_POST["pro"])) {
-//             $mtitle = "Pro";
-//         } else {
-//             $mtitle = "";
-//         }
-
-//         $check = "SELECT * FROM Users WHERE Firstname='$mfname' && Sirname='$msname'";
-//         $checks = mysqli_query($db, $check);
-//         $found = mysqli_num_rows($checks);
-//         if ($found == 0) {
-//             move_uploaded_file($orgtmpName, 'images/' . $orgName);
-
-//             $query = "INSERT INTO Employee (FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment,Salary,ProfilePhoto) "
-//                 . "VALUES ('$mfname','$msname', '$mtitle','$mphone','$mpassword','$memail','$minstititution','Offline','$orgName')";
-//             $db->query($query) or die('Error1, query failed');
-
-//             $memberadd = "tyy";
-//             $_SESSION['memberadded'] = $memberadd;
-//             header("Location:$pagex"); //member added successfully
-
-
-
-//         } else {
-//             $_SESSION['memberexist'] = "member already exist";
-//             header("Location:$pagex");
-//         }
-//     } else {
-//         $_SESSION['emptytextboxes'] = "Not all text boxes were completed";
-//         header("Location:$pagex");
-//     }
-// }
 
 if (isset($_POST['Valuedel'])) {
 
@@ -398,12 +296,15 @@ if (isset($_POST['orgupdate'])) {
     }
 }
 
+
 if (isset($_POST["bulk"])) {
     $file = $_FILES['file']['tmp_name'];
     $handle = fopen($file, "r");
     $c = 0;
     $count = 0;
+
     while (($filesop = fgetcsv($handle, 1000, ",")) !== false) {
+        $employeeID = generate_id($db);
         $lastName = $filesop[1];
         $firstName = $filesop[2];
         $middleName = $filesop[3];
@@ -431,7 +332,8 @@ if (isset($_POST["bulk"])) {
         $emailAddress =  $filesop[25];
         $signaturePhotoName =  $filesop[26];
         $profilePhotoName =  $filesop[27];
-
+        $division = $filesop[28];
+        
         $date_contractDuration_start = strtotime($contractDuration_start);
         $new_contractDuration_start = date('Y-m-d', $date_contractDuration_start);
 
@@ -452,13 +354,13 @@ if (isset($_POST["bulk"])) {
         
         $count++;
         if ($count > 1) {
-            $query = "INSERT INTO Employee (FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment, Regular_SubAllotment, ContractDuration_start,
+            $query = "INSERT INTO Employee (Employee_ID,FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment, Regular_SubAllotment, ContractDuration_start,
             ContractDuration_end, InclusiveDateOfEmployment, SalaryGrade, Salary, PRC, Address, Birthdate, PlaceOfBirth, NameOfPersonToNotify, Bloodtype,TINNumber,
-            Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto) " . "VALUES 
-            ('$firstName','$middleName', '$lastName','$suffix','$gender','$position','$areaOfAssignment','$regular_suballotment','$new_contractDuration_start',
+            Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto, Division) " . "VALUES 
+            ('$employeeID','$firstName','$middleName', '$lastName','$suffix','$gender','$position','$areaOfAssignment','$regular_suballotment','$new_contractDuration_start',
             '$new_contractDuration_end', '$new_inclusiveDateOfEmployment','$salaryGrade', '$salary', '$prc', '$address',
             '$new_birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
-            '$cpNumber','$emailAddress','$storedSignatureLink','$storedImageLink')";
+            '$cpNumber','$emailAddress','$storedSignatureLink','$storedImageLink','$division')";
             $db->query($query) or die('Error1, query failed');
             
             $c = $c + 1;
@@ -472,4 +374,30 @@ if (isset($_POST["bulk"])) {
         echo "Sorry! There is some problem.";
     }
 }
+
+function generate_id($conn) {
+    $last_id = '0';
+    $result = mysqli_query($conn, "SELECT Employee_ID FROM Employee ORDER BY Employee_ID DESC LIMIT 1");
+    if ($row = mysqli_fetch_assoc($result)) {
+      $last_id = $row['Employee_ID'];
+    }
+    
+    $year = substr($last_id, 0, 4);
+    $month = substr($last_id, 4, 2);
+    
+    $current_year = date('Y');
+    $current_month = date('m');
+    if ($year != $current_year || $month != $current_month) {
+      $last_id = $current_year . $current_month . '0000';
+    }
+    
+    $incremental = intval(substr($last_id, 6));
+    
+    $incremental++;
+    
+    $incremental_str = str_pad($incremental, 4, '0', STR_PAD_LEFT);
+    
+    $new_id = $current_year . $current_month . $incremental_str;
+    return $new_id;
+  }
 ?>
