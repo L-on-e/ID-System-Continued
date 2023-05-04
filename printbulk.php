@@ -103,19 +103,23 @@ $startsat = $_SESSION['receiptrange'];
 		}
 
 		.vertical-text {
-			writing-mode: vertical-rl;
-			transform: rotate(180deg);
-			position: absolute;
-			left: 5px;
-			bottom: 30px;
-			/* Adjust to desired value */
-			/* Adjust to desired value */
-			font-size: 13px;
-			font-family: 'Barlow';
-			font-weight: bold;
-			white-space: nowrap;
-			color: white;
-		}
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  position: absolute;
+  left: 0.7%;
+  bottom: 0%; /* Adjust to desired value */
+   /* Adjust to desired value */
+  font-size: 10px;
+  font-family: 'Barlow';
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: green;
+  display: block; /* create a block-level element */
+    width: 60px; /* set the width to your desired size */
+    overflow: hidden; /* hide the overflow */
+    text-overflow: ellipsis; /* add an ellipsis (...) to indicate truncated text */
+    white-space: nowrap;
+}
 	</style>
 </head>
 
@@ -240,9 +244,7 @@ $startsat = $_SESSION['receiptrange'];
 					<p style="margin-top:-4%">&nbsp;</p>
 					<p style="margin-top:-4%">&nbsp;</p>
 					<p style="margin-top:-4%">&nbsp;</p>
-					<p class="vertical-text"><?php if (isset($areaOfAssignment)) {
-													echo $areaOfAssignment;
-												} ?></p>
+					<span class="vertical-text" style="position: absolute; top: 65%;white-space: pre-line"><?php if(isset($division)){ echo $division;} ?></span>
 
 				</div>
 			</div>

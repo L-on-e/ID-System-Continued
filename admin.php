@@ -342,7 +342,7 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
       </div>
 
       <div class="modal-body">
-        <form action="printbulk.php" method="post" target="_blank">
+        <form action=".x.php" method="post" target="_blank">
           <div class="input-group" style="margin-bottom:10px">
             <span class="input-group-addon">From</span>
             <input id="text" type="number" class="form-control" name="startpoint">
@@ -721,8 +721,9 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                     <th>Position</th>
                     <th>Area Of Assignment</th>
                     <th>Address</th>
-                    <!-- <th>Contact</th> -->
-                    <th>PRINT</th>
+                    <th>Contact</th>
+                    <th>Contractual</th>
+                    <th>Regular</th>
                     <th>EDIT</th>
                     <th>DELETE</th>
                   </tr>
@@ -775,6 +776,9 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
 			                 "./*<td>$contact</td>*/"
 			                 <td>
 			                   <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
+                              </td>
+			                 <td>
+                       <a  href='card2.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
                               </td>
 			                 <td>
 			                   <a data-toggle='modal' data-id='$id' 
