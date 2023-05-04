@@ -56,7 +56,11 @@
 
                         <div class="input-field">
                             <label>Gender<label style="color:red">*</label></label>
-                            <input type="text" name="gender" required>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
                         </div>
 
                         <div class="input-field">
@@ -76,7 +80,17 @@
 
                         <div class="input-field">
                             <label>Blood Type<label style="color:red">*</label></label>
-                            <input type="text" name="bloodType" required>
+                            <select id="bloodType" name="bloodType" required>
+                                <option value="">Select Blood Type</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -142,11 +156,19 @@
                             </div>
                             <div class="input-field">
                                 <label>Division<label style="color:red">*</label></label>
-                                <input type="text" name="division" required>
+                                <select id="division" name="division" required>
+                                    <option value="Management Support Division">Management Support Division</option>
+                                    <option value="Local Health Support Division">Local Health Support Division</option>
+                                    <option value="Regulations, Licensing and Enforcement Division">Regulations, Licensing and Enforcement Division</option>
+                                    <option value="Regional Director and Assistant Regional Director Division">Regional Director and Assistant Regional Director Division</option>
+                                </select>
                             </div>
                             <div class="input-field">
                                 <label>Regular/SubAllotment<label style="color:red">*</label></label>
-                                <input type="text" name="regular_suballotment" required>
+                                <select id="regular_suballotment" name="regular_suballotment" required>
+                                    <option value="Regular">Regular</option>
+                                    <option value="SubAllotment">SubAllotment</option>
+                                </select>
                             </div>
                             <div class="input-field">
                                 <label>Contract Duration (start)<label style="color:red">*</label></label>
@@ -170,7 +192,11 @@
                             </div>
                             <div class="input-field">
                                 <label>Type of Employment<label style="color:red">*</label></label>
-                                <input type="text" name="typeOfEmployment" required>
+                                <select id="typeOfEmployment" name="typeOfEmployment" required>
+                                    <option value="Regular">Regular</option>
+                                    <option value="Contractual">Contractual</option>
+                                </select>
+                                
                             </div>
 
 
