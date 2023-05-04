@@ -679,12 +679,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     <th>#</th>
                     <th>Name</th>
                     <th>Position</th>
-                    <th>Area Of Assignment</th>
+                    <th>AOA</th>
                     <th>Address</th>
+                    <th>Employment Type</th>
                     <!-- <th>Contact</th> -->
                     <th>PRINT</th>
                     <th>EDIT</th>
                     <th>DELETE</th>
+                    <th>DOWNLOAD</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -733,6 +735,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                           <td>$position</td>
                             <td>$areaOfAssignment</td>
                            <td>$address</td>
+                           <td>$typeOfEmployment</td>
 			                 " ./*<td>$contact</td>*/ "
 			                 <td>
 			                   <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
@@ -750,7 +753,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			                 <td>
 			                   <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
 							 
-			                 </td>			 
+			                 </td>		
+                       
+                       <td>
+                       <a data-id='$id'  class='open-Delete btn  btn-danger' title='download user' ><span class='glyphicon glyphicon-download' style='color:black;'></span></a>
+							 
+                       </td>
                              </tr>";
                   }
 
