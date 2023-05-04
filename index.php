@@ -1,14 +1,5 @@
 <?php 
 include_once("db_connect.php");
-
-$sqluse ="SELECT * FROM Inorg WHERE id=1 ";
-$retrieve = mysqli_query($db,$sqluse);
-    while($foundk = mysqli_fetch_array($retrieve))
-	     {
-              $name = $foundk['name'];
-			  $website = $foundk['website'];
-		     
-		 }	
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +8,7 @@ $retrieve = mysqli_query($db,$sqluse);
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<title><?php if(isset($website)){echo$website;}?></title>
+	<title>ID Generator System</title>
 	<link rel="stylesheet" type="text/css" href="css/style1.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>

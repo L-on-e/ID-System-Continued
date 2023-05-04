@@ -156,15 +156,15 @@ while ($found = mysqli_fetch_array($ret)) {
 
 
           <?php
-          $sqln = "SELECT * FROM Inorg ";
-          $rgetb = mysqli_query($db, $sqln);
-          $numb = mysqli_num_rows($rgetb);
-          if ($numb != 0) {
-            while ($foundl = mysqli_fetch_array($rgetb)) {
-              $profile = $foundl['pname'];
-            }
-            echo "<center><img src='media/$profile'  width='63%' height='140px' alt=''></center>";
-          } else {
+          // $sqln = "SELECT * FROM Inorg ";
+          // $rgetb = mysqli_query($db, $sqln);
+          // $numb = mysqli_num_rows($rgetb);
+          // if ($numb != 0) {
+          //   while ($foundl = mysqli_fetch_array($rgetb)) {
+          //     $profile = $foundl['pname'];
+          //   }
+          //   echo "<center><img src='media/$profile'  width='63%' height='140px' alt=''></center>";
+          // } else {
 
 
 
@@ -175,7 +175,7 @@ while ($found = mysqli_fetch_array($ret)) {
                 </span>MAIN MENU<span class="dashboard_text"></span>
               </a>
             </h1>
-          <?php } ?>
+          <?php  ?>
 
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

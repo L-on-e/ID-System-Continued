@@ -231,17 +231,17 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<div class="profile_img">
 									<span class="prfil-img">
 										<?php
-										$sql = "SELECT * FROM Profilepictures WHERE ids='$id' && Category='Administrator'";
-										$rget = mysqli_query($db, $sql);
-										$num = mysqli_num_rows($rget);
-										if ($num != 0) {
-											while ($found = mysqli_fetch_array($rget)) {
-												$profile = $found['name'];
-											}
-											echo "<img src='admin/images/$profile' height='50px' width='50px' alt=''>";
-										} else {
-											echo "<img src='admin/images/profile.png' height='50px' width='50px' alt=''>";
-										}
+										// $sql = "SELECT * FROM Profilepictures WHERE ids='$id' && Category='Administrator'";
+										// $rget = mysqli_query($db, $sql);
+										// $num = mysqli_num_rows($rget);
+										// if ($num != 0) {
+										// 	while ($found = mysqli_fetch_array($rget)) {
+										// 		$profile = $found['name'];
+										// 	}
+										// 	echo "<img src='admin/images/$profile' height='50px' width='50px' alt=''>";
+										// } else {
+										// 	echo "<img src='admin/images/profile.png' height='50px' width='50px' alt=''>";
+										// }
 
 										?>
 									</span>

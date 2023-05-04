@@ -112,13 +112,13 @@ if (!isset($_COOKIE['adminid']) && $_COOKIE['adminemail']) {
 <?php
 include_once("db_connect.php");
 
-$sqluse = "SELECT * FROM Inorg WHERE id=1 ";
-$retrieve = mysqli_query($db, $sqluse);
-$numb = mysqli_num_rows($retrieve);
-while ($foundk = mysqli_fetch_array($retrieve)) {
-	$profile = $foundk['pname'];
-	$name = $foundk['name'];
-}
+// $sqluse = "SELECT * FROM Inorg WHERE id=1 ";
+// $retrieve = mysqli_query($db, $sqluse);
+// $numb = mysqli_num_rows($retrieve);
+// while ($foundk = mysqli_fetch_array($retrieve)) {
+// 	$profile = $foundk['pname'];
+// 	$name = $foundk['name'];
+// }
 ?>
 
 <body>

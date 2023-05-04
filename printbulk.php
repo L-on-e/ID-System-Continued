@@ -128,13 +128,13 @@ $startsat = $_SESSION['receiptrange'];
 	</script>
 
 	<?php
-	$sqluse = "SELECT * FROM Inorg WHERE id=1 ";
-	$retrieve = mysqli_query($db, $sqluse);
-	$numb = mysqli_num_rows($retrieve);
-	while ($foundk = mysqli_fetch_array($retrieve)) {
-		$profileK = $foundk['pname'];
-		$name = $foundk['name'];
-	}
+	// $sqluse = "SELECT * FROM Inorg WHERE id=1 ";
+	// $retrieve = mysqli_query($db, $sqluse);
+	// $numb = mysqli_num_rows($retrieve);
+	// while ($foundk = mysqli_fetch_array($retrieve)) {
+	// 	$profileK = $foundk['pname'];
+	// 	$name = $foundk['name'];
+	// }
 
 
 	$sqlmember = "SELECT * FROM Employee WHERE ID>=$from && ID<=$to";

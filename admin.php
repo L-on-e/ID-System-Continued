@@ -318,16 +318,16 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 
 <?php
-$sqluse = "SELECT * FROM Inorg ORDER BY id DESC ";
-$retrieve = mysqli_query($db, $sqluse);
-while ($foundk = mysqli_fetch_array($retrieve)) {
-  $name = $foundk['name'];
-  $website = $foundk['website'];
-  $phone = $foundk['Phone'];
-  $year = $foundk['year'];
-  $mail = $foundk['email'];
-  $idz = $foundk['id'];
-}
+// $sqluse = "SELECT * FROM Inorg ORDER BY id DESC ";
+// $retrieve = mysqli_query($db, $sqluse);
+// while ($foundk = mysqli_fetch_array($retrieve)) {
+//   $name = $foundk['name'];
+//   $website = $foundk['website'];
+//   $phone = $foundk['Phone'];
+//   $year = $foundk['year'];
+//   $mail = $foundk['email'];
+//   $idz = $foundk['id'];
+// }
 
 ?>
 
@@ -666,17 +666,17 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                 <div class="profile_img">
                   <span class="prfil-img">
                     <?php
-                    $sql = "SELECT * FROM Profilepictures WHERE ids='$id' && Category='User'";
-                    $rget = mysqli_query($db, $sql);
-                    $num = mysqli_num_rows($rget);
-                    if ($num != 0) {
-                      while ($found = mysqli_fetch_array($rget)) {
-                        $profile = $found['name'];
-                      }
-                      echo "<img src='admin/images/$profile' height='50px' width='50px' alt=''>";
-                    } else {
-                      echo "<img src='admin/images/profile.png' height='50px' width='50px' alt=''>";
-                    }
+                    // $sql = "SELECT * FROM Profilepictures WHERE ids='$id' && Category='User'";
+                    // $rget = mysqli_query($db, $sql);
+                    // $num = mysqli_num_rows($rget);
+                    // if ($num != 0) {
+                    //   while ($found = mysqli_fetch_array($rget)) {
+                    //     $profile = $found['name'];
+                    //   }
+                    //   echo "<img src='admin/images/$profile' height='50px' width='50px' alt=''>";
+                    // } else {
+                    //   echo "<img src='admin/images/profile.png' height='50px' width='50px' alt=''>";
+                    // }
 
                     ?>
                   </span>
