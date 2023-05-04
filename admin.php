@@ -137,6 +137,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     var pagIbigNumber = $(this).data('pagibignumber');
     var cpNumber = $(this).data('cpnumber');
     var emailAddress = $(this).data('emailaddress');
+    var typeOfEmployment = $(this).data('typeofemployment');
 
     $(".modal-title #firstname").val(firstname);
     $(".modal-body #firstname").val(firstname);
@@ -165,6 +166,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     $(".modal-body #pagibignumber").val(pagIbigNumber);
     $(".modal-body #cpnumber").val(cpNumber);
     $(".modal-body #emailaddress").val(emailAddress);
+    $(".modal-body #typeofemployment").val(typeOfEmployment);
     $(".modal-body #employeeid").val(id);
   });
 </script>
@@ -525,6 +527,10 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                     <label>Salary</label>
                     <input type="text" name="salary" id="salary">
                   </div>
+                  <div class="input-field">
+                    <label>Type of Employment</label>
+                    <input type="text" name="typeOfEmployment" id="typeofemployment">
+                  </div>
 
 
                   <hr style="width:100%;text-align:left;margin-left:0">
@@ -760,6 +766,7 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                     $pagIbigNumber = $found['PagIbigNumber'];
                     $cpNumber = $found['CPNumber'];
                     $emailAddress = $found['EmailAddress'];
+                    $typeOfEmployment = $found['TypeOfEmployment'];
 
                     if($suffix != null){
                       $fullName = $firstName . " " . $lastName . " " . $suffix;
@@ -782,7 +789,7 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                          data-division='$division' data-regular_suballotment='$regular_suballotment' data-contractduration_start='$contractDuration_start' data-contractduration_end='$contractDuration_end'
                          data-inclusivedateofemployment='$inclusiveDateOfEmployment' data-salarygrade='$salaryGrade' data-salary='$salary' 
                          data-prc='$prc'  data-address='$address' data-birthdate='$birthdate' data-placeofbirth='$placeOfBirth' data-nameofpersontonotify='$nameOfPersonToNotify' data-bloodtype='$bloodtype' 
-                         data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' 
+                         data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment' 
                          class='open-updateProfile btn  btn-info' title='edit user details' href='#updateProfile'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
 							 
 			                 </td>				                 

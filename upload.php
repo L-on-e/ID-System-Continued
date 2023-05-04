@@ -120,6 +120,7 @@ if (isset($_POST['addEmployee'])) {
         $pagibigNumber = mysqli_real_escape_string($db, $_POST['pagibigNumber']);
         $cpNumber = mysqli_real_escape_string($db, $_POST['cpNumber']);
         $emailAddress = mysqli_real_escape_string($db, $_POST['emailAddress']);
+        $typeOfEmployment = mysqli_real_escape_string($db, $_POST['typeOfEmployment']);
 
         $signaturePhotoName = $_FILES['sigFiled']['name'];
         $signaturePhototmpName = $_FILES['sigFiled']['tmp_name'];
@@ -151,11 +152,11 @@ if (isset($_POST['addEmployee'])) {
 
             $query = "INSERT INTO Employee (Employee_ID,FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment, Regular_SubAllotment, ContractDuration_start,
             ContractDuration_end, InclusiveDateOfEmployment, SalaryGrade, Salary, PRC, Address, Birthdate, PlaceOfBirth, NameOfPersonToNotify, Bloodtype,TINNumber,
-            Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto, Division) " . "VALUES 
+            Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto, Division, TypeOfEmployment) " . "VALUES 
             ('$employeeID','$firstName','$middleName', '$lastName','$suffix','$gender','$position','$areaOfAssignment','$regular_suballotment','$new_contractDuration_start',
             '$new_contractDuration_end', '$new_inclusiveDateOfEmployment','$salaryGrade', '$salary', '$prc', '$address',
             '$new_birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
-            '$cpNumber','$emailAddress','$signaturePhotoName','$profilePhotoName','$division')";
+            '$cpNumber','$emailAddress','$signaturePhotoName','$profilePhotoName','$division','$typeOfEmployment')";
             $db->query($query) or die('Error1, query failed');
 
             $memberadd = "tyy";
@@ -333,6 +334,7 @@ if (isset($_POST["bulk"])) {
         $signaturePhotoName =  $filesop[26];
         $profilePhotoName =  $filesop[27];
         $division = $filesop[28];
+        $typeOfEmployment = $filesop[29];
         
         $date_contractDuration_start = strtotime($contractDuration_start);
         $new_contractDuration_start = date('Y-m-d', $date_contractDuration_start);
@@ -356,11 +358,11 @@ if (isset($_POST["bulk"])) {
         if ($count > 1) {
             $query = "INSERT INTO Employee (Employee_ID,FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment, Regular_SubAllotment, ContractDuration_start,
             ContractDuration_end, InclusiveDateOfEmployment, SalaryGrade, Salary, PRC, Address, Birthdate, PlaceOfBirth, NameOfPersonToNotify, Bloodtype,TINNumber,
-            Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto, Division) " . "VALUES 
+            Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto, Division, TypeOfEmployment) " . "VALUES 
             ('$employeeID','$firstName','$middleName', '$lastName','$suffix','$gender','$position','$areaOfAssignment','$regular_suballotment','$new_contractDuration_start',
             '$new_contractDuration_end', '$new_inclusiveDateOfEmployment','$salaryGrade', '$salary', '$prc', '$address',
             '$new_birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
-            '$cpNumber','$emailAddress','$storedSignatureLink','$storedImageLink','$division')";
+            '$cpNumber','$emailAddress','$storedSignatureLink','$storedImageLink','$division','$typeOfEmployment')";
             $db->query($query) or die('Error1, query failed');
             
             $c = $c + 1;

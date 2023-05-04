@@ -168,6 +168,10 @@
                                 <label>Salary<label style="color:red">*</label></label>
                                 <input type="text" name="salary" required>
                             </div> 
+                            <div class="input-field">
+                                <label>Type of Employment<label style="color:red">*</label></label>
+                                <input type="text" name="typeOfEmployment" required>
+                            </div> 
 
                             
                             <hr style="width:100%;text-align:left;margin-left:0">
