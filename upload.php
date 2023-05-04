@@ -34,6 +34,7 @@ if (isset($_POST['updateEmployeeDetails'])) {
     $pagibigNumber = mysqli_real_escape_string($db, $_POST['pagibigNumber']);
     $cpNumber = mysqli_real_escape_string($db, $_POST['cpNumber']);
     $emailAddress = mysqli_real_escape_string($db, $_POST['emailAddress']);
+    $typeOfEmployment = mysqli_real_escape_string($db, $_POST['typeOfEmployment']);
     $id = mysqli_real_escape_string($db, $_POST['page']);
     
     $date_contractDuration_start = strtotime($contractDuration_start);
@@ -78,7 +79,8 @@ if (isset($_POST['updateEmployeeDetails'])) {
             UPDATE Employee SET FirstName = '$firstName', MiddleName = '$middleName', LastName = '$lastName', Suffix = '$suffix',    Gender = '$gender',
             Position = '$position',    AreaOfAssignment = '$areaOfAssignment', Division = '$division', Regular_SubAllotment = '$regular_suballotment', ContractDuration_start = '$new_contractDuration_start',
             ContractDuration_end = '$new_contractDuration_end',    InclusiveDateOfEmployment = '$new_inclusiveDateOfEmployment', SalaryGrade = '$salaryGrade',    Salary = '$salary', PRC = '$prc',    Address = '$address',
-            Birthdate = '$new_birthdate',    PlaceOfBirth = '$placeOfBirth', NameOfPersonToNotify = '$nameOfPersonToNotify', Bloodtype = '$bloodType',    TINNumber = '$tinNumber', Philhealth = '$philhealth',    SSS = '$sss', PagIbigNumber = '$pagibigNumber', CPNumber = '$cpNumber', EmailAddress = '$emailAddress', Signature = '$signaturePhotoName',    ProfilePhoto = '$profilePhotoName'
+            Birthdate = '$new_birthdate',    PlaceOfBirth = '$placeOfBirth', NameOfPersonToNotify = '$nameOfPersonToNotify', Bloodtype = '$bloodType',    TINNumber = '$tinNumber', Philhealth = '$philhealth',    SSS = '$sss', PagIbigNumber = '$pagibigNumber', CPNumber = '$cpNumber', EmailAddress = '$emailAddress', Signature = '$signaturePhotoName',    ProfilePhoto = '$profilePhotoName',
+            TypeOfEmployment = '$typeOfEmployment'
             WHERE id='$id' ";
         $db->query($quer) or die('Errorr, query failed to update');
 
