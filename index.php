@@ -1,9 +1,10 @@
-<?php 
+<?php
 include_once("db_connect.php");
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -19,8 +20,9 @@ include_once("db_connect.php");
 
 	<script src="script/sweetalert.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="script/sweetalert.css">
-	
+
 </head>
+
 <body>
 	<img class="wave" src="/DesignImages/wave.png" alt="BG IMAGE">
 	<div class="container">
@@ -28,31 +30,32 @@ include_once("db_connect.php");
 			<img src="/DesignImages/DOH_SEAL.png">
 		</div>
 		<div class="login-content">
-			<form  class="form-login" method="post" id="login-form">
+			<form class="form-login" method="post" id="login-form">
 				<img src="DesignImages/avatar.svg">
 				<h2 class="title">Admin Login</h2>
-           		<div class="input-div one">
-           		   <div class="i">
-           		   		<i class="fas fa-user"></i>
-           		   </div>
-           		   <div class="div">
-           		   		<h5>Email</h5>
-           		   		<input type="text" class="input" name="user_email" id="user_email">
-           		   </div>
-           		</div>
-           		<div class="input-div pass">
-           		   <div class="i"> 
-           		    	<i class="fas fa-lock"></i>
-           		   </div>
-           		   <div class="div">
-           		    	<h5>Password?</h5>
-           		    	<input type="password" class="input" name="password" id="password" >
-            	   </div>
-            	</div>
-            	<button type="submit" class="btn" name="login_button" id="login_button">Sign In</button>
-            </form>
-        </div>
-    </div>
-    <script type="text/javascript" src="js/main.js"></script>
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-user"></i>
+					</div>
+					<div class="div">
+						<h5>Email</h5>
+						<input type="text" class="input" name="user_email" id="user_email">
+					</div>
+				</div>
+				<div class="input-div pass">
+					<div class="i">
+						<i class="fas fa-lock"></i>
+					</div>
+					<div class="div">
+						<h5>Password?</h5>
+						<input type="password" class="input" name="password" id="password">
+					</div>
+				</div>
+				<button type="submit" class="btn" name="login_button" id="login_button">Sign In</button>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/main.js"></script>
 </body>
+
 </html>

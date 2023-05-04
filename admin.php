@@ -316,62 +316,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <?php session_destroy();
 } ?>
 
-
-<?php
-// $sqluse = "SELECT * FROM Inorg ORDER BY id DESC ";
-// $retrieve = mysqli_query($db, $sqluse);
-// while ($foundk = mysqli_fetch_array($retrieve)) {
-//   $name = $foundk['name'];
-//   $website = $foundk['website'];
-//   $phone = $foundk['Phone'];
-//   $year = $foundk['year'];
-//   $mail = $foundk['email'];
-//   $idz = $foundk['id'];
-// }
-
-?>
-
-<!-- <div id="Taxreceipted" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
-      <div class="modal-header" style="background:#222d32">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
-          <center>
-            PRINT IDs IN BULK
-          </center>
-        </h4>
-      </div>
-
-      <div class="modal-body">
-        <form action="printbulk.php" method="post" target="_blank">
-          <div class="input-group" style="margin-bottom:10px">
-            <span class="input-group-addon">From</span>
-            <input id="text" type="number" class="form-control" name="startpoint">
-          </div>
-          <div class="input-group" style="margin-bottom:10px">
-            <span class="input-group-addon">To</span>
-            <input type="number" class="form-control" name="endpoint">
-          </div>
-          <div class="input-group">
-            <span class="input-group-addon">Employee id starts @</span>
-            <input id="msg" type="text" class="form-control" name="receiptrange" placeholder="" value="<?php
-                                                                                                        // echo $idsx;
-                                                                                                        ?>" readonly="readonly">
-          </div>
-
-
-      </div>
-      <div class="modal-footer">
-        <input type="submit" class="btn btn-success" value="Submit" id="btns1" name="Change"> &nbsp;
-      </div>
-      </form>
-    </div>
-  </div>
-</div> -->
-
-
-
 <div id="updateProfile" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
@@ -665,24 +609,11 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                 <div class="profile_img">
                   <span class="prfil-img">
-                    <?php
-                    // $sql = "SELECT * FROM Profilepictures WHERE ids='$id' && Category='User'";
-                    // $rget = mysqli_query($db, $sql);
-                    // $num = mysqli_num_rows($rget);
-                    // if ($num != 0) {
-                    //   while ($found = mysqli_fetch_array($rget)) {
-                    //     $profile = $found['name'];
-                    //   }
-                    //   echo "<img src='admin/images/$profile' height='50px' width='50px' alt=''>";
-                    // } else {
-                    //   echo "<img src='admin/images/profile.png' height='50px' width='50px' alt=''>";
-                    // }
-
-                    ?>
+                    <img src='admin/images/profile.png' height='50px' width='50px' alt=''>
                   </span>
                   <div class="user-name">
                     <p style="color:#1D809F;"><?php if (isset($sirname)) {
-                                                 echo "<strong>" . $firstname . "</strong>";
+                                                echo "<strong>" . $firstname . "</strong>";
                                               } ?>
                     </p>
                     <span>Administrator&nbsp;<img src='admin/images/dot.png' height='15px' width='15px' alt=''>
@@ -694,9 +625,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                 </div>
               </a>
               <ul class="dropdown-menu drp-mnu">
-                <!-- <li>
-                  <a data-toggle='modal' data-id='<?php echo $id; ?>' href='#Updatepicture' class='open-Updatepicture'><i class="fa fa-user"></i>Change profile picture</a>
-                </li> -->
                 <li> <a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
               </ul>
             </li>
@@ -768,9 +696,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     $emailAddress = $found['EmailAddress'];
                     $typeOfEmployment = $found['TypeOfEmployment'];
 
-                    if($suffix != null){
+                    if ($suffix != null) {
                       $fullName = $firstName . " " . $lastName . " " . $suffix;
-                    }else{
+                    } else {
                       $fullName = $firstName . " " . $lastName;
                     }
                     $contact = $cpNumber . "/" . $emailAddress;
@@ -779,7 +707,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                           <td>$position</td>
                             <td>$areaOfAssignment</td>
                            <td>$address</td>
-			                 "./*<td>$contact</td>*/"
+			                 " ./*<td>$contact</td>*/ "
 			                 <td>
 			                   <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
                               </td>

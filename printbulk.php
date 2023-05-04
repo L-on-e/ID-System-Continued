@@ -122,19 +122,9 @@ $startsat = $_SESSION['receiptrange'];
 <body>
 	<script type="text/javascript">
 		window.print();
-		// setTimeout(function() {
-		// 	window.close()
-		// }, 5000)
 	</script>
 
 	<?php
-	// $sqluse = "SELECT * FROM Inorg WHERE id=1 ";
-	// $retrieve = mysqli_query($db, $sqluse);
-	// $numb = mysqli_num_rows($retrieve);
-	// while ($foundk = mysqli_fetch_array($retrieve)) {
-	// 	$profileK = $foundk['pname'];
-	// 	$name = $foundk['name'];
-	// }
 
 
 	$sqlmember = "SELECT * FROM Employee WHERE ID>=$from && ID<=$to";
@@ -172,21 +162,6 @@ $startsat = $_SESSION['receiptrange'];
 		$signature = $found['Signature'];
 		$profilePhoto = $found['ProfilePhoto'];
 
-		// $title = $found['Mtitle'];
-		// $firstname = $found['Firstname'];
-		// $sirname = $found['Sirname'];
-		// $rank = $found['Ranks'];
-		// $id = $found['id'];
-		// $dept = $found['Department'];
-		// $contact = $found['Email'];
-		// $count = $count + 1;
-		// $get_time = $found['Time'];
-		// $time = time();
-		// $pass = $found['Staffid'];
-		// $names = $firstname . " " . $sirname;
-		// $profile = $found['Picname'];
-
-		// $serial = $id;
 		if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
 			$imageSrc = $profilePhoto;
 		} else {
@@ -236,7 +211,6 @@ $startsat = $_SESSION['receiptrange'];
 					<p style="position: absolute; top: 0; left: 58%; margin-top:114%; font-size:9px; font-family: 'Lora';"><?php if (isset($employeeID)) {
 																																echo $employeeID;
 																															} ?></p>
-					<!-- <img src="<?= $signaturePhoto ?>" height="110px" width="110px" alt="image" style="margin-left:20%; margin-top:-3%;"> -->
 					<p style="margin-top:-4%">&nbsp;</p>
 					<p style="margin-top:-4%">&nbsp;</p>
 					<p style="margin-top:-4%">&nbsp;</p>

@@ -109,17 +109,6 @@ if (!isset($_COOKIE['adminid']) && $_COOKIE['adminemail']) {
 		}
 	</style>
 </head>
-<?php
-include_once("db_connect.php");
-
-// $sqluse = "SELECT * FROM Inorg WHERE id=1 ";
-// $retrieve = mysqli_query($db, $sqluse);
-// $numb = mysqli_num_rows($retrieve);
-// while ($foundk = mysqli_fetch_array($retrieve)) {
-// 	$profile = $foundk['pname'];
-// 	$name = $foundk['name'];
-// }
-?>
 
 <body>
 	<script type="text/javascript">
@@ -190,9 +179,9 @@ include_once("db_connect.php");
 
 				?>
 			</center>
-				<img src="<?= $imageSrc ?>" height="110px" width="110px" alt="image" style="margin-left:20%; margin-top:-3%;">
+			<img src="<?= $imageSrc ?>" height="110px" width="110px" alt="image" style="margin-left:20%; margin-top:-3%;">
 			</center>
-			 <div class="container" align="center">
+			<div class="container" align="center">
 
 				<p style="margin-top:-4%">&nbsp;</p>
 				<p style="margin-top:-4%">&nbsp;</p>

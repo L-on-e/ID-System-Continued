@@ -204,7 +204,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 <body class="cbp-spmenu-push">
 	<div class="main-content">
-		<?php include("./navigation.php"); include("./imports.php");?>
+		<?php include("./navigation.php");
+		include("./imports.php"); ?>
 		<!--left-fixed -navigation-->
 
 		<!-- header-starts -->
@@ -230,20 +231,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 								<div class="profile_img">
 									<span class="prfil-img">
-										<?php
-										// $sql = "SELECT * FROM Profilepictures WHERE ids='$id' && Category='Administrator'";
-										// $rget = mysqli_query($db, $sql);
-										// $num = mysqli_num_rows($rget);
-										// if ($num != 0) {
-										// 	while ($found = mysqli_fetch_array($rget)) {
-										// 		$profile = $found['name'];
-										// 	}
-										// 	echo "<img src='admin/images/$profile' height='50px' width='50px' alt=''>";
-										// } else {
-										// 	echo "<img src='admin/images/profile.png' height='50px' width='50px' alt=''>";
-										// }
-
-										?>
+										<img src='admin/images/profile.png' height='50px' width='50px' alt=''>
 									</span>
 									<div class="user-name">
 										<p style="color:#1D809F;"><?php if (isset($sirname)) {

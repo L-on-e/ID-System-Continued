@@ -8,7 +8,7 @@
 
     <!----======== CSS ======== -->
     <link rel="stylesheet" href="css/input.css">
-    
+
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
@@ -19,11 +19,11 @@
 
     <div class="imports">
 
-    <?php
-    include "./imports.php";
-    include "./navigation.php";
-    ?>
-    
+        <?php
+        include "./imports.php";
+        include "./navigation.php";
+        ?>
+
     </div>
     <div class="container">
         <header style="margin-left:100px">Add Employee</header>
@@ -35,7 +35,7 @@
 
                     <div class="fields">
                         <div class="input-field">
-                            <label>First Name<label style="color:red" >*</label></label>
+                            <label>First Name<label style="color:red">*</label></label>
                             <input type="text" name="firstName" required>
                         </div>
 
@@ -63,7 +63,7 @@
                             <label>Birthdate<label style="color:red">*</label></label>
                             <input type="date" name="birthdate" required>
                         </div>
-                        
+
                         <div class="input-field">
                             <label>Place of Birth<label style="color:red">*</label></label>
                             <input type="text" name="placeOfBirth" required>
@@ -102,31 +102,31 @@
                     </div>
 
                     <div class="govId_Num">
-                    <span class="title">Government IDs and Numbers</span>
+                        <span class="title">Government IDs and Numbers</span>
 
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>PRC ID Number (if applicable):</label>
-                            <input type="text" name="prc">
-                        </div>
-                        <div class="input-field">
-                            <label>TIN Number:<label style="color:red">*</label></label>
-                            <input type="text" name="tinNumber" required>
-                        </div>
-                        <div class="input-field">
-                            <label >PHILHEALTH:<label style="color:red">*</label></label>
-                            <input type="text" name="philhealth">
-                        </div>
-                        <div class="input-field">
-                            <label>SSS:<label style="color:red">*</label></label>
-                            <input type="text" name="sss">
-                        </div>
-                        <div class="input-field">
-                            <label>PAGIBIG Number:<label style="color:red">*</label></label>
-                            <input type="text" name="pagibigNumber">
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>PRC ID Number (if applicable):</label>
+                                <input type="text" name="prc">
+                            </div>
+                            <div class="input-field">
+                                <label>TIN Number:<label style="color:red">*</label></label>
+                                <input type="text" name="tinNumber" required>
+                            </div>
+                            <div class="input-field">
+                                <label>PHILHEALTH:<label style="color:red">*</label></label>
+                                <input type="text" name="philhealth">
+                            </div>
+                            <div class="input-field">
+                                <label>SSS:<label style="color:red">*</label></label>
+                                <input type="text" name="sss">
+                            </div>
+                            <div class="input-field">
+                                <label>PAGIBIG Number:<label style="color:red">*</label></label>
+                                <input type="text" name="pagibigNumber">
+                            </div>
                         </div>
                     </div>
-                </div>
 
                     <div class="employment_info">
                         <span class="title">Employment Information</span>
@@ -167,13 +167,13 @@
                             <div class="input-field">
                                 <label>Salary<label style="color:red">*</label></label>
                                 <input type="text" name="salary" required>
-                            </div> 
+                            </div>
                             <div class="input-field">
                                 <label>Type of Employment<label style="color:red">*</label></label>
                                 <input type="text" name="typeOfEmployment" required>
-                            </div> 
+                            </div>
 
-                            
+
                             <hr style="width:100%;text-align:left;margin-left:0">
                             <label>Add Signature photo</label>
                             <input name='sigFiled' type='file' id='sigFiled'>
@@ -182,17 +182,17 @@
                             <input name='IDFiled' type='file' id='IDFiled'>
                             <input type="hidden" name="page" value="admin.php" />
 
-                            
+
                         </div>
 
-                    <div class="buttons">
-                        <button class="sumbit" value="Submit" id="addEmployee" name="addEmployee">
-                            <span>Submit</span>
-                            <i class="uil uil-navigator"></i>
-                        </button>
+                        <div class="buttons">
+                            <button class="sumbit" value="Submit" id="addEmployee" name="addEmployee">
+                                <span>Submit</span>
+                                <i class="uil uil-navigator"></i>
+                            </button>
+                        </div>
                     </div>
-                </div> 
-                </div> 
+                </div>
 
             </div>
 
