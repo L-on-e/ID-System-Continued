@@ -118,7 +118,7 @@ if (!isset($_COOKIE['adminid']) && $_COOKIE['adminemail']) {
 		// }, 5000)
 	</script>
 
-<?php
+		<?php
 				$idx = $_GET['id'];
 				$sqlmember = "SELECT * FROM Employee WHERE id='$idx' ";
 				$retrieve = mysqli_query($db, $sqlmember);
@@ -176,9 +176,9 @@ if (!isset($_COOKIE['adminid']) && $_COOKIE['adminemail']) {
 
 
 				if ($typeOfEmployment == "Contractual"){
-					include "./contractual.php";
+					include "./printing/contractual.php";
 				}else{
-					include "./regular.php";
+					include "./printing/regular.php";
 				}
 
 				?>
