@@ -655,7 +655,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     <th>Position</th>
                     <th>Area Of Assignment</th>
                     <th>Address</th>
-                    <!-- <th>Contact</th> -->
+                    <th>Download</th>
                     <th>PRINT</th>
                     <th>EDIT</th>
                     <th>DELETE</th>
@@ -702,30 +702,31 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                       $fullName = $firstName . " " . $lastName;
                     }
                     $contact = $cpNumber . "/" . $emailAddress;
-                      echo "<tr>    <td>$id</td>                                       
+                    echo "<tr>    
+                            <td>$id</td>                                       
                             <td>$fullName</td>        	
                             <td>$position</td>
                             <td>$areaOfAssignment</td>
-                           <td>$address</td>
-			                 " ./*<td>$contact</td>*/ "
-			                 <td>
-			                   <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
-                              </td>
-			                 <td>
-			                   <a data-toggle='modal' data-id='$id' 
-                         data-firstname='$firstName'  data-middlename='$middleName' data-lastname='$lastName' data-suffix='$suffix' data-gender='$gender' data-position='$position' data-areaofassignment='$areaOfAssignment' 
-                         data-division='$division' data-regular_suballotment='$regular_suballotment' data-contractduration_start='$contractDuration_start' data-contractduration_end='$contractDuration_end'
-                         data-inclusivedateofemployment='$inclusiveDateOfEmployment' data-salarygrade='$salaryGrade' data-salary='$salary' 
-                         data-prc='$prc'  data-address='$address' data-birthdate='$birthdate' data-placeofbirth='$placeOfBirth' data-nameofpersontonotify='$nameOfPersonToNotify' data-bloodtype='$bloodtype' 
-                         data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment' 
-                         class='open-updateProfile btn  btn-info' title='edit user details' href='#updateProfile'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
-							 
-			                 </td>				                 
-			                 <td>
-			                   <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
-							 
-			                 </td>			 
-                             </tr>";
+                            <td>$address</td>
+                            <td>
+                              <a  href='generate_pdf.php?id=$id' class='btn btn-success' title='click to download ID Card'  target='_blank'><span class='glyphicon glyphicon-download' style='color:white;'></span></a>
+                            </td>
+                            <td>
+                              <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
+                            </td>
+                            <td>
+                              <a data-toggle='modal' data-id='$id' 
+                                data-firstname='$firstName'  data-middlename='$middleName' data-lastname='$lastName' data-suffix='$suffix' data-gender='$gender' data-position='$position' data-areaofassignment='$areaOfAssignment' 
+                                data-division='$division' data-regular_suballotment='$regular_suballotment' data-contractduration_start='$contractDuration_start' data-contractduration_end='$contractDuration_end'
+                                data-inclusivedateofemployment='$inclusiveDateOfEmployment' data-salarygrade='$salaryGrade' data-salary='$salary' 
+                                data-prc='$prc'  data-address='$address' data-birthdate='$birthdate' data-placeofbirth='$placeOfBirth' data-nameofpersontonotify='$nameOfPersonToNotify' data-bloodtype='$bloodtype' 
+                                data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment' 
+                                class='open-updateProfile btn  btn-info' title='edit user details' href='#updateProfile'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
+			                      </td>				                 
+                            <td>
+                              <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
+                            </td>			 
+                          </tr>";
                   }
 
                   ?>
