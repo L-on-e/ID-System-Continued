@@ -15,6 +15,11 @@ class ComposerStaticInit95c28ce00c66f07dd124361b6fb3cd4e
         array (
             'setasign\\Fpdi\\' => 14,
         ),
+        'S' => 
+        array (
+            'Svg\\' => 4,
+            'Sabberworm\\CSS\\' => 15,
+        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
@@ -25,9 +30,15 @@ class ComposerStaticInit95c28ce00c66f07dd124361b6fb3cd4e
         array (
             'Mpdf\\PsrLogAwareTrait\\' => 22,
             'Mpdf\\' => 5,
+            'Masterminds\\' => 12,
+        ),
+        'F' => 
+        array (
+            'FontLib\\' => 8,
         ),
         'D' => 
         array (
+            'Dompdf\\' => 7,
             'DeepCopy\\' => 9,
         ),
     );
@@ -36,6 +47,14 @@ class ComposerStaticInit95c28ce00c66f07dd124361b6fb3cd4e
         'setasign\\Fpdi\\' => 
         array (
             0 => __DIR__ . '/..' . '/setasign/fpdi/src',
+        ),
+        'Svg\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg',
+        ),
+        'Sabberworm\\CSS\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
         ),
         'Psr\\Log\\' => 
         array (
@@ -57,6 +76,18 @@ class ComposerStaticInit95c28ce00c66f07dd124361b6fb3cd4e
         array (
             0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
         ),
+        'Masterminds\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/masterminds/html5/src',
+        ),
+        'FontLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
+        ),
+        'Dompdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
+        ),
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
@@ -65,6 +96,7 @@ class ComposerStaticInit95c28ce00c66f07dd124361b6fb3cd4e
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Dompdf\\Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
