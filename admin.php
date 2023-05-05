@@ -702,9 +702,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                       $fullName = $firstName . " " . $lastName;
                     }
                     $contact = $cpNumber . "/" . $emailAddress;
-                    echo "<tr>    <td>$id</td>                                       
-                          <td>$fullName</td>        	
-                          <td>$position</td>
+                      echo "<tr>    <td>$id</td>                                       
+                            <td>$fullName</td>        	
+                            <td>$position</td>
                             <td>$areaOfAssignment</td>
                            <td>$address</td>
 			                 " ./*<td>$contact</td>*/ "
