@@ -1,70 +1,51 @@
 <?php
 require_once 'vendor/autoload.php';
 include "db_connect.php";
-$idx = $_GET['id'];
-$sqlmember = "SELECT * FROM Employee WHERE id='$idx' ";
+
+use Dompdf\Options;
+use Dompdf\Dompdf;
+$options = new Options;
+$options->setChroot(__DIR__);
+$options->setIsRemoteEnabled(true);
+
+$dompdf = new Dompdf($options);
+
+$fromm = $_POST['startpoint'];
+$too = $_POST['endpoint'];
+$startsat = $_POST['receiptrange'];
+
+$_SESSION['from'] = $fromm;
+$_SESSION['to'] = $too;
+$_SESSION['receiptrange'] = $startsat;
+
+$from = $_SESSION['from'];
+$to = $_SESSION['to'];
+$startsat = $_SESSION['receiptrange'];
+$sqlmember = "SELECT * FROM Employee WHERE ID>=$from && ID<=$to";
 $retrieve = mysqli_query($db, $sqlmember);
-$count = 0;
-while ($found = mysqli_fetch_array($retrieve)) {
-    $id = $found['ID'];
-    $employeeID = $found['Employee_ID'];
-    $firstName = $found['FirstName'];
-    $middleName = $found['MiddleName'];
-    $lastName = $found['LastName'];
-    $suffix = $found['Suffix'];
-    $gender = $found['Gender'];
-    $position = $found['Position'];
-    $areaOfAssignment = $found['AreaOfAssignment'];
-    $division = $found['Division'];
-    $regular_suballotment = $found['Regular_SubAllotment'];
-    $contractDuration_start = $found['ContractDuration_start'];
-    $contractDuration_end = $found['ContractDuration_end'];
-    $inclusiveDateOfEmployment = $found['InclusiveDateOfEmployment'];
-    $salaryGrade = $found['SalaryGrade'];
-    $salary = $found['Salary'];
-    $prc = $found['PRC'];
-    $address = $found['Address'];
-    $birthdate = $found['Birthdate'];
-    $placeOfBirth = $found['PlaceOfBirth'];
-    $nameOfPersonToNotify = $found['NameOfPersonToNotify'];
-    $bloodtype = $found['Bloodtype'];
-    $tinNumber = $found['TINNumber'];
-    $philhealth = $found['Philhealth'];
-    $sss = $found['SSS'];
-    $pagIbigNumber = $found['PagIbigNumber'];
-    $cpNumber = $found['CPNumber'];
-    $emailAddress = $found['EmailAddress'];
-    $signature = $found['Signature'];
-    $profilePhoto = $found['ProfilePhoto'];
-}
 
-if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
-    $imageSrc = $profilePhoto;
-} else {
-    if ($profilePhoto != "")
-        $imageSrc = 'images/' . $profilePhoto;
-    else
-        $imageSrc = "admin/images/profile.jpg";
-}
-if (filter_var($signature, FILTER_VALIDATE_URL)) {
-    $signaturePhoto = $signature;
-} else {
-    if ($signature != "")
-        $signaturePhoto = 'images/' . $signature;
-    else
-        $signaturePhoto = "admin/images/signature.png";
-}
-
-
-$dompdf = new Dompdf\Dompdf(["chroot" => __DIR__]);
 $bg = './images/bg1.png';
 $style = "<style>
+body {
+    background: #fff;
+}
+
+#bg {
+    width: 1000px;
+    height: 432px;
+
+    margin: 30px;
+    float: left;
+
+}
+
 #id {
-    width: 100%;
-    height: 100%;
+    width: 312px;
+    height: 432px;
     position: absolute;
     opacity: 0.88;
     font-family: sans-serif;
+
     transition: 0.4s;
     background-color: #FFFFFF;
     border-radius: 2%;
@@ -106,14 +87,14 @@ $style = "<style>
 
 .id-1 {
     transition: 0.4s;
-    // width: 312px;
-    // height: 432px;
+    width: 312px;
+    height: 432px;
     background: #FFFFFF;
     font-size: 16px;
     font-family: sans-serif;
-    // float: left;
+    float: left;
     margin: auto;
-    // margin-left: 370px;
+    margin-left: 370px;
     border-radius: 2%;
     border: 1px solid #000;
 
@@ -134,8 +115,55 @@ $style = "<style>
     white-space: nowrap;
     color: white;
 }
-</style>";
-$html = "<html>
+        </style>";
+$html = "";
+while ($found = mysqli_fetch_array($retrieve)) {
+    $id = $found['ID'];
+    $employeeID = $found['Employee_ID'];
+    $firstName = $found['FirstName'];
+    $middleName = $found['MiddleName'];
+    $lastName = $found['LastName'];
+    $suffix = $found['Suffix'];
+    $gender = $found['Gender'];
+    $position = $found['Position'];
+    $areaOfAssignment = $found['AreaOfAssignment'];
+    $division = $found['Division'];
+    $regular_suballotment = $found['Regular_SubAllotment'];
+    $contractDuration_start = $found['ContractDuration_start'];
+    $contractDuration_end = $found['ContractDuration_end'];
+    $inclusiveDateOfEmployment = $found['InclusiveDateOfEmployment'];
+    $salaryGrade = $found['SalaryGrade'];
+    $salary = $found['Salary'];
+    $prc = $found['PRC'];
+    $address = $found['Address'];
+    $birthdate = $found['Birthdate'];
+    $placeOfBirth = $found['PlaceOfBirth'];
+    $nameOfPersonToNotify = $found['NameOfPersonToNotify'];
+    $bloodtype = $found['Bloodtype'];
+    $tinNumber = $found['TINNumber'];
+    $philhealth = $found['Philhealth'];
+    $sss = $found['SSS'];
+    $pagIbigNumber = $found['PagIbigNumber'];
+    $cpNumber = $found['CPNumber'];
+    $emailAddress = $found['EmailAddress'];
+    $signature = $found['Signature'];
+    $profilePhoto = $found['ProfilePhoto'];
+
+
+if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
+    $data = file_get_contents($profilePhoto);
+    $base64 = base64_encode($data);
+    $imageSrc = 'data:image/png;base64,' . $base64;
+} else {
+    if ($profilePhoto != ""){
+        $imageSrc = 'images/' . $profilePhoto;
+    }
+    else{
+
+        $imageSrc = "admin/images/profile.jpg";
+    }
+}
+$html .= "
             $style
             <body>
             <div id='bg'>
@@ -163,7 +191,6 @@ $html = "<html>
                         </div>
                         <span style='position: absolute; left: 27%;top: 75%; font-size:9px; font-family: 'Lora';'>$position</span>
                         <p style='margin-top:20%'>&nbsp;</p>
-
                         <p style='position: absolute; top: 0; left: 58%; margin-top:114%; font-size:9px; font-family: 'Lora';'>$employeeID</p>
                         <p style='margin-top:-4%'>&nbsp;</p>
                         <p style='margin-top:-4%'>&nbsp;</p>
@@ -214,15 +241,15 @@ $html = "<html>
             </div>
 
             </div>
-            </body>
-        </html>";
+        </body>
+        ";
+}
 
-$dompdf->setPaper([0, 0, 234, 324], 'portrait');
+// $dompdf->setPaper([0, 0, 234, 324], 'portrait');
 $dompdf->loadHtml($html);
 $dompdf->render();
 
-$dompdf->addInfo("Title", "An Example PDF"); // "add_info" in earlier versions of Dompdf
+$dompdf->addInfo("Title", "An Example PDF");
 $dompdf->stream("ID.pdf", ["Attachment" => 0]);
 
 $output = $dompdf->output();
-// file_put_contents("file.pdf", $output);
