@@ -751,7 +751,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			                   <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
 			                 </td>		
                        <td>
-                         <a data-id='$id'  class='open-Delete btn  btn-primary' title='download user' ><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
+                         <a data-id='generate_pdf.php?id=$id'  class='btn  btn-primary' title='download user' ><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
                        </td>
                              </tr>";
                   }

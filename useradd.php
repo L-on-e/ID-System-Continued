@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="input-field">
-                            <label>Suffix</label>
+                            <label>Suffix (Leave blank if none)</label>
                             <input type="text" name="suffix">
                         </div>
 
@@ -101,12 +101,12 @@
                     <div class="fields">
                         <div class="input-field">
                             <label>CP Number<label style="color:red">*</label></label>
-                            <input type="text" name="cpNumber">
+                            <input type="text" name="cpNumber" required>
                         </div>
 
                         <div class="input-field">
                             <label>Email Address<label style="color:red">*</label></label>
-                            <input type="text" name="emailAddress" id='oldpass'>
+                            <input type="text" name="emailAddress" required>
                         </div>
 
                         <div class="input-field">
@@ -129,15 +129,15 @@
                             </div>
                             <div class="input-field">
                                 <label>PHILHEALTH:<label style="color:red">*</label></label>
-                                <input type="text" name="philhealth">
+                                <input type="text" name="philhealth" required>
                             </div>
                             <div class="input-field">
                                 <label>SSS:<label style="color:red">*</label></label>
-                                <input type="text" name="sss">
+                                <input type="text" name="sss" required>
                             </div>
                             <div class="input-field">
                                 <label>PAGIBIG Number:<label style="color:red">*</label></label>
-                                <input type="text" name="pagibigNumber">
+                                <input type="text" name="pagibigNumber" required>
                             </div>
                         </div>
                     </div>
