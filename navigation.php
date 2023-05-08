@@ -29,7 +29,7 @@ while ($found = mysqli_fetch_array($ret)) {
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
             <center>
-              PRINT IDs IN BULK (Contractual)
+              PRINT IDs IN BULK
             </center>
           </h4>
         </div>
@@ -56,38 +56,7 @@ while ($found = mysqli_fetch_array($ret)) {
         </div>
         </form>
       </div>
-      <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
-        <div class="modal-header" style="background:#222d32">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
-            <center>
-              PRINT IDs IN BULK (Regular)
-            </center>
-          </h4>
-        </div>
-
-        <div class="modal-body">
-          <form action="printbulk2.php" method="post" target="_blank">
-            <div class="input-group" style="margin-bottom:10px">
-              <span class="input-group-addon">From</span>
-              <input id="text" type="number" class="form-control" name="startpoint">
-            </div>
-            <div class="input-group" style="margin-bottom:10px">
-              <span class="input-group-addon">To</span>
-              <input type="number" class="form-control" name="endpoint">
-            </div>
-            <div class="input-group">
-              <span class="input-group-addon">Employee id starts @</span>
-              <input id="msg" type="text" class="form-control" name="receiptrange" placeholder="" value="<?php echo $idsx; ?>" readonly="readonly">
-            </div>
-
-
-        </div>
-        <div class="modal-footer">
-          <input type="submit" class="btn btn-success" value="Submit" id="btns1" name="Change"> &nbsp;
-        </div>
-        </form>
-      </div>
+      
     </div>
   </div>
 <!-- download -->

@@ -8,8 +8,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+   
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@800&display=swap');
+
 
 		  body{
 		  	background:#fff;
@@ -78,23 +80,31 @@ font-family: sans-serif;
 		  	
 		  }
 		  .vertical-text {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  position: absolute;
- margin-left: 5px;
-  bottom: 0%; /* Adjust to desired value */
-   /* Adjust to desired value */
-  font-size: 10px;
-  font-family: 'Barlow';
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: green;
-  display: block; /* create a block-level element */
-    width: 60px; /* set the width to your desired size */
-    overflow: hidden; /* hide the overflow */
-    text-overflow: ellipsis; /* add an ellipsis (...) to indicate truncated text */
-    white-space: nowrap;
-}
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            position: absolute;
+            margin-left: 4px;
+            bottom: 2%;
+            /* Adjust to desired value */
+            /* Adjust to desired value */
+            font-size: 11px;
+            font-family: 'Barlow';
+            
+            letter-spacing: 1.5px;
+            color: green;
+            display: block;
+            /* create a block-level element */
+            width: 60px;
+            /* set the width to your desired size */
+            overflow: hidden;
+            /* hide the overflow */
+            text-overflow: ellipsis;
+            /* add an ellipsis (...) to indicate truncated text */
+            white-space: nowrap;
+            text-align: justify;
+            text-align: left;
+        }
+
 	</style>
 </head>
 <body>
@@ -128,17 +138,17 @@ font-family: sans-serif;
 	  <p style="margin-top:-4%">&nbsp;</p>
 							
 	  <div style="position: absolute; left: 26%; top: 69%; margin-left:0%; margin-top:-3%; font-size:22px; font-family: 'Lora';">
-	  <span style="font-size:36px;"><?php if(isset($firstName)){echo $firstName;} ?></span></div>
+	  <span style="font-size:36px;"><?php if(isset($firstName)){echo explode(' ', $firstName)[0];} ?></span></div>
 	  <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
   <span><br>
   
   <br>
 
 </div>
-<span style="position: absolute; left: 50%;right: 10%;margin-top: 110px; font-size:13px; font-family: 'Lora';"><?php if(isset($position)){echo $position;} ?></span>
+<span style="position: absolute; left: 45%;right: 2%;margin-top: 110px; font-size:11px; font-family: 'Lora';"><?php if(isset($position)){echo $position;} ?></span>
 <p style="margin-top:20%">&nbsp;</p>
-<div style="margin-left: 40%; margin-top:10px; font-size:18px; font-family: 'Lora'; text-align:center;">
-  <span style="font-size:16px;"><?php if(isset($firstName)){echo $firstName;} ?> <?php if(isset($lastName)){echo $lastName;} ?></span>
+<div style="margin-left: 40%; margin-top:16px; font-size:18px; font-family: 'Lora'; text-align:center;">
+  <span style="font-size:12px;"><?php if(isset($firstName)){echo $firstName;} ?> <?php if(isset($lastName)){echo $lastName;} ?></span>
 </div>
 
 	  <p style="position: absolute; top: 0; margin-left:172px; margin-top:112%; font-size:14px; font-family: 'Lora';">ID NO. <?php if(isset($id)){ echo$id;} ?></p>
@@ -178,19 +188,18 @@ font-family: sans-serif;
 	  <p style="margin-top:-4%">&nbsp;</p>
 							
       <div style="position: absolute; left: 26%; top: 69%; margin-left:0%; margin-top:-3%; font-size:22px; font-family: 'Lora';">
-	  <span style="font-size:36px;"><?php if(isset($firstName)){echo $firstName;} ?></span></div>
+	  <span style="font-size:36px;"><?php if(isset($firstName)){echo explode(' ', $firstName)[0];} ?></span></div>
 	  <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
   <span><br>
   
   <br>
 
 </div>
-<span style="position: absolute; left: 50%;right: 10%;margin-top: 110px; font-size:13px; font-family: 'Lora';"><?php if(isset($position)){echo $position;} ?></span>
+<span style="position: absolute; left: 45%;right: 2%;margin-top: 110px; font-size:11px; font-family: 'Lora';"><?php if(isset($position)){echo $position;} ?></span>
 <p style="margin-top:20%">&nbsp;</p>
-<div style="margin-left: 40%; margin-top:10px; font-size:18px; font-family: 'Lora'; text-align:center;">
-  <span style="font-size:16px;"><?php if(isset($firstName)){echo $firstName;} ?> <?php if(isset($lastName)){echo $lastName;} ?></span>
+<div style="margin-left: 40%; margin-top:16px; font-size:18px; font-family: 'Lora'; text-align:center;">
+  <span style="font-size:12px;"><?php if(isset($firstName)){echo $firstName;} ?> <?php if(isset($lastName)){echo $lastName;} ?></span>
 </div>
-
 	  <p style="position: absolute; top: 0; margin-left:172px; margin-top:112%; font-size:14px; font-family: 'Lora';">ID NO. <?php if(isset($id)){ echo$id;} ?></p>
 	 
 		  <p style="margin-top:-4%">&nbsp;</p>

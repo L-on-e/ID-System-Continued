@@ -6,15 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
+   
 
-    @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600&family=Barlow:wght@400;500;600&display=swap');
+<style>
+
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@800&display=swap');
+
+
         
         body {
             background: #fff;
         }
 
-        #bg {
+        #bg1 {
             width: 1000px;
             height: 432px;
 
@@ -23,7 +28,7 @@
 
         }
 
-        #id {
+        #id1 {
             width: 312px;
             height: 432px;
             position: absolute;
@@ -36,7 +41,7 @@
 
         }
 
-        #id::before {
+        #id1::before {
             content: "";
             position: absolute;
             width: 100%;
@@ -73,17 +78,17 @@
 
         }
 
-        .vertical-text {
+        .vertical-text1 {
             writing-mode: vertical-rl;
             transform: rotate(180deg);
             position: absolute;
             margin-left: 4px;
-            bottom: 0%;
+            bottom: 2%;
             /* Adjust to desired value */
             /* Adjust to desired value */
             font-size: 11px;
             font-family: 'Barlow';
-            font-weight: bold;
+
             letter-spacing: 1.5px;
             color: green;
             display: block;
@@ -95,9 +100,11 @@
             text-overflow: ellipsis;
             /* add an ellipsis (...) to indicate truncated text */
             white-space: nowrap;
+            text-align: justify;
+            text-align: left;
         }
     </style>
-    </style>
+    
 </head>
 
 <body>
@@ -108,8 +115,8 @@
         // }, 5000)
     </script>
 
-    <div id="bg">
-        <div id="id">
+    <div id="bg1">
+        <div id="id1">
             <br><br><br><br><br><br><br>
             <center>
             </center>
@@ -124,9 +131,9 @@
                 <p style="margin-top:-4%">&nbsp;</p>
 
                 <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
-                    <span style="font-size:24px;"><?php if (isset($firstName)) {
-                                                        echo $firstName;
-                                                    } ?></span>
+                <span style="font-size:24px;"><?php if(isset($firstName)){ $nameParts = explode(' ', $firstName); echo $nameParts[0]; if(isset($nameParts[1])) { echo ' ' . $nameParts[1]; } } ?></span>
+
+
                 </div>
                 <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
                     <span><br><?php if (isset($lastName)) {
@@ -147,7 +154,7 @@
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
-                <span class="vertical-text" style="position: absolute; top: 65%;white-space: pre-line"><?php if (isset($division)) {
+                <span class="vertical-text1" style="position: absolute; top: 65%;white-space: pre-line"><?php if (isset($division)) {
                                                                                                             echo $division;
                                                                                                         } ?></span>
             </div>
