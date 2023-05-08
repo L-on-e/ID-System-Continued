@@ -18,95 +18,95 @@ if (!isset($_COOKIE['adminid']) && $_COOKIE['adminemail']) {
 <head>
 	<title>card</title>
 	<style>
-		body {
-			background: #fff;
+		body{
+		  	background:#fff;
+		  }
+#bg {
+  width: 1000px;
+  height: 432px;
+ 
+  margin:60px;
+ 	float: left; 
+ 		
+}
+
+#id {
+  width:312px;
+  height:432px;
+  position:absolute;
+  opacity: 0.88;
+font-family: sans-serif;
+
+		  	transition: 0.4s;
+		  	background-color: #FFFFFF;
+		  	border-radius: 2%;
+			  
 		}
 
-		#bg {
-			width: 1000px;
-			height: 432px;
+@font-face {
+  font-family: 'Barlow';
+  src: url('bootstrap/fonts/barlow-regular.ttf');
+  font-weight: normal;
+}
 
-			margin: 60px;
-			float: left;
+@font-face {
+  font-family: 'Lora';
+  src: url('bootstrap/fonts/lora-regular.ttf');
+  font-weight: normal;
+}
 
-		}
+#id::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('./images/bg1.png');
+  background-repeat:repeat-x;
+  background-size: 312px 432px;
+  opacity: 1;
+  z-index: -1;
+  text-align:center;
+  border:1px solid #000;
+ 
+}
+ .container{
+		  	font-size: 12px;
+		  	font-family: sans-serif;
+		    
+		  }
+		 .id-1{
+		  	transition: 0.4s;
+		  	width:312px;
+		  	height:432px;
+		  	background: #FFFFFF;
+		  	font-size: 16px;
+		  	font-family: sans-serif;
+		  	float: left;
+		  	margin:auto;		  	
+		  	margin-left:370px;
+		  	border-radius:2%;
+			border:1px solid #000;
 
-		#id {
-			width: 312px;
-			height: 432px;
-			position: absolute;
-			opacity: 0.88;
-			font-family: sans-serif;
-
-			transition: 0.4s;
-			background-color: #FFFFFF;
-			border-radius: 2%;
-
-		}
-
-		@font-face {
-			font-family: 'Barlow';
-			src: url('bootstrap/fonts/barlow-regular.ttf');
-			font-weight: normal;
-		}
-
-		@font-face {
-			font-family: 'Lora';
-			src: url('bootstrap/fonts/lora-regular.ttf');
-			font-weight: normal;
-		}
-
-		#id::before {
-			content: "";
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			background: url('./images/bg1.png');
-			background-repeat: repeat-x;
-			background-size: 312px 432px;
-			opacity: 1;
-			z-index: -1;
-			text-align: center;
-			border: 1px solid #000;
-
-		}
-
-		.container {
-			font-size: 12px;
-			font-family: sans-serif;
-
-		}
-
-		.id-1 {
-			transition: 0.4s;
-			width: 312px;
-			height: 432px;
-			background: #FFFFFF;
-			font-size: 16px;
-			font-family: sans-serif;
-			float: left;
-			margin: auto;
-			margin-left: 370px;
-			border-radius: 2%;
-			border: 1px solid #000;
-
-
-		}
-
-		.vertical-text {
-			writing-mode: vertical-rl;
-			transform: rotate(180deg);
-			position: absolute;
-			left: 5px;
-			bottom: 30px;
-			/* Adjust to desired value */
-			/* Adjust to desired value */
-			font-size: 13px;
-			font-family: 'Barlow';
-			font-weight: bold;
-			white-space: nowrap;
-			color: white;
-		}
+		  	
+		  }
+		  .vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  position: absolute;
+  left: 0.7%;
+  bottom: 0%; /* Adjust to desired value */
+   /* Adjust to desired value */
+  font-size: 10px;
+  font-family: 'Barlow';
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: green;
+  display: block; /* create a block-level element */
+    width: 60px; /* set the width to your desired size */
+    overflow: hidden; /* hide the overflow */
+    text-overflow: ellipsis; /* add an ellipsis (...) to indicate truncated text */
+    white-space: nowrap;
+}
 	</style>
 </head>
 
@@ -173,7 +173,6 @@ if (!isset($_COOKIE['adminid']) && $_COOKIE['adminemail']) {
 					else
 						$signaturePhoto = "admin/images/signature.png";
 				}
-
 
 				if ($typeOfEmployment == "Contractual"){
 					include "./printing/contractual.php";
