@@ -106,14 +106,14 @@ $style = "<style>
 
 .id-1 {
     transition: 0.4s;
-    // width: 312px;
-    // height: 432px;
+    width: 100%;
+    height: 100%;
     background: #FFFFFF;
     font-size: 16px;
     font-family: sans-serif;
     // float: left;
     margin: auto;
-    // margin-left: 370px;
+    margin-top: 370px;
     border-radius: 2%;
     border: 1px solid #000;
 
@@ -221,7 +221,7 @@ $dompdf->setPaper([0, 0, 234, 324], 'portrait');
 $dompdf->loadHtml($html);
 $dompdf->render();
 
-$dompdf->addInfo("Title", "An Example PDF"); // "add_info" in earlier versions of Dompdf
+$dompdf->addInfo("Title", "ID");
 $dompdf->stream("ID.pdf", ["Attachment" => 0]);
 
 $output = $dompdf->output();

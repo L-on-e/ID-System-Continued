@@ -175,7 +175,7 @@ font-family: sans-serif;
 
 		// $title = $found['Mtitle'];
 		// $firstname = $found['Firstname'];
-		// $sirname = $found['Sirname'];
+		// $Surname = $found['Surname'];
 		// $rank = $found['Ranks'];
 		// $id = $found['id'];
 		// $dept = $found['Department'];
@@ -184,7 +184,7 @@ font-family: sans-serif;
 		// $get_time = $found['Time'];
 		// $time = time();
 		// $pass = $found['Staffid'];
-		// $names = $firstname . " " . $sirname;
+		// $names = $firstname . " " . $Surname;
 		// $profile = $found['Picname'];
 
 		// $serial = $id;
