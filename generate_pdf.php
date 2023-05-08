@@ -63,7 +63,7 @@ $style = "<style>" . file_get_contents("./pdfstyle.css") . "</style>";
 $html = "<html>
             $style
             <body>
-            <div id='bg'>
+            <div id='bg'style='margin-left:-21%; margin-top:-20%'>
                 <div id='id'>
                     <br><br><br><br><br><br><br>
                     <center>
@@ -144,7 +144,7 @@ $html = "<html>
 
 //$dompdf->setPaper([0, 0, 234, 324], 'portrait');
 //$dompdf->setPaper([-150, -40, 264.17, 365.71], 'portrait');
-$dompdf->setPaper([-150, -40, 264.17, 365.71], 'portrait');
+$dompdf->setPaper([0, 0, 234, 324], 'portrait');
 
 $dompdf->loadHtml($html);
 $dompdf->render();
