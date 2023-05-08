@@ -6,15 +6,7 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit95c28ce00c66f07dd124361b6fb3cd4e
 {
-    public static $files = array (
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-    );
-
     public static $prefixLengthsPsr4 = array (
-        's' => 
-        array (
-            'setasign\\Fpdi\\' => 14,
-        ),
         'S' => 
         array (
             'Svg\\' => 4,
@@ -22,14 +14,10 @@ class ComposerStaticInit95c28ce00c66f07dd124361b6fb3cd4e
         ),
         'P' => 
         array (
-            'Psr\\Log\\' => 8,
-            'Psr\\Http\\Message\\' => 17,
             'Picqer\\Barcode\\' => 15,
         ),
         'M' => 
         array (
-            'Mpdf\\PsrLogAwareTrait\\' => 22,
-            'Mpdf\\' => 5,
             'Masterminds\\' => 12,
         ),
         'F' => 
@@ -39,15 +27,10 @@ class ComposerStaticInit95c28ce00c66f07dd124361b6fb3cd4e
         'D' => 
         array (
             'Dompdf\\' => 7,
-            'DeepCopy\\' => 9,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'setasign\\Fpdi\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/setasign/fpdi/src',
-        ),
         'Svg\\' => 
         array (
             0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg',
@@ -56,25 +39,9 @@ class ComposerStaticInit95c28ce00c66f07dd124361b6fb3cd4e
         array (
             0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
         ),
-        'Psr\\Log\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/log/src',
-        ),
-        'Psr\\Http\\Message\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-        ),
         'Picqer\\Barcode\\' => 
         array (
             0 => __DIR__ . '/..' . '/picqer/php-barcode-generator/src',
-        ),
-        'Mpdf\\PsrLogAwareTrait\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/mpdf/psr-log-aware-trait/src',
-        ),
-        'Mpdf\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
         ),
         'Masterminds\\' => 
         array (
@@ -87,10 +54,6 @@ class ComposerStaticInit95c28ce00c66f07dd124361b6fb3cd4e
         'Dompdf\\' => 
         array (
             0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
-        ),
-        'DeepCopy\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
     );
 
