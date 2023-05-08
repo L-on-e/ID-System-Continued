@@ -138,7 +138,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     var cpNumber = $(this).data('cpnumber');
     var emailAddress = $(this).data('emailaddress');
     var typeOfEmployment = $(this).data('typeofemployment');
-
+    console.log(typeOfEmployment)
     $(".modal-title #firstname").val(firstname);
     $(".modal-body #firstname").val(firstname);
     $(".modal-body #middlename").val(middleName);
@@ -307,7 +307,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     $(document).ready(function() {
       swal({
         title: "Successful!",
-        text: "Staff details edited!!.",
+        text: "Employee details edited!",
         type: "success"
       });
 
@@ -360,7 +360,11 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
                   <div class="input-field">
                     <label>Gender</label>
-                    <input type="text" name="gender" id="gender">
+                    <select id="gender" name="gender" required>
+                      <option value="">Select Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
                   </div>
 
                   <div class="input-field">
@@ -380,8 +384,19 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
                   <div class="input-field">
                     <label>Blood Type</label>
-                    <input type="text" name="bloodtype" id="bloodtype">
+                    <select id="bloodtype" name="bloodtype">
+                      <option value="">Select Blood Type</option>
+                      <option value="A+">A+</option>
+                      <option value="A-">A-</option>
+                      <option value="B+">B+</option>
+                      <option value="B-">B-</option>
+                      <option value="O+">O+</option>
+                      <option value="O-">O-</option>
+                      <option value="AB+">AB+</option>
+                      <option value="AB-">AB-</option>
+                    </select>
                   </div>
+
                 </div>
               </div>
               <div class="contact_info">
@@ -445,11 +460,19 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                   </div>
                   <div class="input-field">
                     <label>Division</label>
-                    <input type="text" name="division" id="division">
+                    <select id="division" name="division" required>
+                      <option value="Management Support Division">Management Support Division</option>
+                      <option value="Local Health Support Division">Local Health Support Division</option>
+                      <option value="Regulations, Licensing and Enforcement Division">Regulations, Licensing and Enforcement Division</option>
+                      <option value="Regional Director and Assistant Regional Director Division">Regional Director and Assistant Regional Director Division</option>
+                    </select>
                   </div>
                   <div class="input-field">
                     <label>Regular/SubAllotment</label>
-                    <input type="text" name="regular_suballotment" id="regular_suballotment">
+                    <select id="regular_suballotment" name="regular_suballotment" required>
+                      <option value="Regular">Regular</option>
+                      <option value="SubAllotment">SubAllotment</option>
+                    </select>
                   </div>
                   <div class="input-field">
                     <label>Contract Duration (start)</label>
@@ -473,7 +496,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                   </div>
                   <div class="input-field">
                     <label>Type of Employment</label>
-                    <input type="text" name="typeOfEmployment" id="typeofemployment">
+                    <select id="typeofemployment" name="typeOfEmployment" required>
+                      <option value="Regular">Regular</option>
+                      <option value="Contractual">Contractual</option>
+                    </select>
                   </div>
 
 
@@ -653,12 +679,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     <th>#</th>
                     <th>Name</th>
                     <th>Position</th>
-                    <th>Area Of Assignment</th>
+                    <th>Area of Assignment</th>
                     <th>Address</th>
-                    <th>Download</th>
                     <th>PRINT</th>
                     <th>EDIT</th>
                     <th>DELETE</th>
+                    <th>DOWNLOAD</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -702,31 +728,32 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                       $fullName = $firstName . " " . $lastName;
                     }
                     $contact = $cpNumber . "/" . $emailAddress;
-                    echo "<tr>    
+                    echo "<tr>
                             <td>$id</td>                                       
                             <td>$fullName</td>        	
                             <td>$position</td>
                             <td>$areaOfAssignment</td>
                             <td>$address</td>
-                            <td>
-                              <a  href='generate_pdf.php?id=$id' class='btn btn-success' title='click to download ID Card'  target='_blank'><span class='glyphicon glyphicon-download' style='color:white;'></span></a>
-                            </td>
-                            <td>
-                              <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
-                            </td>
-                            <td>
-                              <a data-toggle='modal' data-id='$id' 
-                                data-firstname='$firstName'  data-middlename='$middleName' data-lastname='$lastName' data-suffix='$suffix' data-gender='$gender' data-position='$position' data-areaofassignment='$areaOfAssignment' 
-                                data-division='$division' data-regular_suballotment='$regular_suballotment' data-contractduration_start='$contractDuration_start' data-contractduration_end='$contractDuration_end'
-                                data-inclusivedateofemployment='$inclusiveDateOfEmployment' data-salarygrade='$salaryGrade' data-salary='$salary' 
-                                data-prc='$prc'  data-address='$address' data-birthdate='$birthdate' data-placeofbirth='$placeOfBirth' data-nameofpersontonotify='$nameOfPersonToNotify' data-bloodtype='$bloodtype' 
-                                data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment' 
-                                class='open-updateProfile btn  btn-info' title='edit user details' href='#updateProfile'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
-			                      </td>				                 
-                            <td>
-                              <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
-                            </td>			 
-                          </tr>";
+                        " ./*<td>$contact</td>*/ "
+			                  <td>
+			                   <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
+                        </td>
+			                 <td>
+			                   <a data-toggle='modal' data-id='$id' 
+                         data-firstname='$firstName'  data-middlename='$middleName' data-lastname='$lastName' data-suffix='$suffix' data-gender='$gender' data-position='$position' data-areaofassignment='$areaOfAssignment' 
+                         data-division='$division' data-regular_suballotment='$regular_suballotment' data-contractduration_start='$contractDuration_start' data-contractduration_end='$contractDuration_end'
+                         data-inclusivedateofemployment='$inclusiveDateOfEmployment' data-salarygrade='$salaryGrade' data-salary='$salary' 
+                         data-prc='$prc'  data-address='$address' data-birthdate='$birthdate' data-placeofbirth='$placeOfBirth' data-nameofpersontonotify='$nameOfPersonToNotify' data-bloodtype='$bloodtype' 
+                         data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment' 
+                         class='open-updateProfile btn  btn-info' title='edit user details' href='#updateProfile'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
+			                 </td>				                 
+			                 <td>
+			                   <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
+			                 </td>		
+                       <td>
+                         <a data-id='generate_pdf.php?id=$id'  class='btn  btn-primary' title='download user' ><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
+                       </td>
+                             </tr>";
                   }
 
                   ?>
