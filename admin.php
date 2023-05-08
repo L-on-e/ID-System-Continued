@@ -307,7 +307,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     $(document).ready(function() {
       swal({
         title: "Successful!",
-        text: "Staff details edited!!.",
+        text: "Employee details edited!",
         type: "success"
       });
 
@@ -315,61 +315,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   </script>
 <?php session_destroy();
 } ?>
-
-<?php
-$sqluse = "SELECT * FROM Inorg ORDER BY id DESC ";
-$retrieve = mysqli_query($db, $sqluse);
-while ($foundk = mysqli_fetch_array($retrieve)) {
-  $name = $foundk['name'];
-  $website = $foundk['website'];
-  $phone = $foundk['Phone'];
-  $year = $foundk['year'];
-  $mail = $foundk['email'];
-  $idz = $foundk['id'];
-}
-
-?>
-
-<!-- <div id="Taxreceipted" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
-      <div class="modal-header" style="background:#222d32">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
-          <center>
-            PRINT IDs IN BULK
-          </center>
-        </h4>
-      </div>
-
-      <div class="modal-body">
-        <form action=".x.php" method="post" target="_blank">
-          <div class="input-group" style="margin-bottom:10px">
-            <span class="input-group-addon">From</span>
-            <input id="text" type="number" class="form-control" name="startpoint">
-          </div>
-          <div class="input-group" style="margin-bottom:10px">
-            <span class="input-group-addon">To</span>
-            <input type="number" class="form-control" name="endpoint">
-          </div>
-          <div class="input-group">
-            <span class="input-group-addon">Employee id starts @</span>
-            <input id="msg" type="text" class="form-control" name="receiptrange" placeholder="" value="<?php
-                                                                                                        // echo $idsx;
-                                                                                                        ?>" readonly="readonly">
-          </div>
-
-
-      </div>
-      <div class="modal-footer">
-        <input type="submit" class="btn btn-success" value="Submit" id="btns1" name="Change"> &nbsp;
-      </div>
-      </form>
-    </div>
-  </div>
-</div> -->
-
-
 
 <div id="updateProfile" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -734,9 +679,8 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                     <th>#</th>
                     <th>Name</th>
                     <th>Position</th>
-                    <th>AOA</th>
+                    <th>Area of Assignment</th>
                     <th>Address</th>
-                    <th>Employment Type</th>
                     <th>PRINT</th>
                     <th>EDIT</th>
                     <th>DELETE</th>
@@ -784,19 +728,16 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                       $fullName = $firstName . " " . $lastName;
                     }
                     $contact = $cpNumber . "/" . $emailAddress;
-                    echo "<tr>    <td>$id</td>                                       
-                          <td>$fullName</td>        	
-                          <td>$position</td>
+                    echo "<tr>
+                            <td>$id</td>                                       
+                            <td>$fullName</td>        	
+                            <td>$position</td>
                             <td>$areaOfAssignment</td>
-                           <td>$address</td>
-                           <td>$typeOfEmployment</td>
-			                 " ./*<td>$contact</td>*/ "
-			                 <td>
+                            <td>$address</td>
+                        " ./*<td>$contact</td>*/ "
+			                  <td>
 			                   <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
-                              </td>
-			                 <td>
-                       <a  href='card2.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
-                              </td>
+                        </td>
 			                 <td>
 			                   <a data-toggle='modal' data-id='$id' 
                          data-firstname='$firstName'  data-middlename='$middleName' data-lastname='$lastName' data-suffix='$suffix' data-gender='$gender' data-position='$position' data-areaofassignment='$areaOfAssignment' 
@@ -805,16 +746,12 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                          data-prc='$prc'  data-address='$address' data-birthdate='$birthdate' data-placeofbirth='$placeOfBirth' data-nameofpersontonotify='$nameOfPersonToNotify' data-bloodtype='$bloodtype' 
                          data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment' 
                          class='open-updateProfile btn  btn-info' title='edit user details' href='#updateProfile'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
-							 
 			                 </td>				                 
 			                 <td>
 			                   <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
-							 
 			                 </td>		
-                       
                        <td>
-                       <a data-id='$id'  class='open-Delete btn  btn-danger' title='download user' ><span class='glyphicon glyphicon-download' style='color:black;'></span></a>
-							 
+                         <a data-id='$id'  class='open-Delete btn  btn-primary' title='download user' ><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
                        </td>
                              </tr>";
                   }

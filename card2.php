@@ -109,17 +109,6 @@ font-family: sans-serif;
 }
 	</style>
 </head>
-<?php
-include_once("db_connect.php");
-
-$sqluse = "SELECT * FROM Inorg WHERE id=1 ";
-$retrieve = mysqli_query($db, $sqluse);
-$numb = mysqli_num_rows($retrieve);
-while ($foundk = mysqli_fetch_array($retrieve)) {
-	$profile = $foundk['pname'];
-	$name = $foundk['name'];
-}
-?>
 
 <body>
 	<script type="text/javascript">

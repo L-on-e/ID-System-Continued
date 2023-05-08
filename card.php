@@ -174,47 +174,6 @@ font-family: sans-serif;
 						$signaturePhoto = "admin/images/signature.png";
 				}
 
-				?>
-			</center>
-				<img src="<?= $imageSrc ?>" height="110px" width="110px" alt="image" style="margin-left:20%; margin-top:-3%;">
-			</center>
-			 <div class="container" align="center">
-
-				<p style="margin-top:-4%">&nbsp;</p>
-				<p style="margin-top:-4%">&nbsp;</p>
-				<p style="margin-top:-4%">&nbsp;</p>
-				<p style="margin-top:-4%">&nbsp;</p>
-				<p style="margin-top:-4%">&nbsp;</p>
-
-				<div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
-					<span style="font-size:24px;"><?php if (isset($firstName)) {
-														echo $firstName;
-													} ?></span>
-				</div>
-				<div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
-					<span><br><?php if (isset($lastName)) {
-									echo $lastName;
-								} ?></span>
-					<br>
-
-				</div>
-				<span style="position: absolute; left: 27%;top: 75%; font-size:9px; font-family: 'Lora';"><?php if (isset($position)) {
-																												echo $position;
-																											} ?></span>
-				<p style="margin-top:20%">&nbsp;</p>
-
-				<p style="position: absolute; top: 0; left: 58%; margin-top:114%; font-size:9px; font-family: 'Lora';"><?php if (isset($employeeID)) {
-																															echo $employeeID;
-																														} ?></p>
-				<!-- <img src="<?= $signaturePhoto ?>" height="110px" width="110px" alt="image" style='margin-left:20%; margin-top:0%;'>> -->
-				<p style="margin-top:-4%">&nbsp;</p>
-				<p style="margin-top:-4%">&nbsp;</p>
-				<p style="margin-top:-4%">&nbsp;</p>
-				<span class="vertical-text" style="position: absolute; top: 65%;white-space: pre-line"><?php if(isset($division)){ echo $division;} ?></span>
-
-
-
-
 				if ($typeOfEmployment == "Contractual"){
 					include "./printing/contractual.php";
 				}else{
