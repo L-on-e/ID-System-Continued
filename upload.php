@@ -34,6 +34,7 @@ if (isset($_POST['updateEmployeeDetails'])) {
     $pagibigNumber = mysqli_real_escape_string($db, $_POST['pagibigNumber']);
     $cpNumber = mysqli_real_escape_string($db, $_POST['cpNumber']);
     $emailAddress = mysqli_real_escape_string($db, $_POST['emailAddress']);
+    $typeOfEmployment = mysqli_real_escape_string($db, $_POST['typeOfEmployment']);
     $id = mysqli_real_escape_string($db, $_POST['page']);
     
     $date_contractDuration_start = strtotime($contractDuration_start);
@@ -79,7 +80,7 @@ if (isset($_POST['updateEmployeeDetails'])) {
             Position = '$position',    AreaOfAssignment = '$areaOfAssignment', Division = '$division', Regular_SubAllotment = '$regular_suballotment', ContractDuration_start = '$new_contractDuration_start',
             ContractDuration_end = '$new_contractDuration_end',    InclusiveDateOfEmployment = '$new_inclusiveDateOfEmployment', SalaryGrade = '$salaryGrade',    Salary = '$salary', PRC = '$prc',    Address = '$address',
             Birthdate = '$new_birthdate',    PlaceOfBirth = '$placeOfBirth', NameOfPersonToNotify = '$nameOfPersonToNotify', Bloodtype = '$bloodType',    TINNumber = '$tinNumber', Philhealth = '$philhealth',    SSS = '$sss', PagIbigNumber = '$pagibigNumber', CPNumber = '$cpNumber', EmailAddress = '$emailAddress', Signature = '$signaturePhotoName',    ProfilePhoto = '$profilePhotoName'
-            WHERE id='$id' ";
+            , TypeOfEmployment = '$typeOfEmployment' WHERE id='$id' ";
         $db->query($quer) or die('Errorr, query failed to update');
 
         $_SESSION['pass'] = "okjs";
@@ -120,6 +121,7 @@ if (isset($_POST['addEmployee'])) {
         $pagibigNumber = mysqli_real_escape_string($db, $_POST['pagibigNumber']);
         $cpNumber = mysqli_real_escape_string($db, $_POST['cpNumber']);
         $emailAddress = mysqli_real_escape_string($db, $_POST['emailAddress']);
+        $typeOfEmployment = mysqli_real_escape_string($db, $_POST['typeOfEmployment']);
 
         $signaturePhotoName = $_FILES['sigFiled']['name'];
         $signaturePhototmpName = $_FILES['sigFiled']['tmp_name'];
@@ -151,11 +153,11 @@ if (isset($_POST['addEmployee'])) {
 
             $query = "INSERT INTO Employee (Employee_ID,FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment, Regular_SubAllotment, ContractDuration_start,
             ContractDuration_end, InclusiveDateOfEmployment, SalaryGrade, Salary, PRC, Address, Birthdate, PlaceOfBirth, NameOfPersonToNotify, Bloodtype,TINNumber,
-            Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto, Division) " . "VALUES 
+            Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto, Division, TypeOfEmployment) " . "VALUES 
             ('$employeeID','$firstName','$middleName', '$lastName','$suffix','$gender','$position','$areaOfAssignment','$regular_suballotment','$new_contractDuration_start',
             '$new_contractDuration_end', '$new_inclusiveDateOfEmployment','$salaryGrade', '$salary', '$prc', '$address',
             '$new_birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
-            '$cpNumber','$emailAddress','$signaturePhotoName','$profilePhotoName','$division')";
+            '$cpNumber','$emailAddress','$signaturePhotoName','$profilePhotoName','$division','$typeOfEmployment')";
             $db->query($query) or die('Error1, query failed');
 
             $memberadd = "tyy";
@@ -233,70 +235,6 @@ if (isset($_FILES['file2']['name']) && $_POST['Change']) {
     }
 }
 
-if (isset($_POST['orginitial'])) {
-
-    $orgname = mysqli_real_escape_string($db, $_POST["orgname"]); //Email variable
-    $orgphone = mysqli_real_escape_string($db, $_POST["orgphone"]); //password variable
-    $orgmail = mysqli_real_escape_string($db, $_POST["orgemail"]); //institution variable
-    $orgwebsite = mysqli_real_escape_string($db, $_POST["orgwebsite"]); //phone variable
-    $year = mysqli_real_escape_string($db, $_POST["orgyear"]); //Firstname variable
-    $pagez = mysqli_real_escape_string($db, $_POST["page"]);
-    $orgName = $_FILES['filed']['name'];
-    $orgtmpName = $_FILES['filed']['tmp_name'];
-    $orgSize = $_FILES['filed']['size'];
-    $orgType = $_FILES['filed']['type'];
-
-    $sqln = "SELECT * FROM Inorg  WHERE name='$orgname' && website='$orgwebsite'";
-    $resultn = mysqli_query($db, $sqln);
-    if ($rowcount = mysqli_num_rows($resultn) == 0) { //$date= date("d.m.y");
-        move_uploaded_file($orgtmpName, 'media/' . $orgName);
-        $enter = "INSERT INTO Inorg (name,website,year,email,Phone,pname,size,content,type) 
-                               	     VALUES('$orgname','$orgwebsite','$year','$orgmail','$orgphone','$orgName','$orgSize','$orgName','$orgType')";
-        $db->query($enter);
-
-        $_SESSION['regk'] = "Pamzey";
-
-        header("Location:admin.php");
-    } else {
-        echo "Contents arleady exists";
-        //exit;
-
-    }
-}
-
-if (isset($_POST['orgupdate'])) {
-
-    $orgname = mysqli_real_escape_string($db, $_POST["orgname"]); //Email variable
-    $orgphone = mysqli_real_escape_string($db, $_POST["orgphone"]); //password variable
-    $orgmail = mysqli_real_escape_string($db, $_POST["orgemail"]); //institution variable
-    $orgwebsite = mysqli_real_escape_string($db, $_POST["orgwebsite"]); //phone variable
-    $year = mysqli_real_escape_string($db, $_POST["orgyear"]); //Firstname variable
-    $pagez = mysqli_real_escape_string($db, $_POST["page"]);
-    $idz = mysqli_real_escape_string($db, $_POST["pageid"]);
-
-    $orgName = $_FILES['filed']['name'];
-    $orgtmpName = $_FILES['filed']['tmp_name'];
-    $orgSize = $_FILES['filed']['size'];
-    $orgType = $_FILES['filed']['type'];
-
-    $sqln = "SELECT * FROM Inorg  WHERE id='$idz' ";
-    $resultn = mysqli_query($db, $sqln);
-    if ($rowcount = mysqli_num_rows($resultn) != 0) {
-        move_uploaded_file($orgtmpName, 'media/' . $orgName);
-        $enter = "UPDATE Inorg SET name='$orgname',website='$orgwebsite',year='$year',email='$orgmail',Phone='$orgphone',pname='$orgName',content='$orgName',type='$orgType',size='$orgSize' WHERE id='$idz' ";
-        $db->query($enter);
-
-        $_SESSION['regX'] = "Pamzey";
-
-        header("Location:admin.php");
-    } else {
-        echo "Contents arleady exists";
-        //exit;
-
-    }
-}
-
-
 if (isset($_POST["bulk"])) {
     $file = $_FILES['file']['tmp_name'];
     $handle = fopen($file, "r");
@@ -333,6 +271,7 @@ if (isset($_POST["bulk"])) {
         $signaturePhotoName =  $filesop[26];
         $profilePhotoName =  $filesop[27];
         $division = $filesop[28];
+        $typeOfEmployment = $filesop[29];
         
         $date_contractDuration_start = strtotime($contractDuration_start);
         $new_contractDuration_start = date('Y-m-d', $date_contractDuration_start);
@@ -356,11 +295,11 @@ if (isset($_POST["bulk"])) {
         if ($count > 1) {
             $query = "INSERT INTO Employee (Employee_ID,FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment, Regular_SubAllotment, ContractDuration_start,
             ContractDuration_end, InclusiveDateOfEmployment, SalaryGrade, Salary, PRC, Address, Birthdate, PlaceOfBirth, NameOfPersonToNotify, Bloodtype,TINNumber,
-            Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto, Division) " . "VALUES 
+            Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto, Division, TypeOfEmployment) " . "VALUES 
             ('$employeeID','$firstName','$middleName', '$lastName','$suffix','$gender','$position','$areaOfAssignment','$regular_suballotment','$new_contractDuration_start',
             '$new_contractDuration_end', '$new_inclusiveDateOfEmployment','$salaryGrade', '$salary', '$prc', '$address',
             '$new_birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
-            '$cpNumber','$emailAddress','$storedSignatureLink','$storedImageLink','$division')";
+            '$cpNumber','$emailAddress','$storedSignatureLink','$storedImageLink','$division','$typeOfEmployment')";
             $db->query($query) or die('Error1, query failed');
             
             $c = $c + 1;

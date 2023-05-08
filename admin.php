@@ -137,7 +137,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     var pagIbigNumber = $(this).data('pagibignumber');
     var cpNumber = $(this).data('cpnumber');
     var emailAddress = $(this).data('emailaddress');
-
+    var typeOfEmployment = $(this).data('typeofemployment');
+    console.log(typeOfEmployment)
     $(".modal-title #firstname").val(firstname);
     $(".modal-body #firstname").val(firstname);
     $(".modal-body #middlename").val(middleName);
@@ -165,6 +166,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     $(".modal-body #pagibignumber").val(pagIbigNumber);
     $(".modal-body #cpnumber").val(cpNumber);
     $(".modal-body #emailaddress").val(emailAddress);
+    $(".modal-body #typeofemployment").val(typeOfEmployment);
     $(".modal-body #employeeid").val(id);
   });
 </script>
@@ -314,7 +316,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <?php session_destroy();
 } ?>
 
-
 <?php
 $sqluse = "SELECT * FROM Inorg ORDER BY id DESC ";
 $retrieve = mysqli_query($db, $sqluse);
@@ -414,7 +415,11 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
 
                   <div class="input-field">
                     <label>Gender</label>
-                    <input type="text" name="gender" id="gender">
+                    <select id="gender" name="gender" required>
+                      <option value="">Select Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
                   </div>
 
                   <div class="input-field">
@@ -434,8 +439,19 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
 
                   <div class="input-field">
                     <label>Blood Type</label>
-                    <input type="text" name="bloodtype" id="bloodtype">
+                    <select id="bloodtype" name="bloodtype">
+                      <option value="">Select Blood Type</option>
+                      <option value="A+">A+</option>
+                      <option value="A-">A-</option>
+                      <option value="B+">B+</option>
+                      <option value="B-">B-</option>
+                      <option value="O+">O+</option>
+                      <option value="O-">O-</option>
+                      <option value="AB+">AB+</option>
+                      <option value="AB-">AB-</option>
+                    </select>
                   </div>
+
                 </div>
               </div>
               <div class="contact_info">
@@ -499,11 +515,19 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                   </div>
                   <div class="input-field">
                     <label>Division</label>
-                    <input type="text" name="division" id="division">
+                    <select id="division" name="division" required>
+                      <option value="Management Support Division">Management Support Division</option>
+                      <option value="Local Health Support Division">Local Health Support Division</option>
+                      <option value="Regulations, Licensing and Enforcement Division">Regulations, Licensing and Enforcement Division</option>
+                      <option value="Regional Director and Assistant Regional Director Division">Regional Director and Assistant Regional Director Division</option>
+                    </select>
                   </div>
                   <div class="input-field">
                     <label>Regular/SubAllotment</label>
-                    <input type="text" name="regular_suballotment" id="regular_suballotment">
+                    <select id="regular_suballotment" name="regular_suballotment" required>
+                      <option value="Regular">Regular</option>
+                      <option value="SubAllotment">SubAllotment</option>
+                    </select>
                   </div>
                   <div class="input-field">
                     <label>Contract Duration (start)</label>
@@ -524,6 +548,13 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                   <div class="input-field">
                     <label>Salary</label>
                     <input type="text" name="salary" id="salary">
+                  </div>
+                  <div class="input-field">
+                    <label>Type of Employment</label>
+                    <select id="typeofemployment" name="typeOfEmployment" required>
+                      <option value="Regular">Regular</option>
+                      <option value="Contractual">Contractual</option>
+                    </select>
                   </div>
 
 
@@ -659,24 +690,11 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                 <div class="profile_img">
                   <span class="prfil-img">
-                    <?php
-                    $sql = "SELECT * FROM Profilepictures WHERE ids='$id' && Category='User'";
-                    $rget = mysqli_query($db, $sql);
-                    $num = mysqli_num_rows($rget);
-                    if ($num != 0) {
-                      while ($found = mysqli_fetch_array($rget)) {
-                        $profile = $found['name'];
-                      }
-                      echo "<img src='admin/images/$profile' height='50px' width='50px' alt=''>";
-                    } else {
-                      echo "<img src='admin/images/profile.png' height='50px' width='50px' alt=''>";
-                    }
-
-                    ?>
+                    <img src='admin/images/profile.png' height='50px' width='50px' alt=''>
                   </span>
                   <div class="user-name">
                     <p style="color:#1D809F;"><?php if (isset($sirname)) {
-                                                 echo "<strong>" . $firstname . "</strong>";
+                                                echo "<strong>" . $firstname . "</strong>";
                                               } ?>
                     </p>
                     <span>Administrator&nbsp;<img src='admin/images/dot.png' height='15px' width='15px' alt=''>
@@ -688,9 +706,6 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                 </div>
               </a>
               <ul class="dropdown-menu drp-mnu">
-                <!-- <li>
-                  <a data-toggle='modal' data-id='<?php echo $id; ?>' href='#Updatepicture' class='open-Updatepicture'><i class="fa fa-user"></i>Change profile picture</a>
-                </li> -->
                 <li> <a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
               </ul>
             </li>
@@ -719,13 +734,13 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                     <th>#</th>
                     <th>Name</th>
                     <th>Position</th>
-                    <th>Area Of Assignment</th>
+                    <th>AOA</th>
                     <th>Address</th>
-                    <th>Contact</th>
-                    <th>Contractual</th>
-                    <th>Regular</th>
+                    <th>Employment Type</th>
+                    <th>PRINT</th>
                     <th>EDIT</th>
                     <th>DELETE</th>
+                    <th>DOWNLOAD</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -761,10 +776,11 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                     $pagIbigNumber = $found['PagIbigNumber'];
                     $cpNumber = $found['CPNumber'];
                     $emailAddress = $found['EmailAddress'];
+                    $typeOfEmployment = $found['TypeOfEmployment'];
 
-                    if($suffix != null){
+                    if ($suffix != null) {
                       $fullName = $firstName . " " . $lastName . " " . $suffix;
-                    }else{
+                    } else {
                       $fullName = $firstName . " " . $lastName;
                     }
                     $contact = $cpNumber . "/" . $emailAddress;
@@ -773,7 +789,8 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                           <td>$position</td>
                             <td>$areaOfAssignment</td>
                            <td>$address</td>
-			                 "./*<td>$contact</td>*/"
+                           <td>$typeOfEmployment</td>
+			                 " ./*<td>$contact</td>*/ "
 			                 <td>
 			                   <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
                               </td>
@@ -786,14 +803,19 @@ while ($foundk = mysqli_fetch_array($retrieve)) {
                          data-division='$division' data-regular_suballotment='$regular_suballotment' data-contractduration_start='$contractDuration_start' data-contractduration_end='$contractDuration_end'
                          data-inclusivedateofemployment='$inclusiveDateOfEmployment' data-salarygrade='$salaryGrade' data-salary='$salary' 
                          data-prc='$prc'  data-address='$address' data-birthdate='$birthdate' data-placeofbirth='$placeOfBirth' data-nameofpersontonotify='$nameOfPersonToNotify' data-bloodtype='$bloodtype' 
-                         data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' 
+                         data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment' 
                          class='open-updateProfile btn  btn-info' title='edit user details' href='#updateProfile'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
 							 
 			                 </td>				                 
 			                 <td>
 			                   <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
 							 
-			                 </td>			 
+			                 </td>		
+                       
+                       <td>
+                       <a data-id='$id'  class='open-Delete btn  btn-danger' title='download user' ><span class='glyphicon glyphicon-download' style='color:black;'></span></a>
+							 
+                       </td>
                              </tr>";
                   }
 

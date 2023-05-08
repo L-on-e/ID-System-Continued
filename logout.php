@@ -20,4 +20,3 @@ if (isset($_COOKIE['userid'])) {
 } else {
 	header("Location: index.php");
 }
-?>

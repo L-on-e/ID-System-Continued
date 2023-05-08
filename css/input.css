@@ -43,7 +43,7 @@ body{
     position: relative;
     margin-left: 100px;
     margin-top: 16px;
-    min-height: 1000px;
+    min-height: 1100px;
     background-color: #fff;
     overflow: hidden;
 }
@@ -70,7 +70,7 @@ form.secActive .form.first{
 .container form .title{
     display: block;
     margin-bottom: 8px;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     margin: 6px 0;
     color: #333;
@@ -173,7 +173,7 @@ form .buttons button , .backBtn{
 .imports{
     display: flex;
     position: absolute;
-    margin-top: -1105px;
+    margin-top: -1205px;
 }
 
 .require{

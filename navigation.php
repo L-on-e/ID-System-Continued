@@ -21,90 +21,6 @@ while ($found = mysqli_fetch_array($ret)) {
 </head>
 
 <body>
-<div id="Initialisation" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
-      <div class="modal-header" style="background:#222d32">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
-          <center>
-            SYSTEM INFORMATION INITIALIZATION
-          </center>
-        </h4>
-      </div>
-      <form method="post" action="upload.php" enctype='multipart/form-data'>
-
-        <div class="modal-body">
-          <center>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp;Org Name:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="orgname"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Phone:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="orgphone"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Email:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="orgemail"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp;&nbsp;Website:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="orgwebsite"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">Active Year:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="orgyear"></span></p>
-            Attach Organisation Logo:(<h7 style="color:red">Make sure it is a transparent image</h7>)<input name='filed' type='file' id='filed'>
-            <input type="hidden" name="page" value="admin.php" />
-          </center>
-        </div>
-        <div class="modal-footer">
-          <input type="submit" class="btn btn-success" value="Finish" id="addmember" name="orginitial"> &nbsp;
-          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-        </div>
-    </div>
-    </form>
-  </div>
-</div>
-
-<div id="Initialisation2" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
-      <div class="modal-header" style="background:#222d32">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
-          <center>
-            EDIT SYSTEM INFORMATION
-          </center>
-        </h4>
-      </div>
-      <form method="post" action="upload.php" enctype='multipart/form-data'>
-
-        <div class="modal-body">
-          <center>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp;Org Name:<label style="color: red;font-size:20px;">*</label>
-                <input style="width:270px;" type="text" name="orgname" value="<?php if (isset($name)) {
-                                                                                echo $name;
-                                                                              } ?>"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Phone:<label style="color: red;font-size:20px;">*</label>
-                <input style="width:270px;" type="text" name="orgphone" value="<?php if (isset($phone)) {
-                                                                                  echo $phone;
-                                                                                } ?>"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Email:<label style="color: red;font-size:20px;">*</label>
-                <input style="width:270px;" type="text" name="orgemail" value="<?php if (isset($mail)) {
-                                                                                  echo $mail;
-                                                                                } ?>"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp;&nbsp;Website:<label style="color: red;font-size:20px;">*</label>
-                <input style="width:270px;" type="text" name="orgwebsite" value="<?php if (isset($website)) {
-                                                                                    echo $website;
-                                                                                  } ?>"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">Active Year:<label style="color: red;font-size:20px;">*</label>
-                <input style="width:270px;" type="text" name="orgyear" value="<?php if (isset($year)) {
-                                                                                echo $year;
-                                                                              } ?>"></span></p>
-            Attach Organisation Logo:(<h7 style="color:red">Make sure it is a transparent image</h7>)<input name='filed' type='file' id='filed'>
-            <input type="hidden" name="page" value="admin.php" />
-            <input type="hidden" name="pageid" value="<?php echo $idz; ?>" />
-
-          </center>
-        </div>
-        <div class="modal-footer">
-          <input type="submit" class="btn btn-success" value="Update" id="addmember" name="orgupdate"> &nbsp;
-          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-        </div>
-    </div>
-    </form>
-  </div>
-</div>
   <div id="printBulk" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
@@ -186,30 +102,7 @@ while ($found = mysqli_fetch_array($ret)) {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-
-
-          <?php
-          $sqln = "SELECT * FROM Inorg ";
-          $rgetb = mysqli_query($db, $sqln);
-          $numb = mysqli_num_rows($rgetb);
-          if ($numb != 0) {
-            while ($foundl = mysqli_fetch_array($rgetb)) {
-              $profile = $foundl['pname'];
-            }
-            echo "<center><img src='media/$profile'  width='63%' height='140px' alt=''></center>";
-          } else {
-
-
-
-          ?>
-            <h1>
-              <a class="navbar-brand" href="index.html"><span class="fa fa-area-chart">
-
-                </span>MAIN MENU<span class="dashboard_text"></span>
-              </a>
-            </h1>
-          <?php } ?>
-
+          <center><img src='media/DOH-Logo.png' width='63%' height='140px' alt=''></center>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="sidebar-menu">
@@ -222,21 +115,7 @@ while ($found = mysqli_fetch_array($ret)) {
               </a>
             </li>
             <li class="treeview">
-              <a href="#">
-                <i class="fa fa-cog"></i>
-                <span>Initialisation</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a data-toggle='modal' data-id='' href='#Initialisation' class='open-Initial'><i class="fa fa-plus"></i>Add System Info</a></li>
-                <li><a data-toggle='modal' data-id='' href='#Initialisation2' class='open-Initial2'><i class="fa fa-minus"></i>Edit System Info</a></li>
-              </ul>
-            </li>
-            <!-- <li class="treeview">
-              <a data-toggle='modal' data-id='' href='#Useradd' class='open-adduser'><i class="fa fa-user"></i>Add Employee</a>
-            </li> -->
-            <li class="treeview">
-              <a data-toggle='modal' data-id='' href='./useradd.php' class='open-adduser'><i class="fa fa-user-plus"></i>Add Employee (New)</a>
+              <a data-toggle='modal' data-id='' href='./useradd.php' class='open-adduser'><i class="fa fa-user-plus"></i>Add Employee</a>
             </li>
             <li class="treeview">
               <a href="bulk.php"><i class='fa fa-print'></i>Bulk registration</a>
@@ -256,7 +135,7 @@ while ($found = mysqli_fetch_array($ret)) {
     $('.sidebar-menu').SidebarNav()
   </script>
 
-   <!-- new added graphs chart js-->
+  <!-- new added graphs chart js-->
   <script src="admin/js/Chart.bundle.js"></script>
   <script src="admin/js/utils.js"></script>
 

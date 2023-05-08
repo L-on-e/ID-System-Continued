@@ -45,7 +45,7 @@ body::-webkit-scrollbar {
 }
 .container form{
     position: relative;
-    min-height: 1000px;
+    min-height: 1100px;
     background-color: #fff;
     padding-right: 30px;
 }
@@ -72,7 +72,7 @@ form.secActive .form.first{
 .container form .title{
     display: block;
     margin-bottom: 8px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     margin: 6px 0;
     color: #333;

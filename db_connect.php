@@ -9,61 +9,6 @@ $db->query("CREATE DATABASE IF NOT EXISTS `staff_db`");
 
 mysqli_select_db($db, "staff_db");
 
-
-
-
-$stableYZ = "CREATE TABLE IF NOT EXISTS Inorg (
-                 id int(11) NOT NULL auto_increment,
-                 name varchar(300)NOT NULL,
-                 Phone varchar(300)NOT NULL,
-                 email varchar(100)NOT NULL,
-                 website varchar(300)NOT NULL,
-                 year varchar(10)NOT NULL,
-                 pname varchar(1000)NOT NULL,
-                 type varchar(30)NOT NULL,
-                 size decimal(10)NOT NULL,
-                 content longblob NOT NULL,
-                 PRIMARY KEY(id) )";
-$db->query($stableYZ);
-
-$stableZ = "CREATE TABLE IF NOT EXISTS Profilepictures (
-                 id int(11) NOT NULL auto_increment,
-                 ids varchar(30)NOT NULL,
-                 Category varchar(30)NOT NULL,
-                 name varchar(1000)NOT NULL,
-                 type varchar(30)NOT NULL,
-                 Size decimal(10)NOT NULL,
-                 content longblob NOT NULL,
-                 PRIMARY KEY(id) )";
-$db->query($stableZ);
-
-$stable1 = "CREATE TABLE IF NOT EXISTS Files (
-                 id int(11) NOT NULL auto_increment,
-                 Title varchar(300)NOT NULL,
-                 Name varchar(1000)NOT NULL,
-                 Type varchar(30)NOT NULL,
-                 Size decimal(10) NULL,
-                 content longblob NOT NULL,
-                 PRIMARY KEY(id) )";
-$db->query($stable1);
-
-// $stable56 = "CREATE TABLE IF NOT EXISTS Users (
-//                   id int(11) NOT NULL auto_increment,
-//                   Firstname varchar(300)NOT NULL,
-//                   Sirname varchar(300)NOT NULL,
-//                   Mtitle varchar(30)NOT NULL,                                 
-//                   Ranks varchar(30)NOT NULL,                                 
-//                   Department varchar(300)NOT NULL,
-//                   Email varchar(300)NOT NULL,
-//                   Staffid varchar(300)NOT NULL,
-//                   Online varchar(300)NOT NULL,
-//                   Picname varchar(1000)NOT NULL,
-//                   Time bigint(30)NOT NULL,                         
-//                   PRIMARY KEY(id) )";
-// $db->query($stable56);
-
-
-
 $stable4 = "CREATE TABLE IF NOT EXISTS Administrator (
                   id int(11) NOT NULL auto_increment,
                   Firstname varchar(30)NOT NULL,
@@ -77,6 +22,7 @@ $db->query($stable4);
 
 $createTableQuery = "CREATE TABLE IF NOT EXISTS Employee (
                   ID int(11) NOT NULL AUTO_INCREMENT,
+                  Employee_ID varchar(50) NOT NULL,
                   FirstName varchar(50) NOT NULL,
                   MiddleName varchar(30) NOT NULL,
                   LastName varchar(50) NOT NULL,
@@ -84,6 +30,7 @@ $createTableQuery = "CREATE TABLE IF NOT EXISTS Employee (
                   Gender varchar(10) NOT NULL,
                   Position varchar(50) NOT NULL,
                   AreaOfAssignment varchar(80) NOT NULL,
+                  Division varchar(80) NOT NULL,
                   Regular_SubAllotment varchar(20) NOT NULL,
                   ContractDuration_start date NOT NULL,
                   ContractDuration_end date NOT NULL,
@@ -104,6 +51,7 @@ $createTableQuery = "CREATE TABLE IF NOT EXISTS Employee (
                   EmailAddress varchar(50) NOT NULL,
                   Signature varchar(100) NOT NULL,
                   ProfilePhoto mediumtext NOT NULL,
+                  TypeOfEmployment mediumtext NOT NULL,
                   PRIMARY KEY (id) )";
 $db->query($createTableQuery);
 

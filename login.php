@@ -18,4 +18,3 @@ if (isset($_POST['login_button'])) {
 		echo "Invalid Email or Password"; // wrong details 
 	}
 }
-?>
