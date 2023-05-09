@@ -157,10 +157,10 @@
                             <div class="input-field">
                                 <label>Division<label style="color:red">*</label></label>
                                 <select id="division" name="division" required>
-                                    <option value="Management Support Division">Management Support Division</option>
-                                    <option value="Local Health Support Division">Local Health Support Division</option>
-                                    <option value="Regulations, Licensing and Enforcement Division">Regulations, Licensing and Enforcement Division</option>
-                                    <option value="Regional Director and Assistant Regional Director Division">Regional Director and Assistant Regional Director Division</option>
+                                    <option value="MANAGEMENT SUPPORT DIVISION">Management Support Division</option>
+                                    <option value="LOCAL HEALTH SUPPORT DIVISION">Local Health Support Division</option>
+                                    <option value="REGULATIONS, LICENSING AND ENFORCEMENT DIVISION">Regulations, Licensing and Enforcement Division</option>
+                                    <option value="REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION">Regional Director and Assistant Regional Director Division</option>
                                 </select>
                             </div>
                             <div class="input-field">
