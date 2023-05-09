@@ -79,13 +79,43 @@ if (isset($_POST['updateEmployeeDetails'])) {
             UPDATE Employee SET FirstName = '$firstName', MiddleName = '$middleName', LastName = '$lastName', Suffix = '$suffix',    Gender = '$gender',
             Position = '$position',    AreaOfAssignment = '$areaOfAssignment', Division = '$division', Regular_SubAllotment = '$regular_suballotment', ContractDuration_start = '$new_contractDuration_start',
             ContractDuration_end = '$new_contractDuration_end',    InclusiveDateOfEmployment = '$new_inclusiveDateOfEmployment', SalaryGrade = '$salaryGrade',    Salary = '$salary', PRC = '$prc',    Address = '$address',
-            Birthdate = '$new_birthdate',    PlaceOfBirth = '$placeOfBirth', NameOfPersonToNotify = '$nameOfPersonToNotify', Bloodtype = '$bloodType',    TINNumber = '$tinNumber', Philhealth = '$philhealth',    SSS = '$sss', PagIbigNumber = '$pagibigNumber', CPNumber = '$cpNumber', EmailAddress = '$emailAddress', Signature = '$signaturePhotoName',    ProfilePhoto = '$profilePhotoName',
-            TypeOfEmployment = '$typeOfEmployment'
-            WHERE id='$id' ";
+
+            Birthdate = '$new_birthdate',    PlaceOfBirth = '$placeOfBirth', NameOfPersonToNotify = '$nameOfPersonToNotify', Bloodtype = '$bloodType',    TINNumber = '$tinNumber', Philhealth = '$philhealth',    SSS = '$sss', PagIbigNumber = '$pagibigNumber', CPNumber = '$cpNumber', EmailAddress = '$emailAddress', Signature = '$signaturePhotoName',    ProfilePhoto = '$profilePhotoName'
+            , TypeOfEmployment = '$typeOfEmployment' WHERE id='$id' ";
         $db->query($quer) or die('Errorr, query failed to update');
 
         $_SESSION['pass'] = "okjs";
         header("Location:admin.php");
+    }
+}
+
+if (isset($_POST['addAdmin'])) {
+    if (
+        $_POST['firstName'] != '' && $_POST['lastName'] != '' && $_POST['email'] != '' && $_POST['password'] != ''
+    ) {
+        $pagex = mysqli_real_escape_string($db, $_POST['page']);
+        $firstName = mysqli_real_escape_string($db, $_POST['firstName']);
+        $lastName = mysqli_real_escape_string($db, $_POST['lastName']);
+        $email = mysqli_real_escape_string($db, $_POST['email']);
+        $password = mysqli_real_escape_string($db, $_POST['password']);
+        echo($password);
+
+        $check = "SELECT * FROM administrator WHERE Firstname='$firstName' && Lastname='$lastName'";
+        $checks = mysqli_query($db, $check);
+        $found = mysqli_num_rows($checks);
+        if ($found == 0) {
+            $query = "INSERT INTO administrator (Firstname,Lastname,Password,Email) " . "VALUES ('$firstName','$lastName','$password','$email')";
+            $db->query($query) or die('Error1, query failed');
+
+
+            $memberadd = "tyy";
+            $_SESSION['memberadded'] = $memberadd;
+            header("Location:$pagex"); //member added successfully
+        } else {
+            $_SESSION['memberexist'] = "member already exist";
+            header("Location:$pagex");
+        }
+    } else {
     }
 }
 
