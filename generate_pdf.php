@@ -63,12 +63,12 @@ $style = "<style>" . file_get_contents("./pdfstyle.css") . "</style>";
 $html = "<html>
             $style
             <body>
-            <div id='bg'style='margin-left:-21%; margin-top:-21%'>
+            <div id='bg' style='margin-left:-21%; margin-top:-20%'>
                 <div id='id'>
                     <br><br><br><br><br><br><br>
                     <center>
                     </center>
-                    <img src='$imageSrc' height='110px' width='110px' alt='image' style='margin-left:20%; margin-top:-3%;'>
+                    <img src='$imageSrc' height='110px' width='110px' alt='image' style='margin-left:30%; margin-top:-3%;'>
                     </center>
                     <div class='container' align='center'>
 
