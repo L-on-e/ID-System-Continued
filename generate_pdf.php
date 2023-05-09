@@ -63,7 +63,7 @@ $style = "<style>" . file_get_contents("./pdfstyle.css") . "</style>";
 $html = "<html>
             $style
             <body>
-            <div id='bg'style='margin-left:-21%; margin-top:-20%'>
+            <div id='bg'style='margin-left:-21%; margin-top:-21%'>
                 <div id='id'>
                     <br><br><br><br><br><br><br>
                     <center>

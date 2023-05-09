@@ -72,10 +72,10 @@ body {
 
 .vertical-text {
     writing-mode: vertical-rl;
-    transform: rotate(180deg);
+    transform: rotate(-90deg);
     position: absolute;
-    left: 5px;
-    bottom: 30px;
+    left: -115px;
+    bottom: 115px;
     /* Adjust to desired value */
     /* Adjust to desired value */
     font-size: 13px;
