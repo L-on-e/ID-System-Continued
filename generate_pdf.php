@@ -58,17 +58,92 @@ if (filter_var($signature, FILTER_VALIDATE_URL)) {
 
 $dompdf = new Dompdf\Dompdf(["chroot" => __DIR__]);
 $bg = './images/bg1.png';
-$style = "<style>" . file_get_contents("./pdfstyle.css") . "</style>";
+$style = "<style>
+#id {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.88;
+    font-family: sans-serif;
+    transition: 0.4s;
+    background-color: #FFFFFF;
+    border-radius: 2%;
 
+}
+
+@font-face {
+    font-family: 'Barlow';
+    src: url('bootstrap/fonts/barlow-regular.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('bootstrap/fonts/lora-regular.ttf');
+    font-weight: normal;
+}
+
+#id::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('./images/bg1.png');
+    background-repeat: repeat-x;
+    background-size: 312px 432px;
+    opacity: 1;
+    z-index: -1;
+    text-align: center;
+    border: 1px solid #000;
+
+}
+
+.container {
+    font-size: 12px;
+    font-family: sans-serif;
+
+}
+
+.id-1 {
+    transition: 0.4s;
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    font-size: 16px;
+    font-family: sans-serif;
+    // float: left;
+    margin: auto;
+    margin-top: 370px;
+    border-radius: 2%;
+    border: 1px solid #000;
+
+
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    position: absolute;
+    left: 5px;
+    bottom: 30px;
+    /* Adjust to desired value */
+    /* Adjust to desired value */
+    font-size: 13px;
+    font-family: 'Barlow';
+    font-weight: bold;
+    white-space: nowrap;
+    color: white;
+}
+</style>";
 $html = "<html>
             $style
             <body>
-            <div id='bg' style='margin-left:-21%; margin-top:-20%'>
+            <div id='bg'>
                 <div id='id'>
                     <br><br><br><br><br><br><br>
                     <center>
                     </center>
-                    <img src='$imageSrc' height='110px' width='110px' alt='image' style='margin-left:30%; margin-top:-3%;'>
+                    <img src='$imageSrc' height='110px' width='110px' alt='image' style='margin-left:20%; margin-top:-3%;'>
                     </center>
                     <div class='container' align='center'>
 
@@ -142,10 +217,7 @@ $html = "<html>
             </body>
         </html>";
 
-//$dompdf->setPaper([0, 0, 234, 324], 'portrait');
-//$dompdf->setPaper([-150, -40, 264.17, 365.71], 'portrait');
 $dompdf->setPaper([0, 0, 234, 324], 'portrait');
-
 $dompdf->loadHtml($html);
 $dompdf->render();
 

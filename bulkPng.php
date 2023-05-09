@@ -1,7 +1,17 @@
 <?php
 include "db_connect.php";
+// $fromm = $_POST['startpoint'];
+// $too = $_POST['endpoint'];
+// $startsat = $_POST['receiptrange'];
+
+// $_SESSION['from'] = $fromm;
+// $_SESSION['to'] = $too;
+// $_SESSION['receiptrange'] = $startsat;
+
+$from = 1;
+$to = 3;
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html>
 
 <head>
     <title>card</title>
@@ -11,22 +21,25 @@ include "db_connect.php";
         }
 
         #bg {
-            width: 312vw;
-            height: 432vw;
+            width: 1000px;
+            height: 432px;
+
             margin: 60px;
             float: left;
-            transform: scale(5.185);
+
         }
 
-        #id {
+        .id {
             width: 312px;
             height: 432px;
             position: absolute;
             opacity: 0.88;
             font-family: sans-serif;
+
             transition: 0.4s;
             background-color: #FFFFFF;
             border-radius: 2%;
+
         }
 
         @font-face {
@@ -41,25 +54,26 @@ include "db_connect.php";
             font-weight: normal;
         }
 
-        #id::before {
+        .id::before {
             content: "";
             position: absolute;
             width: 100%;
             height: 100%;
-            background-image: url('./images//bg4.png');
-            /* background-repeat: repeat-x; */
-            background-size: contain;
+            background: url('./images/bg1.png');
+            background-repeat: repeat-x;
+            background-size: 312px 432px;
             opacity: 1;
             z-index: -1;
             text-align: center;
             border: 1px solid #000;
+
         }
 
-
-        /* .container {
-            font-size: 4rem;
+        .container {
+            font-size: 12px;
             font-family: sans-serif;
-        } */
+
+        }
 
         .id-1 {
             transition: 0.4s;
@@ -71,43 +85,45 @@ include "db_connect.php";
             float: left;
             margin: auto;
             margin-left: 370px;
+            border-radius: 2%;
+            border: 1px solid #000;
+
 
         }
 
         .vertical-text {
+            writing-mode: vertical-rl;
             transform: rotate(180deg);
-            /* left: 0.7%;
-            bottom: 0%; */
+            position: absolute;
+            left: 0.7%;
+            bottom: 0%;
             /* Adjust to desired value */
             /* Adjust to desired value */
-            font-size: 5rem;
+            font-size: 10px;
             font-family: 'Barlow';
             font-weight: bold;
             letter-spacing: 1px;
             color: green;
             display: block;
-            border-width: 1vw;
-            border-style: solid;
             /* create a block-level element */
-            width: 10rem;
+            width: 60px;
             /* set the width to your desired size */
             overflow: hidden;
             /* hide the overflow */
             text-overflow: ellipsis;
             /* add an ellipsis (...) to indicate truncated text */
-            /* white-space: nowrap; */
+            white-space: nowrap;
         }
     </style>
 </head>
 
 <body>
     <div id="bg">
-        <div id="id">
+        <div id="id" class="id">
             <br><br><br><br><br><br><br>
             <center>
                 <?php
-                $idx = $_GET['id'];
-                $sqlmember = "SELECT * FROM Employee WHERE id='$idx' ";
+                $sqlmember = "SELECT * FROM Employee WHERE ID>=$from && ID<=$to";
                 $retrieve = mysqli_query($db, $sqlmember);
                 $count = 0;
                 while ($found = mysqli_fetch_array($retrieve)) {
@@ -141,23 +157,23 @@ include "db_connect.php";
                     $emailAddress = $found['EmailAddress'];
                     $signature = $found['Signature'];
                     $profilePhoto = $found['ProfilePhoto'];
-                }
 
-                if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
-                    $data = file_get_contents($profilePhoto);
-                    $base64 = base64_encode($data);
-                    $imageSrc = 'data:image/png;base64,' . $base64;
-                } else {
-                    if ($profilePhoto != "")
-                        $imageSrc = 'images/' . $profilePhoto;
-                    else
-                        $imageSrc = "admin/images/profile.jpg";
-                }
+                    if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
+                        $data = file_get_contents($profilePhoto);
+                        $base64 = base64_encode($data);
+                        $imageSrc = 'data:image/png;base64,' . $base64;
+                    } else {
+                        if ($profilePhoto != "")
+                            $imageSrc = 'images/' . $profilePhoto;
+                        else
+                            $imageSrc = "admin/images/profile.jpg";
+                    }
 
                 ?>
-                <img src="<?= $imageSrc ?>" height="110px" width="110px" alt="Profile photo" style="margin-left:-24%; margin-top:-4%;">
+                    <img src="<?= $imageSrc ?>" height="110px" width="110px" alt="Profile photo" style="margin-left:-24%; margin-top:-4%;">
             </center>
             <div class="container" align="center">
+
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
@@ -165,8 +181,8 @@ include "db_connect.php";
                 <p style="margin-top:-4%">&nbsp;</p>
 
                 <div style="position: absolute; left: 26%; top: 69%; margin-left:0%; margin-top:-3%; font-size:22px; font-family: 'Lora';">
-                    <span style="font-size:12rem;"><?php if (isset($firstName)) {
-                                                        echo $firstName;
+                    <span style="font-size:36px;"><?php if (isset($firstName)) {
+                                                        echo explode(' ', $firstName)[0];
                                                     } ?></span>
                 </div>
                 <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
@@ -175,58 +191,56 @@ include "db_connect.php";
                         <br>
 
                 </div>
-                <span style="position: absolute; left: 55%;right: 10%;top: 93.5%; font-size:4rem; font-family: 'Lora';"><?php if (isset($position)) {
-                                                                                                                            echo $position;
-                                                                                                                        } ?></span>
+                <span style="position: absolute; left: 45%;right: 2%;margin-top: 110px; font-size:11px; font-family: 'Lora';"><?php if (isset($position)) {
+                                                                                                                                    echo $position;
+                                                                                                                                } ?></span>
                 <p style="margin-top:20%">&nbsp;</p>
-                <div style="margin-left: 40%; margin-top:10%; font-size:18px; font-family: 'Lora'; text-align:center;">
-                    <span style="font-size:9rem;"><?php if (isset($firstName)) {
+                <div style="margin-left: 40%; margin-top:16px; font-size:18px; font-family: 'Lora'; text-align:center;">
+                    <span style="font-size:12px;"><?php if (isset($firstName)) {
                                                         echo $firstName;
                                                     } ?> <?php if (isset($lastName)) {
                                                                 echo $lastName;
                                                             } ?></span>
                 </div>
 
-                <p style="position: absolute; top: 0; left: 20%; margin-top:120%; font-size:3rem; font-family: 'Lora';">ID NO. <?php if (isset($employeeID)) {
-                                                                                                                                    echo $employeeID;
-                                                                                                                                } ?></p>
+                <p style="position: absolute; top: 0; margin-left:172px; margin-top:112%; font-size:14px; font-family: 'Lora';">ID NO. <?php if (isset($id)) {
+                                                                                                                                            echo $id;
+                                                                                                                                        } ?></p>
 
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
-                <div style="position:absolute; bottom: -40%; left: -8%; transform: rotate(90deg); height:max-content;">
-                    <span class="vertical-text" style="white-space:pre-wrap;"><?php if (isset($division)) {
-                                                                                    echo $division;
-                                                                                } ?></span>
-                </div>
+                <span class="vertical-text" style="position: absolute; top: 65%;white-space: pre-line; font-weight:bold"><?php if (isset($division)) {
+                                                                                                                                echo $division;
+                                                                                                                            } ?></span>
             </div>
         </div>
+    <?php } ?>
     </div>
-    <script src="./html2canvas.js"></script>
-    <script type="text/javascript">
-        window.onload = function() {
-            const screenshotTarget = document.getElementById('id');
-            const dpi = 500;
-            const widthInches = 3.25;
-            const heightInches = 4.5;
-            const canvasWidth = dpi * widthInches;
-            const canvasHeight = dpi * heightInches;
-            html2canvas(screenshotTarget, {
-                scale: 1,
-                width: canvasWidth,
-                height: canvasHeight
-            }).then((canvas) => {
-                const base64image = canvas.toDataURL("image/png");
-                var anchor = document.createElement('a');
-                anchor.setAttribute("href", base64image);
-                anchor.setAttribute("download", "my-image.png");
-                setTimeout(function() {
-                    anchor.click();
-                    anchor.remove();
-                }, 2000);
-            });
-        };
-    </script>
 </body>
+
+</html>
+<script src="./html2canvas.js"></script>
+<script>
+    window.onload = function() {
+        const container = document.getElementById("id");
+        for (let i = 1; i <= 3; i++) {
+            const div = document.createElement("div");
+            div.id = `id${i}`;
+            div.classList.add("id"); // add your class name here
+            container.appendChild(div);
+        }
+        var count = <?php echo $to ?>;
+        const elements = document.querySelectorAll('.id');
+        for (let i = 0; i < count; i++) {
+            html2canvas(elements[i]).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `capture-${i}.png`;
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+    }
+</script>
 
 </html>

@@ -640,15 +640,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
               <table id="example" class="display nowrap" style="width:100%">
                 <thead>
                   <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Area of Assignment</th>
-                    <th>Address</th>
-                    <th>PRINT</th>
-                    <th>EDIT</th>
-                    <th>DELETE</th>
-                    <th>DOWNLOAD</th>
+                    <th style="text-align: center;">#</th>
+                    <th style="text-align: center;">Name</th>
+                    <th style="text-align: center;">Position</th>
+                    <th style="text-align: center;">Area of Assignment</th>
+                    <th style="text-align: center;">Address</th>
+                    <th style="text-align: center;">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -701,27 +698,15 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                             <td>
                               <center>
                                 <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
-                              </center>
-                            </td>
-                            <td>
-                              <center>
                                 <a data-toggle='modal' data-id='$id' 
-                                data-firstname='$firstName'  data-middlename='$middleName' data-lastname='$lastName' data-suffix='$suffix' data-gender='$gender' data-position='$position' data-areaofassignment='$areaOfAssignment' 
-                                data-division='$division' data-regular_suballotment='$regular_suballotment' data-contractduration_start='$contractDuration_start' data-contractduration_end='$contractDuration_end'
-                                data-inclusivedateofemployment='$inclusiveDateOfEmployment' data-salarygrade='$salaryGrade' data-salary='$salary' 
-                                data-prc='$prc'  data-address='$address' data-birthdate='$birthdate' data-placeofbirth='$placeOfBirth' data-nameofpersontonotify='$nameOfPersonToNotify' data-bloodtype='$bloodtype' 
-                                data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment' 
-                                class='open-updateProfile btn  btn-info' title='edit user details' href='#updateProfile'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
-                              </center>
-                            </td>				                 
-                            <td>
-                              <center>
+                                  data-firstname='$firstName'  data-middlename='$middleName' data-lastname='$lastName' data-suffix='$suffix' data-gender='$gender' data-position='$position' data-areaofassignment='$areaOfAssignment' 
+                                  data-division='$division' data-regular_suballotment='$regular_suballotment' data-contractduration_start='$contractDuration_start' data-contractduration_end='$contractDuration_end'
+                                  data-inclusivedateofemployment='$inclusiveDateOfEmployment' data-salarygrade='$salaryGrade' data-salary='$salary' 
+                                  data-prc='$prc'  data-address='$address' data-birthdate='$birthdate' data-placeofbirth='$placeOfBirth' data-nameofpersontonotify='$nameOfPersonToNotify' data-bloodtype='$bloodtype' 
+                                  data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment' 
+                                  class='open-updateProfile btn  btn-info' title='edit user details' href='#updateProfile'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
                                 <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
-                              </center>
-                            </td>		
-                            <td>
-                              <center>
-                                <a  href='generate_png.php?id=$id' class='btn btn-primary' title='click to download ID Card'  target='_blank'><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
+                                <a  href='" . ($typeOfEmployment == "Regular" ? "generate_png.php?id=$id" : "generate_pdf.php?id=$id") . "' class='btn btn-primary' title='click to download ID Card'  target='_blank'><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
                               </center>
                             </td>
                           </tr>";

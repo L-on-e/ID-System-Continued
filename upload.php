@@ -121,7 +121,7 @@ if (isset($_POST['addAdmin'])) {
 
 if (isset($_POST['addEmployee'])) {
     if (
-        $_POST['firstName'] != '' && $_POST['middleName'] != '' && $_POST['lastName'] != '' && $_POST['suffix'] != '' && $_POST['gender'] != '' && $_POST['position'] != '' &&
+        $_POST['firstName'] != '' && $_POST['middleName'] != '' && $_POST['lastName'] != '' && $_POST['gender'] != '' && $_POST['position'] != '' &&
         $_POST['areaOfAssignment'] != '' && $_POST['regular_suballotment'] != '' && $_POST['contractDuration_start'] != '' && $_POST['contractDuration_end'] != ''
     ) {
         $pagex = mysqli_real_escape_string($db, $_POST['page']);
@@ -190,7 +190,7 @@ if (isset($_POST['addEmployee'])) {
             '$new_birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
             '$cpNumber','$emailAddress','$signaturePhotoName','$profilePhotoName','$division','$typeOfEmployment')";
             $db->query($query) or die('Error1, query failed');
-
+            
             $memberadd = "tyy";
             $_SESSION['memberadded'] = $memberadd;
             header("Location:$pagex"); //member added successfully

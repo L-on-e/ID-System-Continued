@@ -1,12 +1,11 @@
 {
     "barlow": {
-        "normal": "barlow_normal_e8f8c2ea88c760afac529a6df2ec7952"
+        "normal": "barlow_normal_994554f249aa1fdd926d30041639bda0"
     },
     "lora": {
         "normal": "lora_normal_fcdb9e12471b2f9003c606a23241a436"
     },
     "": {
         "normal": "_normal_994554f249aa1fdd926d30041639bda0"
-
     }
 }
