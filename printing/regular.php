@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <style>
    
-  @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@800&display=swap');
+   
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800&display=swap');
+
 
 
 		  body{
@@ -83,14 +84,14 @@ font-family: sans-serif;
             writing-mode: vertical-rl;
             transform: rotate(180deg);
             position: absolute;
-            margin-left: 4px;
+            margin-left: -6px;
             bottom: 2%;
             /* Adjust to desired value */
             /* Adjust to desired value */
-            font-size: 11px;
+            font-size: 7px;
             font-family: 'Barlow';
             
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             color: green;
             display: block;
             /* create a block-level element */
@@ -103,6 +104,33 @@ font-family: sans-serif;
             white-space: nowrap;
             text-align: justify;
             text-align: left;
+			text-transform: capitalize;
+        }
+		.vertical-text2 {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            position: absolute;
+            margin-left: 16px;
+            bottom: 2%;
+            /* Adjust to desired value */
+            /* Adjust to desired value */
+            font-size: 7px;
+			font-family: 'Barlow', sans-serif;	
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: green;
+            display: block;
+            /* create a block-level element */
+            width: 60px;
+            /* set the width to your desired size */
+            overflow: hidden;
+            /* hide the overflow */
+            text-overflow: ellipsis;
+            /* add an ellipsis (...) to indicate truncated text */
+            white-space: nowrap;
+            text-align: justify;
+            text-align: left;
+			text-transform: capitalize;
         }
 
 	</style>
@@ -156,8 +184,15 @@ font-family: sans-serif;
 		  <p style="margin-top:-4%">&nbsp;</p>
       	<p style="margin-top:-4%">&nbsp;</p>
        <p style="margin-top:-4%">&nbsp;</p>
-	   <span class="vertical-text" style="position: absolute; top: 65%;white-space: pre-line; font-weight:bold"><?php if(isset($division)){ echo $division;} ?></span>
-        
+	   <div style="display: flex;  flex-direction: column;">
+
+	   <p class="vertical-text" style="font-weight: 500;  color: white; position: absolute; top: 74%; white-space: pre-line;">
+  <span style="font-weight: Bold; color: Green; position: absolute; left 4%;"><?php if(isset($division)){ echo $division; } ?></span>
+  <?php if(isset($division) && isset($areaOfAssignment)) echo '<br><br>'; ?>
+  <?php if(isset($areaOfAssignment)){ echo $areaOfAssignment; }?>
+</p>
+			
+	   </div>
 
 		  
       

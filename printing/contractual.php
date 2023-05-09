@@ -86,9 +86,9 @@
             bottom: 2%;
             /* Adjust to desired value */
             /* Adjust to desired value */
-            font-size: 11px;
+            font-size: 7px;
             font-family: 'Barlow';
-
+            font-weight: bold;
             letter-spacing: 1.5px;
             color: green;
             display: block;
@@ -102,6 +102,7 @@
             white-space: nowrap;
             text-align: justify;
             text-align: left;
+            text-transform: capitalize;
         }
     </style>
     
@@ -132,8 +133,6 @@
 
                 <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
                 <span style="font-size:24px;"><?php if(isset($firstName)){ $nameParts = explode(' ', $firstName); echo $nameParts[0]; if(isset($nameParts[1])) { echo ' ' . $nameParts[1]; } } ?></span>
-
-
                 </div>
                 <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
                     <span><br><?php if (isset($lastName)) {

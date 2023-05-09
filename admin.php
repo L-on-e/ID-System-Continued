@@ -117,8 +117,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     var suffix = $(this).data('suffix');
     var gender = $(this).data('gender');
     var position = $(this).data('position');
-    var areaOfAssignment = $(this).data('areaofassignment');
     var division = $(this).data('division');
+    var areaOfAssignment = $(this).data('areaofassignment');
     var regular_suballotment = $(this).data('regular_suballotment');
     var contractDuration_start = $(this).data('contractduration_start');
     var contractDuration_end = $(this).data('contractduration_end');
@@ -146,8 +146,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     $(".modal-body #suffix").val(suffix);
     $(".modal-body #gender").val(gender);
     $(".modal-body #position").val(position);
-    $(".modal-body #areaofassignment").val(areaOfAssignment);
     $(".modal-body #division").val(division);
+    $(".modal-body #areaofassignment").val(areaOfAssignment);
     $(".modal-body #regular_suballotment").val(regular_suballotment);
     $(".modal-body #contractduration_start").val(contractDuration_start);
     $(".modal-body #contractduration_end").val(contractDuration_end);
@@ -329,7 +329,31 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
         </h4>
       </div>
       <div class="modal-body">
+<script>
+        function showAdditionalField() {
+            var division = document.getElementById("division").value;
+            var managementSupportDivisionDropdownDiv = document.getElementById("managementSupportDivisionDropdownDiv");
+            var localHealthSupportDivisionDropdownDiv = document.getElementById("localHealthSupportDivisionDropdownDiv");
+            var RLEDDropdownDiv = document.getElementById("RLEDDropdownDiv");
+            var RDARDropdownDiv = document.getElementById("RDARDropdownDiv");
 
+            // Hide all additional dropdowns initially
+            managementSupportDivisionDropdownDiv.style.display = "none";
+            localHealthSupportDivisionDropdownDiv.style.display = "none";
+            RLEDDropdownDiv.style.display = "none";
+            RDARDropdownDiv.style.display = "none";
+
+            if (division === "MANAGEMENT SUPPORT DIVISION") {
+                managementSupportDivisionDropdownDiv.style.display = "block";
+            } else if (division === "LOCAL HEALTH SUPPORT DIVISION") {
+                localHealthSupportDivisionDropdownDiv.style.display = "block";
+            } else if (division === "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") {
+                RLEDDropdownDiv.style.display = "block";
+            } else if (division === "REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION") {
+                RDARDropdownDiv.style.display = "block";
+            }
+        }
+    </script>
         <div class="container">
           <form method="post" action="upload.php" enctype='multipart/form-data'>
 
@@ -454,19 +478,75 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     <label>Position</label>
                     <input type="text" name="position" id="position">
                   </div>
+                
                   <div class="input-field">
-                    <label>Area of Assignment</label>
-                    <input type="text" name="areaOfAssignment" id="areaofassignment">
-                  </div>
-                  <div class="input-field">
-                    <label>Division</label>
-                    <select id="division" name="division" required>
-                      <option value="Management Support Division">Management Support Division</option>
-                      <option value="Local Health Support Division">Local Health Support Division</option>
-                      <option value="Regulations, Licensing and Enforcement Division">Regulations, Licensing and Enforcement Division</option>
-                      <option value="Regional Director and Assistant Regional Director Division">Regional Director and Assistant Regional Director Division</option>
-                    </select>
-                  </div>
+                                <label>Division<label style="color:red">*</label></label>
+                                <select id="division" name="division" required onchange="showAdditionalField()">
+                                    <option value="">Choose Division</option>
+                                    <option value="MANAGEMENT SUPPORT DIVISION">Management Support Division</option>
+                                    <option value="LOCAL HEALTH SUPPORT DIVISION">Local Health Support Division</option>
+                                    <option value="REGULATIONS, LICENSING AND ENFORCEMENT DIVISION">Regulations, Licensing and Enforcement Division</option>
+                                    <option value="REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION">Regional Director and Assistant Regional Director Division</option>
+                                </select>
+                            </div>
+
+                            <div id="managementSupportDivisionDropdownDiv" class="input-field" style="display: none;">
+                                <label>Area of Assignment</label>
+                                <select id="areaOfAssignment" name="areaOfAssignment">
+                                    <option value="Accounting Section">Accounting Section</option>
+                                    <option value="Budget Section">Budget Section</option>
+                                    <option value="Cashier Section">Cashier Section</option>
+                                    <option value="Procurement Section">Procurement Section</option>
+                                    <option value="OCAO">OCAO</option>
+                                    <option value="Records Section">Records Section</option>
+                                    <option value="ICTU">ICTU</option>
+                                    <option value="Warehouse/Supply Unit">Warehouse/Supply Unit</option>
+                                    <option value="Personnel">Personnel</option>
+                                    <option value="Library">Library</option>
+                                    <option value="General Services Section">GSS</option>
+                                    <option value="SAO">SAO</option>
+                                    <option value="Cold Chain Management Unit">CCMU</option>
+                                </select>
+                            </div>
+
+                            <div id="localHealthSupportDivisionDropdownDiv" class="input-field" style="display: none;">
+                                <label>Area of Assignment</label>
+                                <select id="areaOfAssignment" name="areaOfAssignment">
+                                    <option value="Family Health Cluster">Family Health Cluster</option>
+                                    <option value="Non-Communicable Disease Unit">NCD</option>
+                                    <option value="Communicable Disease Unit">CDU</option>
+                                    <option value="HFDU/CMU/HEPU">HFDU/CMU/HEPU</option>
+                                    <option value="Local Health Support System">LHSS</option>
+                                    <option value="Environmental and Occupational Health">ECH</option>
+                                    <option value="Statistics">Statistics</option>
+                                    <option value="Office of the Chief">LHSD</option>
+                                    <option value="NVBSP">NVBSP</option>
+                                    <option value="RESU/HEMS/STAT">RESU/HEMS/STAT</option>
+                                    <option value="Health Facilities Enhancement Program">HFEP</option>
+                                    <option value="DDAPTP">DDAPTP</option>
+                                    <option value="Pharma">Pharma</option>
+                                    <option value="EOH/NVBSP/HFEP">EOH/NVBSP/HFEP</option>
+                                    <option value="Health Facilities Development Unit">HFDU</option>
+                                    <option value="Health Emergency Management Service">HEMS</option>
+                                    <option value="Regional Epidemiology and Surveillance Unit">RESU</option>
+                                </select>
+                            </div>
+
+                            <div id="RLEDDropdownDiv" class="input-field" style="display: none;">
+                                <label>Area of Assignment</label>
+                                <select id="areaOfAssignment" name="areaOfAssignment">
+                                    <option value="">RLED</option>
+                                </select>
+                            </div>
+
+                            <div id="RDARDropdownDiv" class="input-field" style="display: none;">
+                                <label>Area of Assignment</label>
+                                <select id="areaOfAssignment" name="areaOfAssignment">
+                                    <option value="Human Resource Development Unit">HRDU</option>
+                                    <option value="Planning">Planning</option>
+                                    <option value="Legal">Legal</option>
+                                </select>
+                            </div>
                   <div class="input-field">
                     <label>Regular/SubAllotment</label>
                     <select id="regular_suballotment" name="regular_suballotment" required>
@@ -679,8 +759,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     <th>#</th>
                     <th>Name</th>
                     <th>Position</th>
-                    <th>Area of Assignment</th>
-                    <th>Address</th>
+                    <!--<th>Area of Assignment</th>
+                    <th>Address</th>-->
                     <th>PRINT</th>
                     <th>EDIT</th>
                     <th>DELETE</th>
@@ -732,8 +812,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                             <td>$id</td>                                       
                             <td>$fullName</td>        	
                             <td>$position</td>
-                            <td>$areaOfAssignment</td>
-                            <td>$address</td>
+                            <!-- <td>$areaOfAssignment</td>
+                            <td>$address</td> -->
 			                  <td>
 			                   <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
                         </td>

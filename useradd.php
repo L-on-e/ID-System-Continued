@@ -13,6 +13,34 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <title>Add Employee</title>
+
+
+    <script>
+        function showAdditionalField() {
+            var division = document.getElementById("division").value;
+            var managementSupportDivisionDropdownDiv = document.getElementById("managementSupportDivisionDropdownDiv");
+            var localHealthSupportDivisionDropdownDiv = document.getElementById("localHealthSupportDivisionDropdownDiv");
+            var RLEDDropdownDiv = document.getElementById("RLEDDropdownDiv");
+            var RDARDropdownDiv = document.getElementById("RDARDropdownDiv");
+
+            // Hide all additional dropdowns initially
+            managementSupportDivisionDropdownDiv.style.display = "none";
+            localHealthSupportDivisionDropdownDiv.style.display = "none";
+            RLEDDropdownDiv.style.display = "none";
+            RDARDropdownDiv.style.display = "none";
+
+            if (division === "MANAGEMENT SUPPORT DIVISION") {
+                managementSupportDivisionDropdownDiv.style.display = "block";
+            } else if (division === "LOCAL HEALTH SUPPORT DIVISION") {
+                localHealthSupportDivisionDropdownDiv.style.display = "block";
+            } else if (division === "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") {
+                RLEDDropdownDiv.style.display = "block";
+            } else if (division === "REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION") {
+                RDARDropdownDiv.style.display = "block";
+            }
+        }
+    </script>
+
 </head>
 
 <body>
@@ -150,19 +178,79 @@
                                 <label>Position<label style="color:red">*</label></label>
                                 <input type="text" name="position" required>
                             </div>
-                            <div class="input-field">
-                                <label>Area of Assignment<label style="color:red">*</label></label>
-                                <input type="text" name="areaOfAssignment" required>
-                            </div>
+
                             <div class="input-field">
                                 <label>Division<label style="color:red">*</label></label>
-                                <select id="division" name="division" required>
+                                <select id="division" name="division" required onchange="showAdditionalField()">
+                                    <option value="">Choose Division</option>
                                     <option value="MANAGEMENT SUPPORT DIVISION">Management Support Division</option>
                                     <option value="LOCAL HEALTH SUPPORT DIVISION">Local Health Support Division</option>
                                     <option value="REGULATIONS, LICENSING AND ENFORCEMENT DIVISION">Regulations, Licensing and Enforcement Division</option>
                                     <option value="REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION">Regional Director and Assistant Regional Director Division</option>
                                 </select>
                             </div>
+
+                            <div id="managementSupportDivisionDropdownDiv" class="input-field" style="display: none;">
+                                <label>Area of Assignment</label>
+                                <select id="areaOfAssignment" name="areaOfAssignment" required>
+                                    <option value="Accounting Section">Accounting Section</option>
+                                    <option value="Budget Section">Budget Section</option>
+                                    <option value="Cashier Section">Cashier Section</option>
+                                    <option value="Procurement Section">Procurement Section</option>
+                                    <option value="OCAO">OCAO</option>
+                                    <option value="Records Section">Records Section</option>
+                                    <option value="ICTU">ICTU</option>
+                                    <option value="Warehouse/Supply Unit">Warehouse/Supply Unit</option>
+                                    <option value="Personnel">Personnel</option>
+                                    <option value="Library">Library</option>
+                                    <option value="General Services Section">GSS</option>
+                                    <option value="SAO">SAO</option>
+                                    <option value="Cold Chain Management Unit">CCMU</option>
+                                </select>
+                            </div>
+
+                            <div id="localHealthSupportDivisionDropdownDiv" class="input-field" style="display: none;">
+                                <label>Area of Assignment</label>
+                                <select id="areaOfAssignment" name="areaOfAssignment" required>
+                                    <option value="Family Health Cluster">Family Health Cluster</option>
+                                    <option value="Non-Communicable Disease Unit">NCD</option>
+                                    <option value="Communicable Disease Unit">CDU</option>
+                                    <option value="HFDU/CMU/HEPU">HFDU/CMU/HEPU</option>
+                                    <option value="Local Health Support System">LHSS</option>
+                                    <option value="Environmental and Occupational Health">ECH</option>
+                                    <option value="Statistics">Statistics</option>
+                                    <option value="Office of the Chief">LHSD</option>
+                                    <option value="NVBSP">NVBSP</option>
+                                    <option value="RESU/HEMS/STAT">RESU/HEMS/STAT</option>
+                                    <option value="Health Facilities Enhancement Program">HFEP</option>
+                                    <option value="DDAPTP">DDAPTP</option>
+                                    <option value="Pharma">Pharma</option>
+                                    <option value="EOH/NVBSP/HFEP">EOH/NVBSP/HFEP</option>
+                                    <option value="Health Facilities Development Unit">HFDU</option>
+                                    <option value="Health Emergency Management Service">HEMS</option>
+                                    <option value="Regional Epidemiology and Surveillance Unit">RESU</option>
+                                </select>
+                            </div>
+
+                            <div id="RLEDDropdownDiv" class="input-field" style="display: none;">
+                                <label>Area of Assignment</label>
+                                <select id="areaOfAssignment" name="areaOfAssignment">
+                                    <option value="">RLED</option>
+                                </select>
+                            </div>
+
+                            <div id="RDARDropdownDiv" class="input-field" style="display: none;">
+                                <label>Area of Assignment</label>
+                                <select id="areaOfAssignment" name="areaOfAssignment" required>
+                                    <option value="Human Resource Development Unit">HRDU</option>
+                                    <option value="Planning">Planning</option>
+                                    <option value="Legal">Legal</option>
+                                </select>
+                            </div>
+
+                           
+
+
                             <div class="input-field">
                                 <label>Regular/SubAllotment<label style="color:red">*</label></label>
                                 <select id="regular_suballotment" name="regular_suballotment" required>
@@ -196,7 +284,7 @@
                                     <option value="Regular">Regular</option>
                                     <option value="Contractual">Contractual</option>
                                 </select>
-                                
+
                             </div>
 
 
