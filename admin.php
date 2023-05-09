@@ -721,7 +721,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                             </td>		
                             <td>
                               <center>
-                                <a  href='generate_pdf.php?id=$id' class='btn btn-primary' title='click to download ID Card'  target='_blank'><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
+                                <a  href='generate_png.php?id=$id' class='btn btn-primary' title='click to download ID Card'  target='_blank'><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
                               </center>
                             </td>
                           </tr>";

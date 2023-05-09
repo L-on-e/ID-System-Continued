@@ -53,13 +53,23 @@ $createTableQuery = "CREATE TABLE IF NOT EXISTS Employee (
                   PRIMARY KEY (id) )";
 $db->query($createTableQuery);
 
+$stable1 = "CREATE TABLE IF NOT EXISTS Files (
+  id int(11) NOT NULL auto_increment,
+  Title varchar(300)NOT NULL,
+  Name varchar(1000)NOT NULL,
+  Type varchar(30)NOT NULL,
+  Size decimal(10) NULL,
+  content longblob NOT NULL,
+  PRIMARY KEY(id) )";
+$db->query($stable1);
+
 
 $sql = "SELECT * FROM Administrator ";
 $result = mysqli_query($db, $sql);
 $rowcount = mysqli_num_rows($result);
 
 if ($rowcount == 0) {
-  $enter = "INSERT INTO Administrator (Password,Email,Firstname,Surname) VALUES('admin','admin@gmail.com','Admin','Admin')";
+  $enter = "INSERT INTO Administrator (Password,Email,Firstname,Lastname) VALUES('admin','admin@gmail.com','Admin','Admin')";
   $db->query($enter);
 
   $querydy = "INSERT INTO Files (Title,Name,Size,Type) " .
