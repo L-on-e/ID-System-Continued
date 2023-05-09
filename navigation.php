@@ -125,7 +125,7 @@ while ($found = mysqli_fetch_array($ret)) {
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
             <center>
-              PRINT IDs IN BULK
+              PRINT REGULAR IDs IN BULK
             </center>
           </h4>
         </div>
@@ -165,7 +165,7 @@ while ($found = mysqli_fetch_array($ret)) {
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
             <center>
-              PRINT IDs IN BULK
+              PRINT CONTRACTUAL IDs IN BULK
             </center>
           </h4>
         </div>

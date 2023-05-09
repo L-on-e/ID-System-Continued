@@ -248,7 +248,7 @@ $html .= "
 $dompdf->loadHtml($html);
 $dompdf->render();
 
-$dompdf->addInfo("Title", "An Example PDF");
+$dompdf->addInfo("Title", "Download ID PDF");
 $dompdf->stream("ID.pdf", ["Attachment" => 0]);
 
 $output = $dompdf->output();
