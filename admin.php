@@ -5,14 +5,14 @@ include "./imports.php";
 if (isset($_COOKIE['adminid']) && $_COOKIE['adminemail']) {
 
   $userid = $_COOKIE['adminid'];
-  $useremail = $_COOKIE['adminemail'];
+  $useremail = $_COOKIE['adminemail'];  
 
   $sqluser = "SELECT * FROM Administrator WHERE Password='$userid' && Email='$useremail'";
 
   $retrieved = mysqli_query($db, $sqluser);
   while ($found = mysqli_fetch_array($retrieved)) {
     $firstname = $found['Firstname'];
-    $sirname = $found['Sirname'];
+    $Lastname = $found['Lastname'];
     $emails = $found['Email'];
     $id = $found['id'];
   }
@@ -108,6 +108,18 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   <!-- //requried-jsfiles-for owl -->
 </head>
 <script type="text/javascript">
+  $(document).on("click","open-userAdd", function(){
+    var firstname = $(this).data('firstname');
+    var middleName = $(this).data('middlename');
+    var lastName = $(this).data('lastname');
+    var firstname = $(this).data('firstname');
+
+    $(".modal-body #firstname").val(firstname);
+    $(".modal-body #middlename").val(middleName);
+    $(".modal-body #lastname").val(lastName);
+    $(".modal-body #suffix").val(suffix);
+  })
+
   $(document).on("click", ".open-updateProfile", function() {
 
     var id = $(this).data('id');
@@ -175,7 +187,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     $(document).ready(function() {
       swal({
         title: "Successful!",
-        text: "Staff added successfully!!.",
+        text: "Admin added successfully!",
         type: "success"
       });
     });
@@ -513,56 +525,17 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
                 </div>
               </div>
-
             </div>
-
-
-
         </div>
-
-        <input type="submit" class="btn btn-success" value="Reset" id="updateEmployeeDetails" name="updateEmployeeDetails"> &nbsp;
+        <input type="submit" class="btn btn-success" value="Update" id="updateEmployeeDetails" name="updateEmployeeDetails"> &nbsp;
         <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
       </div>
     </div>
     </form>
   </div>
 </div>
-<div id="Updatepicture" class="modal fade" role="dialog">
-  <div class="modal-dialog" style="float:right;width:20%">
-    <!-- Modal content-->
-    <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
-      <div class="modal-header" style="background:#222d32">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">
-        </h4>
-      </div>
-      <div class="modal-body">
-        <center>
-          <p></p>
-          <form method="post" action="upload.php" enctype='multipart/form-data'>
 
-            <p style="margin-bottom:10px;">
-              Select picture<input name='file2' type='file' id='file2'>
-            </p>
-            <p>
-              <input name='id' type='hidden' value='' id='bookId'>
-              <input name='category' type='hidden' value='Administrator'>
-              <input type="hidden" name="page" value="users.php" />
-
-            </p>
-
-        </center>
-      </div>
-      <div class="modal-footer">
-        <input type="submit" class="btn btn-success" value="Change" id="btns1" name="Change"> &nbsp;
-
-      </div>
-    </div>
-    </form>
-  </div>
-</div>
-
-<div id="Useradd" class="modal fade" role="dialog">
+<div id="userAdd" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
@@ -570,7 +543,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
           <center>
-            ADD STAFF DETAILS
+            ADD ADMIN DETAILS
           </center>
         </h4>
       </div>
@@ -578,29 +551,15 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
       <div class="modal-body">
         <center>
           <form method="post" action="upload.php" enctype='multipart/form-data' style="width: 98%;">
-
-
-            <p style="margin-bottom:10px;">
-              <span style="font-size: 15px; font-weight: bold;"><input type="checkbox" name="pro">&nbsp;Pro&nbsp;&nbsp; &nbsp; &nbsp;</span>
-              <span style="font-size: 15px; font-weight: bold;"><input type="checkbox" name="dr">&nbsp;Dr &nbsp; &nbsp;&nbsp;&nbsp;</span>
-              <span style="font-size: 15px; font-weight: bold;"><input type="checkbox" name="mr">&nbsp;Mr &nbsp; &nbsp; &nbsp;&nbsp;</span>
-              <span style="font-size: 15px; font-weight: bold;"><input type="checkbox" name="mrs">&nbsp;Mrs &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span>
-              <span style="font-size: 15px; font-weight: bold;"><input type="checkbox" name="miss">&nbsp;Miss</span>
-            </p>
-
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;Firstname:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="mfname"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Sirname:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="msname"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">Department:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="minstitution"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rank:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="memail"></span></p>
-            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;Email:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="mphone"></span></p>
-            <p><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp; &nbsp;&nbsp;Staff ID:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="mpassword"></span></p>
-            Add profile picture:<input name='filed' type='file' id='filed'>
-
+            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;Firstname:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="firstName"></span></p>
+            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp; &nbsp;&nbsp; &nbsp;Lastname:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="text" name="lastName"></span></p>
+            <p style="margin-bottom:10px;"><span style="font-size: 18px; font-weight: bold;">&nbsp;Email:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="email" name="email"></span></p>
+            <p><span style="font-size: 18px; font-weight: bold;">&nbsp;&nbsp; &nbsp;&nbsp;Password:<label style="color: red;font-size:20px;">*</label><input style="width:270px;" type="password" name="password"></span></p>
             <input type="hidden" name="page" value="admin.php" />
         </center>
       </div>
       <div class="modal-footer">
-        <input type="submit" class="btn btn-success" value="Submit" id="addmember" name="addmember"> &nbsp;
+        <input type="submit" class="btn btn-success" value="Submit" id="addAdmin" name="addAdmin"> &nbsp;
         <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -638,7 +597,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     <img src='admin/images/profile.png' height='50px' width='50px' alt=''>
                   </span>
                   <div class="user-name">
-                    <p style="color:#1D809F;"><?php if (isset($sirname)) {
+                    <p style="color:#1D809F;"><?php if (isset($firstname)) {
                                                 echo "<strong>" . $firstname . "</strong>";
                                               } ?>
                     </p>
@@ -651,7 +610,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                 </div>
               </a>
               <ul class="dropdown-menu drp-mnu">
-                <li> <a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
+                <li> 
+                  <a href="#userAdd" data-toggle='modal' class="open-userAdd"><i class="fa fa-user-plus"></i> Add Admin</a> 
+                </li>
+                <li> 
+                  <a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a> 
+                </li>
               </ul>
             </li>
           </ul>
@@ -734,37 +698,40 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                             <td>$position</td>
                             <td>$areaOfAssignment</td>
                             <td>$address</td>
-			                  <td>
-			                   <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
-                        </td>
-			                 <td>
-			                   <a data-toggle='modal' data-id='$id' 
-                         data-firstname='$firstName'  data-middlename='$middleName' data-lastname='$lastName' data-suffix='$suffix' data-gender='$gender' data-position='$position' data-areaofassignment='$areaOfAssignment' 
-                         data-division='$division' data-regular_suballotment='$regular_suballotment' data-contractduration_start='$contractDuration_start' data-contractduration_end='$contractDuration_end'
-                         data-inclusivedateofemployment='$inclusiveDateOfEmployment' data-salarygrade='$salaryGrade' data-salary='$salary' 
-                         data-prc='$prc'  data-address='$address' data-birthdate='$birthdate' data-placeofbirth='$placeOfBirth' data-nameofpersontonotify='$nameOfPersonToNotify' data-bloodtype='$bloodtype' 
-                         data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment' 
-                         class='open-updateProfile btn  btn-info' title='edit user details' href='#updateProfile'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
-			                 </td>				                 
-			                 <td>
-			                   <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
-			                 </td>		
-                       <td>
-                       <a  href='generate_pdf.php?id=$id' class='btn btn-primary' title='click to download ID Card'  target='_blank'><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
-                       </td>
-                             </tr>";
+                            <td>
+                              <center>
+                                <a  href='card.php?id=$id' class='btn btn-success' title='click to print ID Card'  target='_blank'><span class='glyphicon glyphicon-print' style='color:white;'></span></a>
+                              </center>
+                            </td>
+                            <td>
+                              <center>
+                                <a data-toggle='modal' data-id='$id' 
+                                data-firstname='$firstName'  data-middlename='$middleName' data-lastname='$lastName' data-suffix='$suffix' data-gender='$gender' data-position='$position' data-areaofassignment='$areaOfAssignment' 
+                                data-division='$division' data-regular_suballotment='$regular_suballotment' data-contractduration_start='$contractDuration_start' data-contractduration_end='$contractDuration_end'
+                                data-inclusivedateofemployment='$inclusiveDateOfEmployment' data-salarygrade='$salaryGrade' data-salary='$salary' 
+                                data-prc='$prc'  data-address='$address' data-birthdate='$birthdate' data-placeofbirth='$placeOfBirth' data-nameofpersontonotify='$nameOfPersonToNotify' data-bloodtype='$bloodtype' 
+                                data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment' 
+                                class='open-updateProfile btn  btn-info' title='edit user details' href='#updateProfile'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
+                              </center>
+                            </td>				                 
+                            <td>
+                              <center>
+                                <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
+                              </center>
+                            </td>		
+                            <td>
+                              <center>
+                                <a  href='generate_png.php?id=$id' class='btn btn-primary' title='click to download ID Card'  target='_blank'><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
+                              </center>
+                            </td>
+                          </tr>";
                   }
-
                   ?>
                 </tbody>
-
               </table>
               <button id="clear-all-button">Clear All Filters</button>
-
             </div>
-
           </div>
-
           <!--//sreen-gallery-cursual---->
         </div>
       </div>

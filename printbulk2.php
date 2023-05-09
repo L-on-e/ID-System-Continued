@@ -98,6 +98,7 @@ $startsat = $_SESSION['receiptrange'];
 
     <?php } ?>
 
+
 </body>
 
 </html>

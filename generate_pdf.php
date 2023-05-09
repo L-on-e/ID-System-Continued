@@ -149,7 +149,7 @@ $dompdf->setPaper([0, 0, 234, 324], 'portrait');
 $dompdf->loadHtml($html);
 $dompdf->render();
 
-$dompdf->addInfo("Title", "An Example PDF"); // "add_info" in earlier versions of Dompdf
+$dompdf->addInfo("Title", "ID");
 $dompdf->stream("ID.pdf", ["Attachment" => 0]);
 
 $output = $dompdf->output();

@@ -7,7 +7,6 @@ use Dompdf\Dompdf;
 $options = new Options;
 $options->setChroot(__DIR__);
 $options->setIsRemoteEnabled(true);
-
 $dompdf = new Dompdf($options);
 
 $fromm = $_POST['startpoint'];

@@ -12,9 +12,7 @@ mysqli_select_db($db, "staff_db");
 $stable4 = "CREATE TABLE IF NOT EXISTS Administrator (
                   id int(11) NOT NULL auto_increment,
                   Firstname varchar(30)NOT NULL,
-                  Sirname varchar(30)NOT NULL,
-                  Mtitle Varchar(30)NOT NULL,
-                  Phone varchar(30)NOT NULL,
+                  Lastname varchar(30)NOT NULL,
                   Password varchar(30)NOT NULL,
                   Email varchar(30)NOT NULL,
                   PRIMARY KEY(id) )";
@@ -55,13 +53,23 @@ $createTableQuery = "CREATE TABLE IF NOT EXISTS Employee (
                   PRIMARY KEY (id) )";
 $db->query($createTableQuery);
 
+$stable1 = "CREATE TABLE IF NOT EXISTS Files (
+  id int(11) NOT NULL auto_increment,
+  Title varchar(300)NOT NULL,
+  Name varchar(1000)NOT NULL,
+  Type varchar(30)NOT NULL,
+  Size decimal(10) NULL,
+  content longblob NOT NULL,
+  PRIMARY KEY(id) )";
+$db->query($stable1);
+
 
 $sql = "SELECT * FROM Administrator ";
 $result = mysqli_query($db, $sql);
 $rowcount = mysqli_num_rows($result);
 
 if ($rowcount == 0) {
-  $enter = "INSERT INTO Administrator (Password,Email,Firstname,Sirname,Mtitle,Phone) VALUES('admin','admin@gmail.com','Admin','Admin','Mr','265999107724')";
+  $enter = "INSERT INTO Administrator (Password,Email,Firstname,Lastname) VALUES('admin','admin@gmail.com','Admin','Admin')";
   $db->query($enter);
 
   $querydy = "INSERT INTO Files (Title,Name,Size,Type) " .
