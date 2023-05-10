@@ -240,8 +240,11 @@ font-family: sans-serif;
 		  <p style="margin-top:-4%">&nbsp;</p>
       	<p style="margin-top:-4%">&nbsp;</p>
        <p style="margin-top:-4%">&nbsp;</p>
-	   <span class="vertical-text" style="position: absolute; top: 65%;white-space: pre-line"><?php if(isset($division)){ echo $division;} ?></span>
-        
+	   <p class="vertical-text" style="font-weight: 500;  color: white; position: absolute; top: 74%; white-space: pre-line;">
+  <span style="font-weight: Bold; color: Green; position: absolute; left 4%;"><?php if(isset($division)){ echo $division; } ?></span>
+  <?php if(isset($division) && isset($areaOfAssignment)) echo '<br><br>'; ?>
+  <?php if(isset($areaOfAssignment)){ echo $areaOfAssignment; }?>
+</p>
 
 		  
       

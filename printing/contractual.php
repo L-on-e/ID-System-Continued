@@ -78,18 +78,18 @@
 
         }
 
-        .vertical-text1 {
+        .vertical-text {
             writing-mode: vertical-rl;
             transform: rotate(180deg);
             position: absolute;
-            margin-left: 4px;
+            margin-left: -6px;
             bottom: 2%;
             /* Adjust to desired value */
             /* Adjust to desired value */
             font-size: 7px;
             font-family: 'Barlow';
-            font-weight: bold;
-            letter-spacing: 1.5px;
+            
+            letter-spacing: 1px;
             color: green;
             display: block;
             /* create a block-level element */
@@ -102,7 +102,33 @@
             white-space: nowrap;
             text-align: justify;
             text-align: left;
-            text-transform: capitalize;
+			text-transform: capitalize;
+        }
+		.vertical-text2 {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            position: absolute;
+            margin-left: 16px;
+            bottom: 2%;
+            /* Adjust to desired value */
+            /* Adjust to desired value */
+            font-size: 7px;
+			font-family: 'Barlow', sans-serif;	
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: green;
+            display: block;
+            /* create a block-level element */
+            width: 60px;
+            /* set the width to your desired size */
+            overflow: hidden;
+            /* hide the overflow */
+            text-overflow: ellipsis;
+            /* add an ellipsis (...) to indicate truncated text */
+            white-space: nowrap;
+            text-align: justify;
+            text-align: left;
+			text-transform: capitalize;
         }
     </style>
     
@@ -153,9 +179,11 @@
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
-                <span class="vertical-text1" style="position: absolute; top: 65%;white-space: pre-line"><?php if (isset($division)) {
-                                                                                                            echo $division;
-                                                                                                        } ?></span>
+                <p class="vertical-text" style="font-weight: 500;  color: white; position: absolute; top: 74%; white-space: pre-line;">
+  <span style="font-weight: Bold; color: Green; position: absolute; left 4%;"><?php if(isset($division)){ echo $division; } ?></span>
+  <?php if(isset($division) && isset($areaOfAssignment)) echo '<br><br>'; ?>
+  <?php if(isset($areaOfAssignment)){ echo $areaOfAssignment; }?>
+</p>
             </div>
         </div>
         <div class="id-1">

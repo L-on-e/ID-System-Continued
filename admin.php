@@ -330,30 +330,46 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
       </div>
       <div class="modal-body">
 <script>
-        function showAdditionalField() {
-            var division = document.getElementById("division").value;
-            var managementSupportDivisionDropdownDiv = document.getElementById("managementSupportDivisionDropdownDiv");
-            var localHealthSupportDivisionDropdownDiv = document.getElementById("localHealthSupportDivisionDropdownDiv");
-            var RLEDDropdownDiv = document.getElementById("RLEDDropdownDiv");
-            var RDARDropdownDiv = document.getElementById("RDARDropdownDiv");
+        
+  const areaOfAssignmentByDivision = {
+    'MANAGEMENT SUPPORT DIVISION':
+                ['Accounting Section', 'Budget Section', 'Cashier Section', 'Procurement Section', 'OCAO','Records Section','ICTU',
+                'Warehouse/Supply Unit', 'Personnel', 'Library', 'General Services Section', 'SAO', 'Cold Chain Management Unit'],
+    'LOCAL HEALTH SUPPORT DIVISION':
+                ['Family Health Cluster', 'Non-Communicable Disease Unit', 'Communicable Disease Unit', 'HFDU/CMU/HEPU', 'Local Health Support System',
+                'Environmental and Occupational Health', 'Statistics', 'Office of the Chief', 'NVBSP', 'RESU/HEMS/STAT', 'Health Facilities Enhancement Program',
+                'DDAPTP', 'Pharma', 'EOH/NVBSP/HFEP', 'Health Facilities Development Unit', 'Health Emergency Management Service', 'Health Emergency Management Service',
+                'Regional Epidemiology and Surveillance Unit'],
+    'REGULATIONS, LICENSING AND ENFORCEMENT DIVISION':
+                ['RLED'],
+    'REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION':
+                ['Human Resource Development Unit', 'Planning', 'Legal'],
+  };
+  function updateAreaOfAssignmentDropdown() {
+    const divisionDropdown = document.getElementById('division');
+    const areaOfAssignmentDropdown = document.getElementById('areaOfAssignment');
+    const selectedDivision = divisionDropdown.value;
 
-            // Hide all additional dropdowns initially
-            managementSupportDivisionDropdownDiv.style.display = "none";
-            localHealthSupportDivisionDropdownDiv.style.display = "none";
-            RLEDDropdownDiv.style.display = "none";
-            RDARDropdownDiv.style.display = "none";
+    // Clear existing options
+    areaOfAssignmentDropdown.innerHTML = '';
+    areaOfAssignmentDropdown.options.add(new Option('Choose Area of Assignment', ''));
 
-            if (division === "MANAGEMENT SUPPORT DIVISION") {
-                managementSupportDivisionDropdownDiv.style.display = "block";
-            } else if (division === "LOCAL HEALTH SUPPORT DIVISION") {
-                localHealthSupportDivisionDropdownDiv.style.display = "block";
-            } else if (division === "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") {
-                RLEDDropdownDiv.style.display = "block";
-            } else if (division === "REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION") {
-                RDARDropdownDiv.style.display = "block";
-            }
-        }
-    </script>
+    // Populate with new options
+    if (selectedDivision in areaOfAssignmentByDivision) {
+      const areasOfAssignment = areaOfAssignmentByDivision[selectedDivision];
+      for (const area of areasOfAssignment) {
+        areaOfAssignmentDropdown.options.add(new Option(area, area));
+      }
+
+      // Show the area of assignment dropdown
+      document.getElementById('areaOfAssignmentDropdownDiv').style.display = '';
+    } else {
+      // Hide the area of assignment dropdown if there are no options for the selected division
+      document.getElementById('areaOfAssignmentDropdownDiv').style.display = 'none';
+    }
+  }
+</script>
+
         <div class="container">
           <form method="post" action="upload.php" enctype='multipart/form-data'>
 
@@ -479,74 +495,27 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     <input type="text" name="position" id="position">
                   </div>
                 
+                  
                   <div class="input-field">
-                                <label>Division<label style="color:red">*</label></label>
-                                <select id="division" name="division" required onchange="showAdditionalField()">
-                                    <option value="">Choose Division</option>
-                                    <option value="MANAGEMENT SUPPORT DIVISION">Management Support Division</option>
-                                    <option value="LOCAL HEALTH SUPPORT DIVISION">Local Health Support Division</option>
-                                    <option value="REGULATIONS, LICENSING AND ENFORCEMENT DIVISION">Regulations, Licensing and Enforcement Division</option>
-                                    <option value="REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION">Regional Director and Assistant Regional Director Division</option>
-                                </select>
-                            </div>
+  <label>Division<label style="color:red">*</label></label>
+  <select id="division" name="division" required onchange="updateAreaOfAssignmentDropdown()">
+    <option value="">Choose Division</option>
+    <option value="MANAGEMENT SUPPORT DIVISION">Management Support Division</option>
+    <option value="LOCAL HEALTH SUPPORT DIVISION">Local Health Support Division</option>
+    <option value="REGULATIONS, LICENSING AND ENFORCEMENT DIVISION">Regulations, Licensing and Enforcement Division</option>
+    <option value="REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION">Regional Director and Assistant Regional Director Division</option>
+  </select>
+</div>
 
-                            <div id="managementSupportDivisionDropdownDiv" class="input-field" style="display: none;">
-                                <label>Area of Assignment</label>
-                                <select id="areaOfAssignment" name="areaOfAssignment">
-                                    <option value="Accounting Section">Accounting Section</option>
-                                    <option value="Budget Section">Budget Section</option>
-                                    <option value="Cashier Section">Cashier Section</option>
-                                    <option value="Procurement Section">Procurement Section</option>
-                                    <option value="OCAO">OCAO</option>
-                                    <option value="Records Section">Records Section</option>
-                                    <option value="ICTU">ICTU</option>
-                                    <option value="Warehouse/Supply Unit">Warehouse/Supply Unit</option>
-                                    <option value="Personnel">Personnel</option>
-                                    <option value="Library">Library</option>
-                                    <option value="General Services Section">GSS</option>
-                                    <option value="SAO">SAO</option>
-                                    <option value="Cold Chain Management Unit">CCMU</option>
-                                </select>
-                            </div>
+<div class="input-field" id="areaOfAssignmentDropdownDiv" style="display: none;">
+  <label>Area of Assignment<label style="color:red">*</label></label>
+  <select id="areaOfAssignment" name="areaOfAssignment">
+    <option value="">Choose Area of Assignment</option>
+  </select>
+</div>
 
-                            <div id="localHealthSupportDivisionDropdownDiv" class="input-field" style="display: none;">
-                                <label>Area of Assignment</label>
-                                <select id="areaOfAssignment" name="areaOfAssignment">
-                                    <option value="Family Health Cluster">Family Health Cluster</option>
-                                    <option value="Non-Communicable Disease Unit">NCD</option>
-                                    <option value="Communicable Disease Unit">CDU</option>
-                                    <option value="HFDU/CMU/HEPU">HFDU/CMU/HEPU</option>
-                                    <option value="Local Health Support System">LHSS</option>
-                                    <option value="Environmental and Occupational Health">ECH</option>
-                                    <option value="Statistics">Statistics</option>
-                                    <option value="Office of the Chief">LHSD</option>
-                                    <option value="NVBSP">NVBSP</option>
-                                    <option value="RESU/HEMS/STAT">RESU/HEMS/STAT</option>
-                                    <option value="Health Facilities Enhancement Program">HFEP</option>
-                                    <option value="DDAPTP">DDAPTP</option>
-                                    <option value="Pharma">Pharma</option>
-                                    <option value="EOH/NVBSP/HFEP">EOH/NVBSP/HFEP</option>
-                                    <option value="Health Facilities Development Unit">HFDU</option>
-                                    <option value="Health Emergency Management Service">HEMS</option>
-                                    <option value="Regional Epidemiology and Surveillance Unit">RESU</option>
-                                </select>
-                            </div>
-
-                            <div id="RLEDDropdownDiv" class="input-field" style="display: none;">
-                                <label>Area of Assignment</label>
-                                <select id="areaOfAssignment" name="areaOfAssignment">
-                                    <option value="">RLED</option>
-                                </select>
-                            </div>
-
-                            <div id="RDARDropdownDiv" class="input-field" style="display: none;">
-                                <label>Area of Assignment</label>
-                                <select id="areaOfAssignment" name="areaOfAssignment">
-                                    <option value="Human Resource Development Unit">HRDU</option>
-                                    <option value="Planning">Planning</option>
-                                    <option value="Legal">Legal</option>
-                                </select>
-                            </div>
+                          
+                            
                   <div class="input-field">
                     <label>Regular/SubAllotment</label>
                     <select id="regular_suballotment" name="regular_suballotment" required>
