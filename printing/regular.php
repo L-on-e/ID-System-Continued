@@ -26,19 +26,25 @@
 
 		}
 
-		#id {
+		@media print {
+			#id,
+			#id-1 {
+				transform: scale(1.25);
+				transform-origin: top left;
+			}
+		}
+
+		/* #id {
 			width: 312px;
 			height: 432px;
 			position: absolute;
 			opacity: 0.88;
 			font-family: sans-serif;
-
 			transition: 0.4s;
 			background-color: #FFFFFF;
 			border-radius: 2%;
 
-		}
-
+		} */
 
 		@font-face {
 			font-family: 'Lora';
@@ -54,10 +60,10 @@
 			background: url('./images/bg4.png');
 			background-repeat: repeat-x;
 			background-size: 312px 432px;
-			opacity: 1;
+			/* opacity: 1; */
 			z-index: -1;
 			text-align: center;
-			border: 1px solid #000;
+			/* border: 1px solid #000; */
 
 		}
 
@@ -76,11 +82,7 @@
 			font-family: sans-serif;
 			float: left;
 			margin: auto;
-			margin-left: 370px;
-
-
-
-
+			margin-left: 500px;
 		}
 
 		.vertical-text {
@@ -149,8 +151,8 @@
 					<span style="font-size:12px;"><?php if (isset($firstName)) {
 														echo $firstName;
 													} ?> <?php if (isset($lastName)) {
-																										echo $lastName;
-																									} ?></span>
+																echo $lastName;
+															} ?></span>
 				</div>
 
 				<p style="position: absolute; top: 0; margin-left:172px; margin-top:112%; font-size:14px; font-family: 'Lora';">ID NO. <?php if (isset($id)) {
@@ -163,11 +165,6 @@
 				<span class="vertical-text" style="position: absolute; top: 65%;white-space: pre-line; font-weight:bold"><?php if (isset($division)) {
 																																echo $division;
 																															} ?></span>
-
-
-
-
-
 			</div>
 		</div>
 		<div class="id-1">
@@ -201,8 +198,8 @@
 						<span style="font-size:12px;"><?php if (isset($firstName)) {
 															echo $firstName;
 														} ?> <?php if (isset($lastName)) {
-																											echo $lastName;
-																										} ?></span>
+																	echo $lastName;
+																} ?></span>
 					</div>
 					<p style="position: absolute; top: 0; margin-left:172px; margin-top:112%; font-size:14px; font-family: 'Lora';">ID NO. <?php if (isset($id)) {
 																																				echo $id;
