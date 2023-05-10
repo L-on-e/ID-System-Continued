@@ -181,8 +181,8 @@
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p class="vertical-text" style="font-weight: 500;  color: white; position: absolute; top: 74%; white-space: pre-line;">
   <span style="font-weight: Bold; color: Green; position: absolute; left 4%;"><?php if(isset($division)){ echo $division; } ?></span>
-  <?php if(isset($division) && isset($areaOfAssignment)) echo '<br><br>'; ?>
-  <?php if(isset($areaOfAssignment)){ echo $areaOfAssignment; }?>
+  <?php if(isset($division) && isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") echo '<br><br>'; ?>
+  <?php if(isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION"){ echo $areaOfAssignment; }?>
 </p>
             </div>
         </div>
