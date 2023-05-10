@@ -123,7 +123,7 @@ $to = 3;
             <br><br><br><br><br><br><br>
             <center>
                 <?php
-                $sqlmember = "SELECT * FROM Employee WHERE ID>=$from && ID<=$to";
+                $sqlmember = "SELECT * FROM Employee WHERE ID>=$from && ID<=$to and TypeOfEmployment";
                 $retrieve = mysqli_query($db, $sqlmember);
                 $count = 0;
                 while ($found = mysqli_fetch_array($retrieve)) {
@@ -157,6 +157,7 @@ $to = 3;
                     $emailAddress = $found['EmailAddress'];
                     $signature = $found['Signature'];
                     $profilePhoto = $found['ProfilePhoto'];
+                    $typeOfEmployment = $found['TypeOfEmployment'];
 
                     if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
                         $data = file_get_contents($profilePhoto);
@@ -168,7 +169,7 @@ $to = 3;
                         else
                             $imageSrc = "admin/images/profile.jpg";
                     }
-
+                    if ($typeOfEmployment == 'Regular'){
                 ?>
                     <img src="<?= $imageSrc ?>" height="110px" width="110px" alt="Profile photo" style="margin-left:-24%; margin-top:-4%;">
             </center>
@@ -215,7 +216,7 @@ $to = 3;
                                                                                                                             } ?></span>
             </div>
         </div>
-    <?php } ?>
+    <?php }else return; } ?>
     </div>
 </body>
 
