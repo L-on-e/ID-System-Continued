@@ -27,15 +27,16 @@
 		}
 
 		@media print {
+
 			#id,
 			#id-1 {
-				transform: scale(1.25);
+				transform: scale(1.30);
 				transform-origin: top left;
 			}
 		}
 
-		/* #id {
-			width: 312px;
+		#id {
+			width: 332px;
 			height: 432px;
 			position: absolute;
 			opacity: 0.88;
@@ -44,7 +45,7 @@
 			background-color: #FFFFFF;
 			border-radius: 2%;
 
-		} */
+		}
 
 		@font-face {
 			font-family: 'Lora';
@@ -58,12 +59,12 @@
 			width: 100%;
 			height: 100%;
 			background: url('./images/bg4.png');
-			background-repeat: repeat-x;
-			background-size: 312px 432px;
-			/* opacity: 1; */
+			background-repeat: no-repeat;
+			background-size: 332px 432px;
+			opacity: 1;
 			z-index: -1;
 			text-align: center;
-			/* border: 1px solid #000; */
+			border: 1px solid #000;
 
 		}
 
@@ -143,11 +144,11 @@
 						<br>
 
 				</div>
-				<span style="position: absolute; left: 45%;right: 2%;margin-top: 110px; font-size:11px; font-family: 'Lora';"><?php if (isset($position)) {
+				<span style="position: absolute; left: 45%;right: 2%;margin-top: 113px; font-size:11px; font-family: 'Lora';"><?php if (isset($position)) {
 																																	echo $position;
 																																} ?></span>
 				<p style="margin-top:20%">&nbsp;</p>
-				<div style="margin-left: 40%; margin-top:16px; font-size:18px; font-family: 'Lora'; text-align:center;">
+				<div style="margin-left: 40%; margin-top:20px; font-size:18px; font-family: 'Lora'; text-align:center;">
 					<span style="font-size:12px;"><?php if (isset($firstName)) {
 														echo $firstName;
 													} ?> <?php if (isset($lastName)) {
@@ -155,7 +156,7 @@
 															} ?></span>
 				</div>
 
-				<p style="position: absolute; top: 0; margin-left:172px; margin-top:112%; font-size:14px; font-family: 'Lora';">ID NO. <?php if (isset($id)) {
+				<p style="position: absolute; top: 0; margin-left:172px; margin-top:106%; font-size:14px; font-family: 'Lora';">ID NO. <?php if (isset($id)) {
 																																			echo $id;
 																																		} ?></p>
 
@@ -186,37 +187,28 @@
 					</div>
 					<div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
 						<span><br>
-
 							<br>
-
 					</div>
-					<span style="position: absolute; left: 45%;right: 2%;margin-top: 110px; font-size:11px; font-family: 'Lora';"><?php if (isset($position)) {
+					<span style="position: absolute; left: 45%;right: 2%;margin-top: 113px; font-size:11px; font-family: 'Lora';"><?php if (isset($position)) {
 																																		echo $position;
 																																	} ?></span>
 					<p style="margin-top:20%">&nbsp;</p>
-					<div style="margin-left: 40%; margin-top:16px; font-size:18px; font-family: 'Lora'; text-align:center;">
+					<div style="margin-left: 40%; margin-top:20px; font-size:18px; font-family: 'Lora'; text-align:center;">
 						<span style="font-size:12px;"><?php if (isset($firstName)) {
 															echo $firstName;
 														} ?> <?php if (isset($lastName)) {
 																	echo $lastName;
 																} ?></span>
 					</div>
-					<p style="position: absolute; top: 0; margin-left:172px; margin-top:112%; font-size:14px; font-family: 'Lora';">ID NO. <?php if (isset($id)) {
+					<p style="position: absolute; top: 0; margin-left:172px; margin-top:106%; font-size:14px; font-family: 'Lora';">ID NO. <?php if (isset($id)) {
 																																				echo $id;
 																																			} ?></p>
-
 					<p style="margin-top:-4%">&nbsp;</p>
 					<p style="margin-top:-4%">&nbsp;</p>
 					<p style="margin-top:-4%">&nbsp;</p>
 					<span class="vertical-text" style="position: absolute; top: 65%;white-space: pre-line"><?php if (isset($division)) {
 																												echo $division;
 																											} ?></span>
-
-
-
-
-
-
 				</div>
 			</div>
 		</div>

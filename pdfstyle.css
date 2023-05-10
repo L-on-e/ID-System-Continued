@@ -7,24 +7,20 @@ body {
 #bg {
     width: 1000px;
     height: 432px;
-
     margin: 30px;
     float: left;
-
+    /* transform: scale(1.5); */
 }
 
 #id {
-    width: 312px;
-    height: 432px;
+    width: 312vw;
+    height: 432vw;
     position: absolute;
     opacity: 0.88;
     font-family: sans-serif;
-
     transition: 0.4s;
     background-color: #FFFFFF;
     border-radius: 2%;
-
-
 }
 
 @font-face {
@@ -40,8 +36,9 @@ body {
     height: 100%;
     background: url('./images/bg1.png');
     background-repeat: repeat-x;
-    background-size: 312px 432px;
+    background-size: 312vw 432vw;
     opacity: 1;
+    margin-left: -30%;
     z-index: -1;
     text-align: center;
     border: 1px solid #000;
