@@ -36,7 +36,7 @@
 		}
 
 		#id {
-			width: 332px;
+			width: 325px;
 			height: 432px;
 			position: absolute;
 			opacity: 0.88;
@@ -59,7 +59,7 @@
 			height: 100%;
 			background: url('./images/bg4.png');
 			background-repeat: no-repeat;
-			background-size: 332px 432px;
+			background-size: 325px 432px;
 			opacity: 1;
 			z-index: -1;
 			text-align: center;

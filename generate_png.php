@@ -57,7 +57,7 @@ include "db_connect.php";
             font-family: 'Lora';
             font-size: 3vw;
             margin-left: 56vw;
-            bottom: -69vw;
+            bottom: -63vw;
             width: fit-content;
         }
         .fullname {
@@ -65,24 +65,23 @@ include "db_connect.php";
             font-family: 'Lora';
             font-size: 3.2rem;
             left: 54.5vw;
-            bottom: -74.5vw;
+            bottom: -70.5vw;
         }
         .position {
             position: absolute;
             font-family: 'Lora';
             font-size: 3.2rem;
             left: 68vw;
-            bottom: -84vw;
+            bottom: -79vw;
         }
         .division{
             position: absolute;
             font-family: 'Barlow', 'sans-serif';
             font-size: 3.0rem;
             transform: rotate(270deg);
-            bottom: -69vw;
+            bottom: -60vw;
             left: -16vw;
-            text-transform: uppercase;
-           
+            text-transform: uppercase;  
         }
 
         .divText{
@@ -177,7 +176,7 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
         <div class="fullname">
             <span>
                 <?php if (isset($lastName)) {
-                    echo $firstName . ' ' . $lastName;
+                    echo $firstName . ' ' . $lastName . ' '. $suffix;
                 } ?>
             </span>
         </div>
