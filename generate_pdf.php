@@ -140,8 +140,7 @@ $html = "<html>
             </div>
             </body>
         </html>";
-
-$dompdf->setPaper([0, 0, 234, 324], 'portrait');
+$dompdf->setPaper('A4', 'portrait');
 
 $dompdf->loadHtml($html);
 $dompdf->render();
