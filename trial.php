@@ -93,8 +93,8 @@ include "db_connect.php";
     </style>
 </head>
 <?php
-$idx = $_GET['id'];
-$sqlmember = "SELECT * FROM Employee WHERE id=$idx";
+// $idx = $_GET['id'];
+$sqlmember = "SELECT * FROM Employee WHERE id=8 ";
 $retrieve = mysqli_query($db, $sqlmember);
 $count = 0;
 while ($found = mysqli_fetch_array($retrieve)) {
