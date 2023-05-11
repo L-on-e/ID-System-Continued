@@ -1,44 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 
-    
-    <style>
-   
-   
-  @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800&display=swap');
-
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@800&display=swap');
 
 
-		  body{
-		  	background:#fff;
-		  }
-#bg {
-  width: 1000px;
-  height: 432px;
- 
-  margin:60px;
- 	float: left; 
- 		
-}
-
-#id {
-  width:312px;
-  height:432px;
-  position:absolute;
-  opacity: 0.88;
-font-family: sans-serif;
-
-		  	transition: 0.4s;
-		  	background-color: #FFFFFF;
-		  	border-radius: 2%;
-			  
+		body {
+			background: #fff;
 		}
 
+		#bg {
+			width: 1000px;
+			height: 432px;
+
+			margin: 60px;
+			float: left;
+
+		}
+
+		@media print {
+
+			#id,
+			#id-1 {
+				transform: scale(1.30);
+				transform-origin: top left;
+			}
+		}
+
+		#id {
+			width: 332px;
+			height: 432px;
+			position: absolute;
+			opacity: 0.88;
+			font-family: sans-serif;
+			transition: 0.4s;
+			background-color: #FFFFFF;
+			border-radius: 2%;
+		}
+
+		@font-face {
+			font-family: 'Lora';
+			src: url('bootstrap/fonts/lora-regular.ttf');
+			font-weight: normal;
+		}
+
+		#id::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: url('./images/bg4.png');
+			background-repeat: no-repeat;
+			background-size: 332px 432px;
+			opacity: 1;
+			z-index: -1;
+			text-align: center;
+			border: 1px solid #000;
+
+		}
+
+		.container {
+			font-size: 12px;
+			font-family: sans-serif;
+
+		}
 
 @font-face {
   font-family: 'Lora';
@@ -133,14 +166,38 @@ font-family: sans-serif;
 			text-transform: capitalize;
         }
 
+
+		.vertical-text {
+			writing-mode: vertical-rl;
+			transform: rotate(180deg);
+			position: absolute;
+			margin-left: 4px;
+			bottom: 2%;
+			/* Adjust to desired value */
+			/* Adjust to desired value */
+			font-size: 11px;
+			font-family: 'Barlow';
+
+			letter-spacing: 1.5px;
+			color: green;
+			display: block;
+			/* create a block-level element */
+			width: 60px;
+			/* set the width to your desired size */
+			overflow: hidden;
+			/* hide the overflow */
+			text-overflow: ellipsis;
+			/* add an ellipsis (...) to indicate truncated text */
+			white-space: nowrap;
+			text-align: justify;
+			text-align: left;
+		}
 	</style>
 </head>
+
 <body>
 	<script type="text/javascript">
 		window.print();
-		// setTimeout(function() {
-		// 	window.close()
-		// }, 5000)
 	</script>
 
 	<div id="bg">
@@ -246,10 +303,11 @@ font-family: sans-serif;
   <?php if(isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION"){ echo $areaOfAssignment; }?>
 </p>
 
+
 			</div>
 		</div>
-	</div>
 
 	</div>
 </body>
+
 </html>

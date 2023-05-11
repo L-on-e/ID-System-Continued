@@ -11,7 +11,7 @@ if (isset($_COOKIE['adminid']) && $_COOKIE['adminemail']) {
 	$retrieved = mysqli_query($db, $sqluser);
 	while ($found = mysqli_fetch_array($retrieved)) {
 		$firstname = $found['Firstname'];
-		$sirname = $found['Sirname'];
+		$Lastname = $found['Lastname'];
 		$id = $found['id'];
 	}
 } else {
@@ -234,8 +234,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 										<img src='admin/images/profile.png' height='50px' width='50px' alt=''>
 									</span>
 									<div class="user-name">
-										<p style="color:#1D809F;"><?php if (isset($sirname)) {
-																		echo "<strong>" . $firstname . " " . $sirname . " </strong>";
+										<p style="color:#1D809F;"><?php if (isset($Lastname)) {
+																		echo "<strong>" . $firstname . " " . $Lastname . " </strong>";
 																	} ?>
 											<img src='admin/images/dot.png' height='15px' width='15px' alt=''>
 										</p>

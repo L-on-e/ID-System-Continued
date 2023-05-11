@@ -14,13 +14,70 @@ while ($found = mysqli_fetch_array($ret)) {
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <style>
+    .dropdown-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+      color: black;
+    }
+
+    .dropdown-content a {
+      padding: 10px;
+    }
+  </style>
+
 </head>
 
 <body>
+<!-- All Bulk Printing-->
+<div id="bulkPrintAll" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
+        <div class="modal-header" style="background:#222d32">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
+            <center>
+              PRINT IDs IN BULK
+            </center>
+          </h4>
+        </div>
+
+        <div class="modal-body">
+          <form action="all_PrintBulk.php" method="post" target="_blank">
+            <div class="input-group" style="margin-bottom:10px">
+              <span class="input-group-addon">From</span>
+              <input id="text" type="number" class="form-control" name="startpoint">
+            </div>
+            <div class="input-group" style="margin-bottom:10px">
+              <span class="input-group-addon">To</span>
+              <input type="number" class="form-control" name="endpoint">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon">Employee number starts @</span>
+              <input id="msg" type="text" class="form-control" name="receiptrange" placeholder="" value="<?php echo $idsx; ?>" readonly="readonly">
+            </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-success" value="Submit" id="btns1" name="Change"> &nbsp;
+        </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <!-- Regular Bulk Printing -->
   <div id="printBulk" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
@@ -56,11 +113,12 @@ while ($found = mysqli_fetch_array($ret)) {
         </div>
         </form>
       </div>
-      
+
     </div>
   </div>
-<!-- download -->
-<div id="downloadBulk" class="modal fade" role="dialog">
+
+  <!-- Contractual Bulk Printing -->
+  <div id="printBulk2" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
@@ -68,13 +126,13 @@ while ($found = mysqli_fetch_array($ret)) {
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
             <center>
-              Download IDs IN BULK
+              PRINT IDs IN BULK
             </center>
           </h4>
         </div>
 
         <div class="modal-body">
-          <form action="bulkpdf.php" method="post" target="_blank">
+          <form action="printbulk2.php" method="post" target="_blank">
             <div class="input-group" style="margin-bottom:10px">
               <span class="input-group-addon">From</span>
               <input id="text" type="number" class="form-control" name="startpoint">
@@ -95,9 +153,46 @@ while ($found = mysqli_fetch_array($ret)) {
         </div>
         </form>
       </div>
+
     </div>
   </div>
-<!-- download -->
+  <!-- download -->
+  <div id="downloadBulk" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
+        <div class="modal-header" style="background:#222d32">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
+            <center>
+              Download IDs IN BULK (Regular Employees only)
+            </center>
+          </h4>
+        </div>
+
+        <div class="modal-body">
+          <form action="bulkpng.php" method="post" target="_blank">
+            <div class="input-group" style="margin-bottom:10px">
+              <span class="input-group-addon">From</span>
+              <input id="text" type="number" class="form-control" name="startpoint">
+            </div>
+            <div class="input-group" style="margin-bottom:10px">
+              <span class="input-group-addon">To</span>
+              <input type="number" class="form-control" name="endpoint">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon">Employee number starts @</span>
+              <input id="msg" type="text" class="form-control" name="receiptrange" placeholder="" value="<?php echo $idsx; ?>" readonly="readonly">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-success" value="Submit" id="btns1" name="Change"> &nbsp;
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- download -->
   <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
     <!--left-fixed -navigation-->
     <aside class="sidebar-left">
@@ -130,8 +225,20 @@ while ($found = mysqli_fetch_array($ret)) {
             <li class="treeview">
               <a data-toggle='modal' href="#downloadBulk" class="Open-downloadBulk"><i class='fa fa-print'></i>Bulk download</a>
             </li>
+            </li>
             <li class="treeview">
-              <a data-toggle='modal' href="#printBulk" class="Open-printBulk"><i class='fa fa-print'></i>Bulk printing</a>
+              <a href="#">
+                <i class="fa fa-print"></i>
+                <span>Bulk Printing</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <div class="dropdown-content">
+                  <a data-toggle='modal' href="#bulkPrintAll" class="Open-printBulk"><i class='fa fa-print'></i> All</a>
+                  <a data-toggle='modal' href="#printBulk" class="Open-printBulk"><i class='fa fa-print'></i> Regular</a>
+                  <a data-toggle='modal' href="#printBulk2" class="Open-printBulk"><i class='fa fa-print'></i> Contractual</a>
+                </div>
+              </ul>
             </li>
 
           </ul>

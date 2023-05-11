@@ -59,11 +59,10 @@ if (filter_var($signature, FILTER_VALIDATE_URL)) {
 $dompdf = new Dompdf\Dompdf(["chroot" => __DIR__]);
 $bg = './images/bg1.png';
 $style = "<style>" . file_get_contents("./pdfstyle.css") . "</style>";
-
 $html = "<html>
             $style
             <body>
-            <div id='bg'style='margin-left:-21%; margin-top:-21%'>
+            <div id='bg'>
                 <div id='id'>
                     <br><br><br><br><br><br><br>
                     <center>
@@ -142,14 +141,12 @@ $html = "<html>
             </body>
         </html>";
 
-//$dompdf->setPaper([0, 0, 234, 324], 'portrait');
-//$dompdf->setPaper([-150, -40, 264.17, 365.71], 'portrait');
 $dompdf->setPaper([0, 0, 234, 324], 'portrait');
 
 $dompdf->loadHtml($html);
 $dompdf->render();
 
-$dompdf->addInfo("Title", "An Example PDF"); // "add_info" in earlier versions of Dompdf
+$dompdf->addInfo("Title", "ID");
 $dompdf->stream("ID.pdf", ["Attachment" => 0]);
 
 $output = $dompdf->output();

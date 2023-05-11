@@ -89,9 +89,39 @@ if (isset($_POST['updateEmployeeDetails'])) {
     }
 }
 
+if (isset($_POST['addAdmin'])) {
+    if (
+        $_POST['firstName'] != '' && $_POST['lastName'] != '' && $_POST['email'] != '' && $_POST['password'] != ''
+    ) {
+        $pagex = mysqli_real_escape_string($db, $_POST['page']);
+        $firstName = mysqli_real_escape_string($db, $_POST['firstName']);
+        $lastName = mysqli_real_escape_string($db, $_POST['lastName']);
+        $email = mysqli_real_escape_string($db, $_POST['email']);
+        $password = mysqli_real_escape_string($db, $_POST['password']);
+        echo($password);
+
+        $check = "SELECT * FROM administrator WHERE Firstname='$firstName' && Lastname='$lastName'";
+        $checks = mysqli_query($db, $check);
+        $found = mysqli_num_rows($checks);
+        if ($found == 0) {
+            $query = "INSERT INTO administrator (Firstname,Lastname,Password,Email) " . "VALUES ('$firstName','$lastName','$password','$email')";
+            $db->query($query) or die('Error1, query failed');
+
+
+            $memberadd = "tyy";
+            $_SESSION['memberadded'] = $memberadd;
+            header("Location:$pagex"); //member added successfully
+        } else {
+            $_SESSION['memberexist'] = "member already exist";
+            header("Location:$pagex");
+        }
+    } else {
+    }
+}
+
 if (isset($_POST['addEmployee'])) {
     if (
-        $_POST['firstName'] != '' && $_POST['middleName'] != '' && $_POST['lastName'] != '' && $_POST['suffix'] != '' && $_POST['gender'] != '' && $_POST['position'] != '' &&
+        $_POST['firstName'] != '' && $_POST['middleName'] != '' && $_POST['lastName'] != '' && $_POST['gender'] != '' && $_POST['position'] != '' &&
         $_POST['areaOfAssignment'] != '' && $_POST['regular_suballotment'] != '' && $_POST['contractDuration_start'] != '' && $_POST['contractDuration_end'] != ''
     ) {
         $pagex = mysqli_real_escape_string($db, $_POST['page']);
@@ -160,7 +190,7 @@ if (isset($_POST['addEmployee'])) {
             '$new_birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
             '$cpNumber','$emailAddress','$signaturePhotoName','$profilePhotoName','$division','$typeOfEmployment')";
             $db->query($query) or die('Error1, query failed');
-
+            
             $memberadd = "tyy";
             $_SESSION['memberadded'] = $memberadd;
             header("Location:$pagex"); //member added successfully

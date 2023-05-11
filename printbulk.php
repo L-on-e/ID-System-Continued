@@ -90,12 +90,9 @@ $startsat = $_SESSION['receiptrange'];
         }
 
 
-        if ($typeOfEmployment == "Contractual"){
-            include "./printing/contractual.php";
-        }else{
-            include "./printing/regular.php";
+        if ($typeOfEmployment == "Regular"){
+            include "./printing/Regular.php";
         }
-
     ?>
 
     <?php } ?>
