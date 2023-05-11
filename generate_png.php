@@ -10,6 +10,9 @@ include "db_connect.php";
             src: url('bootstrap/fonts/barlow-regular.ttf');
             font-weight: normal;
         }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800&display=swap');
+
         @font-face {
             font-family: 'Lora';
             src: url('bootstrap/fonts/lora-regular.ttf');
@@ -54,31 +57,48 @@ include "db_connect.php";
             font-family: 'Lora';
             font-size: 3vw;
             margin-left: 56vw;
-            bottom: -61vw;
+            bottom: -69vw;
             width: fit-content;
         }
         .fullname {
             position: absolute;
             font-family: 'Lora';
             font-size: 3.2rem;
-            left: 60vw;
-            bottom: -66.5vw;
+            left: 54.5vw;
+            bottom: -74.5vw;
         }
         .position {
             position: absolute;
             font-family: 'Lora';
             font-size: 3.2rem;
             left: 68vw;
-            bottom: -74vw;
+            bottom: -84vw;
         }
         .division{
             position: absolute;
-            color: green;
-            font-family: 'Barlow';
-            font-size: 3.2rem;
+            font-family: 'Barlow', 'sans-serif';
+            font-size: 3.0rem;
             transform: rotate(270deg);
-            bottom: -60vw;
-            left: -9.5vw;
+            bottom: -69vw;
+            left: -16vw;
+            text-transform: uppercase;
+           
+        }
+
+        .divText{
+            font-family: 'Barlow', 'sans-serif';
+            font-weight: 800;
+            width: 700px;
+            color: green;
+            white-space: break-word;    
+			text-align: justify;
+			text-align: left;
+        }
+        .section{
+            color: white;
+            font-weight: 400    ;
+            margin-top:-30px;
+            font-size: 2.5rem   ;
         }
     </style>
 </head>
@@ -136,12 +156,16 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
             <img src="<?= $imageSrc ?>" height="100%" width="100%" alt="Profile photo">
         </div>
         <div class="firstname">
-            <span>
-                <?php if (isset($firstName)) {
-                    echo $firstName;
-                } ?>
-            </span>
-        </div>
+    <span>
+        <?php
+        if (isset($firstName)) {
+            $firstNameWords = explode(' ', $firstName);
+            echo $firstNameWords[0];
+        }
+        ?>
+    </span>
+</div>
+
         <div>
             <span class="idno">
                 ID NO.
@@ -165,12 +189,12 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
             </span>
         </div>
         <div class="division">
-            <p>
+            <p class="divText">
                 <?php if (isset($division)) {
                     echo $division;
                 } ?>
             </p>
-            <p>
+            <p class="section" >
                 <?php if (isset($areaOfAssignment)) {
                     echo $areaOfAssignment;
                 } ?>

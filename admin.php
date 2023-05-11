@@ -129,8 +129,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     var suffix = $(this).data('suffix');
     var gender = $(this).data('gender');
     var position = $(this).data('position');
-    var areaOfAssignment = $(this).data('areaofassignment');
     var division = $(this).data('division');
+    var areaOfAssignment = $(this).data('areaofassignment');
     var regular_suballotment = $(this).data('regular_suballotment');
     var contractDuration_start = $(this).data('contractduration_start');
     var contractDuration_end = $(this).data('contractduration_end');
@@ -158,8 +158,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     $(".modal-body #suffix").val(suffix);
     $(".modal-body #gender").val(gender);
     $(".modal-body #position").val(position);
-    $(".modal-body #areaofassignment").val(areaOfAssignment);
     $(".modal-body #division").val(division);
+    $(".modal-body #areaofassignment").val(areaOfAssignment);
     $(".modal-body #regular_suballotment").val(regular_suballotment);
     $(".modal-body #contractduration_start").val(contractDuration_start);
     $(".modal-body #contractduration_end").val(contractDuration_end);
@@ -341,6 +341,46 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
         </h4>
       </div>
       <div class="modal-body">
+<script>
+        
+  const areaOfAssignmentByDivision = {
+    'MANAGEMENT SUPPORT DIVISION':
+                ['Accounting Section', 'Budget Section', 'Cashier Section', 'Procurement Section', 'OCAO','Records Section','ICTU',
+                'Warehouse/Supply Unit', 'Personnel', 'Library', 'General Services Section', 'SAO', 'Cold Chain Management Unit'],
+    'LOCAL HEALTH SUPPORT DIVISION':
+                ['Family Health Cluster', 'Non-Communicable Disease Unit', 'Communicable Disease Unit', 'HFDU/CMU/HEPU', 'Local Health Support System',
+                'Environmental and Occupational Health', 'Statistics', 'Office of the Chief', 'NVBSP', 'RESU/HEMS/STAT', 'Health Facilities Enhancement Program',
+                'DDAPTP', 'Pharma', 'EOH/NVBSP/HFEP', 'Health Facilities Development Unit', 'Health Emergency Management Service', 'Health Emergency Management Service',
+                'Regional Epidemiology and Surveillance Unit'],
+    'REGULATIONS, LICENSING AND ENFORCEMENT DIVISION':
+                ['RLED'],
+    'REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION':
+                ['Human Resource Development Unit', 'Planning', 'Legal'],
+  };
+  function updateAreaOfAssignmentDropdown() {
+    const divisionDropdown = document.getElementById('division');
+    const areaOfAssignmentDropdown = document.getElementById('areaOfAssignment');
+    const selectedDivision = divisionDropdown.value;
+
+    // Clear existing options
+    areaOfAssignmentDropdown.innerHTML = '';
+    areaOfAssignmentDropdown.options.add(new Option('Choose Area of Assignment', ''));
+
+    // Populate with new options
+    if (selectedDivision in areaOfAssignmentByDivision) {
+      const areasOfAssignment = areaOfAssignmentByDivision[selectedDivision];
+      for (const area of areasOfAssignment) {
+        areaOfAssignmentDropdown.options.add(new Option(area, area));
+      }
+
+      // Show the area of assignment dropdown
+      document.getElementById('areaOfAssignmentDropdownDiv').style.display = '';
+    } else {
+      // Hide the area of assignment dropdown if there are no options for the selected division
+      document.getElementById('areaOfAssignmentDropdownDiv').style.display = 'none';
+    }
+  }
+</script>
 
         <div class="container">
           <form method="post" action="upload.php" enctype='multipart/form-data'>
@@ -466,19 +506,28 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     <label>Position</label>
                     <input type="text" name="position" id="position">
                   </div>
+                
+                  
                   <div class="input-field">
-                    <label>Area of Assignment</label>
-                    <input type="text" name="areaOfAssignment" id="areaofassignment">
-                  </div>
-                  <div class="input-field">
-                    <label>Division</label>
-                    <select id="division" name="division" required>
-                      <option value="Management Support Division">Management Support Division</option>
-                      <option value="Local Health Support Division">Local Health Support Division</option>
-                      <option value="Regulations, Licensing and Enforcement Division">Regulations, Licensing and Enforcement Division</option>
-                      <option value="Regional Director and Assistant Regional Director Division">Regional Director and Assistant Regional Director Division</option>
-                    </select>
-                  </div>
+  <label>Division<label style="color:red">*</label></label>
+  <select id="division" name="division" required onchange="updateAreaOfAssignmentDropdown()">
+    <option value="">Choose Division</option>
+    <option value="MANAGEMENT SUPPORT DIVISION">Management Support Division</option>
+    <option value="LOCAL HEALTH SUPPORT DIVISION">Local Health Support Division</option>
+    <option value="REGULATIONS, LICENSING AND ENFORCEMENT DIVISION">Regulations, Licensing and Enforcement Division</option>
+    <option value="REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION">Regional Director and Assistant Regional Director Division</option>
+  </select>
+</div>
+
+<div class="input-field" id="areaOfAssignmentDropdownDiv" style="display: none;">
+  <label>Area of Assignment<label style="color:red">*</label></label>
+  <select id="areaOfAssignment" name="areaOfAssignment">
+    <option value="">Choose Area of Assignment</option>
+  </select>
+</div>
+
+                          
+                            
                   <div class="input-field">
                     <label>Regular/SubAllotment</label>
                     <select id="regular_suballotment" name="regular_suballotment" required>
@@ -640,6 +689,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
               <table id="example" class="display nowrap" style="width:100%">
                 <thead>
                   <tr>
+
                     <th style="text-align: center;">#</th>
                     <th style="text-align: center;">Name</th>
                     <th style="text-align: center;">Position</th>

@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <title>Add Employee</title>
+
+
 </head>
 
 <body>
@@ -150,19 +152,68 @@
                                 <label>Position<label style="color:red">*</label></label>
                                 <input type="text" name="position" required>
                             </div>
+
                             <div class="input-field">
-                                <label>Area of Assignment<label style="color:red">*</label></label>
-                                <input type="text" name="areaOfAssignment" required>
-                            </div>
-                            <div class="input-field">
-                                <label>Division<label style="color:red">*</label></label>
-                                <select id="division" name="division" required>
-                                    <option value="MANAGEMENT SUPPORT DIVISION">Management Support Division</option>
-                                    <option value="LOCAL HEALTH SUPPORT DIVISION">Local Health Support Division</option>
-                                    <option value="REGULATIONS, LICENSING AND ENFORCEMENT DIVISION">Regulations, Licensing and Enforcement Division</option>
-                                    <option value="REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION">Regional Director and Assistant Regional Director Division</option>
-                                </select>
-                            </div>
+  <label>Division<label style="color:red">*</label></label>
+  <select id="division" name="division" required onchange="updateAreaOfAssignmentDropdown()">
+    <option value="">Choose Division</option>
+    <option value="MANAGEMENT SUPPORT DIVISION">Management Support Division</option>
+    <option value="LOCAL HEALTH SUPPORT DIVISION">Local Health Support Division</option>
+    <option value="REGULATIONS, LICENSING AND ENFORCEMENT DIVISION">Regulations, Licensing and Enforcement Division</option>
+    <option value="REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION">Regional Director and Assistant Regional Director Division</option>
+  </select>
+</div>
+
+<div class="input-field" id="areaOfAssignmentDropdownDiv" style="display: none;">
+  <label>Area of Assignment<label style="color:red">*</label></label>
+  <select id="areaOfAssignment" name="areaOfAssignment" >
+    <option value="">Choose Area of Assignment</option>
+  </select>
+</div>
+
+<script>
+  const areaOfAssignmentByDivision = {
+    'MANAGEMENT SUPPORT DIVISION':
+                ['Accounting Section', 'Budget Section', 'Cashier Section', 'Procurement Section', 'OCAO','Records Section','ICTU',
+                'Warehouse/Supply Unit', 'Personnel', 'Library', 'General Services Section', 'SAO', 'Cold Chain Management Unit'],
+    'LOCAL HEALTH SUPPORT DIVISION':
+                ['Family Health Cluster', 'Non-Communicable Disease Unit', 'Communicable Disease Unit', 'HFDU/CMU/HEPU', 'Local Health Support System',
+                'Environmental and Occupational Health', 'Statistics', 'Office of the Chief', 'NVBSP', 'RESU/HEMS/STAT', 'Health Facilities Enhancement Program',
+                'DDAPTP', 'Pharma', 'EOH/NVBSP/HFEP', 'Health Facilities Development Unit', 'Health Emergency Management Service', 'Health Emergency Management Service',
+                'Regional Epidemiology and Surveillance Unit'],
+    'REGULATIONS, LICENSING AND ENFORCEMENT DIVISION':
+                ['RLED'],
+    'REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION':
+                ['Human Resource Development Unit', 'Planning', 'Legal'],
+  };
+
+  function updateAreaOfAssignmentDropdown() {
+    const divisionDropdown = document.getElementById('division');
+    const areaOfAssignmentDropdown = document.getElementById('areaOfAssignment');
+    const selectedDivision = divisionDropdown.value;
+
+    // Clear existing options
+    areaOfAssignmentDropdown.innerHTML = '';
+    areaOfAssignmentDropdown.options.add(new Option('Choose Area of Assignment', ''));
+
+    // Populate with new options
+    if (selectedDivision in areaOfAssignmentByDivision) {
+      const areasOfAssignment = areaOfAssignmentByDivision[selectedDivision];
+      for (const area of areasOfAssignment) {
+        areaOfAssignmentDropdown.options.add(new Option(area, area));
+      }
+
+      // Show the area of assignment dropdown
+      document.getElementById('areaOfAssignmentDropdownDiv').style.display = '';
+    } else {
+      // Hide the area of assignment dropdown if there are no options for the selected division
+      document.getElementById('areaOfAssignmentDropdownDiv').style.display = 'none';
+    }
+  }
+</script>
+
+
+
                             <div class="input-field">
                                 <label>Regular/SubAllotment<label style="color:red">*</label></label>
                                 <select id="regular_suballotment" name="regular_suballotment" required>
@@ -196,7 +247,7 @@
                                     <option value="Regular">Regular</option>
                                     <option value="Contractual">Contractual</option>
                                 </select>
-                                
+
                             </div>
 
 
