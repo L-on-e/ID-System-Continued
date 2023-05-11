@@ -39,22 +39,15 @@ while ($found = mysqli_fetch_array($retrieve)) {
 }
 
 if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
-    $imageSrc = $profilePhoto;
+    $data = file_get_contents($profilePhoto);
+    $base64 = base64_encode($data);
+    $imageSrc = 'data:image/png;base64,' . $base64;
 } else {
     if ($profilePhoto != "")
         $imageSrc = 'images/' . $profilePhoto;
     else
         $imageSrc = "admin/images/profile.jpg";
 }
-if (filter_var($signature, FILTER_VALIDATE_URL)) {
-    $signaturePhoto = $signature;
-} else {
-    if ($signature != "")
-        $signaturePhoto = 'images/' . $signature;
-    else
-        $signaturePhoto = "admin/images/signature.png";
-}
-
 
 $dompdf = new Dompdf\Dompdf(["chroot" => __DIR__]);
 $bg = './images/bg1.png';

@@ -10,156 +10,152 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@800&display=swap');
-
-
-        body {
-            background: #fff;
+        @font-face {
+            font-family: 'Barlow';
+            src: url('bootstrap/fonts/barlow-regular.ttf');
+            font-weight: normal;
         }
-
-        #bg {
-            width: 1000px;
-            height: 432px;
-
-            margin: 60px;
-            float: left;
-
-        }
-
-        .id {
-            width: 312px;
-            height: 432px;
-            position: absolute;
-            opacity: 0.88;
-            font-family: sans-serif;
-
-            transition: 0.4s;
-            background-color: #FFFFFF;
-            border-radius: 2%;
-
-        }
-
+        
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800&display=swap');
 
         @font-face {
             font-family: 'Lora';
             src: url('bootstrap/fonts/lora-regular.ttf');
             font-weight: normal;
         }
-
-        .id::before {
-            content: "";
+        #content1 {
+            transform: scale(1.1);
+            height: 210vw;
+            width: 130vw;
+            border-width: 2px;
+            border-style: solid;
+            flex-direction: row;
+            background-color: lightcoral;
+            background-image: url('./images//bg4.png');
+            background-size: contain;
+        }
+        body {
+            transform-origin: 0% 0%;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: row;
+            display: flex;
+            flex: auto;
+        }
+        .imgProfile {
+            height: 35vw;
+            width: 35vw;
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('./images/bg4.png');
-            background-repeat: repeat-x;
-            background-size: 312px 432px;
-            opacity: 1;
-            z-index: -1;
-            text-align: center;
-            border: 1px solid #000;
-
+            left: 20.5vw;
+            top: 37vw;
         }
-
-        .container {
-            font-size: 12px;
-            font-family: sans-serif;
-
-        }
-
-        .id-1 {
-            transition: 0.4s;
-            width: 312px;
-            height: 432px;
-            background: #FFFFFF;
-            font-size: 16px;
-            font-family: sans-serif;
-            float: left;
-            margin: auto;
-            margin-left: 370px;
-
-
-
-
-        }
-
-        .vertical-text {
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
+        .firstname {
             position: absolute;
-            margin-left: 4px;
-            bottom: 2%;
-            /* Adjust to desired value */
-            /* Adjust to desired value */
-            font-size: 11px;
-            font-family: 'Barlow';
+            font-family: 'Lora';
+            font-size: 12rem;
+            margin-left: 25vw;
+            top: 89.5vw;
+        }
+        .idno {
+            transform-origin: 0% 0%;
+            position: absolute;
+            font-family: 'Lora';
+            font-size: 3vw;
+            margin-left: 56vw;
+            bottom: -63vw;
+            width: fit-content;
+        }
+        .fullname {
+            position: absolute;
+            font-family: 'Lora';
+            font-size: 3.2rem;
+            left: 54.5vw;
+            bottom: -70.5vw;
+        }
+        .position {
+            position: absolute;
+            font-family: 'Lora';
+            font-size: 3.2rem;
+            left: 68vw;
+            bottom: -79vw;
+        }
+        .division{
+            position: absolute;
+            font-family: 'Barlow', 'sans-serif';
+            font-size: 3.0rem;
+            transform: rotate(270deg);
+            bottom: -60vw;
+            left: -16vw;
+            text-transform: uppercase;  
+        }
 
-            letter-spacing: 1.5px;
+        .divText{
+            font-family: 'Barlow', 'sans-serif';
+            font-weight: 800;
+            width: 700px;
             color: green;
-            display: block;
-            /* create a block-level element */
-            width: 60px;
-            /* set the width to your desired size */
-            overflow: hidden;
-            /* hide the overflow */
-            text-overflow: ellipsis;
-            /* add an ellipsis (...) to indicate truncated text */
-            white-space: nowrap;
-            text-align: justify;
-            text-align: left;
+            white-space: break-word;    
+			text-align: justify;
+			text-align: left;
+        }
+        .section{
+            color: white;
+            font-weight: 400    ;
+            margin-top:-30px;
+            font-size: 2.5rem   ;
         }
     </style>
 </head>
 
 <body>
-    <div id="bg">
-        <div id="id" class="id">
-            <br><br><br><br><br><br><br>
-            <center>
-            </center>
-            <img src="<?= $imageSrc ?>" height="110px" width="110px" alt="Profile photo" style="margin-left:20%; margin-top:-3%;">
-            <div class="container" align="center">
+    <div id="content1" class="id">
+        <div class="imgProfile">
+            <img src="<?= $imageSrc ?>" height="100%" width="100%" alt="Profile photo">
+        </div>
+        <div class="firstname">
+            <span>
+                <?php
+                if (isset($firstName)) {
+                    $firstNameWords = explode(' ', $firstName);
+                    echo $firstNameWords[0];
+                }
+                ?>
+            </span>
+        </div>
 
-                <p style="margin-top:-4%">&nbsp;</p>
-                <p style="margin-top:-4%">&nbsp;</p>
-                <p style="margin-top:-4%">&nbsp;</p>
-                <p style="margin-top:-4%">&nbsp;</p>
-                <p style="margin-top:-4%">&nbsp;</p>
-
-                <div style="position: absolute; left: 26%; top: 69%; margin-left:0%; margin-top:-3%; font-size:22px; font-family: 'Lora';">
-                    <span style="font-size:36px;"><?php if (isset($firstName)) {
-                                                        echo explode(' ', $firstName)[0];
-                                                    } ?></span>
-                </div>
-                <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
-                    <span><br>
-
-                        <br>
-
-                </div>
-                <span style="position: absolute; left: 45%;right: 2%;margin-top: 110px; font-size:11px; font-family: 'Lora';"><?php if (isset($position)) {
-                                                                                                                                    echo $position;
-                                                                                                                                } ?></span>
-                <p style="margin-top:20%">&nbsp;</p>
-                <div style="margin-left: 40%; margin-top:16px; font-size:18px; font-family: 'Lora'; text-align:center;">
-                    <span style="font-size:12px;"><?php if (isset($firstName)) {
-                                                        echo $firstName;
-                                                    } ?> <?php if (isset($lastName)) {
-                                                                echo $lastName;
-                                                            } ?></span>
-                </div>
-
-                <p style="position: absolute; top: 0; margin-left:172px; margin-top:112%; font-size:14px; font-family: 'Lora';">ID NO. <?php if (isset($id)) {
-                                                                                                                                            echo $id;
-                                                                                                                                        } ?></p>
-
-                <p style="margin-top:-4%">&nbsp;</p>
-                <p style="margin-top:-4%">&nbsp;</p>
-                <p style="margin-top:-4%">&nbsp;</p>
-                <span class="vertical-text" style="position: absolute; top: 65%;white-space: pre-line; font-weight:bold"><?php if (isset($division)) {
-                                                                                                                                echo $division;
-                                                                                                                            } ?></span>
-            </div>
+        <div>
+            <span class="idno">
+                ID NO.
+                <?php if (isset($employeeID)) {
+                    echo $employeeID;
+                } ?>
+            </span>
+        </div>
+        <div class="fullname">
+            <span>
+                <?php if (isset($lastName)) {
+                    echo $firstName . ' ' . $lastName . ' ' . $suffix;
+                } ?>
+            </span>
+        </div>
+        <div class="position">
+            <span>
+                <?php if (isset($position)) {
+                    echo $position;
+                } ?>
+            </span>
+        </div>
+        <div class="division">
+            <p class="divText">
+                <?php if (isset($division)) {
+                    echo $division;
+                } ?>
+            </p>
+            <p class="section">
+                <?php if (isset($areaOfAssignment)) {
+                    echo $areaOfAssignment;
+                } ?>
+            </p>
         </div>
     </div>
 </body>
@@ -168,8 +164,17 @@
     window.onload = function() {
         const elements = document.querySelectorAll('.id');
         console.log(elements);
+        const dpi = 500;
+        const widthInches = 3.25;
+        const heightInches = 4.5;
+        const canvasWidth = dpi * widthInches;
+        const canvasHeight = dpi * heightInches;
         for (let i = 0; i < <?php echo $count ?>; i++) {
-            html2canvas(elements[i]).then(canvas => {
+            html2canvas(elements[i], {
+                scale: 0.5,
+                width: canvasWidth,
+                height: canvasHeight
+            }).then(canvas => {
                 const link = document.createElement('a');
                 link.download = `capture-${i}.png`;
                 link.href = canvas.toDataURL();
