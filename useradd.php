@@ -166,7 +166,7 @@
 
 <div class="input-field" id="areaOfAssignmentDropdownDiv" style="display: none;">
   <label>Area of Assignment<label style="color:red">*</label></label>
-  <select id="areaOfAssignment" name="areaOfAssignment" required>
+  <select id="areaOfAssignment" name="areaOfAssignment" >
     <option value="">Choose Area of Assignment</option>
   </select>
 </div>
