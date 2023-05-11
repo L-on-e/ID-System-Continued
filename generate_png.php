@@ -6,11 +6,8 @@ include "db_connect.php";
 <head>
     <title>card</title>
     <style>
-        @font-face {
-            font-family: 'Barlow';
-            src: url('bootstrap/fonts/barlow-regular.ttf');
-            font-weight: normal;
-        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800&display=swap');
 
         @font-face {
             font-family: 'Lora';
@@ -61,7 +58,7 @@ include "db_connect.php";
             font-family: 'Lora';
             font-size: 3vw;
             margin-left: 56vw;
-            bottom: -61vw;
+            bottom: -69vw;
             width: fit-content;
         }
 
@@ -69,8 +66,8 @@ include "db_connect.php";
             position: absolute;
             font-family: 'Lora';
             font-size: 3.2rem;
-            left: 60vw;
-            bottom: -66.5vw;
+            left: 54.5vw;
+            bottom: -74.5vw;
         }
 
         .position {
@@ -78,17 +75,34 @@ include "db_connect.php";
             font-family: 'Lora';
             font-size: 3.2rem;
             left: 68vw;
-            bottom: -74vw;
+            bottom: -84vw;
         }
 
-        .division {
+        .division { 
             position: absolute;
-            color: green;
-            font-family: 'Barlow';
-            font-size: 3.2rem;
+            font-family: 'Barlow', 'sans-serif';
+            font-size: 3.0rem;
             transform: rotate(270deg);
-            bottom: -60vw;
-            left: -9.5vw;
+            bottom: -69vw;
+            left: -16vw;
+            text-transform: uppercase;
+           
+        }
+
+        .divText{
+            font-family: 'Barlow', 'sans-serif';
+            font-weight: 800;
+            width: 700px;
+            color: green;
+            white-space: break-word;    
+			text-align: justify;
+			text-align: left;
+        }
+        .section{
+            color: white;
+            font-weight: 400    ;
+            margin-top:-30px;
+            font-size: 2.5rem   ;
         }
     </style>
 </head>
@@ -147,12 +161,16 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
             <img src="<?= $imageSrc ?>" height="100%" width="100%" alt="Profile photo">
         </div>
         <div class="firstname">
-            <span>
-                <?php if (isset($firstName)) {
-                    echo $firstName;
-                } ?>
-            </span>
-        </div>
+    <span>
+        <?php
+        if (isset($firstName)) {
+            $firstNameWords = explode(' ', $firstName);
+            echo $firstNameWords[0];
+        }
+        ?>
+    </span>
+</div>
+
         <div>
             <span class="idno">
                 ID NO.
@@ -176,12 +194,12 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
             </span>
         </div>
         <div class="division">
-            <p>
+            <p class="divText">
                 <?php if (isset($division)) {
                     echo $division;
                 } ?>
             </p>
-            <p>
+            <p class="section" >
                 <?php if (isset($areaOfAssignment)) {
                     echo $areaOfAssignment;
                 } ?>
@@ -190,33 +208,35 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
     </div>
     <script src="./html2canvas.js"></script>
     <script type="text/javascript">
-        window.onload = function() {
-            const screenshotTarget = document.getElementById('content1');
-            const dpi = 500;
-            const widthInches = 3.25;
-            const heightInches = 4.5;
-            const canvasWidth = dpi * widthInches;
-            const canvasHeight = dpi * heightInches;
-            const canvas = document.createElement('canvas');
-            canvas.width = 325; // set desired width in pixels
-            canvas.height = 432; // set desired height in pixels
-            const ctx = canvas.getContext('2d');
-            html2canvas(screenshotTarget, {
-                scale: 0.5,
-                width: canvasWidth,
-                height: canvasHeight
-            }).then((originalCanvas) => {
-                ctx.drawImage(originalCanvas, 0, 0, canvas.width, canvas.height);
-                const base64image = canvas.toDataURL("image/png", 0);
-                var anchor = document.createElement('a');
-                anchor.setAttribute("href", base64image);
-                anchor.setAttribute("download", "my-image.png");
-                setTimeout(function() {
-                    anchor.click();
-                    anchor.remove();
-                });
-            });
-        };
+    window.onload = function() {
+    const screenshotTarget = document.getElementById('content1');
+    const desiredDpi = 500; // set desired DPI
+    const widthInches = 3.25;
+    const heightInches = 4.5;
+    const canvasWidth = desiredDpi * widthInches;
+    const canvasHeight = desiredDpi * heightInches;
+    const canvas = document.createElement('canvas');
+    canvas.width = 332; // set desired width in pixels
+    canvas.height = 432; // set desired height in pixels
+    const ctx = canvas.getContext('2d');
+    const scale = desiredDpi / 96; // set scale based on desired DPI
+    html2canvas(screenshotTarget, {
+        scale: scale,
+        width: canvasWidth,
+        height: canvasHeight
+    }).then((originalCanvas) => {
+        ctx.drawImage(originalCanvas, 0, 0, canvas.width, canvas.height);
+        const base64image = canvas.toDataURL("image/png", 0);
+        var anchor = document.createElement('a');
+        anchor.setAttribute("href", base64image);
+        anchor.setAttribute("download", "my-image.png");
+        setTimeout(function() {
+            anchor.click();
+            anchor.remove();
+        });
+    });
+};
+
     </script>
 </body>
 
