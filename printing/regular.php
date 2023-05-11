@@ -67,19 +67,9 @@
 
 		}
 
-		.container {
-			font-size: 12px;
-			font-family: sans-serif;
+		
 
-		}
-
-@font-face {
-  font-family: 'Lora';
-  src: url('bootstrap/fonts/lora-regular.ttf');
-  font-weight: normal;
-}
-
-#id::before {
+#id1::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -107,10 +97,7 @@
 		  	font-family: sans-serif;
 		  	float: left;
 		  	margin:auto;		  	
-		  	margin-left:370px;
-		  	
-			
-
+		  	margin-left:500px;
 		  	
 		  }
 		  .vertical-text {
@@ -167,31 +154,7 @@
         }
 
 
-		.vertical-text {
-			writing-mode: vertical-rl;
-			transform: rotate(180deg);
-			position: absolute;
-			margin-left: 4px;
-			bottom: 2%;
-			/* Adjust to desired value */
-			/* Adjust to desired value */
-			font-size: 11px;
-			font-family: 'Barlow';
-
-			letter-spacing: 1.5px;
-			color: green;
-			display: block;
-			/* create a block-level element */
-			width: 60px;
-			/* set the width to your desired size */
-			overflow: hidden;
-			/* hide the overflow */
-			text-overflow: ellipsis;
-			/* add an ellipsis (...) to indicate truncated text */
-			white-space: nowrap;
-			text-align: justify;
-			text-align: left;
-		}
+		
 	</style>
 </head>
 
@@ -229,14 +192,14 @@
   
   <br>
 
-</div>
-<span style="position: absolute; left: 45%;right: 2%;margin-top: 110px; font-size:11px; font-family: 'Lora';"><?php if(isset($position)){echo $position;} ?></span>
+  </div>
+<span style="position: absolute; left: 45%;right: 2%;top: 93.8%; font-size:11px; font-family: 'Lora';  line-height: 0.8;"><?php if(isset($position)){echo $position;} ?></span>
 <p style="margin-top:20%">&nbsp;</p>
-<div style="margin-left: 40%; margin-top:16px; font-size:18px; font-family: 'Lora'; text-align:center;">
+<div style="margin-left: 40%; margin-top:25px; font-size:18px; font-family: 'Lora'; text-align:center; line-height: 0.8;">
   <span style="font-size:12px;"><?php if(isset($firstName)){echo $firstName;} ?> <?php if(isset($lastName)){echo $lastName;} ?></span>
 </div>
 
-	  <p style="position: absolute; top: 0; margin-left:172px; margin-top:112%; font-size:14px; font-family: 'Lora';">ID NO. <?php if(isset($id)){ echo$id;} ?></p>
+	  <p style="position: absolute; top: 0; margin-left:172px; margin-top:108%; font-size:14px; font-family: 'Lora';">ID NO. <?php if(isset($id)){ echo$id;} ?></p>
 	 
 		  <p style="margin-top:-4%">&nbsp;</p>
       	<p style="margin-top:-4%">&nbsp;</p>
@@ -287,12 +250,12 @@
   <br>
 
 </div>
-<span style="position: absolute; left: 45%;right: 2%;margin-top: 110px; font-size:11px; font-family: 'Lora';"><?php if(isset($position)){echo $position;} ?></span>
+<span style="position: absolute; left: 45%;right: 2%;top: 93.8%; font-size:11px; font-family: 'Lora';  line-height: 0.8;"><?php if(isset($position)){echo $position;} ?></span>
 <p style="margin-top:20%">&nbsp;</p>
-<div style="margin-left: 40%; margin-top:16px; font-size:18px; font-family: 'Lora'; text-align:center;">
+<div style="margin-left: 40%; margin-top:25px; font-size:18px; font-family: 'Lora'; text-align:center; line-height: 0.8;">
   <span style="font-size:12px;"><?php if(isset($firstName)){echo $firstName;} ?> <?php if(isset($lastName)){echo $lastName;} ?></span>
 </div>
-	  <p style="position: absolute; top: 0; margin-left:172px; margin-top:112%; font-size:14px; font-family: 'Lora';">ID NO. <?php if(isset($id)){ echo$id;} ?></p>
+	  <p style="position: absolute; top: 0; margin-left:172px; margin-top:108%; font-size:14px; font-family: 'Lora';">ID NO. <?php if(isset($id)){ echo$id;} ?></p>
 	 
 		  <p style="margin-top:-4%">&nbsp;</p>
       	<p style="margin-top:-4%">&nbsp;</p>
@@ -302,7 +265,6 @@
   <?php if(isset($division) && isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") echo '<br><br>'; ?>
   <?php if(isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION"){ echo $areaOfAssignment; }?>
 </p>
-
 
 			</div>
 		</div>

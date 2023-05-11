@@ -179,7 +179,7 @@
     'LOCAL HEALTH SUPPORT DIVISION':
                 ['Family Health Cluster', 'Non-Communicable Disease Unit', 'Communicable Disease Unit', 'HFDU/CMU/HEPU', 'Local Health Support System',
                 'Environmental and Occupational Health', 'Statistics', 'Office of the Chief', 'NVBSP', 'RESU/HEMS/STAT', 'Health Facilities Enhancement Program',
-                'DDAPTP', 'Pharma', 'EOH/NVBSP/HFEP', 'Health Facilities Development Unit', 'Health Emergency Management Service', 'Health Emergency Management Service',
+                'DDAPTP', 'Pharma', 'EOH/NVBSP/HFEP', 'Health Facilities Development Unit', 'Health Emergency Management Service',
                 'Regional Epidemiology and Surveillance Unit'],
     'REGULATIONS, LICENSING AND ENFORCEMENT DIVISION':
                 ['RLED'],
