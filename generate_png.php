@@ -2,7 +2,6 @@
 include "db_connect.php";
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-
 <head>
     <title>card</title>
     <style>
@@ -11,13 +10,11 @@ include "db_connect.php";
             src: url('bootstrap/fonts/barlow-regular.ttf');
             font-weight: normal;
         }
-
         @font-face {
             font-family: 'Lora';
             src: url('bootstrap/fonts/lora-regular.ttf');
             font-weight: normal;
         }
-
         #content1 {
             transform: scale(1.1);
             height: 210vw;
@@ -29,7 +26,6 @@ include "db_connect.php";
             background-image: url('./images//bg4.png');
             background-size: contain;
         }
-
         body {
             transform-origin: 0% 0%;
             justify-content: space-evenly;
@@ -38,7 +34,6 @@ include "db_connect.php";
             display: flex;
             flex: auto;
         }
-
         .imgProfile {
             height: 35vw;
             width: 35vw;
@@ -46,7 +41,6 @@ include "db_connect.php";
             left: 20.5vw;
             top: 37vw;
         }
-
         .firstname {
             position: absolute;
             font-family: 'Lora';
@@ -54,7 +48,6 @@ include "db_connect.php";
             margin-left: 25vw;
             top: 89.5vw;
         }
-
         .idno {
             transform-origin: 0% 0%;
             position: absolute;
@@ -64,7 +57,6 @@ include "db_connect.php";
             bottom: -61vw;
             width: fit-content;
         }
-
         .fullname {
             position: absolute;
             font-family: 'Lora';
@@ -72,7 +64,6 @@ include "db_connect.php";
             left: 60vw;
             bottom: -66.5vw;
         }
-
         .position {
             position: absolute;
             font-family: 'Lora';
@@ -80,8 +71,7 @@ include "db_connect.php";
             left: 68vw;
             bottom: -74vw;
         }
-
-        .division {
+        .division{
             position: absolute;
             color: green;
             font-family: 'Barlow';
@@ -94,7 +84,7 @@ include "db_connect.php";
 </head>
 <?php
 $idx = $_GET['id'];
-$sqlmember = "SELECT * FROM Employee WHERE id=$idx";
+$sqlmember = "SELECT * FROM Employee WHERE id='$idx' ";
 $retrieve = mysqli_query($db, $sqlmember);
 $count = 0;
 while ($found = mysqli_fetch_array($retrieve)) {
@@ -140,7 +130,6 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
         $imageSrc = "admin/images/profile.jpg";
 }
 ?>
-
 <body>
     <div id="content1">
         <div class="imgProfile">
@@ -197,27 +186,21 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
             const heightInches = 4.5;
             const canvasWidth = dpi * widthInches;
             const canvasHeight = dpi * heightInches;
-            const canvas = document.createElement('canvas');
-            canvas.width = 325; // set desired width in pixels
-            canvas.height = 432; // set desired height in pixels
-            const ctx = canvas.getContext('2d');
             html2canvas(screenshotTarget, {
                 scale: 0.5,
                 width: canvasWidth,
                 height: canvasHeight
-            }).then((originalCanvas) => {
-                ctx.drawImage(originalCanvas, 0, 0, canvas.width, canvas.height);
-                const base64image = canvas.toDataURL("image/png", 0);
+            }).then((canvas) => {
+                const base64image = canvas.toDataURL("image/png");
                 var anchor = document.createElement('a');
                 anchor.setAttribute("href", base64image);
                 anchor.setAttribute("download", "my-image.png");
                 setTimeout(function() {
                     anchor.click();
                     anchor.remove();
-                });
+                }, 1000);
             });
         };
     </script>
 </body>
-
 </html>
