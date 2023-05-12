@@ -11,7 +11,9 @@
 <style>
 
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@800&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800&display=swap');
+
 
 
         
@@ -160,26 +162,26 @@
                 <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
                 <span style="font-size:24px;"><?php if(isset($firstName)){ $nameParts = explode(' ', $firstName); echo $nameParts[0]; if(isset($nameParts[1])) { echo ' ' . $nameParts[1]; } } ?></span>
                 </div>
-                <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
+                <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-1.5%; font-size:18px; font-family: 'Lora';">
                     <span><br><?php if (isset($lastName)) {
                                     echo $lastName;
                                 } ?></span>
                     <br>
 
                 </div>
-                <span style="position: absolute; left: 27%;top: 75%; font-size:9px; font-family: 'Lora';"><?php if (isset($position)) {
+                <span style="position: absolute; left: 28%;top: 76%; font-size:11px; font-family: 'Lora';"><?php if (isset($position)) {
                                                                                                                 echo $position;
                                                                                                             } ?></span>
                 <p style="margin-top:20%">&nbsp;</p>
-
-                <p style="position: absolute; top: 0; left: 58%; margin-top:114%; font-size:9px; font-family: 'Lora';"><?php if (isset($employeeID)) {
+                                                                                                                
+                <p style="position: absolute; top: 0; left: 48%; margin-top:114%; font-size:9px; font-family: 'Lora';">ID NO. <?php if (isset($employeeID)) {
                                                                                                                             echo $employeeID;
                                                                                                                         } ?></p>
                 <!-- <img src="<?= $signaturePhoto ?>" height="110px" width="110px" alt="image" style='margin-left:20%; margin-top:0%;'>> -->
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
-                <p class="vertical-text" style="font-weight: 500;  color: white; position: absolute; top: 74%; white-space: pre-line;">
+                <p class="vertical-text" style="font-weight: 400;  color: white; position: absolute; top: 74%; white-space: pre-line;">
   <span style="font-weight: Bold; color: Green; position: absolute; left 4%;"><?php if(isset($division)){ echo $division; } ?></span>
   <?php if(isset($division) && isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") echo '<br><br>'; ?>
   <?php if(isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION"){ echo $areaOfAssignment; }?>
