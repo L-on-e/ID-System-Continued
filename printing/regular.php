@@ -10,7 +10,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@800&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800&display=swap');
 
 
 		body {
@@ -93,6 +93,23 @@
 
 		}
 
+
+
+		#id1::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: url('./images/bg4.png');
+			background-repeat: repeat-x;
+			background-size: 312px 432px;
+			opacity: 1;
+			z-index: -1;
+			text-align: center;
+			border: 1px solid #000;
+
+		}
+
 		.container {
 			font-size: 12px;
 			font-family: sans-serif;
@@ -108,6 +125,7 @@
 			font-family: sans-serif;
 			float: left;
 			margin: auto;
+
 			margin-left: 370px;
 
 
@@ -170,18 +188,20 @@
 		}
 
 
+		}
+
 		.vertical-text {
 			writing-mode: vertical-rl;
 			transform: rotate(180deg);
 			position: absolute;
-			margin-left: 4px;
+			margin-left: -6px;
 			bottom: 2%;
 			/* Adjust to desired value */
 			/* Adjust to desired value */
-			font-size: 11px;
+			font-size: 7px;
 			font-family: 'Barlow';
 
-			letter-spacing: 1.5px;
+			letter-spacing: 1px;
 			color: green;
 			display: block;
 			/* create a block-level element */
@@ -194,6 +214,34 @@
 			white-space: nowrap;
 			text-align: justify;
 			text-align: left;
+			text-transform: capitalize;
+		}
+
+		.vertical-text2 {
+			writing-mode: vertical-rl;
+			transform: rotate(180deg);
+			position: absolute;
+			margin-left: 16px;
+			bottom: 2%;
+			/* Adjust to desired value */
+			/* Adjust to desired value */
+			font-size: 7px;
+			font-family: 'Barlow', sans-serif;
+			font-weight: 500;
+			letter-spacing: 1px;
+			color: green;
+			display: block;
+			/* create a block-level element */
+			width: 60px;
+			/* set the width to your desired size */
+			overflow: hidden;
+			/* hide the overflow */
+			text-overflow: ellipsis;
+			/* add an ellipsis (...) to indicate truncated text */
+			white-space: nowrap;
+			text-align: justify;
+			text-align: left;
+			text-transform: capitalize;
 		}
 	</style>
 </head>
@@ -233,11 +281,13 @@
 						<br>
 
 				</div>
-				<span style="position: absolute; left: 45%;right: 2%;margin-top: 110px; font-size:11px; font-family: 'Lora';"><?php if (isset($position)) {
-																																	echo $position;
-																																} ?></span>
+
+				<span style="position: absolute; left: 45%;right: 2%;top: 94%; font-size:9px; font-family: 'Lora';  line-height: 0.8;"><?php if (isset($position)) {
+																																			echo $position;
+																																		} ?></span>
 				<p style="margin-top:20%">&nbsp;</p>
-				<div style="margin-left: 40%; margin-top:16px; font-size:18px; font-family: 'Lora'; text-align:center;">
+				<div style="margin-left: 40%; margin-top:30px; font-size:18px; font-family: 'Lora'; text-align:center; line-height: 0.8;">
+
 					<span style="font-size:12px;"><?php if (isset($firstName)) {
 														echo $firstName;
 													} ?> <?php if (isset($lastName)) {
@@ -245,8 +295,9 @@
 																									} ?></span>
 				</div>
 
-				<p style="position: absolute; top: 0; margin-left:172px; margin-top:112%; font-size:14px; font-family: 'Lora';">ID NO. <?php if (isset($id)) {
-																																			echo $id;
+				<p style="position: absolute; top: 0; margin-left:172px; margin-top:100%; font-size:10px; font-family: 'Lora';">ID NO. <?php if (isset($employeeID)) {
+																																			echo $employeeID;
+
 																																		} ?></p>
 
 				<p style="margin-top:-4%">&nbsp;</p>
@@ -337,9 +388,11 @@
 
 
 
+
 			</div>
 		</div>
 	</div>
+
 </body>
 
 </html>
