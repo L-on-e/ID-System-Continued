@@ -19,8 +19,6 @@
         #bg1 {
             width: 1000px;
             height: 432px;
-            margin: 100px;
-            margin-top: 140px;
             float: left;
 
         }
@@ -29,7 +27,7 @@
 
             #id1,
             .id-2 {
-                transform: scale(1.30);
+                transform: scale(1.40);
                 transform-origin: top left;
             }
         }
@@ -88,7 +86,7 @@
             /* Adjust to desired value */
             font-size: 7px;
             font-family: 'Barlow';
-
+            font-weight: 800;
             letter-spacing: 1px;
             color: green;
             display: block;
@@ -113,9 +111,9 @@
             bottom: 2%;
             /* Adjust to desired value */
             /* Adjust to desired value */
-            font-size: 7px;
+            font-size: 8px;
             font-family: 'Barlow', sans-serif;
-            font-weight: 500;
+            font-weight: 800;
             letter-spacing: 1px;
             color: green;
             display: block;
@@ -207,7 +205,7 @@
         // }, 5000)
     </script>
 
-    <div id="bg1" style="margin-top:200px ">
+    <div id="bg1" style="margin-bottom:310px ">
         <div id="id1">
             <br><br><br><br><br><br><br>
             <center>
@@ -258,8 +256,8 @@
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
-                <p class="vertical-text" style="font-weight: 500;  color: white; position: absolute; top: 74%; white-space: pre-line;">
-                    <span style="font-weight: Bold; color: Green; position: absolute; left 4%;"><?php if (isset($division)) {
+                <p class="vertical-text" style="font-weight: 800;  color: white; position: absolute; top: 74%; white-space: pre-line;">
+                    <span style=" color: Green; position: absolute; left 4%;"><?php if (isset($division)) {
                                                                                                     echo $division;
                                                                                                 } ?></span>
                     <?php if (isset($division) && isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") echo '<br><br>'; ?>
