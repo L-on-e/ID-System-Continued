@@ -20,7 +20,6 @@
 		#bg {
 			width: 1000px;
 			height: 432px;
-
 			margin: 60px;
 			float: left;
 
@@ -36,7 +35,7 @@
 		}
 
 		#id {
-			width: 325px;
+			width: 312px;
 			height: 432px;
 			position: absolute;
 			opacity: 0.88;
@@ -59,7 +58,7 @@
 			height: 100%;
 			background: url('./images/bg4.png');
 			background-repeat: no-repeat;
-			background-size: 325px 432px;
+			background-size: 312px 432px;
 			opacity: 1;
 			z-index: -1;
 			text-align: center;
@@ -204,7 +203,7 @@
 		window.print();
 	</script>
 
-	<div id="bg">
+	<div id="bg" style="margin-top:200px ; margin-left:110px">
 		<div id="id">
 			<br><br><br><br><br><br><br>
 			<center>
@@ -272,55 +271,57 @@
 
 			</div>
 		</div>
-		<div class="id-1">
-			<div id="id">
-				<br><br><br><br><br><br><br>
-				<center>
 
-				</center>
-				<?php
-				if ($imageSrc != "") {
-					echo "<img src='images/$profilePhoto' height='110px' width='110px' alt='' style='margin-left:20%; margin-top:-3%;'>";
-				} else {
-					echo "<img src='admin/images/profile.jpg' height='150px' width='160px' alt='' style='border: 2px solid black;'>";
-				}
-				?> <div class="container" align="center">
+		<div id="id" style="margin-left: 500px;">
+			<br><br><br><br><br><br><br>
+			<center>
+			</center>
+			<?php
+			if ($imageSrc != "") {
+				echo "<img src='images/$profilePhoto' height='110px' width='110px' alt='' style='margin-left:20%; margin-top:-3%;'>";
+			} else {
+				echo "<img src='admin/images/profile.jpg' height='150px' width='160px' alt='' style='border: 2px solid black;'>";
+			}
+			?> <div class="container" align="center">
 
-					<p style="margin-top:-4%">&nbsp;</p>
-					<p style="margin-top:-4%">&nbsp;</p>
-					<p style="margin-top:-4%">&nbsp;</p>
-					<p style="margin-top:-4%">&nbsp;</p>
-					<p style="margin-top:-4%">&nbsp;</p>
+				<p style="margin-top:-4%">&nbsp;</p>
+				<p style="margin-top:-4%">&nbsp;</p>
+				<p style="margin-top:-4%">&nbsp;</p>
+				<p style="margin-top:-4%">&nbsp;</p>
+				<p style="margin-top:-4%">&nbsp;</p>
 
-					<div style="position: absolute; left: 26%; top: 69%; margin-left:0%; margin-top:-3%; font-size:22px; font-family: 'Lora';">
-						<span style="font-size:36px;"><?php if (isset($firstName)) {
-															echo explode(' ', $firstName)[0];
-														} ?></span>
-					</div>
-					<div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
-						<span><br>
+				<div style="position: absolute; left: 26%; top: 69%; margin-left:0%; margin-top:-3%; font-size:22px; font-family: 'Lora';">
+					<span style="font-size:36px;"><?php if (isset($firstName)) {
+														echo explode(' ', $firstName)[0];
+													} ?></span>
+				</div>
+				<div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
+					<span><br>
 
-							<br>
+						<br>
 
-					</div>
-					<span style="position: absolute; left: 45%;right: 2%;margin-top: 110px; font-size:11px; font-family: 'Lora';"><?php if (isset($position)) {
-																																		echo $position;
-																																	} ?></span>
-					<p style="margin-top:20%">&nbsp;</p>
-					<div style="margin-left: 40%; margin-top:16px; font-size:18px; font-family: 'Lora'; text-align:center;">
-						<span style="font-size:12px;"><?php if (isset($firstName)) {
-															echo $firstName;
-														} ?> <?php if (isset($lastName)) {
-																											echo $lastName;
-																										} ?></span>
-					</div>
-					<p style="position: absolute; top: 0; margin-left:172px; margin-top:112%; font-size:14px; font-family: 'Lora';">ID NO. <?php if (isset($id)) {
-																																				echo $id;
-																																			} ?></p>
+				</div>
+				<span style="position: absolute; left: 45%;right: 2%;margin-top: 110px; font-size:11px; font-family: 'Lora';"><?php if (isset($position)) {
+																																	echo $position;
+																																} ?></span>
+				<p style="margin-top:20%">&nbsp;</p>
+				<div style="margin-left: 40%; margin-top:16px; font-size:18px; font-family: 'Lora'; text-align:center;">
+					<span style="font-size:12px;"><?php if (isset($firstName)) {
+														echo $firstName;
+													} ?> <?php if (isset($lastName)) {
+																										echo $lastName;
+																									} ?></span>
+				</div>
 
-					<p style="margin-top:-4%">&nbsp;</p>
-					<p style="margin-top:-4%">&nbsp;</p>
-					<p style="margin-top:-4%">&nbsp;</p>
+				<p style="position: absolute; top: 0; margin-left:172px; margin-top:112%; font-size:14px; font-family: 'Lora';">ID NO. <?php if (isset($id)) {
+																																			echo $id;
+																																		} ?></p>
+
+				<p style="margin-top:-4%">&nbsp;</p>
+				<p style="margin-top:-4%">&nbsp;</p>
+				<p style="margin-top:-4%">&nbsp;</p>
+				<div style="display: flex;  flex-direction: column;">
+
 					<p class="vertical-text" style="font-weight: 500;  color: white; position: absolute; top: 74%; white-space: pre-line;">
 						<span style="font-weight: Bold; color: Green; position: absolute; left 4%;"><?php if (isset($division)) {
 																										echo $division;
@@ -331,10 +332,12 @@
 						} ?>
 					</p>
 
-
 				</div>
-			</div>
 
+
+
+
+			</div>
 		</div>
 	</div>
 </body>

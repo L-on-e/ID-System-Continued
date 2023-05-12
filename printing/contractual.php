@@ -146,7 +146,7 @@
         // }, 5000)
     </script>
 
-    <div id="bg1">
+    <div id="bg1" style="margin-top:200px ">
         <div id="id1">
             <br><br><br><br><br><br><br>
             <center>
