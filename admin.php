@@ -108,18 +108,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   <!-- //requried-jsfiles-for owl -->
 </head>
 <script type="text/javascript">
-  $(document).on("click","open-userAdd", function(){
-    var firstname = $(this).data('firstname');
-    var middleName = $(this).data('middlename');
-    var lastName = $(this).data('lastname');
-    var firstname = $(this).data('firstname');
-
-    $(".modal-body #firstname").val(firstname);
-    $(".modal-body #middlename").val(middleName);
-    $(".modal-body #lastname").val(lastName);
-    $(".modal-body #suffix").val(suffix);
-  })
-
   $(document).on("click", ".open-updateProfile", function() {
 
     var id = $(this).data('id');
@@ -693,7 +681,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     <th style="text-align: center;">#</th>
                     <th style="text-align: center;">Name</th>
                     <th style="text-align: center;">Position</th>
-                    <th style="text-align: center;">Area of Assignment</th>
+                    <th style="text-align: center;">Division</th>
                     <th style="text-align: center;">Address</th>
                     <th style="text-align: center;">Actions</th>
                   </tr>
@@ -743,7 +731,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                             <td>$id</td>                                       
                             <td>$fullName</td>        	
                             <td>$position</td>
-                            <td>$areaOfAssignment</td>
+                            <td>$division</td>
                             <td>$address</td>
                             <td>
                               <center>
@@ -756,7 +744,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                   data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment' 
                                   class='open-updateProfile btn  btn-info' title='edit user details' href='#updateProfile'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
                                 <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
-                                <a  href='" . ($typeOfEmployment == "Regular" ? "generate_png.php?id=$id" : "generate_pdf.php?id=$id") . "' class='btn btn-primary' title='click to download ID Card'  target='_blank'><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
+                                <a  href='" . ($typeOfEmployment == "Regular" ? "generate_png.php?id=$id" : "savepdf.php?id=$id") . "' class='btn btn-primary' title='click to download ID Card'  target='_blank'><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
                               </center>
                             </td>
                           </tr>";

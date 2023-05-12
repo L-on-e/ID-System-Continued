@@ -29,16 +29,11 @@ $startsat = $_SESSION['receiptrange'];
 </head>
 
 <body>
-    <script type="text/javascript">
-        // window.print();
-    </script>
-
     <?php
-
-
     $sqlmember = "SELECT * FROM Employee WHERE ID>=$from && ID<=$to";
     $retrieve = mysqli_query($db, $sqlmember);
     $count = 0;
+    $IDs = array();
     while ($found = mysqli_fetch_array($retrieve)) {
         $typeOfEmployment = $found['TypeOfEmployment'];
         if ($typeOfEmployment == 'Regular') {
@@ -75,24 +70,19 @@ $startsat = $_SESSION['receiptrange'];
             $profilePhoto = $found['ProfilePhoto'];
 
             if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
-                $imageSrc = $profilePhoto;
+                $data = file_get_contents($profilePhoto);
+                $base64 = base64_encode($data);
+                $imageSrc = 'data:image/png;base64,' . $base64;
             } else {
                 if ($profilePhoto != "")
                     $imageSrc = 'images/' . $profilePhoto;
                 else
                     $imageSrc = "admin/images/profile.jpg";
             }
-            if (filter_var($signature, FILTER_VALIDATE_URL)) {
-                $signaturePhoto = $signature;
-            } else {
-                if ($signature != "")
-                    $signaturePhoto = 'images/' . $signature;
-                else
-                    $signaturePhoto = "admin/images/signature.png";
-            }
 
             if ($typeOfEmployment == "Regular") {
-                include "./generatebulkpng.php";
+                array_push($IDs, $employeeID);
+                include "./trialfixbulk.php";
             }
         }
     ?>
@@ -100,5 +90,25 @@ $startsat = $_SESSION['receiptrange'];
     <?php } ?>
 
 </body>
+<script src="./html2canvas.js"></script>
+<script>
+    window.onload = function() {
+    const elements = document.querySelectorAll('.id');
+    const IDs = <?php echo json_encode($IDs)?>;
+    let index = 0;
+    for (let i = 0; i < elements.length; i++) {
+        html2canvas(elements[i], {
+            scale: 1,
+        }).then(canvas => {
+            const link = document.createElement('a');
+            link.download = `${IDs[index]}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+            index++;
+        });
+    }
+}
+
+</script>
 
 </html>

@@ -91,7 +91,7 @@ $startsat = $_SESSION['receiptrange'];
 
 
         if ($typeOfEmployment == "Regular"){
-            include "./printing/Regular.php";
+            include "./printing/regular.php";
         }
     ?>
 

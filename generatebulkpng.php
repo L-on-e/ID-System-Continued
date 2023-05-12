@@ -33,6 +33,7 @@
             background-color: lightcoral;
             background-image: url('./images//bg4.png');
             background-size: contain;
+            background-repeat: no-repeat;
         }
         body {
             transform-origin: 0% 0%;
@@ -163,8 +164,7 @@
 <script>
     window.onload = function() {
         const elements = document.querySelectorAll('.id');
-        console.log(elements);
-        const dpi = 500;
+        const dpi = 250;
         const widthInches = 3.25;
         const heightInches = 4.5;
         const canvasWidth = dpi * widthInches;

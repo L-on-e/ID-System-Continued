@@ -1,10 +1,14 @@
-<?php
-include "db_connect.php";
-?>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>card</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
         @font-face {
             font-family: 'Barlow';
@@ -123,54 +127,6 @@ include "db_connect.php";
         }
     </style>
 </head>
-<?php
-$idx = $_GET['id'];
-$sqlmember = "SELECT * FROM Employee WHERE id='$idx' ";
-$retrieve = mysqli_query($db, $sqlmember);
-$count = 0;
-while ($found = mysqli_fetch_array($retrieve)) {
-    $id = $found['ID'];
-    $employeeID = $found['Employee_ID'];
-    $firstName = $found['FirstName'];
-    $middleName = $found['MiddleName'];
-    $lastName = $found['LastName'];
-    $suffix = $found['Suffix'];
-    $gender = $found['Gender'];
-    $division = $found['Division'];
-    $position = $found['Position'];
-    $areaOfAssignment = $found['AreaOfAssignment'];
-    $regular_suballotment = $found['Regular_SubAllotment'];
-    $contractDuration_start = $found['ContractDuration_start'];
-    $contractDuration_end = $found['ContractDuration_end'];
-    $inclusiveDateOfEmployment = $found['InclusiveDateOfEmployment'];
-    $salaryGrade = $found['SalaryGrade'];
-    $salary = $found['Salary'];
-    $prc = $found['PRC'];
-    $address = $found['Address'];
-    $birthdate = $found['Birthdate'];
-    $placeOfBirth = $found['PlaceOfBirth'];
-    $nameOfPersonToNotify = $found['NameOfPersonToNotify'];
-    $bloodtype = $found['Bloodtype'];
-    $tinNumber = $found['TINNumber'];
-    $philhealth = $found['Philhealth'];
-    $sss = $found['SSS'];
-    $pagIbigNumber = $found['PagIbigNumber'];
-    $cpNumber = $found['CPNumber'];
-    $emailAddress = $found['EmailAddress'];
-    $signature = $found['Signature'];
-    $profilePhoto = $found['ProfilePhoto'];
-}
-if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
-    $data = file_get_contents($profilePhoto);
-    $base64 = base64_encode($data);
-    $imageSrc = 'data:image/png;base64,' . $base64;
-} else {
-    if ($profilePhoto != "")
-        $imageSrc = 'images/' . $profilePhoto;
-    else
-        $imageSrc = "admin/images/profile.jpg";
-}
-?>
 
 <body>
     <div id="content1" class="id">
@@ -242,24 +198,4 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
         text.style.fontSize = "90px";
     }
 </script>
-<script src="./html2canvas.js"></script>
-<script type="text/javascript">
-    window.onload = function() {
-        const screenshotTarget = document.getElementById('content1');
-        html2canvas(screenshotTarget, {
-            scale: 1,
-        }).then((canvas) => {
-            const base64image = canvas.toDataURL("image/png");
-            var anchor = document.createElement('a');
-            anchor.setAttribute("href", base64image);
-            anchor.setAttribute("download", "<?php echo $employeeID?>.png");
-            setTimeout(function() {
-                anchor.click();
-                anchor.remove();
-            });
-        });
-    };
-</script>
-</body>
-
 </html>
