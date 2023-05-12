@@ -6,17 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-   
-
-<style>
 
 
-
-  @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800&display=swap');
-
+    <style>
 
 
-        
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800&display=swap');
+
+
         body {
             background: #fff;
         }
@@ -24,10 +21,18 @@
         #bg1 {
             width: 1000px;
             height: 432px;
-
-            margin: 60px;
+            margin: 100px;
+            margin-top: 140px;
             float: left;
 
+        }
+
+        @media print {
+            #id1,
+            .id-2 {
+                transform: scale(1.30);
+                transform-origin: top left;
+            }
         }
 
         #id1 {
@@ -64,7 +69,7 @@
 
         }
 
-        .id-1 {
+        .id-2 {
             transition: 0.4s;
             width: 312px;
             height: 432px;
@@ -72,8 +77,6 @@
             font-size: 16px;
             font-family: sans-serif;
             float: left;
-            margin: auto;
-            margin-left: 370px;
             border-radius: 2%;
             border: 1px solid #000;
 
@@ -90,7 +93,7 @@
             /* Adjust to desired value */
             font-size: 7px;
             font-family: 'Barlow';
-            
+
             letter-spacing: 1px;
             color: green;
             display: block;
@@ -104,9 +107,10 @@
             white-space: nowrap;
             text-align: justify;
             text-align: left;
-			text-transform: capitalize;
+            text-transform: capitalize;
         }
-		.vertical-text2 {
+
+        .vertical-text2 {
             writing-mode: vertical-rl;
             transform: rotate(180deg);
             position: absolute;
@@ -115,7 +119,7 @@
             /* Adjust to desired value */
             /* Adjust to desired value */
             font-size: 7px;
-			font-family: 'Barlow', sans-serif;	
+            font-family: 'Barlow', sans-serif;
             font-weight: 500;
             letter-spacing: 1px;
             color: green;
@@ -130,10 +134,10 @@
             white-space: nowrap;
             text-align: justify;
             text-align: left;
-			text-transform: capitalize;
+            text-transform: capitalize;
         }
     </style>
-    
+
 </head>
 
 <body>
@@ -144,7 +148,7 @@
         // }, 5000)
     </script>
 
-    <div id="bg1">
+    <div id="bg1" style="margin-top:200px ">
         <div id="id1">
             <br><br><br><br><br><br><br>
             <center>
@@ -160,7 +164,13 @@
                 <p style="margin-top:-4%">&nbsp;</p>
 
                 <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
-                <span style="font-size:24px;"><?php if(isset($firstName)){ $nameParts = explode(' ', $firstName); echo $nameParts[0]; if(isset($nameParts[1])) { echo ' ' . $nameParts[1]; } } ?></span>
+                    <span style="font-size:24px;"><?php if (isset($firstName)) {
+                                                        $nameParts = explode(' ', $firstName);
+                                                        echo $nameParts[0];
+                                                        if (isset($nameParts[1])) {
+                                                            echo ' ' . $nameParts[1];
+                                                        }
+                                                    } ?></span>
                 </div>
                 <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-1.5%; font-size:18px; font-family: 'Lora';">
                     <span><br><?php if (isset($lastName)) {
@@ -181,14 +191,16 @@
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
+
                 <p class="vertical-text" style="font-weight: 400;  color: white; position: absolute; top: 74%; white-space: pre-line;">
   <span style="font-weight: Bold; color: Green; position: absolute; left 4%;"><?php if(isset($division)){ echo $division; } ?></span>
   <?php if(isset($division) && isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") echo '<br><br>'; ?>
   <?php if(isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION"){ echo $areaOfAssignment; }?>
 </p>
+
             </div>
         </div>
-        <div class="id-1">
+        <div class="id-2" style="margin-left:500px">
 
             <p style="margin-top:2%; text-align:left;margin-left:10px;font-size:20px;">Address:</p>
             <div style="margin-top:-5%;border:1px solid #000;margin-left:10px; width: 90%;">
