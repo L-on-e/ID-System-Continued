@@ -221,6 +221,7 @@
                 <p style="margin-top:-4%">&nbsp;</p>
 
 
+
                 <div class="name-pos">
                     <p class="fName">
                         <?php if (isset($firstName)) {
@@ -251,11 +252,12 @@
 
                 <p style="position: absolute; top: 0; left: 46%; margin-top:114%; font-size:9px; font-family: 'Lora';">ID NO. <?php if (isset($employeeID)) {
                                                                                                                                     echo $employeeID;
-                                                                                                                                } ?></p>
+                    
                 <!-- <img src="<?= $signaturePhoto ?>" height="110px" width="110px" alt="image" style='margin-left:20%; margin-top:0%;'>> -->
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
+
                 <p class="vertical-text" style="font-weight: 800;  color: white; position: absolute; top: 74%; white-space: pre-line;">
                     <span style=" color: Green; position: absolute; left 4%;"><?php if (isset($division)) {
                                                                                                     echo $division;

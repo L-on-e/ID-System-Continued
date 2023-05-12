@@ -60,6 +60,23 @@
 
 
 
+
+
+		#id1::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: url('./images/bg4.png');
+			background-repeat: repeat-x;
+			background-size: 312px 432px;
+			opacity: 1;
+			z-index: -1;
+			text-align: center;
+			border: 1px solid #000;
+
+		}
+
 		.container {
 			font-size: 12px;
 			font-family: sans-serif;
@@ -75,6 +92,7 @@
 			font-family: sans-serif;
 			float: left;
 			margin: auto;
+
 			margin-left: 370px;
 		}
 
@@ -130,6 +148,7 @@
 			text-align: left;
 			text-transform: capitalize;
 		}
+
 
 
 		.lowercontext {
@@ -203,6 +222,7 @@
 						<br>
 
 				</div>
+
 				<div class="lowercontext">
 					<div>
 						<span class="idno">
@@ -318,6 +338,7 @@
 			</div>
 		</div>
 	</div>
+
 </body>
 
 </html>
