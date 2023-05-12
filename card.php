@@ -16,7 +16,7 @@ if (!isset($_COOKIE['adminid']) && $_COOKIE['adminemail']) {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
-	<title>card</title>
+	<title>Print ID</title>
 </head>
 
 <body>
