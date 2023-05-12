@@ -9,8 +9,6 @@
 
 
     <style>
-
-
         @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800&display=swap');
 
 
@@ -21,16 +19,15 @@
         #bg1 {
             width: 1000px;
             height: 432px;
-            margin: 100px;
-            margin-top: 140px;
             float: left;
 
         }
 
         @media print {
+
             #id1,
             .id-2 {
-                transform: scale(1.30);
+                transform: scale(1.40);
                 transform-origin: top left;
             }
         }
@@ -44,7 +41,6 @@
 
             transition: 0.4s;
             background-color: #FFFFFF;
-            border-radius: 2%;
 
         }
 
@@ -77,10 +73,7 @@
             font-size: 16px;
             font-family: sans-serif;
             float: left;
-            border-radius: 2%;
             border: 1px solid #000;
-
-
         }
 
         .vertical-text {
@@ -93,7 +86,7 @@
             /* Adjust to desired value */
             font-size: 7px;
             font-family: 'Barlow';
-
+            font-weight: 800;
             letter-spacing: 1px;
             color: green;
             display: block;
@@ -118,9 +111,9 @@
             bottom: 2%;
             /* Adjust to desired value */
             /* Adjust to desired value */
-            font-size: 7px;
+            font-size: 8px;
             font-family: 'Barlow', sans-serif;
-            font-weight: 500;
+            font-weight: 800;
             letter-spacing: 1px;
             color: green;
             display: block;
@@ -136,6 +129,70 @@
             text-align: left;
             text-transform: capitalize;
         }
+
+        /*ID BACK */
+
+        .info-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 5px;
+            width: 268px;
+            height: 142px;
+            justify-content: space-evenly;
+        }
+
+        .info-adj {
+            align-items: center;
+            margin-left: 10px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-title {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .info-data {
+            padding: 3px;
+            border: solid 1px;
+            margin-top: -10px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        /* TextLayoutFront */
+
+        .name-pos {
+            margin-top: -11px;
+            margin-left: 55px;
+            width: 200px;
+        }
+
+        .fName{
+            font-family:'Lora' ;
+            text-align: start;
+            font-size:35px;
+            margin-top: -20px;
+        }
+        .lname{
+            margin-left: 1px;
+            font-family:'Lora' ;
+            text-align: start;
+            font-size:22px;
+            margin-top: -45px;  
+        }
+
+        .pos1{
+            font-family:'Lora' ;
+            text-align: start;
+            font-size: 8px;
+            margin-top: -25px; 
+            margin-left: 3px; 
+        }
+
     </style>
 
 </head>
@@ -148,7 +205,7 @@
         // }, 5000)
     </script>
 
-    <div id="bg1" style="margin-top:200px ">
+    <div id="bg1" style="margin-bottom:310px ">
         <div id="id1">
             <br><br><br><br><br><br><br>
             <center>
@@ -163,79 +220,108 @@
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
 
-                <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-3%; font-size:18px; font-family: 'Lora';">
-                    <span style="font-size:24px;"><?php if (isset($firstName)) {
-                                                        $nameParts = explode(' ', $firstName);
-                                                        echo $nameParts[0];
-                                                        if (isset($nameParts[1])) {
-                                                            echo ' ' . $nameParts[1];
-                                                        }
-                                                    } ?></span>
-                </div>
-                <div style="position: absolute; left: 27%; top: 67%; margin-left:0%; margin-top:-1.5%; font-size:18px; font-family: 'Lora';">
-                    <span><br><?php if (isset($lastName)) {
-                                    echo $lastName;
-                                } ?></span>
-                    <br>
 
+
+                <div class="name-pos">
+                    <p class="fName">
+                        <?php if (isset($firstName)) {
+                            $nameParts = explode(' ', $firstName);
+                            echo $nameParts[0];
+                            if (isset($nameParts[2])) {
+                                echo ' ' . $nameParts[2];
+                            }
+                        } ?>
+                    </p>
+
+                    <p class="lName">
+                        <?php if (isset($lastName)) {
+                            echo $lastName;
+                        } ?>
+                    </p>
+
+
+                    <p class="pos1">
+                        <?php if (isset($position)) {
+                            echo $position;
+                        } ?>
+
+                    </p>
                 </div>
-                <span style="position: absolute; left: 28%;top: 76%; font-size:11px; font-family: 'Lora';"><?php if (isset($position)) {
-                                                                                                                echo $position;
-                                                                                                            } ?></span>
+
                 <p style="margin-top:20%">&nbsp;</p>
-                                                                                                                
-                <p style="position: absolute; top: 0; left: 48%; margin-top:114%; font-size:9px; font-family: 'Lora';">ID NO. <?php if (isset($employeeID)) {
-                                                                                                                            echo $employeeID;
-                                                                                                                        } ?></p>
+
+                <p style="position: absolute; top: 0; left: 46%; margin-top:114%; font-size:9px; font-family: 'Lora';">ID NO. <?php if (isset($employeeID)) {
+                                                                                                                                    echo $employeeID;
+                    
                 <!-- <img src="<?= $signaturePhoto ?>" height="110px" width="110px" alt="image" style='margin-left:20%; margin-top:0%;'>> -->
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
 
-                <p class="vertical-text" style="font-weight: 400;  color: white; position: absolute; top: 74%; white-space: pre-line;">
-  <span style="font-weight: Bold; color: Green; position: absolute; left 4%;"><?php if(isset($division)){ echo $division; } ?></span>
-  <?php if(isset($division) && isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") echo '<br><br>'; ?>
-  <?php if(isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION"){ echo $areaOfAssignment; }?>
-</p>
-
+                <p class="vertical-text" style="font-weight: 800;  color: white; position: absolute; top: 74%; white-space: pre-line;">
+                    <span style=" color: Green; position: absolute; left 4%;"><?php if (isset($division)) {
+                                                                                                    echo $division;
+                                                                                                } ?></span>
+                    <?php if (isset($division) && isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") echo '<br><br>'; ?>
+                    <?php if (isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") {
+                        echo $areaOfAssignment;
+                    } ?>
+                </p>
             </div>
         </div>
         <div class="id-2" style="margin-left:500px">
 
-            <p style="margin-top:2%; text-align:left;margin-left:10px;font-size:20px;">Address:</p>
-            <div style="margin-top:-5%;border:1px solid #000;margin-left:10px; width: 90%;">
-                <p style="margin-left:10px;"><?php if (isset($address)) {
-                                                    echo $address;
+            <div class="address">
+                <p style="margin-left: 12px;">Address</p>
+
+                <p style="text-align: center; border:solid 1px black; width:500px; width: 270px; margin-left:10px;padding: 5px; font-size:13px"><?php if (isset($address)) {
+                                                                                                                                                    echo $address;
+                                                                                                                                                } ?></p>
+            </div>
+
+            <div style="margin-top:5%;border:1px solid #000;margin-left:10px; width: 90%;height:34%;">
+                <div class="info-container">
+                    <div class="info-adj">
+                        <p class="info-title">BIRTHDATE</p>
+                        <p class="info-data"><?php if (isset($birthdate)) {
+                                                    echo $birthdate;
                                                 } ?></p>
+                    </div>
+
+                    <div class="info-adj">
+                        <p class="info-title">BLOOD TYPE</p>
+                        <p class="info-data"><?php if (isset($bloodtype)) {
+                                                    echo $bloodtype;
+                                                } ?></p>
+                    </div>
+
+                    <div class="info-adj">
+                        <p class="info-title">TIN NO.</p>
+                        <p class="info-data"><?php if (isset($tinNumber)) {
+                                                    echo $tinNumber;
+                                                } ?></p>
+                    </div>
+
+
+                    <div class="info-adj">
+
+                        <p class="info-title">PHILHEALTH NO.</p>
+                        <p class="info-data"><?php if (isset($philhealth)) {
+                                                    echo $philhealth;
+                                                } ?></p>
+                    </div>
+
+                    <div class="info-adj">
+                        <p class="info-title">SSS</p>
+                        <p class="info-data"><?php if (isset($sss)) {
+                                                    echo $sss;
+                                                } ?></p>
+
+                    </div>
+                </div>
             </div>
-            <div style="margin-top:1%;border:1px solid #000;margin-left:10px; width: 90%;height:34%;">
-                <p style="margin-top:0%;text-indent: 30px;text-decoration: underline;">BIRTHDATE</p>
-                <p style="margin-top:-12%;text-decoration: underline; text-indent: 160px;">BLOOD TYPE</p>
-                <p style="margin:10px;border:1px solid #000;width: 45%;margin-top:-5%;padding:2px;text-align:center;"><?php if (isset($birthdate)) {
-                                                                                                                            echo $birthdate;
-                                                                                                                        } ?></p>
-                <p style="margin:180px;border:1px solid #000;width: 20%;margin-top:-12%;padding:2px;text-align:center;"><?php if (isset($bloodtype)) {
-                                                                                                                            echo $bloodtype;
-                                                                                                                        } ?></p>
-                <p style="text-indent: 35px;text-decoration: underline; margin-top:-60%;">TIN NO.</p>
-                <p style="margin-top:-12%;text-decoration: underline; text-indent: 140px;">PHILHEALTH NO.</p>
-
-                <p style="margin:10px;border:1px solid #000;width: 40%;margin-top:-5%;padding:2px;text-align:center;"><?php if (isset($tinNumber)) {
-                                                                                                                            echo $tinNumber;
-                                                                                                                        } ?></p>
-                <p style="margin:140px;border:1px solid #000;width: 47%;margin-top:-12%;padding:2px;text-align:center;"><?php if (isset($philhealth)) {
-                                                                                                                            echo $philhealth;
-                                                                                                                        } ?></p>
-                <p style="margin-top:-50%;text-decoration: underline; text-indent: 123px;">SSS</p>
-                <p style="margin:80px;border:1px solid #000;width: 40%;margin-top:-5%;padding:2px;text-align:center;"><?php if (isset($sss)) {
-                                                                                                                            echo $sss;
-                                                                                                                        } ?></p>
-
-
-
-            </div>
-            <div style="margin-top:2%;border:1px solid #000;margin-left:10px; width: 90%;height:18%;">
-                <p style="margin-left:10px;margin-top:1%;">Person to notify incase of emergency:</br>
+            <div style="margin-top:2%;border:1px solid #000;margin-left:10px; width: 90%;height:18%; ">
+                <p style="margin-left:10px;margin-top:5%; font-size:14px; align-items:center">Person to notify incase of emergency:</br>
                     Name: <?php if (isset($nameOfPersonToNotify)) {
                                 echo $nameOfPersonToNotify;
                             } ?></br>
@@ -244,11 +330,11 @@
                             } ?></p>
             </div>
 
-            <p style="padding:2px;text-align:center;font-size:11px;margin-top:1%">This is to certify the person whose picture and signature appear hereon is an employee of DOH-RO1, SFLU</p>
+            <p style="padding:2px;text-align:center;font-size:10px;margin-top:1%">This is to certify the person whose picture and signature appear hereon is an employee of DOH-RO1, SFLU</p>
 
             <hr align="center" style="border: 1px solid black;width:90%;margin-top:12%">
             </hr>
-            <p align="center" style="margin-top:-2%;font-size:12px;">PAULA PAZ M. SYDIONGCO, MD, MPH, MBA, CESO IV <br>Director IV</p>
+            <p align="center" style="margin-top:-2%;font-size:10px;">PAULA PAZ M. SYDIONGCO, MD, MPH, MBA, CESO IV <br>Director IV</p>
 
         </div>
     </div>

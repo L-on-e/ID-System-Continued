@@ -19,9 +19,8 @@
 
 		#bg {
 			width: 1000px;
-			height: 432px;
-			margin: 60px;
-			float: left;
+            height: 432px;
+            float: left;
 
 		}
 
@@ -29,7 +28,7 @@
 
 			#id,
 			#id-1 {
-				transform: scale(1.30);
+				transform: scale(1.40);
 				transform-origin: top left;
 			}
 		}
@@ -40,42 +39,9 @@
 			position: absolute;
 			opacity: 0.88;
 			font-family: sans-serif;
+
 			transition: 0.4s;
 			background-color: #FFFFFF;
-			border-radius: 2%;
-		}
-
-		@font-face {
-			font-family: 'Lora';
-			src: url('bootstrap/fonts/lora-regular.ttf');
-			font-weight: normal;
-		}
-
-		#id::before {
-			content: "";
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			background: url('./images/bg4.png');
-			background-repeat: no-repeat;
-			background-size: 312px 432px;
-			opacity: 1;
-			z-index: -1;
-			text-align: center;
-			border: 1px solid #000;
-
-		}
-
-		.container {
-			font-size: 12px;
-			font-family: sans-serif;
-
-		}
-
-		@font-face {
-			font-family: 'Lora';
-			src: url('bootstrap/fonts/lora-regular.ttf');
-			font-weight: normal;
 		}
 
 		#id::before {
@@ -90,8 +56,9 @@
 			z-index: -1;
 			text-align: center;
 			border: 1px solid #000;
-
 		}
+
+
 
 
 
@@ -127,10 +94,6 @@
 			margin: auto;
 
 			margin-left: 370px;
-
-
-
-
 		}
 
 		.vertical-text {
@@ -143,7 +106,7 @@
 			/* Adjust to desired value */
 			font-size: 7px;
 			font-family: 'Barlow';
-
+			font-weight: 800;
 			letter-spacing: 1px;
 			color: green;
 			display: block;
@@ -157,7 +120,6 @@
 			white-space: nowrap;
 			text-align: justify;
 			text-align: left;
-			text-transform: capitalize;
 		}
 
 		.vertical-text2 {
@@ -168,9 +130,9 @@
 			bottom: 2%;
 			/* Adjust to desired value */
 			/* Adjust to desired value */
-			font-size: 7px;
+			font-size: 8px;
 			font-family: 'Barlow', sans-serif;
-			font-weight: 500;
+			font-weight: 800;
 			letter-spacing: 1px;
 			color: green;
 			display: block;
@@ -188,60 +150,39 @@
 		}
 
 
-		}
 
-		.vertical-text {
-			writing-mode: vertical-rl;
-			transform: rotate(180deg);
+		.lowercontext {
+			top: 360px;
+			margin-left: -260px;
+			font-family: 'Lora';
 			position: absolute;
-			margin-left: -6px;
-			bottom: 2%;
-			/* Adjust to desired value */
-			/* Adjust to desired value */
-			font-size: 7px;
-			font-family: 'Barlow';
-
-			letter-spacing: 1px;
-			color: green;
-			display: block;
-			/* create a block-level element */
-			width: 60px;
-			/* set the width to your desired size */
-			overflow: hidden;
-			/* hide the overflow */
-			text-overflow: ellipsis;
-			/* add an ellipsis (...) to indicate truncated text */
-			white-space: nowrap;
-			text-align: justify;
-			text-align: left;
-			text-transform: capitalize;
+			bottom: 10px;
+			left: 380px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+			width: 200px;
+			height: 50px;
 		}
 
-		.vertical-text2 {
-			writing-mode: vertical-rl;
-			transform: rotate(180deg);
-			position: absolute;
-			margin-left: 16px;
-			bottom: 2%;
-			/* Adjust to desired value */
-			/* Adjust to desired value */
-			font-size: 7px;
-			font-family: 'Barlow', sans-serif;
-			font-weight: 500;
-			letter-spacing: 1px;
-			color: green;
-			display: block;
-			/* create a block-level element */
-			width: 60px;
-			/* set the width to your desired size */
-			overflow: hidden;
-			/* hide the overflow */
-			text-overflow: ellipsis;
-			/* add an ellipsis (...) to indicate truncated text */
-			white-space: nowrap;
-			text-align: justify;
-			text-align: left;
-			text-transform: capitalize;
+		.idno {
+			transform-origin: 0% 0%;
+			font-family: 'Lora';
+			font-size: 11px;
+			width: fit-content;
+		}
+
+		.fullname {
+			font-family: 'Lora';
+			font-size: 10px;
+			margin-bottom: 12px;
+			margin-top: 12px;
+		}
+
+		.position {
+			font-family: 'Lora';
+			font-size: 10px;
 		}
 	</style>
 </head>
@@ -251,7 +192,7 @@
 		window.print();
 	</script>
 
-	<div id="bg" style="margin-top:200px ; margin-left:110px">
+	<div id="bg" style="margin-bottom:310px ">
 		<div id="id">
 			<br><br><br><br><br><br><br>
 			<center>
@@ -282,30 +223,36 @@
 
 				</div>
 
-				<span style="position: absolute; left: 45%;right: 2%;top: 94%; font-size:9px; font-family: 'Lora';  line-height: 0.8;"><?php if (isset($position)) {
-																																			echo $position;
-																																		} ?></span>
-				<p style="margin-top:20%">&nbsp;</p>
-				<div style="margin-left: 40%; margin-top:30px; font-size:18px; font-family: 'Lora'; text-align:center; line-height: 0.8;">
-
-					<span style="font-size:12px;"><?php if (isset($firstName)) {
-														echo $firstName;
-													} ?> <?php if (isset($lastName)) {
-																										echo $lastName;
-																									} ?></span>
+				<div class="lowercontext">
+					<div>
+						<span class="idno">
+							ID NO.
+							<?php if (isset($employeeID)) {
+								echo $employeeID;
+							} ?>
+						</span>
+					</div>
+					<div class="fullname">
+						<span>
+							<?php if (isset($lastName)) {
+								echo $firstName . ' ' . $lastName . ' ' . $suffix;
+							} ?>
+						</span>
+					</div>
+					<div class="position">
+						<span>
+							<?php if (isset($position)) {
+								echo $position;
+							} ?>
+						</span>
+					</div>
 				</div>
-
-				<p style="position: absolute; top: 0; margin-left:172px; margin-top:100%; font-size:10px; font-family: 'Lora';">ID NO. <?php if (isset($employeeID)) {
-																																			echo $employeeID;
-
-																																		} ?></p>
-
 				<p style="margin-top:-4%">&nbsp;</p>
 				<p style="margin-top:-4%">&nbsp;</p>
 				<p style="margin-top:-4%">&nbsp;</p>
 				<div style="display: flex;  flex-direction: column;">
 
-					<p class="vertical-text" style="font-weight: 500;  color: white; position: absolute; top: 74%; white-space: pre-line;">
+					<p class="vertical-text" style="font-weight: 800;  color: white; position: absolute; top: 74%; white-space: pre-line;">
 						<span style="font-weight: Bold; color: Green; position: absolute; left 4%;"><?php if (isset($division)) {
 																										echo $division;
 																									} ?></span>
@@ -316,10 +263,6 @@
 					</p>
 
 				</div>
-
-
-
-
 			</div>
 		</div>
 
@@ -352,28 +295,36 @@
 						<br>
 
 				</div>
-				<span style="position: absolute; left: 45%;right: 2%;margin-top: 110px; font-size:11px; font-family: 'Lora';"><?php if (isset($position)) {
-																																	echo $position;
-																																} ?></span>
-				<p style="margin-top:20%">&nbsp;</p>
-				<div style="margin-left: 40%; margin-top:16px; font-size:18px; font-family: 'Lora'; text-align:center;">
-					<span style="font-size:12px;"><?php if (isset($firstName)) {
-														echo $firstName;
-													} ?> <?php if (isset($lastName)) {
-																										echo $lastName;
-																									} ?></span>
+				<div class="lowercontext">
+					<div>
+						<span class="idno">
+							ID NO.
+							<?php if (isset($employeeID)) {
+								echo $employeeID;
+							} ?>
+						</span>
+					</div>
+					<div class="fullname">
+						<span>
+							<?php if (isset($lastName)) {
+								echo $firstName . ' ' . $lastName . ' ' . $suffix;
+							} ?>
+						</span>
+					</div>
+					<div class="position">
+						<span>
+							<?php if (isset($position)) {
+								echo $position;
+							} ?>
+						</span>
+					</div>
 				</div>
-
-				<p style="position: absolute; top: 0; margin-left:172px; margin-top:112%; font-size:14px; font-family: 'Lora';">ID NO. <?php if (isset($id)) {
-																																			echo $id;
-																																		} ?></p>
-
 				<p style="margin-top:-4%">&nbsp;</p>
 				<p style="margin-top:-4%">&nbsp;</p>
 				<p style="margin-top:-4%">&nbsp;</p>
 				<div style="display: flex;  flex-direction: column;">
 
-					<p class="vertical-text" style="font-weight: 500;  color: white; position: absolute; top: 74%; white-space: pre-line;">
+					<p class="vertical-text" style="font-weight: 800;  color: white; position: absolute; top: 74%; white-space: pre-line;">
 						<span style="font-weight: Bold; color: Green; position: absolute; left 4%;"><?php if (isset($division)) {
 																										echo $division;
 																									} ?></span>
@@ -384,11 +335,6 @@
 					</p>
 
 				</div>
-
-
-
-
-
 			</div>
 		</div>
 	</div>

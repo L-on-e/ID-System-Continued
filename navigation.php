@@ -38,8 +38,8 @@ while ($found = mysqli_fetch_array($ret)) {
 </head>
 
 <body>
-<!-- All Bulk Printing-->
-<div id="bulkPrintAll" class="modal fade" role="dialog">
+  <!-- All Bulk Printing-->
+  <div id="bulkPrintAll" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
@@ -156,8 +156,8 @@ while ($found = mysqli_fetch_array($ret)) {
 
     </div>
   </div>
-  <!-- download -->
-  <div id="downloadBulk" class="modal fade" role="dialog">
+  <!-- download contractual -->
+  <div id="downloadBulkContractual" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
@@ -165,7 +165,44 @@ while ($found = mysqli_fetch_array($ret)) {
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
             <center>
-              Download IDs IN BULK (Regular Employees only)
+              Download IDs IN BULK (Contractual Employees)
+            </center>
+          </h4>
+        </div>
+
+        <div class="modal-body">
+          <form action="#" method="post" target="_blank">
+            <div class="input-group" style="margin-bottom:10px">
+              <span class="input-group-addon">From</span>
+              <input id="text" type="number" class="form-control" name="startpoint">
+            </div>
+            <div class="input-group" style="margin-bottom:10px">
+              <span class="input-group-addon">To</span>
+              <input type="number" class="form-control" name="endpoint">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon">Employee number starts @</span>
+              <input id="msg" type="text" class="form-control" name="receiptrange" placeholder="" value="<?php echo $idsx; ?>" readonly="readonly">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-success" value="Submit" id="btns1" name="Change"> &nbsp;
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- download contractual -->
+  <!-- download regular -->
+  <div id="downloadBulkRegular" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
+        <div class="modal-header" style="background:#222d32">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="font-weight: bold;color: #F0F0F0">
+            <center>
+              Download IDs IN BULK (Regular Employees)
             </center>
           </h4>
         </div>
@@ -192,7 +229,7 @@ while ($found = mysqli_fetch_array($ret)) {
       </div>
     </div>
   </div>
-  <!-- download -->
+  <!-- download regular -->
   <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
     <!--left-fixed -navigation-->
     <aside class="sidebar-left">
@@ -220,10 +257,20 @@ while ($found = mysqli_fetch_array($ret)) {
               <a data-toggle='modal' data-id='' href='./useradd.php' class='open-adduser'><i class="fa fa-user-plus"></i>Add Employee</a>
             </li>
             <li class="treeview">
-              <a href="bulk.php"><i class='fa fa-print'></i>Bulk registration</a>
+              <a href="bulk.php"><i class='fa fa-users'></i>Bulk registration</a>
             </li>
             <li class="treeview">
-              <a data-toggle='modal' href="#downloadBulk" class="Open-downloadBulk"><i class='fa fa-print'></i>Bulk download</a>
+              <a href="#">
+                <i class="fa fa-download"></i>
+                <span>Bulk Download</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <div class="dropdown-content">
+                  <a data-toggle='modal' href="#downloadBulkRegular" class="Open-downloadBulkRegular"><i class='fa fa-download'></i> Regular</a>
+                  <a data-toggle='modal' href="#downloadBulkContractual" class="Open-downloadBulkContractual"><i class='fa fa-download'></i> Contractual</a>
+                </div>
+              </ul>
             </li>
             </li>
             <li class="treeview">
