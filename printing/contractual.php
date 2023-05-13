@@ -171,38 +171,65 @@
             width: 200px;
         }
 
-        .fName{
-            font-family:'Lora' ;
+        .fName {
+            font-family: 'Lora';
             text-align: start;
-            font-size:35px;
+            font-size: 35px;
             margin-top: -20px;
         }
-        .lname{
+
+        .lname {
             margin-left: 1px;
-            font-family:'Lora' ;
+            font-family: 'Lora';
             text-align: start;
-            font-size:22px;
-            margin-top: -45px;  
+            font-size: 22px;
+            margin-top: -45px;
         }
 
-        .pos1{
-            font-family:'Lora' ;
+        .pos1 {
+            font-family: 'Lora';
             text-align: start;
             font-size: 8px;
-            margin-top: -25px; 
-            margin-left: 3px; 
+            margin-top: -25px;
+            margin-left: 3px;
         }
-
     </style>
 
 </head>
 
 <body>
     <script type="text/javascript">
-        window.print();
-        // setTimeout(function() {
-        // 	window.close()
-        // }, 5000)
+        function printDocument() {
+  // Open the print dialog box
+  window.print();
+
+  // Set the destination to "EPSON L565 Series"
+  if (window.chrome) {
+    // Wait for the print dialog box to open
+    setTimeout(function() {
+      // Get the print dialog box iframe
+      var iframe = document.querySelector('iframe[src^="chrome://print/"]');
+
+      // Get the destination select element
+      var select = iframe.contentDocument.getElementById('destinationSelect');
+
+      // Find the option with the printer name
+      var option = Array.from(select.options).find(function(option) {
+        return option.text === "EPSON L565 Series";
+      });
+
+      // Set the destination to the printer name
+      if (option) {
+        option.selected = true;
+      }
+
+      // Trigger the change event to update the dialog box
+      var event = new Event('change', { bubbles: true });
+      select.dispatchEvent(event);
+    }, 5000); // Increase the timeout to 5000 milliseconds
+  }
+}
+
     </script>
 
     <div id="bg1" style="margin-bottom:310px ">
@@ -219,7 +246,6 @@
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
-
 
 
                 <div class="name-pos">
@@ -252,16 +278,15 @@
 
                 <p style="position: absolute; top: 0; left: 46%; margin-top:114%; font-size:9px; font-family: 'Lora';">ID NO. <?php if (isset($employeeID)) {
                                                                                                                                     echo $employeeID;
-                    
+                                                                                                                                } ?></p>
                 <!-- <img src="<?= $signaturePhoto ?>" height="110px" width="110px" alt="image" style='margin-left:20%; margin-top:0%;'>> -->
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
-
                 <p class="vertical-text" style="font-weight: 800;  color: white; position: absolute; top: 74%; white-space: pre-line;">
                     <span style=" color: Green; position: absolute; left 4%;"><?php if (isset($division)) {
-                                                                                                    echo $division;
-                                                                                                } ?></span>
+                                                                                    echo $division;
+                                                                                } ?></span>
                     <?php if (isset($division) && isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") echo '<br><br>'; ?>
                     <?php if (isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") {
                         echo $areaOfAssignment;

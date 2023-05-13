@@ -171,7 +171,7 @@ while ($found = mysqli_fetch_array($ret)) {
         </div>
 
         <div class="modal-body">
-          <form action="#" method="post" target="_blank">
+          <form action="downloadbulk.php" method="post" target="_blank">
             <div class="input-group" style="margin-bottom:10px">
               <span class="input-group-addon">From</span>
               <input id="text" type="number" class="form-control" name="startpoint">
