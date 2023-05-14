@@ -1,14 +1,62 @@
 <?php
-include "db_connect.php";
+include "../db_connect.php";
+
+$idx = $_GET['id'];
+$sqlmember = "SELECT * FROM Employee WHERE id='$idx' ";
+$retrieve = mysqli_query($db, $sqlmember);
+$count = 0;
+while ($found = mysqli_fetch_array($retrieve)) {
+    $id = $found['ID'];
+    $employeeID = $found['Employee_ID'];
+    $firstName = $found['FirstName'];
+    $middleName = $found['MiddleName'];
+    $lastName = $found['LastName'];
+    $suffix = $found['Suffix'];
+    $gender = $found['Gender'];
+    $division = $found['Division'];
+    $position = $found['Position'];
+    $areaOfAssignment = $found['AreaOfAssignment'];
+    $regular_suballotment = $found['Regular_SubAllotment'];
+    $contractDuration_start = $found['ContractDuration_start'];
+    $contractDuration_end = $found['ContractDuration_end'];
+    $inclusiveDateOfEmployment = $found['InclusiveDateOfEmployment'];
+    $salaryGrade = $found['SalaryGrade'];
+    $salary = $found['Salary'];
+    $prc = $found['PRC'];
+    $address = $found['Address'];
+    $birthdate = $found['Birthdate'];
+    $placeOfBirth = $found['PlaceOfBirth'];
+    $nameOfPersonToNotify = $found['NameOfPersonToNotify'];
+    $bloodtype = $found['Bloodtype'];
+    $tinNumber = $found['TINNumber'];
+    $philhealth = $found['Philhealth'];
+    $sss = $found['SSS'];
+    $pagIbigNumber = $found['PagIbigNumber'];
+    $cpNumber = $found['CPNumber'];
+    $emailAddress = $found['EmailAddress'];
+    $signature = $found['Signature'];
+    $profilePhoto = $found['ProfilePhoto'];
+}
+if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
+    $data = file_get_contents($profilePhoto);
+    $base64 = base64_encode($data);
+    $imageSrc = 'data:image/png;base64,' . $base64;
+} else {
+    if ($profilePhoto != "")
+        $imageSrc = 'images/' . $profilePhoto;
+    else
+        $imageSrc = "../admin/images/profile.jpg";
+}
+
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
-    <title>card</title>
+    <title><?php echo $firstName.' '.'ID'?></title>
     <style>
         @font-face {
             font-family: 'Barlow';
-            src: url('bootstrap/fonts/barlow-regular.ttf');
+            src: url('../bootstrap/fonts/barlow-regular.ttf');
             font-weight: normal;
         }
 
@@ -16,7 +64,7 @@ include "db_connect.php";
 
         @font-face {
             font-family: 'Lora';
-            src: url('bootstrap/fonts/lora-regular.ttf');
+            src: url('../bootstrap/fonts/lora-regular.ttf');
             font-weight: normal;
         }
 
@@ -26,7 +74,7 @@ include "db_connect.php";
             width: 808px;
             border-width: 2px;
             border-style: solid;
-            background-image: url('./images//bg4.png');
+            background-image: url('../images//bg4.png');
             background-size: 812px 1125px;
             background-repeat: no-repeat;
         }
@@ -83,17 +131,21 @@ include "db_connect.php";
         .division {
             position: absolute;
             font-family: 'Barlow', 'sans-serif';
-            font-size: 26px;
+            width: 300px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
             transform: rotate(270deg);
-            bottom: 140px;
-            left: -140px;
+            bottom: 65px;
+            left: -65px;
             text-transform: uppercase;
         }
 
         .divText {
             font-family: 'Barlow', 'sans-serif';
             font-weight: 800;
-            width: 380px;
+            font-size: 26px;
+            width: 300px;
             color: green;
             white-space: break-word;
             text-align: justify;
@@ -103,6 +155,7 @@ include "db_connect.php";
 
         .section {
             color: white;
+            width: 320px;
             font-weight: 800;
             font-size: 20px;
             white-space: break-word;
@@ -123,55 +176,6 @@ include "db_connect.php";
         }
     </style>
 </head>
-<?php
-$idx = $_GET['id'];
-$sqlmember = "SELECT * FROM Employee WHERE id='$idx' ";
-$retrieve = mysqli_query($db, $sqlmember);
-$count = 0;
-while ($found = mysqli_fetch_array($retrieve)) {
-    $id = $found['ID'];
-    $employeeID = $found['Employee_ID'];
-    $firstName = $found['FirstName'];
-    $middleName = $found['MiddleName'];
-    $lastName = $found['LastName'];
-    $suffix = $found['Suffix'];
-    $gender = $found['Gender'];
-    $division = $found['Division'];
-    $position = $found['Position'];
-    $areaOfAssignment = $found['AreaOfAssignment'];
-    $regular_suballotment = $found['Regular_SubAllotment'];
-    $contractDuration_start = $found['ContractDuration_start'];
-    $contractDuration_end = $found['ContractDuration_end'];
-    $inclusiveDateOfEmployment = $found['InclusiveDateOfEmployment'];
-    $salaryGrade = $found['SalaryGrade'];
-    $salary = $found['Salary'];
-    $prc = $found['PRC'];
-    $address = $found['Address'];
-    $birthdate = $found['Birthdate'];
-    $placeOfBirth = $found['PlaceOfBirth'];
-    $nameOfPersonToNotify = $found['NameOfPersonToNotify'];
-    $bloodtype = $found['Bloodtype'];
-    $tinNumber = $found['TINNumber'];
-    $philhealth = $found['Philhealth'];
-    $sss = $found['SSS'];
-    $pagIbigNumber = $found['PagIbigNumber'];
-    $cpNumber = $found['CPNumber'];
-    $emailAddress = $found['EmailAddress'];
-    $signature = $found['Signature'];
-    $profilePhoto = $found['ProfilePhoto'];
-}
-if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
-    $data = file_get_contents($profilePhoto);
-    $base64 = base64_encode($data);
-    $imageSrc = 'data:image/png;base64,' . $base64;
-} else {
-    if ($profilePhoto != "")
-        $imageSrc = 'images/' . $profilePhoto;
-    else
-        $imageSrc = "admin/images/profile.jpg";
-}
-?>
-
 <body>
     <div id="content1" class="id">
         <div class="imgProfile">
@@ -242,7 +246,7 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
         text.style.fontSize = "90px";
     }
 </script>
-<script src="./html2canvas.js"></script>
+<script src="../html2canvas.js"></script>
 <script type="text/javascript">
     window.onload = function() {
         const screenshotTarget = document.getElementById('content1');
@@ -252,7 +256,7 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
             const base64image = canvas.toDataURL("image/png");
             var anchor = document.createElement('a');
             anchor.setAttribute("href", base64image);
-            anchor.setAttribute("download", "<?php echo $employeeID?>.png");
+            anchor.setAttribute("download", "<?php echo $employeeID ?>.png");
             setTimeout(function() {
                 anchor.click();
                 anchor.remove();

@@ -25,7 +25,7 @@
         }
 
         #content1 {
-            position: absolute;
+            position: relative;
             height: 1121px;
             width: 808px;
             border-width: 2px;
@@ -87,17 +87,21 @@
         .division {
             position: absolute;
             font-family: 'Barlow', 'sans-serif';
-            font-size: 26px;
+            width: 300px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
             transform: rotate(270deg);
-            bottom: 140px;
-            left: -140px;
+            bottom: 65px;
+            left: -65px;
             text-transform: uppercase;
         }
 
         .divText {
             font-family: 'Barlow', 'sans-serif';
             font-weight: 800;
-            width: 380px;
+            font-size: 26px;
+            width: 300px;
             color: green;
             white-space: break-word;
             text-align: justify;
@@ -107,6 +111,7 @@
 
         .section {
             color: white;
+            width: 320px;
             font-weight: 800;
             font-size: 20px;
             white-space: break-word;

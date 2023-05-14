@@ -10,7 +10,11 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800&display=swap');
-
+        @font-face {
+            font-family: 'Lora';
+            src: url('../bootstrap/fonts/lora-regular.ttf');
+            font-weight: normal;
+        }
 
         body {
             background: #fff;
@@ -20,7 +24,6 @@
             width: 1000px;
             height: 432px;
             float: left;
-
         }
 
         @media print {
@@ -138,7 +141,7 @@
         /* TextLayoutFront */
 
         .name-pos {
-            margin-top: -11px;
+            margin-top: -8px;
             margin-left: 55px;
             width: 200px;
         }
@@ -163,7 +166,7 @@
             text-align: start;
             font-size: 8px;
             margin-top: -25px;
-            margin-left: 3px;
+            margin-left: 5px;
         }
 
         #bg-img {

@@ -704,7 +704,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                   data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment' 
                                   class='open-updateProfile btn  btn-info' title='edit user details' href='#updateProfile'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
                                 <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
-                                <a  href='" . ($typeOfEmployment == "Regular" ? "generate_png.php?id=$id" : "savepdf.php?id=$id") . "' class='btn btn-primary' title='click to download ID Card'  target='_blank'><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
+                                <a  href='" . ($typeOfEmployment == "Regular" ? "./layout/singlePNG.php?id=$id" : "./layout/singlePDF.php?id=$id") . "' class='btn btn-primary' title='click to download ID Card'  target='_blank'><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
                               </center>
                             </td>
                           </tr>";
@@ -745,6 +745,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
       const divisionDropdown = document.getElementById('division');
       const areaOfAssignmentDropdown = document.getElementById('areaofassignment');
       const selectedDivision = divisionDropdown.value;
+      
+      areaOfAssignmentDropdown.options.length = 0;
       // Populate with new options
       if (selectedDivision in areaOfAssignmentByDivision) {
         const areasOfAssignment = areaOfAssignmentByDivision[selectedDivision];

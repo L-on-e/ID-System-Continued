@@ -11,7 +11,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800&display=swap');
 
-
+        @font-face {
+            font-family: 'Lora';
+            src: url('../bootstrap/fonts/lora-regular.ttf');
+            font-weight: normal;
+        }
         body {
             background: #fff;
         }
@@ -191,7 +195,7 @@
             text-align: start;
             font-size: 8px;
             margin-top: -25px;
-            margin-left: 3px;
+            margin-left: 5px;
         }
     </style>
 
@@ -199,37 +203,9 @@
 
 <body>
     <script type="text/javascript">
-        function printDocument() {
-  // Open the print dialog box
-  window.print();
-
-  // Set the destination to "EPSON L565 Series"
-  if (window.chrome) {
-    // Wait for the print dialog box to open
-    setTimeout(function() {
-      // Get the print dialog box iframe
-      var iframe = document.querySelector('iframe[src^="chrome://print/"]');
-
-      // Get the destination select element
-      var select = iframe.contentDocument.getElementById('destinationSelect');
-
-      // Find the option with the printer name
-      var option = Array.from(select.options).find(function(option) {
-        return option.text === "EPSON L565 Series";
-      });
-
-      // Set the destination to the printer name
-      if (option) {
-        option.selected = true;
-      }
-
-      // Trigger the change event to update the dialog box
-      var event = new Event('change', { bubbles: true });
-      select.dispatchEvent(event);
-    }, 5000); // Increase the timeout to 5000 milliseconds
-  }
-}
-
+        window.load() = function(){
+            window.print();
+        }
     </script>
 
     <div id="bg1" style="margin-bottom:310px ">

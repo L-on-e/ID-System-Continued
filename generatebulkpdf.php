@@ -89,7 +89,7 @@ $startsat = $_SESSION['receiptrange'];
 
 
         if ($typeOfEmployment == "Contractual") {
-            include "./download/bulkdownloadpdf.php";
+            include "./layout/bulkpdflayout.php";
         }
 
     ?>

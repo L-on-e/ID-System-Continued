@@ -160,6 +160,23 @@
         </div>
     </div>
 </body>
+<script>
+    var text = document.getElementById("firstnamespan");
+    var textLength = <?php echo strlen($firstName) ?>;
+    if (textLength >= 15) {
+        text.style.fontSize = "50px";
+        text.style.marginTop = "20px";
+    } else if (textLength >= 10) {
+        text.style.fontSize = "65px";
+        text.style.marginTop = "15px";
+    } else if (textLength >= 5) {
+        text.style.fontSize = "75px";
+        text.style.marginTop = "10px";
+    } else {
+        text.style.marginTop = "5px";
+        text.style.fontSize = "90px";
+    }
+</script>
 <script src="./html2canvas.js"></script>
 <script>
     window.onload = function() {

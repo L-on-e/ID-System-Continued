@@ -82,7 +82,8 @@ $startsat = $_SESSION['receiptrange'];
 
             if ($typeOfEmployment == "Regular") {
                 array_push($IDs, $employeeID);
-                include "./trialfixbulk.php";
+                include "./layout/bulkpnglayout.php";
+                // include "./bulkpnglayout.php";
             }
         }
     ?>
