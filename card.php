@@ -79,8 +79,6 @@ if (!isset($_COOKIE['adminid']) && $_COOKIE['adminemail']) {
 				} else {
 					if ($signature != "")
 						$signaturePhoto = 'images/' . $signature;
-					else
-						$signaturePhoto = "admin/images/signature.png";
 				}
 
 				if ($typeOfEmployment == "Contractual"){

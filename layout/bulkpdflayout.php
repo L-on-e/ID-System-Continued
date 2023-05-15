@@ -179,6 +179,16 @@
             height: 100%;
             object-fit: cover;
         }
+        .sign-container{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            position: absolute;
+            margin-top: -65px;
+            margin-left: 100px;
+            width: 150px;
+            height: 35px;
+        }
     </style>
 
 </head>
@@ -232,7 +242,9 @@
                 <p style="position: absolute; top: 0; left: 46%; margin-top:114%; font-size:9px; font-family: 'Lora';">ID NO. <?php if (isset($employeeID)) {
                                                                                                                                     echo $employeeID;
                                                                                                                                 } ?></p>
-                <img src="<?= $signaturePhoto ?>" height="110px" width="110px" alt="image" style='margin-left:20%; margin-top:0%;'>
+                <div class="sign-container">
+                    <img src="<?= $signaturePhoto ?>" alt="image" style="max-width: 150px; max-height: 35px; width: auto; height: auto; margin-left: 20%;">
+                </div>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>

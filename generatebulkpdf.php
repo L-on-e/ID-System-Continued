@@ -79,12 +79,12 @@ $startsat = $_SESSION['receiptrange'];
                 $imageSrc = "admin/images/profile.jpg";
         }
         if (filter_var($signature, FILTER_VALIDATE_URL)) {
-            $signaturePhoto = $signature;
+            $data = file_get_contents($signature);
+            $base64 = base64_encode($data);
+            $signaturePhoto = 'data:image/png;base64,' . $base64;
         } else {
             if ($signature != "")
                 $signaturePhoto = 'images/' . $signature;
-            else
-                $signaturePhoto = "admin/images/signature.png";
         }
 
 

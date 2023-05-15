@@ -302,6 +302,7 @@ if (isset($_POST["bulk"])) {
         $emailAddress =  $filesop[26];
         $profilePhotoName =  $filesop[27];
         $typeOfEmployment = $filesop[28];
+        $signaturePhotoName = $filesop[29];
         
         $date_contractDuration_start = strtotime($contractDuration_start);
         $new_contractDuration_start = date('Y-m-d', $date_contractDuration_start);
