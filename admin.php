@@ -136,6 +136,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     var cpNumber = $(this).data('cpnumber');
     var emailAddress = $(this).data('emailaddress');
     var typeOfEmployment = $(this).data('typeofemployment');
+    var profilephoto = $(this).data('profilephoto');
+    var signature = $(this).data('signature');
 
     $(".modal-title #firstname").val(firstname);
     $(".modal-body #firstname").val(firstname);
@@ -512,10 +514,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
                   <hr style="width:100%;text-align:left;margin-left:0">
                   <label>Add Signature photo</label>
-                  <input name='sigFiled' type='file' id='sigFiled'>
+                  <input name='signature' type='file' id='signature'>
 
                   <label> Add ID photo</label>
-                  <input name='IDFiled' type='file' id='IDFiled'>
+                  <input name='profilephoto' type='file' id='profilephoto'>
                   <input type="hidden" name="page" id="employeeid">
 
                 </div>
@@ -699,7 +701,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                   data-division='$division' data-regular_suballotment='$regular_suballotment' data-contractduration_start='$contractDuration_start' data-contractduration_end='$contractDuration_end'
                                   data-inclusivedateofemployment='$inclusiveDateOfEmployment' data-salarygrade='$salaryGrade' data-salary='$salary' 
                                   data-prc='$prc'  data-address='$address' data-birthdate='$birthdate' data-placeofbirth='$placeOfBirth' data-nameofpersontonotify='$nameOfPersonToNotify' data-bloodtype='$bloodtype' 
-                                  data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment' 
+                                  data-tinnumber='$tinNumber'  data-philhealth='$philhealth' data-sss='$sss' data-pagibignumber='$pagIbigNumber' data-cpnumber='$cpNumber' data-emailaddress='$emailAddress' data-typeofemployment='$typeOfEmployment'
                                   class='open-updateProfile btn  btn-info' title='edit user details' href='#updateProfile'><span class='glyphicon glyphicon-edit' style='color:white;'></span></a>
                                 <a data-id='$id'  class='open-Delete btn  btn-danger' title='delete user' ><span class='glyphicon glyphicon-trash' style='color:white;'></span></a>
                                 <a  href='" . ($typeOfEmployment == "Regular" ? "./layout/singlePNG.php?id=$id" : "./layout/singlePDF.php?id=$id") . "' class='btn btn-primary' title='click to download ID Card'  target='_blank'><span class='glyphicon glyphicon-download-alt' style='color:white;'></span></a>
@@ -710,7 +712,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                   ?>
                 </tbody>
               </table>
-              <button id="clear-all-button">Clear All Filters</button>
             </div>
           </div>
           <!--//sreen-gallery-cursual---->
@@ -746,6 +747,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
         }
         if (originalvalue) {
         areaOfAssignmentDropdown.value = originalvalue;
+        console.log(originalvalue);
         }
        }
     }

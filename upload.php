@@ -36,40 +36,40 @@ if (isset($_POST['updateEmployeeDetails'])) {
     $emailAddress = mysqli_real_escape_string($db, $_POST['emailAddress']);
     $typeOfEmployment = mysqli_real_escape_string($db, $_POST['typeOfEmployment']);
     $id = mysqli_real_escape_string($db, $_POST['page']);
-    
+
     $date_contractDuration_start = strtotime($contractDuration_start);
-        $new_contractDuration_start = date('Y-m-d', $date_contractDuration_start);
+    $new_contractDuration_start = date('Y-m-d', $date_contractDuration_start);
 
-        $date_contractDuration_end = strtotime($contractDuration_end);
-        $new_contractDuration_end = date('Y-m-d', $date_contractDuration_end);
-        
-        $date_inclusiveDateOfEmployment = strtotime($inclusiveDateOfEmployment);
-        $new_inclusiveDateOfEmployment = date('Y-m-d', $date_inclusiveDateOfEmployment);
+    $date_contractDuration_end = strtotime($contractDuration_end);
+    $new_contractDuration_end = date('Y-m-d', $date_contractDuration_end);
 
-        $date_birthdate = strtotime($birthdate);
-        $new_birthdate = date('Y-m-d', $date_birthdate);
+    $date_inclusiveDateOfEmployment = strtotime($inclusiveDateOfEmployment);
+    $new_inclusiveDateOfEmployment = date('Y-m-d', $date_inclusiveDateOfEmployment);
+
+    $date_birthdate = strtotime($birthdate);
+    $new_birthdate = date('Y-m-d', $date_birthdate);
 
     $check = "SELECT * FROM Employee WHERE ID='$id' ";
     $checks = mysqli_query($db, $check);
     $found = mysqli_num_rows($checks);
     if ($found != 0) {
-        $signaturePhotoName = $_FILES['sigFiled']['name'];
-        $profilePhotoName = $_FILES['IDFiled']['name'];
-        if (!empty($signaturePhotoName)) {
-            $signaturePhototmpName = $_FILES['sigFiled']['tmp_name'];
-            $signaturePhotoSize = $_FILES['sigFiled']['size'];
-            $signaturePhotoType = $_FILES['sigFiled']['type'];
+        if (isset($_FILES['signature']) && !empty($_FILES['signature']['name'])) {
+            $signaturePhotoName = $_FILES['signature']['name'];
+            $signaturePhototmpName = $_FILES['signature']['tmp_name'];
+            $signaturePhotoSize = $_FILES['signature']['size'];
+            $signaturePhotoType = $_FILES['signature']['type'];
             $f = move_uploaded_file($signaturePhototmpName, 'images/' . $signaturePhotoName);
-            if (isset($f)) { //image is a folder in which you will save documents
+            if ($f) { //image is a folder in which you will save documents
                 $queryz = "UPDATE Employee SET Signature='$signaturePhotoName' WHERE id='$id' ";
                 $db->query($queryz) or die('Errorr, query failed to upload picture');
             }
-        } else if ((!empty($profilePhotoName))) {
-            $profilePhotoNametmpName = $_FILES['IDFiled']['tmp_name'];
-            $profilePhotoNameSize = $_FILES['IDFiled']['size'];
-            $profilePhotoNameType = $_FILES['IDFiled']['type'];
+        } else if (isset($_FILES['profilephoto']) && !empty($_FILES['profilephoto']['name'])) {
+            $profilePhotoName = $_FILES['profilephoto']['name'];
+            $profilePhotoNametmpName = $_FILES['profilephoto']['tmp_name'];
+            $profilePhotoNameSize = $_FILES['profilephoto']['size'];
+            $profilePhotoNameType = $_FILES['profilephoto']['type'];
             $f = move_uploaded_file($profilePhotoNametmpName, 'images/' . $profilePhotoName);
-            if (isset($f)) { //image is a folder in which you will save documents
+            if ($f) { //image is a folder in which you will save documents
                 $queryz = "UPDATE Employee SET Signature='$profilePhotoName' WHERE id='$id' ";
                 $db->query($queryz) or die('Errorr, query failed to upload picture');
             }
@@ -79,8 +79,7 @@ if (isset($_POST['updateEmployeeDetails'])) {
             UPDATE Employee SET FirstName = '$firstName', MiddleName = '$middleName', LastName = '$lastName', Suffix = '$suffix',    Gender = '$gender',
             Position = '$position',    AreaOfAssignment = '$areaOfAssignment', Division = '$division', Regular_SubAllotment = '$regular_suballotment', ContractDuration_start = '$new_contractDuration_start',
             ContractDuration_end = '$new_contractDuration_end',    InclusiveDateOfEmployment = '$new_inclusiveDateOfEmployment', SalaryGrade = '$salaryGrade',    Salary = '$salary', PRC = '$prc',    Address = '$address',
-
-            Birthdate = '$new_birthdate',    PlaceOfBirth = '$placeOfBirth', NameOfPersonToNotify = '$nameOfPersonToNotify', Bloodtype = '$bloodType',    TINNumber = '$tinNumber', Philhealth = '$philhealth',    SSS = '$sss', PagIbigNumber = '$pagibigNumber', CPNumber = '$cpNumber', EmailAddress = '$emailAddress', Signature = '$signaturePhotoName',    ProfilePhoto = '$profilePhotoName'
+            Birthdate = '$new_birthdate',    PlaceOfBirth = '$placeOfBirth', NameOfPersonToNotify = '$nameOfPersonToNotify', Bloodtype = '$bloodType',    TINNumber = '$tinNumber', Philhealth = '$philhealth',    SSS = '$sss', PagIbigNumber = '$pagibigNumber', CPNumber = '$cpNumber', EmailAddress = '$emailAddress'
             , TypeOfEmployment = '$typeOfEmployment' WHERE id='$id' ";
         $db->query($quer) or die('Errorr, query failed to update');
 
@@ -98,7 +97,7 @@ if (isset($_POST['addAdmin'])) {
         $lastName = mysqli_real_escape_string($db, $_POST['lastName']);
         $email = mysqli_real_escape_string($db, $_POST['email']);
         $password = mysqli_real_escape_string($db, $_POST['password']);
-        echo($password);
+        echo ($password);
 
         $check = "SELECT * FROM administrator WHERE Firstname='$firstName' && Lastname='$lastName'";
         $checks = mysqli_query($db, $check);
@@ -168,7 +167,7 @@ if (isset($_POST['addEmployee'])) {
 
         $date_contractDuration_end = strtotime($contractDuration_end);
         $new_contractDuration_end = date('Y-m-d', $date_contractDuration_end);
-        
+
         $date_inclusiveDateOfEmployment = strtotime($inclusiveDateOfEmployment);
         $new_inclusiveDateOfEmployment = date('Y-m-d', $date_inclusiveDateOfEmployment);
 
@@ -190,7 +189,7 @@ if (isset($_POST['addEmployee'])) {
             '$new_birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
             '$cpNumber','$emailAddress','$signaturePhotoName','$profilePhotoName','$division','$typeOfEmployment')";
             $db->query($query) or die('Error1, query failed');
-            
+
             $memberadd = "tyy";
             $_SESSION['memberadded'] = $memberadd;
             header("Location:$pagex"); //member added successfully
@@ -271,7 +270,6 @@ if (isset($_POST["bulk"])) {
     $handle = fopen($file, "r");
     $c = 0;
     $count = 0;
-
     while (($filesop = fgetcsv($handle, 1000, ",")) !== false) {
         $employeeID = generate_id($db);
         $lastName = $filesop[1];
@@ -303,13 +301,13 @@ if (isset($_POST["bulk"])) {
         $profilePhotoName =  $filesop[27];
         $typeOfEmployment = $filesop[28];
         $signaturePhotoName = $filesop[29];
-        
+
         $date_contractDuration_start = strtotime($contractDuration_start);
         $new_contractDuration_start = date('Y-m-d', $date_contractDuration_start);
 
         $date_contractDuration_end = strtotime($contractDuration_end);
         $new_contractDuration_end = date('Y-m-d', $date_contractDuration_end);
-        
+
         $date_inclusiveDateOfEmployment = strtotime($inclusiveDateOfEmployment);
         $new_inclusiveDateOfEmployment = date('Y-m-d', $date_inclusiveDateOfEmployment);
 
@@ -321,9 +319,12 @@ if (isset($_POST["bulk"])) {
 
         $storedImageLink = str_replace("open", "uc", $profilePhotoName);
         $storedImageLink = preg_replace("/\/d\/(.*)\/(.*)/", "/uc?id=$1", $storedImageLink);
-        
+
         $count++;
-        if ($count > 1) {
+        $validateQuery = "SELECT * from Employee WHERE FirstName = '$firstName' AND MiddleName = '$middleName' AND LastName = '$lastName' AND Gender = '$gender' AND Birthdate = '$new_birthdate'";
+        $result = $db->query($validateQuery) or die('Error2, query failed');
+        $num_rows = $result->num_rows;
+        if ($count > 1 && $num_rows == 0) {
             $query = "INSERT INTO Employee (Employee_ID,FirstName,MiddleName,LastName,Suffix,Gender,Position,AreaOfAssignment, Regular_SubAllotment, ContractDuration_start,
             ContractDuration_end, InclusiveDateOfEmployment, SalaryGrade, Salary, PRC, Address, Birthdate, PlaceOfBirth, NameOfPersonToNotify, Bloodtype,TINNumber,
             Philhealth, SSS, PagIbigNumber, CPNumber, EmailAddress, Signature, ProfilePhoto, Division, TypeOfEmployment) " . "VALUES 
@@ -332,7 +333,7 @@ if (isset($_POST["bulk"])) {
             '$new_birthdate', '$placeOfBirth', '$nameOfPersonToNotify', '$bloodType', '$tinNumber', '$philhealth', '$sss','$pagibigNumber',
             '$cpNumber','$emailAddress','$storedSignatureLink','$storedImageLink','$division','$typeOfEmployment')";
             $db->query($query) or die('Error1, query failed');
-            
+
             $c = $c + 1;
         }
     }
@@ -345,29 +346,29 @@ if (isset($_POST["bulk"])) {
     }
 }
 
-function generate_id($conn) {
+function generate_id($conn)
+{
     $last_id = '0';
     $result = mysqli_query($conn, "SELECT Employee_ID FROM Employee ORDER BY Employee_ID DESC LIMIT 1");
     if ($row = mysqli_fetch_assoc($result)) {
-      $last_id = $row['Employee_ID'];
+        $last_id = $row['Employee_ID'];
     }
-    
+
     $year = substr($last_id, 0, 4);
     $month = substr($last_id, 4, 2);
-    
+
     $current_year = date('Y');
     $current_month = date('m');
     if ($year != $current_year || $month != $current_month) {
-      $last_id = $current_year . $current_month . '0000';
+        $last_id = $current_year . $current_month . '0000';
     }
-    
+
     $incremental = intval(substr($last_id, 6));
-    
+
     $incremental++;
-    
+
     $incremental_str = str_pad($incremental, 4, '0', STR_PAD_LEFT);
-    
+
     $new_id = $current_year . $current_month . $incremental_str;
     return $new_id;
-  }
-?>
+}

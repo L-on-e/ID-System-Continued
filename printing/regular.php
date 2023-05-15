@@ -195,15 +195,10 @@
 	<div id="bg" style="margin-bottom:310px ">
 		<div id="id">
 			<br><br><br><br><br><br><br>
-			<center>
 			</center>
-			<?php
-			if ($imageSrc != "") {
-				echo "<img src='images/$profilePhoto' height='110px' width='110px' alt='' style='margin-left:20%; margin-top:-3%;'>";
-			} else {
-				echo "<img src='admin/images/profile.jpg' height='150px' width='160px' alt='' style='border: 2px solid black;'>";
-			}
-			?> <div class="container" align="center">
+                <img src="<?= $imageSrc ?>" height="110px" width="110px" alt="image" style="margin-left:20%; margin-top:-3%;">
+            </center>
+			<div class="container" align="center">
 
 				<p style="margin-top:-4%">&nbsp;</p>
 				<p style="margin-top:-4%">&nbsp;</p>
@@ -268,15 +263,10 @@
 
 		<div id="id" style="margin-left: 500px;">
 			<br><br><br><br><br><br><br>
-			<center>
 			</center>
-			<?php
-			if ($imageSrc != "") {
-				echo "<img src='images/$profilePhoto' height='110px' width='110px' alt='' style='margin-left:20%; margin-top:-3%;'>";
-			} else {
-				echo "<img src='admin/images/profile.jpg' height='150px' width='160px' alt='' style='border: 2px solid black;'>";
-			}
-			?> <div class="container" align="center">
+                <img src="<?= $imageSrc ?>" height="110px" width="110px" alt="image" style="margin-left:20%; margin-top:-3%;">
+            </center>
+			<div class="container" align="center">
 
 				<p style="margin-top:-4%">&nbsp;</p>
 				<p style="margin-top:-4%">&nbsp;</p>

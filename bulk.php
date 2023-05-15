@@ -113,95 +113,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 	});
 </script>
-<!-- <div id="Updatepanel" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		
-		<div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-
-			</div>
-
-			<div class="modal-body">
-
-
-				<a id='Taxreceipt' href="#" style="width:100%;font-size: 15px;" class="btn btn-success">
-            <span class="glyphicon glyphicon-move" style="color:black;font-size: 28px;"></span>Enumeration Max update with Tax payers details</a>
-
-				<a id='Enumeration' href="#" style="width:100%;font-size: 15px;" class="Open-Enumeration btn btn-success">
-					<span class="glyphicon glyphicon-map-marker" style="color:#00ACED;font-size: 28px;"></span>Update Actual Enumeration by Selecting Actual Tax Payer</a>
-
-
-				<a id='groupss' href="#" style="width:100%;font-size: 15px;" class="Open-groups btn btn-success">
-					<span class="glyphicon glyphicon-magnet" style="font-size: 28px;"></span>Update Enumeration Data Based on Group</a>
-
-			</div>
-			<div class="modal-footer">
-			</div>
-		</div>
-	</div>
-</div> -->
-
-<!-- <div id="Updatepicture" class="modal fade" role="dialog">
-	<div class="modal-dialog" style="float:right;width:20%">
-		<div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">
-				</h4>
-			</div>
-			<div class="modal-body">
-				<center>
-					<p></p>
-					<form method="post" action="upload.php" enctype='multipart/form-data'>
-
-						<p style="margin-bottom:10px;">
-							Select picture<input name='file' type='file' id='file'>
-						</p>
-						<p>
-							<input name='id' type='hidden' value='' id='bookId'>
-							<input name='category' type='hidden' value='User'>
-
-						</p>
-
-				</center>
-			</div>
-			<div class="modal-footer">
-				<input type="submit" class="btn btn-success" value="Change" id="btns1" name="bulk"> &nbsp;
-
-			</div>
-		</div>
-		</form>
-	</div>
-</div> -->
-<!-- <script type="text/javascript">
-	$(document).on("click", ".Open-Taxreceipt", function() {
-
-		$(".modal-body #Taxreceipt").html('<img src="ajax-loader.gif" /> &nbsp;LOADING PLEASE WAIT ...');
-		setTimeout(' window.location.href = "tax_receipts.php"; ', 3000);
-
-	});
-</script>
-<div id="Taxreceipts" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content" style="font-size: 14px; font-family: Times New Roman;color:black;">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-
-			</div>
-
-			<div class="modal-body">
-				<center>
-
-					<a id='Taxreceipt' href="#" style="width:90%;font-size: 24px;" class="Open-Taxreceipt btn btn-success">CLICK TO PROCEED TO TAX RECEIPTS</a>
-				</center>
-			</div>
-			<div class="modal-footer">
-			</div>
-		</div>
-	</div>
-</div> -->
-
 <body class="cbp-spmenu-push">
 	<div class="main-content">
 		<?php include("./navigation.php");
@@ -212,7 +123,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		<div class="sticky-header header-section">
 			<div class="header-left">
 				<!--toggle button start-->
-				<!-- <button id="showLeftPush"><i class="fa fa-bars"></i></button> -->
 				<!--toggle button end-->
 				<div class="profile_details_left"><!--notifications of menu start -->
 					<div class="clearfix"> </div>
@@ -351,10 +261,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 
 					<form method="post" action="upload.php" enctype='multipart/form-data'>
-						<p style="margin-bottom:10px;">
-							<input id="datepicker-starting-view" type="text" class="form-control" data-zdp_readonly_element="false" placeholder="Select Submission Date" name="sbd" style='width:255px;'>
-						</p>
-
 						<p style="margin-bottom:10px;">
 
 						</p>
