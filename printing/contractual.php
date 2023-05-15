@@ -88,7 +88,7 @@
             bottom: 2%;
             /* Adjust to desired value */
             /* Adjust to desired value */
-            font-size: 7px;
+            font-size: 7.5px;
             font-family: 'Barlow';
             font-weight: 800;
             letter-spacing: 1px;
@@ -115,7 +115,7 @@
             bottom: 2%;
             /* Adjust to desired value */
             /* Adjust to desired value */
-            font-size: 8px;
+            font-size: 8.5px;
             font-family: 'Barlow', sans-serif;
             font-weight: 800;
             letter-spacing: 1px;
@@ -155,15 +155,15 @@
         }
 
         .info-title {
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
         }
 
         .info-data {
             padding: 3px;
-            border: solid 1px;
+            border-bottom: solid 1px;
             margin-top: -10px;
-            font-size: 14px;
+            font-size: 11px;
             font-weight: 400;
         }
 
@@ -200,8 +200,8 @@
 
         .sign-container{
             position: absolute;
-            margin-top: -65px;
-            margin-left: 100px;
+            margin-top: -60px;
+            margin-left: 110px;
             border:solid 1px;
             width: 150px;
             height: 35px;
@@ -287,9 +287,9 @@
         <div class="id-2" style="margin-left:500px">
 
             <div class="address">
-                <p style="margin-left: 12px;">Address</p>
+                <p style="margin-left: 12px;">Address:</p>
 
-                <p style="text-align: center; border:solid 1px black; width:500px; width: 270px; margin-left:10px;padding: 5px; font-size:13px"><?php if (isset($address)) {
+                <p style="text-align: center; width:500px; width: 270px; margin-left:10px;padding: 5px; font-size:13px"><?php if (isset($address)) {
                                                                                                                                                     echo $address;
                                                                                                                                                 } ?></p>
             </div>

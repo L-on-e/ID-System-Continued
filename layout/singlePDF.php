@@ -138,7 +138,7 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
             bottom: 10px;
             /* Adjust to desired value */
             /* Adjust to desired value */
-            font-size: 7px;
+            font-size: 7.5px;
             font-family: 'Barlow';
             font-weight: 800;
             letter-spacing: 1px;
@@ -184,7 +184,7 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
 
         .info-data {
             padding: 3px;
-            border: solid 1px;
+            border-bottom: solid 1px;
             margin-top: -10px;
             font-size: 14px;
             font-weight: 400;
@@ -318,9 +318,9 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
         <div class="id-2" style="margin-left:350px">
 
             <div class="address">
-                <p style="margin-left: 12px;">Address</p>
+                <p style="margin-left: 12px;">Address:</p>
 
-                <p style="text-align: center; border:solid 1px black; width:500px; width: 270px; margin-left:10px;padding: 5px; font-size:13px"><?php if (isset($address)) {
+                <p style="text-align: center;   width:500px; width: 270px; margin-left:10px;padding: 5px; font-size:13px"><?php if (isset($address)) {
                                                                                                                                                     echo $address;
                                                                                                                                                 } ?></p>
             </div>
