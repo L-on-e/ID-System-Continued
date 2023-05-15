@@ -49,6 +49,16 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
     else
         $imageSrc = "../admin/images/profile.jpg";
 }
+if (filter_var($signature, FILTER_VALIDATE_URL)) {
+    $data = file_get_contents($signature);
+    $base64 = base64_encode($data);
+    $signaturePhoto = 'data:image/png;base64,' . $base64;
+} else {
+    if ($profilePhoto != "")
+        $signaturePhoto = 'images/' . $profilePhoto;
+    else
+        $signaturePhoto = "../images/signature.png";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -131,26 +141,19 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
         }
 
         .vertical-text {
-            /* writing-mode: vertical-rl; */
             transform: rotate(270deg);
             position: absolute;
             margin-left: -13.5px;
             bottom: 10px;
-            /* Adjust to desired value */
-            /* Adjust to desired value */
             font-size: 7px;
             font-family: 'Barlow';
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             color: green;
             display: block;
-            /* create a block-level element */
             width: 105px;
-            /* set the width to your desired size */
             overflow: hidden;
-            /* hide the overflow */
             text-overflow: ellipsis;
-            /* add an ellipsis (...) to indicate truncated text */
             white-space: nowrap;
             text-align: justify;
             text-align: left;
@@ -291,7 +294,6 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
                         <?php if (isset($position)) {
                             echo $position;
                         } ?>
-
                     </p>
                 </div>
 
@@ -300,18 +302,20 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
                 <p style="position: absolute; top: 0; left: 46%; margin-top:114%; font-size:9px; font-family: 'Lora';">ID NO. <?php if (isset($employeeID)) {
                                                                                                                                     echo $employeeID;
                                                                                                                                 } ?></p>
-                <!-- <img src="<?= $signaturePhoto ?>" height="110px" width="110px" alt="image" style='margin-left:20%; margin-top:0%;'>> -->
+                <img src="<?= $signaturePhoto ?>" height="110px" width="110px" alt="signature" style='margin-left:20%; margin-top:0%;'>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p class="vertical-text" style="font-weight: 800;  color: white; position: absolute; top: 74%; white-space: pre-line;">
-                    <span style=" color: Green; position: absolute; left 4%;"><?php if (isset($division)) {
+                    <span style="color: Green; position: absolute; left 4%;"><?php if (isset($division)) {
                                                                                     echo $division;
                                                                                 } ?></span>
-                    <?php if (isset($division) && isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") echo '<br><br>'; ?>
-                    <?php if (isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") {
-                        echo $areaOfAssignment;
-                    } ?>
+                    <span style="position:absolute; top:2%;">
+                        <?php if (isset($division) && isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") echo '<br><br>'; ?>
+                        <?php if (isset($areaOfAssignment) && $division !== "REGULATIONS, LICENSING AND ENFORCEMENT DIVISION") {
+                            echo $areaOfAssignment;
+                        } ?>
+                    </span>
                 </p>
             </div>
         </div>

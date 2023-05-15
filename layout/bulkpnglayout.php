@@ -10,12 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
-        @font-face {
-            font-family: 'Barlow';
-            src: url('bootstrap/fonts/barlow-regular.ttf');
-            font-weight: normal;
-        }
-
         @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800&display=swap');
 
         @font-face {
