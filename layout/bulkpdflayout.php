@@ -141,7 +141,7 @@
         /* TextLayoutFront */
 
         .name-pos {
-            margin-top: -8px;
+            margin-top: -25px;
             margin-left: 55px;
             width: 200px;
         }
@@ -168,7 +168,6 @@
             margin-top: -25px;
             margin-left: 5px;
         }
-
         #bg-img {
             border: 1px solid #000;
             position: absolute;

@@ -221,7 +221,6 @@ if (filter_var($signature, FILTER_VALIDATE_URL)) {
             margin-top: -25px;
             margin-left: 5px;
         }
-
         #bg-img {
             border: 1px solid #000;
             position: absolute;
