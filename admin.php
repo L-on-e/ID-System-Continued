@@ -104,8 +104,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
     });
   </script>
-  <!-- requried-jsfiles-for owl -->
-  <!-- //requried-jsfiles-for owl -->
 </head>
 <script type="text/javascript">
   $(document).on("click", ".open-updateProfile", function() {
@@ -460,10 +458,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     <label>Division<label style="color:red">*</label></label>
                     <select id="division" name="division" onchange="updateAreaOfAssignmentDropdown()">
                       <option value="">Choose Division</option>
-                      <option value="MANAGEMENT SUPPORT DIVISION">Management Support Division</option>
-                      <option value="LOCAL HEALTH SUPPORT DIVISION">Local Health Support Division</option>
-                      <option value="REGULATIONS, LICENSING AND ENFORCEMENT DIVISION">Regulations, Licensing and Enforcement Division</option>
-                      <option value="REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION">Regional Director and Assistant Regional Director Division</option>
+                      <option value="MANAGEMENT SUPPORT DIVISION">MANAGEMENT SUPPORT DIVISION</option>
+                      <option value="LOCAL HEALTH SUPPORT DIVISION">LOCAL HEALTH SUPPORT DIVISION</option>
+                      <option value="REGULATIONS, LICENSING AND ENFORCEMENT DIVISION">REGULATIONS, LICENSING AND ENFORCEMENT DIVISION</option>
+                      <option value="REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION">REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION</option>
                     </select>
                   </div>
 
@@ -722,16 +720,16 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   </div>
   <script>
     const areaOfAssignmentByDivision = {
-      'MANAGEMENT SUPPORT DIVISION': ['Accounting Section', 'Budget Section', 'Cashier Section', 'Procurement Section', 'OCAO', 'Records Section', 'ICTU',
-        'Warehouse/Supply Unit', 'Personnel', 'Library', 'General Services Section', 'SAO', 'Cold Chain Management Unit'
+      'MANAGEMENT SUPPORT DIVISION': ['ACCOUNTING SECTION', 'BUDGET SECTION', 'CASHIER SECTION', 'PROCUREMENT SECTION', 'OCAO', 'RECORDS SECTION', 'ICTU',
+        'WAREHOUSE/SUPPLY UNIT', 'PERSONNEL', 'LIBRARY', 'GENERAL SERVICES SECTION', 'SAO', 'COLD CHAIN MANAGEMENT UNIT'
       ],
-      'LOCAL HEALTH SUPPORT DIVISION': ['Family Health Cluster', 'Non-Communicable Disease Unit', 'Communicable Disease Unit', 'HFDU/CMU/HEPU', 'Local Health Support System',
-        'Environmental and Occupational Health', 'Statistics', 'Office of the Chief', 'NVBSP', 'RESU/HEMS/STAT', 'Health Facilities Enhancement Program',
-        'DDAPTP', 'Pharma', 'EOH/NVBSP/HFEP', 'Health Facilities Development Unit', 'Health Emergency Management Service', 'Health Emergency Management Service',
-        'Regional Epidemiology and Surveillance Unit'
+      'LOCAL HEALTH SUPPORT DIVISION': ['FAMILY HEALTH CLUSTER', 'NON-COMMUNICABLE DISEASE UNIT', 'COMMUNICABLE DISEASE UNIT', 'HFDU/CMU/HEPU', 'LOCAL HEALTH SUPPORT SYSTEM',
+        'ENVIRONMENTAL AND OCCUPATIONAL HEALTH', 'STATISTICS', 'OFFICE OF THE CHIEF', 'NVBSP', 'RESU/HEMS/STAT', 'HEALTH FACILITIES ENHANCEMENT PROGRAM',
+        'DDAPTP', 'PHARMA', 'EOH/NVBSP/HFEP', 'HEALTH FACILITIES DEVELOPMENT UNIT', 'HEALTH EMERGENCY MANAGEMENT SERVICE',
+        'REGIONAL EPIDEMIOLOGY AND SURVEILLANCE UNIT'
       ],
       'REGULATIONS, LICENSING AND ENFORCEMENT DIVISION': ['RLED'],
-      'REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION': ['Human Resource Development Unit', 'Planning', 'Legal'],
+      'REGIONAL DIRECTOR AND ASSISTANT REGIONAL DIRECTOR DIVISION': ['HUMAN RESOURCE DEVELOPMENT UNIT', 'PLANNING', 'LEGAL'],
     };
 
     function updateAreaOfAssignmentDropdown(originalvalue) {
