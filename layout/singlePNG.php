@@ -54,11 +54,6 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
 <head>
     <title><?php echo $firstName.' '.'ID'?></title>
     <style>
-        @font-face {
-            font-family: 'Barlow';
-            src: url('../bootstrap/fonts/barlow-regular.ttf');
-            font-weight: normal;
-        }
 
         @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800&display=swap');
 
@@ -131,21 +126,22 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
         .division {
             position: absolute;
             font-family: 'Barlow', 'sans-serif';
-            width: 300px;
+            width: 280px;
             height: 200px;
             display: flex;
             flex-direction: column;
             transform: rotate(270deg);
             bottom: 65px;
-            left: -65px;
+            left: -50px;
             text-transform: uppercase;
         }
 
         .divText {
+            letter-spacing: 1px;
             font-family: 'Barlow', 'sans-serif';
-            font-weight: 800;
-            font-size: 26px;
-            width: 300px;
+            font-weight: 600;
+            font-size: 20px;
+            width: 280px;
             color: green;
             white-space: break-word;
             text-align: justify;
@@ -154,10 +150,11 @@ if (filter_var($profilePhoto, FILTER_VALIDATE_URL)) {
         }
 
         .section {
+            letter-spacing: 1px;
             color: white;
-            width: 320px;
-            font-weight: 800;
-            font-size: 20px;
+            width: 250px;
+            font-weight: 600;
+            font-size: 18px;
             white-space: break-word;
             text-align: justify;
             text-align: left;

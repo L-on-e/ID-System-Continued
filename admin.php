@@ -719,13 +719,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
         </div>
       </div>
     </div>
-    <!--footer-->
-    <!-- <div class="footer">
-      <p>© 2018 Attainment . All Rights Reserved
-
-      </p>
-    </div> -->
-    <!--//footer-->
   </div>
   <script>
     const areaOfAssignmentByDivision = {

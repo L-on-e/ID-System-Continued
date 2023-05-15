@@ -14,8 +14,8 @@ if (isset($_POST['updateEmployeeDetails'])) {
     $suffix = mysqli_real_escape_string($db, $_POST['suffix']);
     $gender = mysqli_real_escape_string($db, $_POST['gender']);
     $position = mysqli_real_escape_string($db, $_POST['position']);
-    $areaOfAssignment = mysqli_real_escape_string($db, $_POST['areaOfAssignment']);
-    $division = mysqli_real_escape_string($db, $_POST['division']);
+    $areaOfAssignment = strtoupper(mysqli_real_escape_string($db, $_POST['areaOfAssignment']));
+    $division = strtoupper(mysqli_real_escape_string($db, $_POST['division']));
     $regular_suballotment = mysqli_real_escape_string($db, $_POST['regular_suballotment']);
     $contractDuration_start = mysqli_real_escape_string($db, $_POST['contractDuration_start']);
     $contractDuration_end = mysqli_real_escape_string($db, $_POST['contractDuration_end']);
@@ -132,8 +132,8 @@ if (isset($_POST['addEmployee'])) {
         $suffix = mysqli_real_escape_string($db, $_POST['suffix']);
         $gender = mysqli_real_escape_string($db, $_POST['gender']);
         $position = mysqli_real_escape_string($db, $_POST['position']);
-        $areaOfAssignment = mysqli_real_escape_string($db, $_POST['areaOfAssignment']);
-        $division = mysqli_real_escape_string($db, $_POST['division']);
+        $areaOfAssignment = strtoupper(mysqli_real_escape_string($db, $_POST['areaOfAssignment']));
+        $division = strtoupper(mysqli_real_escape_string($db, $_POST['division']));
         $regular_suballotment = mysqli_real_escape_string($db, $_POST['regular_suballotment']);
         $contractDuration_start = mysqli_real_escape_string($db, $_POST['contractDuration_start']);
         $contractDuration_end = mysqli_real_escape_string($db, $_POST['contractDuration_end']);
