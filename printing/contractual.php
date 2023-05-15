@@ -197,6 +197,15 @@
             margin-top: -25px;
             margin-left: 5px;
         }
+
+        .sign-container{
+            position: absolute;
+            margin-top: -65px;
+            margin-left: 100px;
+            border:solid 1px;
+            width: 150px;
+            height: 35px;
+        }
     </style>
 
 </head>
@@ -256,6 +265,11 @@
                                                                                                                                     echo $employeeID;
                                                                                                                                 } ?></p>
                 <!-- <img src="<?= $signaturePhoto ?>" height="110px" width="110px" alt="image" style='margin-left:20%; margin-top:0%;'>> -->
+
+                <div class="sign-container">
+                <p>1231231</p>
+                </div>
+
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
                 <p style="margin-top:-4%">&nbsp;</p>
